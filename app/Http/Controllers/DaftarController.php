@@ -11,4 +11,9 @@ class DaftarController extends Controller
         return view('guest/Daftar', [
         ]);
     }
+    public function masuk()
+    {
+        return view('guest/Masuk', [
+        ]);
+    }
 }
