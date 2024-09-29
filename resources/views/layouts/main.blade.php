@@ -82,7 +82,6 @@
             </a>
         </div>
     </div>
-
     <!-- Navbar + Image -->
 
     <!-- Section Block-->
