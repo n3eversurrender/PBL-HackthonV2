@@ -1,14 +1,14 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}", // File-file dari aplikasi kamu
-    "./node_modules/flowbite/**/*.js", // Menambahkan path untuk Flowbite
+    "./resources/**/*.blade.php",
+    "./resources/**/*.js",
+    "./resources/**/*.vue",
+    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     extend: {},
   },
   plugins: [
-    require('daisyui'), // DaisyUI plugin
-    require('flowbite/plugin'), // Flowbite plugin
+      require('flowbite/plugin')
   ],
 }
