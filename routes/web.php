@@ -20,3 +20,4 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 Route::get('/kursus', [KursusController::class, 'kursus']);
 Route::get('/pesan', [PesanController::class, 'pesan']);
 Route::get('/pengaturan', [PengaturanController::class, 'pengaturan']);
+Route::get('/daftarkursus', [MainController::class, 'daftarkursus']);
