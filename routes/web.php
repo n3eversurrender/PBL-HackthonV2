@@ -18,6 +18,8 @@ Route::get('/daftar', [DaftarController::class, 'daftar']);
 Route::get('/masuk', [DaftarController::class, 'masuk']);
 Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 Route::get('/kursus', [KursusController::class, 'kursus']);
+Route::get('/kursusmodul', [KursusController::class, 'kursusmodul']);
+Route::get('/kursusmateri', [KursusController::class, 'kursusmateri']);
 Route::get('/pesan', [PesanController::class, 'pesan']);
 Route::get('/pengaturan', [PengaturanController::class, 'pengaturan']);
 Route::get('/daftarkursus', [MainController::class, 'daftarkursus']);

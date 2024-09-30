@@ -82,7 +82,7 @@
 
         <!-- Main -->
         <div class="p-4 sm:ml-64">
-            <h1 class="text-5xl font-extrabold dark:text-white">
+            <h1 class="text-3xl font-extrabold dark:text-white">
                 Selamat Datang
                 <small class="ms-2 font-semibold text-gray-500 dark:text-gray-400">M Zaini Ridha</small>
             </h1>
