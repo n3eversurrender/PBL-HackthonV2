@@ -77,7 +77,7 @@
             <h2 class="text-5xl font-bold whitespace-normal">
                 Membentuk Keterampilan, Menggerakkan Industri!
             </h2>
-            <a href="#" class="mt-10 inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
+            <a href="/daftar" class="mt-10 inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
                 Daftar Sekarang
             </a>
         </div>

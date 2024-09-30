@@ -11,6 +11,11 @@ class MainController extends Controller
         return view('layouts/main', [
         ]);
     }
+    public function mainLogin()
+    {
+        return view('layouts/mainLogin', [
+        ]);
+    }
     public function home()
     {
         return view('guest/Home', [
