@@ -21,4 +21,10 @@ class MainController extends Controller
         return view('guest/Home', [
         ]);
     }
+
+    public function daftarkursus()
+    {
+        return view('guest/DaftarKursus', [
+        ]);
+    }
 }
