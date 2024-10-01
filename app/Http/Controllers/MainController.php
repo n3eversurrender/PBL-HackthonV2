@@ -6,23 +6,23 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    public function main()
+    public function Main()
     {
         return view('layouts/main', [
         ]);
     }
-    public function mainLogin()
+    public function Main_Login()
     {
         return view('layouts/mainLogin', [
         ]);
     }
-    public function home()
+    public function Home()
     {
         return view('guest/Home', [
         ]);
     }
 
-    public function daftarkursus()
+    public function Daftar_Kursus()
     {
         return view('guest/DaftarKursus', [
         ]);

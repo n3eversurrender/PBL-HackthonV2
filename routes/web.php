@@ -1,25 +1,47 @@
+<!-- Rule Untuk Penaman Route,Controller & Class -->
+<!-- Route: Huruf depan kata pertama kapital (contoh: Main), dan untuk dua kata (contoh: MainAdmin). -->
+<!-- Controller: Gabungan dua kata, setiap kata diawali huruf kapital (contoh: MainController). -->
+<!-- Class: Jika dua kata, pisahkan dengan underscore dan gunakan huruf kapital di awal setiap kata (contoh: Main_Admin). -->
+
 <?php
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\DaftarController;
+
+use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DataAdminController;
+use App\Http\Controllers\DataPelatihController;
+use App\Http\Controllers\DataPesertaController;
 use App\Http\Controllers\KursusController;
+use App\Http\Controllers\MainAdminController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\ManajemenAkunController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PesanController;
 
-Route::get('/main', [MainController::class, 'main']);
-Route::get('/mainLogin', [MainController::class, 'mainLogin']);
+
+// Route Layout
+Route::get('/Main', [MainController::class, 'Main']);
+Route::get('/MainAdmin', [MainAdminController::class, 'Main_Admin']);
+Route::get('/MainLogin', [MainController::class, 'Main_Login']);
 
 
 // Route Pengguna 
-Route::get('/home', [MainController::class, 'home']);
-Route::get('/daftar', [DaftarController::class, 'daftar']);
-Route::get('/masuk', [DaftarController::class, 'masuk']);
-Route::get('/dashboard', [DashboardController::class, 'dashboard']);
-Route::get('/kursus', [KursusController::class, 'kursus']);
-Route::get('/kursusmodul', [KursusController::class, 'kursusmodul']);
-Route::get('/kursusmateri', [KursusController::class, 'kursusmateri']);
-Route::get('/pesan', [PesanController::class, 'pesan']);
-Route::get('/pengaturan', [PengaturanController::class, 'pengaturan']);
-Route::get('/daftarkursus', [MainController::class, 'daftarkursus']);
+Route::get('/Home', [MainController::class, 'Home']);
+Route::get('/Daftar', [ManajemenAkunController::class, 'Daftar']);
+Route::get('/Masuk', [ManajemenAkunController::class, 'Masuk']);
+Route::get('/Dashboard', [DashboardController::class, 'Dashboard']);
+Route::get('/Kursus', [KursusController::class, 'Kursus']);
+Route::get('/KursusModul', [KursusController::class, 'Kursus_Modul']);
+Route::get('/KursusMateri', [KursusController::class, 'Kursus_Materi']);
+Route::get('/Pesan', [PesanController::class, 'Pesan']);
+Route::get('/Pengaturan', [PengaturanController::class, 'Pengaturan']);
+Route::get('/DaftarKursus', [MainController::class, 'Daftar_Kursus']);
+
+
+
+// Route Admin
+Route::get('/DashboardAdmin', [DashboardAdminController::class, 'Dashboard_Admin']);
+Route::get('/DataAdmin', [DataAdminController::class, 'Data_Admin']);
+Route::get('/DataPeserta', [DataPesertaController::class, 'Data_Peserta']);
+Route::get('/DataPelatih', [DataPelatihController::class, 'Data_Pelatih']);

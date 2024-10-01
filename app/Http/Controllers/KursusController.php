@@ -6,17 +6,17 @@ use Illuminate\Http\Request;
 
 class KursusController extends Controller
 {
-    public function kursus()
+    public function Kursus()
     {
         return view('guest/Kursus', [
         ]);
     }
-    public function kursusmodul()
+    public function Kursus_Modul()
     {
         return view('guest/KursusModul', [
         ]);
     }
-    public function kursusmateri()
+    public function Kursus_Materi()
     {
         return view('guest/KursusMateri', [
         ]);

@@ -20,7 +20,7 @@
         <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
             <div class="h-full px-3 py-4 border overflow-y-auto bg-gray-50 dark:bg-gray-800">
                 <div class="flex justify-center">
-                    <a href="/home">
+                    <a href="/Home">
                         <img src="{{ asset('image/SKILLB.png') }}" class="w-20 h-20 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" alt="SkillBridge Logo" />
                     </a>
                 </div>
@@ -29,7 +29,7 @@
                 <ul class="space-y-2 font-medium">
                     <!-- Dashboard -->
                     <li>
-                        <a href="/dashboard" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <a href="/Dashboard" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                             <i class="fas fa-tachometer-alt"></i>
                             <span class="ms-3">Dashboard</span>
                         </a>
@@ -37,7 +37,7 @@
 
                     <!-- Kursus -->
                     <li>
-                        <a href="/kursus" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <a href="/Kursus" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                             <i class="fas fa-book"></i>
                             <span class="ms-3">Kursus</span>
                         </a>
@@ -45,7 +45,7 @@
 
                     <!-- Pesan -->
                     <li>
-                        <a href="/pesan" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <a href="/Pesan" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                             <i class="fas fa-envelope"></i>
                             <span class="flex-1 ms-3 whitespace-nowrap">Pesan</span>
                             <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span> </a>
@@ -53,7 +53,7 @@
 
                     <!-- Users -->
                     <li>
-                        <a href="/pengaturan" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <a href="/Pengaturan" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                             <span class="fa-solid fa-cog"></span>
                             <span class="ms-3">Pengaturan</span>
                         </a>
@@ -62,7 +62,7 @@
 
                     <!-- Products -->
                     <li>
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                             <i class="fas fa-box"></i>
                             <span class="ms-3">Products</span>
                         </a>
@@ -70,7 +70,7 @@
 
                     <!-- Sign Out -->
                     <li>
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                             <i class="fas fa-sign-out-alt"></i>
                             <span class="ms-3">Sign Out</span>
                         </a>
@@ -82,17 +82,21 @@
 
         <!-- Main -->
         <div class="p-4 sm:ml-64">
-            <h1 class="text-3xl font-extrabold dark:text-white">
-                Selamat Datang
-                <small class="ms-2 font-semibold text-gray-500 dark:text-gray-400">M Zaini Ridha</small>
-            </h1>
-            <p id="datetime" class="text-sm font-normal text-gray-500 dark:text-gray-400 my-4"></p>
+            <div class="flex justify-between items-center mb-4">
+                <h1 class="text-4xl font-extrabold dark:text-white">
+                    Selamat Datang
+                    <small class="ms-2 font-semibold text-gray-500 dark:text-gray-400">M Zaini Ridha</small>
+                </h1>
+                <div>
+                    <img class="w-14 h-14 rounded-full" src="{{ asset('image/9203764.png') }}" alt="Rounded avatar">
+                </div>
+            </div>
+            <p id="datetime" class="text-sm font-normal text-gray-500 dark:text-gray-400 my-2"></p>
             <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700 mb-5">
             <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
                 @yield('MainLogin')
             </div>
         </div>
-
         <!-- Main -->
 
         <script>

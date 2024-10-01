@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PengaturanController extends Controller
 {
-    public function pengaturan()
+    public function Pengaturan()
     {
         return view('guest/Pengaturan', [
         ]);
