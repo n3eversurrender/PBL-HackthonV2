@@ -9,11 +9,13 @@ module.exports = {
     extend: {
       aspectRatio: {
         '9/16': '9 / 16',
-        '3/4' : '3 /4',
+        '3/4': '3 /4',
       },
     },
   },
   plugins: [
-      require('flowbite/plugin')
+    require('flowbite/plugin')({
+      datatables: true,
+    }),
   ],
 }

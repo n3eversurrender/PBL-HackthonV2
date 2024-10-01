@@ -11,12 +11,15 @@ use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataAdminController;
 use App\Http\Controllers\DataPelatihController;
+use App\Http\Controllers\DataPembayaranController;
 use App\Http\Controllers\DataPesertaController;
+use App\Http\Controllers\DataRiwayatTransaksiController;
 use App\Http\Controllers\KursusController;
 use App\Http\Controllers\MainAdminController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ManajemenAkunController;
 use App\Http\Controllers\PengaturanController;
+use App\Http\Controllers\PesanAdminController;
 use App\Http\Controllers\PesanController;
 
 
@@ -46,3 +49,6 @@ Route::get('/DashboardAdmin', [DashboardAdminController::class, 'Dashboard_Admin
 Route::get('/DataAdmin', [DataAdminController::class, 'Data_Admin']);
 Route::get('/DataPeserta', [DataPesertaController::class, 'Data_Peserta']);
 Route::get('/DataPelatih', [DataPelatihController::class, 'Data_Pelatih']);
+Route::get('/DataPembayaran', [DataPembayaranController::class, 'Data_Pembayaran']);
+Route::get('/DataRiwayatTransaksi', [DataRiwayatTransaksiController::class, 'Data_Riwayat_Transaksi']);
+Route::get('/PesanAdmin', [PesanAdminController::class, 'Pesan_Admin']);

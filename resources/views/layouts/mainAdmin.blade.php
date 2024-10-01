@@ -83,13 +83,13 @@
                     </button>
                     <ul id="dropdownTransaksi" class="ml-6 mt-1 hidden">
                         <li>
-                            <a href="/dataPembayaran" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                            <a href="/DataPembayaran" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                                 <i class="fas fa-money-check-alt"></i>
                                 <span class="ms-3">Data Pembayaran</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/dataRiwayatTransaksi" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                            <a href="/DataRiwayatTransaksi" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                                 <i class="fas fa-history"></i>
                                 <span class="ms-3">Riwayat Transaksi</span>
                             </a>
@@ -106,19 +106,19 @@
                     </button>
                     <ul id="dropdownKursus" class="ml-6 mt-1 hidden">
                         <li>
-                            <a href="/dataKursus" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                            <a href="/DataKursus" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                                 <i class="fas fa-book-open"></i>
                                 <span class="ms-3">Kursus Tersedia</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/dataMateri" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                            <a href="/DataMateri" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                                 <i class="fas fa-file-alt"></i>
                                 <span class="ms-3">Materi Kursus</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/dataPesertaKursus" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                            <a href="/DataPesertaKursus" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                                 <i class="fas fa-users"></i>
                                 <span class="ms-3">Peserta Kursus</span>
                             </a>
@@ -127,7 +127,7 @@
                 </li>
 
                 <li>
-                    <a href="/pesan" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                    <a href="/PesanAdmin" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                         <i class="fas fa-envelope"></i>
                         <span class="flex-1 ms-3 whitespace-nowrap">Pesan</span>
                         <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span> </a>
@@ -135,7 +135,7 @@
 
                 <!-- Users -->
                 <li>
-                    <a href="/pengaturan" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                    <a href="/PengaturanAdmin" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                         <span class="fa-solid fa-cog"></span>
                         <span class="ms-3">Pengaturan</span>
                     </a>
