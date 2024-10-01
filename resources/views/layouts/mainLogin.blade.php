@@ -26,12 +26,20 @@
                 </div>
                 <p class="text-xl font-semibold text-center text-[#0F172A] mb-5">SKILLBRIDGE</p>
                 <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
-                <ul class="space-y-2 font-medium">
+                <ul class="space-y-2 font-medium mt-2">
                     <!-- Dashboard -->
                     <li>
                         <a href="/Dashboard" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                             <i class="fas fa-tachometer-alt"></i>
                             <span class="ms-3">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <!-- Daftar Kursus -->
+                    <li>
+                        <a href="/DaftarPelatihan" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                            <i class="fas fa-box"></i>
+                            <span class="ms-3">Daftar Pelatihan</span>
                         </a>
                     </li>
 
@@ -56,15 +64,6 @@
                         <a href="/Pengaturan" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                             <span class="fa-solid fa-cog"></span>
                             <span class="ms-3">Pengaturan</span>
-                        </a>
-                    </li>
-
-
-                    <!-- Products -->
-                    <li>
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
-                            <i class="fas fa-box"></i>
-                            <span class="ms-3">Products</span>
                         </a>
                     </li>
 

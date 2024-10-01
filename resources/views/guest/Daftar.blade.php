@@ -11,7 +11,7 @@
 
 <body>
 
-    <div class="flex h-full">
+    <div class="flex justify-between h-full">
         <div class="bg-white px-24 p-4 w-full">
             <H2 class="font-bold text-3xl text-center mb-10">Create Your Account</H2>
             <form>
@@ -72,7 +72,7 @@
                 <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
             </form>
         </div>
-        <img class="h-auto w-2/3 object-cover" src="{{ asset('image/12.webp') }}" alt="Background Main">
+        <img class="h-auto w-1/3 object-cover" src="{{ asset('image/12.webp') }}" alt="Background Main">
 
     </div>
 </body>

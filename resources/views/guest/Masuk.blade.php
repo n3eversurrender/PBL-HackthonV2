@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="flex h-screen">
+    <div class="flex justify-between h-screen">
         <div class="bg-white px-24 p-4 w-full flex flex-col justify-center items-center">
             <h2 class="font-bold text-3xl text-center mb-10">Sign in to your account</h2>
             <form class="w-full max-w-md"> <!-- Add max-width to the form -->
@@ -39,7 +39,7 @@
                 <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Masuk</button>
             </form>
         </div>
-        <img class="h-auto w-2/3 object-cover" src="{{ asset('image/12.webp') }}" alt="Background Main">
+        <img class="h-auto w-1/3 object-cover" src="{{ asset('image/12.webp') }}" alt="Background Main">
     </div>
 </body>
 
