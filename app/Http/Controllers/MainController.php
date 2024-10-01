@@ -27,4 +27,9 @@ class MainController extends Controller
         return view('guest/DaftarKursus', [
         ]);
     }
+    public function Tentang_Kami()
+    {
+        return view('guest/TentangKami', [
+        ]);
+    }
 }

@@ -37,6 +37,7 @@ Route::get('/KursusMateri', [KursusController::class, 'Kursus_Materi']);
 Route::get('/Pesan', [PesanController::class, 'Pesan']);
 Route::get('/Pengaturan', [PengaturanController::class, 'Pengaturan']);
 Route::get('/DaftarKursus', [MainController::class, 'Daftar_Kursus']);
+Route::get('/TentangKami', [MainController::class, 'Tentang_Kami']);
 
 
 
