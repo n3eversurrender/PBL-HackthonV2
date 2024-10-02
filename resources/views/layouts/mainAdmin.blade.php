@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Dashboard Admin</title>
     @vite(['resources/css/app.css','resources/js/app.js'])
+    @vite(['resources/js/Waktu.js'])
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* CSS untuk rotasi berlawanan arah jarum jam */
@@ -126,13 +127,6 @@
                     </ul>
                 </li>
 
-                <li>
-                    <a href="/PesanAdmin" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
-                        <i class="fas fa-envelope"></i>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Pesan</span>
-                        <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span> </a>
-                </li>
-
                 <!-- Users -->
                 <li>
                     <a href="/PengaturanAdmin" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
@@ -180,32 +174,6 @@
         </div>
     </div>
     <!-- Main -->
-
-    <script>
-        function updateDateTime() {
-            const options = {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
-                second: 'numeric',
-                timeZone: 'Asia/Jakarta'
-            };
-            const now = new Date();
-            const formattedDate = new Intl.DateTimeFormat('id-ID', options).format(now);
-
-
-            document.getElementById('datetime').textContent = formattedDate;
-        }
-
-
-        setInterval(updateDateTime, 1000);
-
-
-        updateDateTime();
-    </script>
 
     <script>
         function toggleDropdown(dropdownId, arrowIconId) {

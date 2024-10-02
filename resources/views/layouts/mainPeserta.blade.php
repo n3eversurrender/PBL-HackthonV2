@@ -4,8 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard</title>
+        <title>Dashboard Peserta</title>
         @vite(['resources/css/app.css','resources/js/app.js'])
+        @vite(['resources/js/Waktu.js'])
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
 
@@ -97,32 +98,6 @@
             </div>
         </div>
         <!-- Main -->
-
-        <script>
-            function updateDateTime() {
-                const options = {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: 'numeric',
-                    minute: 'numeric',
-                    second: 'numeric',
-                    timeZone: 'Asia/Jakarta'
-                };
-                const now = new Date();
-                const formattedDate = new Intl.DateTimeFormat('id-ID', options).format(now);
-
-
-                document.getElementById('datetime').textContent = formattedDate;
-            }
-
-
-            setInterval(updateDateTime, 1000);
-
-
-            updateDateTime();
-        </script>
 
     </body>
 

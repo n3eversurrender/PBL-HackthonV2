@@ -20,14 +20,21 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\ManajemenAkunController;
 use App\Http\Controllers\PesanAdminController;
 use App\Http\Controllers\DaftarPelatihanController;
+use App\Http\Controllers\DashboardPelatihController;
 use App\Http\Controllers\DashboardPesertaController;
+use App\Http\Controllers\PengaturanPelatihController;
 use App\Http\Controllers\PengaturanPesertaController;
+use App\Http\Controllers\PengelolaanKursusController;
+use App\Http\Controllers\PengelolaanPelatihanController;
+use App\Http\Controllers\PengelolaanSertifikatController;
+use App\Http\Controllers\PesanPelatihController;
 use App\Http\Controllers\PesanPesertaController;
 
 // Route Layout
 Route::get('/Main', [MainController::class, 'Main']);
 Route::get('/MainAdmin', [MainAdminController::class, 'Main_Admin']);
-Route::get('/MainLogin', [MainController::class, 'Main_Login']);
+Route::get('/MainPeserta', [MainController::class, 'Main_Peserta']);
+Route::get('/MainPelatih', [MainController::class, 'Main_Pelatih']);
 
 
 
@@ -49,6 +56,14 @@ Route::get('/PesanPeserta', [PesanPesertaController::class, 'Pesan_Peserta']);
 Route::get('/PengaturanPeserta', [PengaturanPesertaController::class, 'Pengaturan_Peserta']);
 Route::get('/DaftarPelatihan', [DaftarPelatihanController::class, 'Daftar_Pelatihan']);
 
+
+//Route Pelatih
+Route::get('/DashboardPelatih', [DashboardPelatihController::class, 'Dashboard_Pelatih']);
+Route::get('/PesanPelatih', [PesanPelatihController::class, 'Pesan_Pelatih']);
+Route::get('/PengaturanPelatih', [PengaturanPelatihController::class, 'Pengaturan_Pelatih']);
+Route::get('/PengelolaanKursus', [PengelolaanKursusController::class, 'Pengelolaan_Kursus']);
+Route::get('/PengelolaanSertifikat', [PengelolaanSertifikatController::class, 'Pengelolaan_Sertifikat']);
+Route::get('/PengelolaanPelatihan', [PengelolaanPelatihanController::class, 'Pengelolaan_Pelatihan']);
 
 
 // Route Admin
