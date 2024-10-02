@@ -8,6 +8,6 @@ class DaftarPelatihanController extends Controller
 {
     public function Daftar_Pelatihan()
     {
-        return view('guest/DaftarPelatihan', []);
+        return view('peserta/DaftarPelatihan', []);
     }
 }

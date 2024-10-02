@@ -1,6 +1,6 @@
-@extends('layouts.mainLogin')
+@extends('layouts.mainPeserta')
 
-@section('MainLogin')
+@section('MainPeserta')
 
 @include('partials.breadcrumbKursus')
 

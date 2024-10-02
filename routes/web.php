@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Http\Controllers\DashboardAdminController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataAdminController;
 use App\Http\Controllers\DataPelatihController;
 use App\Http\Controllers\DataPembayaranController;
@@ -19,11 +18,11 @@ use App\Http\Controllers\KursusController;
 use App\Http\Controllers\MainAdminController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ManajemenAkunController;
-use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PesanAdminController;
-use App\Http\Controllers\PesanController;
 use App\Http\Controllers\DaftarPelatihanController;
-
+use App\Http\Controllers\DashboardPesertaController;
+use App\Http\Controllers\PengaturanPesertaController;
+use App\Http\Controllers\PesanPesertaController;
 
 // Route Layout
 Route::get('/Main', [MainController::class, 'Main']);
@@ -31,18 +30,23 @@ Route::get('/MainAdmin', [MainAdminController::class, 'Main_Admin']);
 Route::get('/MainLogin', [MainController::class, 'Main_Login']);
 
 
-// Route Pengguna 
+
+// Route Web Skill Bridge
 Route::get('/Home', [MainController::class, 'Home']);
+Route::get('/DaftarKursus', [MainController::class, 'Daftar_Kursus']);
+Route::get('/TentangKami', [MainController::class, 'Tentang_Kami']);
 Route::get('/Daftar', [ManajemenAkunController::class, 'Daftar']);
 Route::get('/Masuk', [ManajemenAkunController::class, 'Masuk']);
-Route::get('/Dashboard', [DashboardController::class, 'Dashboard']);
+
+
+
+// Route Peserta
+Route::get('/DashboardPeserta', [DashboardPesertaController::class, 'Dashboard_Peserta']);
 Route::get('/Kursus', [KursusController::class, 'Kursus']);
 Route::get('/KursusModul', [KursusController::class, 'Kursus_Modul']);
 Route::get('/KursusMateri', [KursusController::class, 'Kursus_Materi']);
-Route::get('/Pesan', [PesanController::class, 'Pesan']);
-Route::get('/Pengaturan', [PengaturanController::class, 'Pengaturan']);
-Route::get('/DaftarKursus', [MainController::class, 'Daftar_Kursus']);
-Route::get('/TentangKami', [MainController::class, 'Tentang_Kami']);
+Route::get('/PesanPeserta', [PesanPesertaController::class, 'Pesan_Peserta']);
+Route::get('/PengaturanPeserta', [PengaturanPesertaController::class, 'Pengaturan_Peserta']);
 Route::get('/DaftarPelatihan', [DaftarPelatihanController::class, 'Daftar_Pelatihan']);
 
 

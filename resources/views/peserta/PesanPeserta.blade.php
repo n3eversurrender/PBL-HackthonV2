@@ -1,6 +1,6 @@
-@extends('layouts.mainLogin')
+@extends('layouts.mainPeserta')
 
-@section('MainLogin')
+@section('MainPeserta')
 
 
 <section class="grid grid-cols-3 ">

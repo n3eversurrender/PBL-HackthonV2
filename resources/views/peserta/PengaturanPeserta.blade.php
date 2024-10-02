@@ -1,6 +1,6 @@
-@extends('layouts.mainLogin')
+@extends('layouts.mainPeserta')
 
-@section('MainLogin')
+@section('MainPeserta')
 
 <!-- start formulir -->
 <section class="bg-white dark:bg-gray-900">

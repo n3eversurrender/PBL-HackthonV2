@@ -8,17 +8,17 @@ class KursusController extends Controller
 {
     public function Kursus()
     {
-        return view('guest/Kursus', [
+        return view('peserta/Kursus', [
         ]);
     }
     public function Kursus_Modul()
     {
-        return view('guest/KursusModul', [
+        return view('peserta/KursusModul', [
         ]);
     }
     public function Kursus_Materi()
     {
-        return view('guest/KursusMateri', [
+        return view('peserta/KursusMateri', [
         ]);
     }
 }
