@@ -11,4 +11,9 @@ class PengelolaanPelatihanController extends Controller
         return view('pelatih/PengelolaanPelatihan', [
         ]);
     }
+    public function Pengelolaan_Pelatihan_Detail()
+    {
+        return view('pelatih/PengelolaanPelatihanDetail', [
+        ]);
+    }
 }

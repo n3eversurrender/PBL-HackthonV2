@@ -51,7 +51,7 @@
                     10
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="text-blue-600 dark:text-blue-500">
+                    <a href="/PengelolaanPelatihanDetail" class="text-blue-600 dark:text-blue-500">
                         <i class="fas fa-info-circle cursor-pointer me-2"></i>More Info
                     </a>
                 </td>
@@ -73,7 +73,7 @@
                     10
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="text-blue-600 dark:text-blue-500">
+                    <a href="/PengelolaanPelatihanDetail" class="text-blue-600 dark:text-blue-500">
                         <i class="fas fa-info-circle cursor-pointer me-2"></i>More Info
                     </a>
                 </td>
@@ -95,7 +95,7 @@
                     10
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="text-blue-600 dark:text-blue-500">
+                    <a href="/PengelolaanPelatihanDetail" class="text-blue-600 dark:text-blue-500">
                         <i class="fas fa-info-circle cursor-pointer me-2"></i>More Info
                     </a>
                 </td>
