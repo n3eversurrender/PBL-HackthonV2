@@ -29,6 +29,7 @@ use App\Http\Controllers\PengelolaanPelatihanController;
 use App\Http\Controllers\PengelolaanSertifikatController;
 use App\Http\Controllers\PesanPelatihController;
 use App\Http\Controllers\PesanPesertaController;
+use App\Http\Controllers\TambahKurikulumController;
 use App\Http\Controllers\TambahKursusController;
 
 // Route Layout
@@ -65,7 +66,9 @@ Route::get('/PengaturanPelatih', [PengaturanPelatihController::class, 'Pengatura
 Route::get('/PengelolaanKursus', [PengelolaanKursusController::class, 'Pengelolaan_Kursus']);
 Route::get('/PengelolaanSertifikat', [PengelolaanSertifikatController::class, 'Pengelolaan_Sertifikat']);
 Route::get('/PengelolaanPelatihan', [PengelolaanPelatihanController::class, 'Pengelolaan_Pelatihan']);
-Route::get('/TambahKursus', [TambahKursusController::class, 'Tambah_Kurusu']);
+Route::get('/TambahKursus', [TambahKursusController::class, 'Tambah_Kursus']);
+Route::get('/EditKursus', [TambahKursusController::class, 'Edit_Kursus']);
+Route::get('/TambahKurikulum', [TambahKurikulumController::class, 'Tambah_Kurikulum']);
 
 
 // Route Admin

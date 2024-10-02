@@ -63,8 +63,14 @@
     <p class="mt-1 text-sm w-3/4 text-gray-500 dark:text-gray-300" id="file_input_help">Upload your course image here. It must meet our course image quality standards to be accepted. Important guidelines: 750x422 pixels; .jpg, .jpeg,. gif, or .png. no text on the image.</p>
 </div>
 
-<button type="button" class="px-3 py-2 text-sm w-30 font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-    <i class="fas fa-paper-plane mr-2"></i>SUBMIT
-</button>
+
+<div class="flex justify-end gap-5">
+    <button type="button" class="px-3 py-2 text-sm w-30 font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <i class="fas fa-save mr-2"></i>Save
+    </button>
+    <a href="/TambahKurikulum" class="px-3 py-2 text-sm w-30 font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <i class="fas fa-arrow-right mr-2"></i>Next
+    </a>
+</div>
 
 @endsection
