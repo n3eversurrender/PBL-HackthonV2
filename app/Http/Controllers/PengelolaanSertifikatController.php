@@ -11,4 +11,14 @@ class PengelolaanSertifikatController extends Controller
         return view('pelatih/PengelolaanSertifikat', [
         ]);
     }
+    public function Tambah_Sertifikat()
+    {
+        return view('pelatih/TambahSertifikat', [
+        ]);
+    }
+    public function Edit_Sertifikat()
+    {
+        return view('pelatih/EditSertifikat', [
+        ]);
+    }
 }

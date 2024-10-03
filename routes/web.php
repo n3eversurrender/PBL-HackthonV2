@@ -65,6 +65,8 @@ Route::get('/PesanPelatih', [PesanPelatihController::class, 'Pesan_Pelatih']);
 Route::get('/PengaturanPelatih', [PengaturanPelatihController::class, 'Pengaturan_Pelatih']);
 Route::get('/PengelolaanKursus', [PengelolaanKursusController::class, 'Pengelolaan_Kursus']);
 Route::get('/PengelolaanSertifikat', [PengelolaanSertifikatController::class, 'Pengelolaan_Sertifikat']);
+Route::get('/TambahSertifikat', [PengelolaanSertifikatController::class, 'Tambah_Sertifikat']);
+Route::get('/EditSertifikat', [PengelolaanSertifikatController::class, 'Edit_Sertifikat']);
 Route::get('/PengelolaanPelatihan', [PengelolaanPelatihanController::class, 'Pengelolaan_Pelatihan']);
 Route::get('/PengelolaanPelatihanDetail', [PengelolaanPelatihanController::class, 'Pengelolaan_Pelatihan_Detail']);
 Route::get('/TambahKursus', [TambahKursusController::class, 'Tambah_Kursus']);

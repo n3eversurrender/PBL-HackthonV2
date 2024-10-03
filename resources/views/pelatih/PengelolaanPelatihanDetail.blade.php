@@ -79,6 +79,9 @@
                     Address
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
+                <th scope="col" class="px-6 py-3">
                     Action
                 </th>
             </tr>
@@ -113,6 +116,11 @@
                     </div>
                 </td>
                 <td class="px-6 py-4">
+                    <div class="flex items-center">
+                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Diterima
+                    </div>
+                </td>
+                <td class="px-6 py-4">
                     <!-- Modal toggle -->
                     <a href="#" type="button" data-modal-target="editUserModal" data-modal-show="editUserModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit user</a>
                 </td>
@@ -143,6 +151,11 @@
                 <td class="px-6 py-4">
                     <div class="flex items-center">
                         <div class="h-2.5 w-2.5 me-2"></div> Batam Center
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                        <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div> Ditolak
                     </div>
                 </td>
                 <td class="px-6 py-4">
@@ -180,6 +193,11 @@
                     </div>
                 </td>
                 <td class="px-6 py-4">
+                    <div class="flex items-center">
+                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Diterima
+                    </div>
+                </td>
+                <td class="px-6 py-4">
                     <!-- Modal toggle -->
                     <a href="#" type="button" data-modal-show="editUserModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit user</a>
                 </td>
@@ -213,6 +231,11 @@
                     </div>
                 </td>
                 <td class="px-6 py-4">
+                    <div class="flex items-center">
+                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Diterima
+                    </div>
+                </td>
+                <td class="px-6 py-4">
                     <!-- Modal toggle -->
                     <a href="#" type="button" data-modal-show="editUserModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit user</a>
                 </td>
@@ -243,6 +266,11 @@
                 <td class="px-6 py-4">
                     <div class="flex items-center">
                         <div class="h-2.5 w-2.5 me-2"></div> Batu Aji
+                    </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center">
+                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Diterima
                     </div>
                 </td>
                 <td class="px-6 py-4">
