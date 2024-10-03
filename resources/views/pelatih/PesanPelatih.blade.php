@@ -1,6 +1,6 @@
-@extends('layouts.mainPeserta')
+@extends('layouts.mainPelatih')
 
-@section('MainPeserta')
+@section('MainPelatih')
 
 
 <section class="grid grid-cols-3">
