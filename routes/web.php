@@ -32,13 +32,16 @@ use App\Http\Controllers\PesanPesertaController;
 use App\Http\Controllers\TambahKurikulumController;
 use App\Http\Controllers\TambahKursusController;
 
+// Route Default
+Route::get('/', function () {
+    return redirect('/Home');
+});
+
 // Route Layout
 Route::get('/Main', [MainController::class, 'Main']);
 Route::get('/MainAdmin', [MainAdminController::class, 'Main_Admin']);
 Route::get('/MainPeserta', [MainController::class, 'Main_Peserta']);
 Route::get('/MainPelatih', [MainController::class, 'Main_Pelatih']);
-
-
 
 // Route Web Skill Bridge
 Route::get('/Home', [MainController::class, 'Home']);
