@@ -31,6 +31,8 @@ use App\Http\Controllers\PesanPelatihController;
 use App\Http\Controllers\PesanPesertaController;
 use App\Http\Controllers\TambahKurikulumController;
 use App\Http\Controllers\TambahKursusController;
+use App\Http\Controllers\PesertaKursusController;
+use App\Http\Controllers\DetailPesertaKursusController;
 
 // Route Layout
 Route::get('/Main', [MainController::class, 'Main']);
@@ -82,3 +84,5 @@ Route::get('/DataPelatih', [DataPelatihController::class, 'Data_Pelatih']);
 Route::get('/DataPembayaran', [DataPembayaranController::class, 'Data_Pembayaran']);
 Route::get('/DataRiwayatTransaksi', [DataRiwayatTransaksiController::class, 'Data_Riwayat_Transaksi']);
 Route::get('/PesanAdmin', [PesanAdminController::class, 'Pesan_Admin']);
+Route::get('/PesertaKursus', [PesertaKursusController::class, 'Peserta_Kursus']);
+Route::get('/DetailPesertaKursus', [DetailPesertaKursusController::class, 'Detail_Peserta_Kursus']);
