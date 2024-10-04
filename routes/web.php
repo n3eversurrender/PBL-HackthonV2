@@ -51,6 +51,8 @@ Route::get('/DaftarKursus', [MainController::class, 'Daftar_Kursus']);
 Route::get('/TentangKami', [MainController::class, 'Tentang_Kami']);
 Route::get('/Daftar', [ManajemenAkunController::class, 'Daftar']);
 Route::get('/Masuk', [ManajemenAkunController::class, 'Masuk']);
+Route::get('/CoursePage', [MainController::class, 'Course_Page']);
+Route::get('/PaymentPage', [MainController::class, 'Payment_Page']);
 
 
 
