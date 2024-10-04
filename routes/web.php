@@ -4,7 +4,6 @@
 <!-- Class: Jika dua kata, pisahkan dengan underscore dan gunakan huruf kapital di awal setiap kata (contoh: Main_Admin). -->
 
 <?php
-
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,7 +21,6 @@ use App\Http\Controllers\ManajemenAkunController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PesanAdminController;
 use App\Http\Controllers\PesanController;
-use App\Http\Controllers\DaftarPelatihanController;
 
 
 // Route Layout
@@ -43,7 +41,9 @@ Route::get('/Pesan', [PesanController::class, 'Pesan']);
 Route::get('/Pengaturan', [PengaturanController::class, 'Pengaturan']);
 Route::get('/DaftarKursus', [MainController::class, 'Daftar_Kursus']);
 Route::get('/TentangKami', [MainController::class, 'Tentang_Kami']);
-Route::get('/DaftarPelatihan', [DaftarPelatihanController::class, 'Daftar_Pelatihan']);
+Route::get('/CoursePage', [MainController::class, 'Course_Page']);
+Route::get('/PaymentPage', [MainController::class, 'Payment_Page']);
+
 
 
 

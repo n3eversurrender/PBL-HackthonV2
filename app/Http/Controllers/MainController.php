@@ -32,4 +32,18 @@ class MainController extends Controller
         return view('guest/TentangKami', [
         ]);
     }
+    
+    public function Course_Page()
+    {
+        return view('guest/CoursePage', [
+        ]);
+    }
+
+    public function Payment_Page()
+    {
+        return view('guest/PaymentPage', [
+        ]);
+    }
+
+
 }
