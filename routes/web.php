@@ -1,12 +1,11 @@
-<!-- Rule Untuk Penaman Route,Controller & Class -->
-<!-- Route: Huruf depan kata pertama kapital (contoh: Main), dan untuk dua kata (contoh: MainAdmin). -->
-<!-- Controller: Gabungan dua kata, setiap kata diawali huruf kapital (contoh: MainController). -->
-<!-- Class: Jika dua kata, gunakan huruf kecil di awal setiap kata (contoh: mainAdmin). -->
-
 <?php
 
 use Illuminate\Support\Facades\Route;
 
+// <!-- Rule Untuk Penaman Route,Controller & Class -->
+// <!-- Route: Huruf depan kata pertama kapital (contoh: Main), dan untuk dua kata (contoh: MainAdmin). -->
+// <!-- Controller: Gabungan dua kata, setiap kata diawali huruf kapital (contoh: MainController). -->
+// <!-- Class: Jika dua kata, gunakan huruf kecil di awal setiap kata (contoh: mainAdmin). -->
 
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\DataAdminController;
@@ -22,6 +21,7 @@ use App\Http\Controllers\PesanAdminController;
 use App\Http\Controllers\DaftarPelatihanController;
 use App\Http\Controllers\DashboardPelatihController;
 use App\Http\Controllers\DashboardPesertaController;
+use App\Http\Controllers\DataPengguna;
 use App\Http\Controllers\PengaturanPelatihController;
 use App\Http\Controllers\PengaturanPesertaController;
 use App\Http\Controllers\PengelolaanKursusController;
@@ -91,3 +91,13 @@ Route::get('/DataRiwayatTransaksi', [DataRiwayatTransaksiController::class, 'dat
 Route::get('/PesanAdmin', [PesanAdminController::class, 'pesanAdmin']);
 Route::get('/PesertaKursus', [PesertaKursusController::class, 'pesertaKursus']);
 Route::get('/DetailPesertaKursus', [DetailPesertaKursusController::class, 'detailPesertaKursus']);
+
+
+// // Rute untuk Data Pengguna
+// Route::prefix('pengguna')->group(function () {
+//     Route::get('/', [DataPengguna::class, 'index'])->name('pengguna.index'); // Menampilkan semua pengguna
+//     Route::post('/storePengguna', [DataPengguna::class, 'store'])->name('pengguna.store'); // Menambah pengguna baru
+//     Route::get('/showPengguna/{id}', [DataPengguna::class, 'show'])->name('pengguna.show'); // Menampilkan pengguna berdasarkan ID
+//     Route::put('/updatePengguna/{id}', [DataPengguna::class, 'update'])->name('pengguna.update'); // Mengupdate pengguna
+//     Route::delete('/destroyPengguna/{id}', [DataPengguna::class, 'destroy'])->name('pengguna.destroy'); // Menghapus pengguna
+// });
