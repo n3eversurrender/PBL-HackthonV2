@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class DataAdminController extends Controller
 {
-    public function Data_Admin()
+    public function dataAdmin()
     {
         return view('Admin/DataAdmin', [
         ]);

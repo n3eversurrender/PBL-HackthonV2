@@ -6,17 +6,17 @@ use Illuminate\Http\Request;
 
 class PengelolaanSertifikatController extends Controller
 {
-    public function Pengelolaan_Sertifikat()
+    public function pengelolaanSertifikat()
     {
         return view('pelatih/PengelolaanSertifikat', [
         ]);
     }
-    public function Tambah_Sertifikat()
+    public function tambahSertifikat()
     {
         return view('pelatih/TambahSertifikat', [
         ]);
     }
-    public function Edit_Sertifikat()
+    public function editSertifikat()
     {
         return view('pelatih/EditSertifikat', [
         ]);

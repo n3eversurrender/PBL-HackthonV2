@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PesanPelatihController extends Controller
 {
-    public function Pesan_Pelatih()
+    public function pesanPelatih()
     {
         return view('pelatih/pesanPelatih', [
         ]);

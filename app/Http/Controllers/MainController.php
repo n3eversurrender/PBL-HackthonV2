@@ -11,12 +11,12 @@ class MainController extends Controller
         return view('layouts/main', [
         ]);
     }
-    public function Main_Peserta()
+    public function mainPeserta()
     {
         return view('layouts/mainPeserta', [
         ]);
     }
-    public function Main_Pelatih()
+    public function mainPelatih()
     {
         return view('layouts/mainPelatih', [
         ]);
@@ -27,24 +27,24 @@ class MainController extends Controller
         ]);
     }
 
-    public function Daftar_Kursus()
+    public function daftarKursus()
     {
         return view('guest/DaftarKursus', [
         ]);
     }
-    public function Tentang_Kami()
+    public function tentangKami()
     {
         return view('guest/TentangKami', [
         ]);
     }
     
-    public function Course_Page()
+    public function coursePage()
     {
         return view('guest/CoursePage', [
         ]);
     }
 
-    public function Payment_Page()
+    public function paymentPage()
     {
         return view('guest/PaymentPage', [
         ]);

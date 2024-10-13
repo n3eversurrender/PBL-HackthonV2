@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class DataPesertaController extends Controller
 {
-    public function Data_Peserta()
+    public function dataPeserta()
     {
         return view('Admin/DataPeserta', [
         ]);

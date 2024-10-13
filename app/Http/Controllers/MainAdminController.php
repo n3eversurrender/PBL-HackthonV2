@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class MainAdminController extends Controller
 {
-    public function Main_Admin()
+    public function mainAdmin()
     {
         return view('layouts/mainAdmin', [
         ]);

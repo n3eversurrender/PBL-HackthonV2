@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PesanPesertaController extends Controller
 {
-    public function Pesan_Peserta()
+    public function pesanPeserta()
     {
         return view('peserta/PesanPeserta', [
         ]);

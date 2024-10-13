@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class DashboardPelatihController extends Controller
 {
-    public function Dashboard_Pelatih()
+    public function dashboardPelatih()
     {
         return view('pelatih/DashboardPelatih', [
         ]);

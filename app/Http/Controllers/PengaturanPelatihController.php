@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PengaturanPelatihController extends Controller
 {
-    public function Pengaturan_Pelatih()
+    public function pengaturanPelatih()
     {
         return view('pelatih/PengaturanPelatih', []);
     }

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PesanAdminController extends Controller
 {
-    public function Pesan_Admin()
+    public function pesanAdmin()
     {
         return view('Admin/PesanAdmin', [
         ]);

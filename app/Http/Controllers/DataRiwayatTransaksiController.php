@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class DataRiwayatTransaksiController extends Controller
 {
-    public function Data_Riwayat_Transaksi()
+    public function dataRiwayatTransaksi()
     {
         return view('Admin/DataRiwayatTransaksi', [
         ]);

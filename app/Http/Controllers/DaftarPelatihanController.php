@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 class DaftarPelatihanController extends Controller
 {
-    public function Daftar_Pelatihan()
+    public function daftarPelatihan()
     {
-        return view('peserta/DaftarPelatihan', []);
+        return view('peserta/DaftarPelatihan', [
+            
+        ]);
     }
 }

@@ -11,12 +11,12 @@ class KursusController extends Controller
         return view('peserta/Kursus', [
         ]);
     }
-    public function Kursus_Modul()
+    public function kursusModul()
     {
         return view('peserta/KursusModul', [
         ]);
     }
-    public function Kursus_Materi()
+    public function kursusMateri()
     {
         return view('peserta/KursusMateri', [
         ]);

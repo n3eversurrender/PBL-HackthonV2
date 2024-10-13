@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 
 class TambahKursusController extends Controller
 {
-    public function Tambah_Kursus()
+    public function tambahKursus()
     {
         return view('pelatih/TambahKursus', [
         ]);
     }
-    public function Edit_Kursus()
+    public function editKursus()
     {
         return view('pelatih/EditKursus', [
         ]);

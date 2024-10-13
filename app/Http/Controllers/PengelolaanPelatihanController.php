@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 
 class PengelolaanPelatihanController extends Controller
 {
-    public function Pengelolaan_Pelatihan()
+    public function pengelolaanPelatihan()
     {
         return view('pelatih/PengelolaanPelatihan', [
         ]);
     }
-    public function Pengelolaan_Pelatihan_Detail()
+    public function pengelolaanPelatihanDetail()
     {
         return view('pelatih/PengelolaanPelatihanDetail', [
         ]);

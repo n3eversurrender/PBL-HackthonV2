@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class DataPembayaranController extends Controller
 {
-    public function Data_Pembayaran()
+    public function dataPembayaran()
     {
         return view('Admin/DataPembayaran', [
         ]);

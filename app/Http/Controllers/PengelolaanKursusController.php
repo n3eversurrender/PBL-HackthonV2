@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PengelolaanKursusController extends Controller
 {
-    public function Pengelolaan_Kursus()
+    public function pengelolaanKursus()
     {
         return view('pelatih/PengelolaanKursus', [
         ]);

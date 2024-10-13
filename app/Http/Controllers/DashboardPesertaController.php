@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class DashboardPesertaController extends Controller
 {
-    public function Dashboard_Peserta()
+    public function dashboardPeserta()
     {
         return view('peserta/DashboardPeserta', [
         ]);

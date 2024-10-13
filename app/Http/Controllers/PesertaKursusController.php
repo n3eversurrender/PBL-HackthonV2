@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PesertaKursusController extends Controller
 {
-    public function Peserta_Kursus()
+    public function pesertaKursus()
     {
         return view('Admin/PesertaKursus', [
         ]);

@@ -1,7 +1,7 @@
 <!-- Rule Untuk Penaman Route,Controller & Class -->
 <!-- Route: Huruf depan kata pertama kapital (contoh: Main), dan untuk dua kata (contoh: MainAdmin). -->
 <!-- Controller: Gabungan dua kata, setiap kata diawali huruf kapital (contoh: MainController). -->
-<!-- Class: Jika dua kata, pisahkan dengan underscore dan gunakan huruf kapital di awal setiap kata (contoh: Main_Admin). -->
+<!-- Class: Jika dua kata, gunakan huruf kecil di awal setiap kata (contoh: mainAdmin). -->
 
 <?php
 
@@ -41,53 +41,53 @@ Route::get('/', function () {
 
 // Route Layout
 Route::get('/Main', [MainController::class, 'Main']);
-Route::get('/MainAdmin', [MainAdminController::class, 'Main_Admin']);
-Route::get('/MainPeserta', [MainController::class, 'Main_Peserta']);
-Route::get('/MainPelatih', [MainController::class, 'Main_Pelatih']);
+Route::get('/MainAdmin', [MainAdminController::class, 'mainAdmin']);
+Route::get('/MainPeserta', [MainController::class, 'mainPeserta']);
+Route::get('/MainPelatih', [MainController::class, 'mainPelatih']);
 
 // Route Web Skill Bridge
 Route::get('/Home', [MainController::class, 'Home']);
-Route::get('/DaftarKursus', [MainController::class, 'Daftar_Kursus']);
-Route::get('/TentangKami', [MainController::class, 'Tentang_Kami']);
+Route::get('/DaftarKursus', [MainController::class, 'daftarKursus']);
+Route::get('/TentangKami', [MainController::class, 'tentangKami']);
 Route::get('/Daftar', [ManajemenAkunController::class, 'Daftar']);
 Route::get('/Masuk', [ManajemenAkunController::class, 'Masuk']);
-Route::get('/CoursePage', [MainController::class, 'Course_Page']);
-Route::get('/PaymentPage', [MainController::class, 'Payment_Page']);
+Route::get('/CoursePage', [MainController::class, 'coursePage']);
+Route::get('/PaymentPage', [MainController::class, 'paymentPage']);
 
 
 
 // Route Peserta
-Route::get('/DashboardPeserta', [DashboardPesertaController::class, 'Dashboard_Peserta']);
+Route::get('/DashboardPeserta', [DashboardPesertaController::class, 'dashboardPeserta']);
 Route::get('/Kursus', [KursusController::class, 'Kursus']);
-Route::get('/KursusModul', [KursusController::class, 'Kursus_Modul']);
-Route::get('/KursusMateri', [KursusController::class, 'Kursus_Materi']);
-Route::get('/PesanPeserta', [PesanPesertaController::class, 'Pesan_Peserta']);
-Route::get('/PengaturanPeserta', [PengaturanPesertaController::class, 'Pengaturan_Peserta']);
-Route::get('/DaftarPelatihan', [DaftarPelatihanController::class, 'Daftar_Pelatihan']);
+Route::get('/KursusModul', [KursusController::class, 'kursusModul']);
+Route::get('/KursusMateri', [KursusController::class, 'kursusMateri']);
+Route::get('/PesanPeserta', [PesanPesertaController::class, 'pesanPeserta']);
+Route::get('/PengaturanPeserta', [PengaturanPesertaController::class, 'pengaturanPeserta']);
+Route::get('/DaftarPelatihan', [DaftarPelatihanController::class, 'daftarPelatihan']);
 
 
 //Route Pelatih
-Route::get('/DashboardPelatih', [DashboardPelatihController::class, 'Dashboard_Pelatih']);
-Route::get('/PesanPelatih', [PesanPelatihController::class, 'Pesan_Pelatih']);
-Route::get('/PengaturanPelatih', [PengaturanPelatihController::class, 'Pengaturan_Pelatih']);
-Route::get('/PengelolaanKursus', [PengelolaanKursusController::class, 'Pengelolaan_Kursus']);
-Route::get('/PengelolaanSertifikat', [PengelolaanSertifikatController::class, 'Pengelolaan_Sertifikat']);
-Route::get('/TambahSertifikat', [PengelolaanSertifikatController::class, 'Tambah_Sertifikat']);
-Route::get('/EditSertifikat', [PengelolaanSertifikatController::class, 'Edit_Sertifikat']);
-Route::get('/PengelolaanPelatihan', [PengelolaanPelatihanController::class, 'Pengelolaan_Pelatihan']);
-Route::get('/PengelolaanPelatihanDetail', [PengelolaanPelatihanController::class, 'Pengelolaan_Pelatihan_Detail']);
-Route::get('/TambahKursus', [TambahKursusController::class, 'Tambah_Kursus']);
-Route::get('/EditKursus', [TambahKursusController::class, 'Edit_Kursus']);
-Route::get('/TambahKurikulum', [TambahKurikulumController::class, 'Tambah_Kurikulum']);
+Route::get('/DashboardPelatih', [DashboardPelatihController::class, 'dashboardPelatih']);
+Route::get('/PesanPelatih', [PesanPelatihController::class, 'pesanPelatih']);
+Route::get('/PengaturanPelatih', [PengaturanPelatihController::class, 'pengaturanPelatih']);
+Route::get('/PengelolaanKursus', [PengelolaanKursusController::class, 'pengelolaanKursus']);
+Route::get('/PengelolaanSertifikat', [PengelolaanSertifikatController::class, 'pengelolaanSertifikat']);
+Route::get('/TambahSertifikat', [PengelolaanSertifikatController::class, 'tambahSertifikat']);
+Route::get('/EditSertifikat', [PengelolaanSertifikatController::class, 'editSertifikat']);
+Route::get('/PengelolaanPelatihan', [PengelolaanPelatihanController::class, 'pengelolaanPelatihan']);
+Route::get('/PengelolaanPelatihanDetail', [PengelolaanPelatihanController::class, 'pengelolaanPelatihanDetail']);
+Route::get('/TambahKursus', [TambahKursusController::class, 'tambahKursus']);
+Route::get('/EditKursus', [TambahKursusController::class, 'editKursus']);
+Route::get('/TambahKurikulum', [TambahKurikulumController::class, 'tambahKurikulum']);
 
 
 // Route Admin
-Route::get('/DashboardAdmin', [DashboardAdminController::class, 'Dashboard_Admin']);
-Route::get('/DataAdmin', [DataAdminController::class, 'Data_Admin']);
-Route::get('/DataPeserta', [DataPesertaController::class, 'Data_Peserta']);
-Route::get('/DataPelatih', [DataPelatihController::class, 'Data_Pelatih']);
-Route::get('/DataPembayaran', [DataPembayaranController::class, 'Data_Pembayaran']);
-Route::get('/DataRiwayatTransaksi', [DataRiwayatTransaksiController::class, 'Data_Riwayat_Transaksi']);
-Route::get('/PesanAdmin', [PesanAdminController::class, 'Pesan_Admin']);
-Route::get('/PesertaKursus', [PesertaKursusController::class, 'Peserta_Kursus']);
-Route::get('/DetailPesertaKursus', [DetailPesertaKursusController::class, 'Detail_Peserta_Kursus']);
+Route::get('/DashboardAdmin', [DashboardAdminController::class, 'dashboardAdmin']);
+Route::get('/DataAdmin', [DataAdminController::class, 'dataAdmin']);
+Route::get('/DataPeserta', [DataPesertaController::class, 'dataPeserta']);
+Route::get('/DataPelatih', [DataPelatihController::class, 'dataPelatih']);
+Route::get('/DataPembayaran', [DataPembayaranController::class, 'dataPembayaran']);
+Route::get('/DataRiwayatTransaksi', [DataRiwayatTransaksiController::class, 'dataRiwayatTransaksi']);
+Route::get('/PesanAdmin', [PesanAdminController::class, 'pesanAdmin']);
+Route::get('/PesertaKursus', [PesertaKursusController::class, 'pesertaKursus']);
+Route::get('/DetailPesertaKursus', [DetailPesertaKursusController::class, 'detailPesertaKursus']);
