@@ -21,7 +21,6 @@ use App\Http\Controllers\PesanAdminController;
 use App\Http\Controllers\DaftarPelatihanController;
 use App\Http\Controllers\DashboardPelatihController;
 use App\Http\Controllers\DashboardPesertaController;
-use App\Http\Controllers\DataPengguna;
 use App\Http\Controllers\PengaturanPelatihController;
 use App\Http\Controllers\PengaturanPesertaController;
 use App\Http\Controllers\PengelolaanKursusController;
