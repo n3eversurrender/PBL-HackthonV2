@@ -11,6 +11,7 @@ class Peserta extends Model
 
     protected $table = 'peserta';
     protected $primaryKey = 'peserta_id';
+
     protected $fillable = [
         'pengguna_id', 'pendidikan', 'pengalaman_kerja'
     ];
@@ -23,5 +24,15 @@ class Peserta extends Model
     public function keahlian()
     {
         return $this->hasMany(Keahlian::class, 'peserta_id');
+    }
+
+    public function pendaftaran()
+    {
+        return $this->hasMany(Pendaftaran::class, 'peserta_id');
+    }
+
+    public function sertifikat()
+    {
+        return $this->hasMany(Sertifikat::class, 'peserta_id');
     }
 }

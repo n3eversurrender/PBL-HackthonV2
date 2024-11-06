@@ -11,20 +11,35 @@ class Pengguna extends Model
 
     protected $table = 'pengguna';
     protected $primaryKey = 'pengguna_id';
+
     protected $fillable = [
-        'nama', 'email', 'no_telepon', 'alamat', 'jenis_kelamin',
-        'kata_sandi', 'foto_profil', 'peran' // Jika foto_profil ingin diisi
+        'nama',
+        'email',
+        'no_telepon',
+        'alamat',
+        'jenis_kelamin',
+        'kata_sandi',
+        'foto_profil',
+        'peran'
     ];
 
-    // Relasi dengan Pelatih (One to One)
     public function pelatih()
     {
-        return $this->hasOne(Pelatih::class, 'pengguna_id', 'pengguna_id');
+        return $this->hasOne(Pelatih::class, 'pengguna_id');
     }
 
-    // Relasi dengan Peserta (One to One)
     public function peserta()
     {
-        return $this->hasOne(Peserta::class, 'pengguna_id', 'pengguna_id');
+        return $this->hasOne(Peserta::class, 'pengguna_id');
+    }
+
+    public function kursus()
+    {
+        return $this->hasMany(Kursus::class, 'pengguna_id', 'pengguna_id');
+    }
+
+    public function pendaftaran()
+    {
+        return $this->hasMany(Pendaftaran::class, 'pengguna_id');
     }
 }

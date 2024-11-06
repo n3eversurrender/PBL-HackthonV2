@@ -11,8 +11,9 @@ class Pelatih extends Model
 
     protected $table = 'pelatih';
     protected $primaryKey = 'pelatih_id';
+
     protected $fillable = [
-        'pengguna_id', 'pengalaman_kerja', 'rating', 'status', 'file'
+        'pengguna_id', 'pengalaman_kerja', 'rating', 'status'
     ];
 
     public function pengguna()
@@ -23,5 +24,10 @@ class Pelatih extends Model
     public function spesialisasi()
     {
         return $this->hasMany(Spesialisasi::class, 'pelatih_id');
+    }
+
+    public function ratingPelatih()
+    {
+        return $this->hasMany(RatingPelatih::class, 'pelatih_id');
     }
 }

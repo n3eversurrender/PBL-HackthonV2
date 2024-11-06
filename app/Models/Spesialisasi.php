@@ -11,7 +11,10 @@ class Spesialisasi extends Model
 
     protected $table = 'spesialisasi';
     protected $primaryKey = 'spesialisasi_id';
-    protected $fillable = ['pelatih_id', 'nama_spesialisasi'];
+
+    protected $fillable = [
+        'pelatih_id', 'nama_spesialisasi'
+    ];
 
     public function pelatih()
     {

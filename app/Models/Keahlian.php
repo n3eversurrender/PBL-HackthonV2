@@ -11,7 +11,10 @@ class Keahlian extends Model
 
     protected $table = 'keahlian';
     protected $primaryKey = 'keahlian_id';
-    protected $fillable = ['peserta_id', 'nama_keahlian'];
+
+    protected $fillable = [
+        'peserta_id', 'nama_keahlian'
+    ];
 
     public function peserta()
     {
