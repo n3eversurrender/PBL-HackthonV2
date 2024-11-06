@@ -57,6 +57,7 @@
         </thead>
         <tbody>
             @foreach($kursus as $kursusItem)
+            @if($kursusItem->pengguna) <!-- Memeriksa apakah ada pelatih -->
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="w-4 p-4">
                     <div class="flex items-center">
@@ -82,11 +83,10 @@
                     <a href="#" type="button" data-modal-show="editUserModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Detail</a>
                 </td>
             </tr>
+            @endif
             @endforeach
         </tbody>
-
     </table>
-
     <!-- Edit user modal -->
     <div id="editUserModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 items-center justify-center hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative w-full max-w-2xl max-h-full">

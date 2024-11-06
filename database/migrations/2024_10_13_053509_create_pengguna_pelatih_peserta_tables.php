@@ -91,7 +91,7 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->string('nama_topik');
             $table->text('deskripsi');
             $table->integer('durasi'); // dalam jam
-            $table->text('materi')->nullable();
+            $table->string('materi')->nullable(); // Mengubah tipe data ke string untuk menyimpan URL/path video
             $table->foreign('kursus_id')->references('kursus_id')->on('kursus')->onDelete('cascade');
             $table->timestamps();
         });
@@ -139,7 +139,7 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->foreign('peserta_id')->references('peserta_id')->on('peserta')->onDelete('cascade');
             $table->timestamps();
         });
-        
+
 
         // Tabel rating pelatih
         Schema::create('rating_pelatih', function (Blueprint $table) {

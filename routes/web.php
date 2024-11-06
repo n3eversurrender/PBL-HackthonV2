@@ -49,7 +49,7 @@ Route::get('/Home', [MainController::class, 'Home']);
 Route::get('/DaftarKursus', [MainController::class, 'daftarKursus']);
 Route::get('/TentangKami', [MainController::class, 'tentangKami']);
 Route::get('/Daftar', [ManajemenAkunController::class, 'Daftar']);
-Route::get('/Masuk', [ManajemenAkunController::class, 'Masuk']);
+Route::get('/Masuk', [ManajemenAkunController::class, 'Masuk'])->name('Masuk');
 Route::get('/CoursePage', [MainController::class, 'coursePage']);
 Route::get('/PaymentPage', [MainController::class, 'paymentPage']);
 
@@ -58,8 +58,8 @@ Route::get('/PaymentPage', [MainController::class, 'paymentPage']);
 // Route Peserta
 Route::get('/DashboardPeserta', [DashboardPesertaController::class, 'dashboardPeserta']);
 Route::get('/Kursus', [KursusController::class, 'Kursus']);
-Route::get('/KursusModul', [KursusController::class, 'kursusModul']);
-Route::get('/KursusMateri', [KursusController::class, 'kursusMateri']);
+Route::get('/KursusModul/{id_kursus}', [KursusController::class, 'kursusModul'])->name('kursusModul.show');
+Route::get('/KursusMateri', [KursusController::class, 'kursusMateri'])->name('kursusMateri');
 Route::get('/PesanPeserta', [PesanPesertaController::class, 'pesanPeserta']);
 Route::get('/PengaturanPeserta', [PengaturanPesertaController::class, 'pengaturanPeserta']);
 Route::get('/DaftarPelatihan', [DaftarPelatihanController::class, 'daftarPelatihan']);
