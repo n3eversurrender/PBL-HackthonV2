@@ -17,89 +17,31 @@
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th scope="col" class="px-6 py-3">
-                    Nama Kursus
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Jadwal
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Persentase Progres
-                </th>
-                <th scope="col" class="px-6 py-3 text-center">
-                    Anggota
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Action
-                </th>
+                <th scope="col" class="px-6 py-3">Nama Kursus</th>
+                <th scope="col" class="px-6 py-3">Jadwal</th>
+                <th scope="col" class="px-6 py-3">Persentase Progres</th>
+                <th scope="col" class="px-6 py-3 text-center">Anggota</th>
+                <th scope="col" class="px-6 py-3">Action</th>
             </tr>
         </thead>
         <tbody>
+            @foreach ($kursus as $item)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td class="px-6 py-4">
-                    Welding Master
-                </td>
-                <td class="px-6 py-4">
-                    12 Agustus - 12 September
-                </td>
+                <td class="px-6 py-4">{{ $item->judul }}</td>
+                <td class="px-6 py-4">{{ $item->jadwal }}</td>
                 <td class="px-6 py-4">
                     <div class="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">
                         <div class="bg-green-600 h-1.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
                     </div>
                 </td>
-                <td class="px-6 py-4 text-center">
-                    10
-                </td>
+                <td class="px-6 py-4 text-center">{{ $item->kapasitas }}</td>
                 <td class="px-6 py-4">
-                    <a href="/PengelolaanPelatihanDetail" class="text-blue-600 dark:text-blue-500">
+                    <a href="{{ route('pengelolaanPelatihanDetail.show', $item->kursus_id) }}" class="text-blue-600 dark:text-blue-500">
                         <i class="fas fa-info-circle cursor-pointer me-2"></i>More Info
                     </a>
                 </td>
             </tr>
-
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td class="px-6 py-4">
-                    Welding Master
-                </td>
-                <td class="px-6 py-4">
-                    12 Agustus - 12 September
-                </td>
-                <td class="px-6 py-4">
-                    <div class="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">
-                        <div class="bg-green-600 h-1.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
-                    </div>
-                </td>
-                <td class="px-6 py-4 text-center">
-                    10
-                </td>
-                <td class="px-6 py-4">
-                    <a href="/PengelolaanPelatihanDetail" class="text-blue-600 dark:text-blue-500">
-                        <i class="fas fa-info-circle cursor-pointer me-2"></i>More Info
-                    </a>
-                </td>
-            </tr>
-
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td class="px-6 py-4">
-                    Welding Master
-                </td>
-                <td class="px-6 py-4">
-                    12 Agustus - 12 September
-                </td>
-                <td class="px-6 py-4">
-                    <div class="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">
-                        <div class="bg-green-600 h-1.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
-                    </div>
-                </td>
-                <td class="px-6 py-4 text-center">
-                    10
-                </td>
-                <td class="px-6 py-4">
-                    <a href="/PengelolaanPelatihanDetail" class="text-blue-600 dark:text-blue-500">
-                        <i class="fas fa-info-circle cursor-pointer me-2"></i>More Info
-                    </a>
-                </td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

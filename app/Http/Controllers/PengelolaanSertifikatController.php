@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sertifikat;
 use Illuminate\Http\Request;
+
 
 class PengelolaanSertifikatController extends Controller
 {
     public function pengelolaanSertifikat()
     {
-        return view('pelatih/PengelolaanSertifikat', [
+        
+        $sertifikat = Sertifikat::all();
+        
+        return view('pelatih.PengelolaanSertifikat', [
+            'sertifikat' => $sertifikat
         ]);
     }
+
     public function tambahSertifikat()
     {
         return view('pelatih/TambahSertifikat', [
