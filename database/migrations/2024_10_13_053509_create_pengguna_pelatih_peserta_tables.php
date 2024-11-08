@@ -13,6 +13,13 @@ class CreatePenggunaPelatihPesertaTables extends Migration
      */
     public function up()
     {
+        Schema::create('admin', function (Blueprint $table) {
+            $table->id('admin_id');
+            $table->string('username')->unique();
+            $table->string('kata_sandi');
+            $table->timestamps();
+        });
+
         // Tabel pengguna
         Schema::create('pengguna', function (Blueprint $table) {
             $table->id('pengguna_id');
@@ -69,20 +76,22 @@ class CreatePenggunaPelatihPesertaTables extends Migration
         // Tabel kursus
         Schema::create('kursus', function (Blueprint $table) {
             $table->id('kursus_id');
-            $table->unsignedBigInteger('pengguna_id'); // Mengubah dari pelatih_id ke pengguna_id
+            $table->unsignedBigInteger('pengguna_id');
             $table->string('judul');
             $table->text('deskripsi');
             $table->dateTime('jadwal');
             $table->decimal('harga', 10, 2);
-            $table->string('tingkat_kesulitan');
+            $table->enum('tingkat_kesulitan', ['-', 'Pemula', 'Menengah', 'Lanjutan'])->default('-'); // Added default value
             $table->float('rating')->nullable();
             $table->enum('status', ['Aktif', 'Tidak Aktif'])->default('Aktif');
             $table->date('tgl_mulai');
             $table->date('tgl_selesai');
             $table->integer('kapasitas');
-            $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade'); // Mengubah referensi
+            $table->string('foto_kursus')->nullable(); // Added foto_kursus column
+            $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
             $table->timestamps();
         });
+
 
         // Tabel kurikulum
         Schema::create('kurikulum', function (Blueprint $table) {
@@ -163,6 +172,7 @@ class CreatePenggunaPelatihPesertaTables extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('admin');
         Schema::dropIfExists('umpan_balik');
         Schema::dropIfExists('sertifikat');
         Schema::dropIfExists('pembayaran');

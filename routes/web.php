@@ -74,7 +74,7 @@ Route::get('/PengelolaanSertifikat', [PengelolaanSertifikatController::class, 'p
 Route::get('/TambahSertifikat', [PengelolaanSertifikatController::class, 'tambahSertifikat']);
 Route::get('/EditSertifikat', [PengelolaanSertifikatController::class, 'editSertifikat']);
 Route::get('/PengelolaanPelatihan', [PengelolaanPelatihanController::class, 'pengelolaanPelatihan']);
-Route::get('/PengelolaanPelatihanDetail', [PengelolaanPelatihanController::class, 'pengelolaanPelatihanDetail']);
+Route::get('/PengelolaanPelatihanDetail/{kursus_id}', [PengelolaanPelatihanController::class, 'pengelolaanPelatihanDetail'])->name('pengelolaanPelatihanDetail.show');
 Route::get('/TambahKursus', [TambahKursusController::class, 'tambahKursus']);
 Route::get('/EditKursus', [TambahKursusController::class, 'editKursus']);
 Route::get('/TambahKurikulum', [TambahKurikulumController::class, 'tambahKurikulum']);
