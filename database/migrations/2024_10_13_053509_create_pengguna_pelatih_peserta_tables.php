@@ -76,22 +76,21 @@ class CreatePenggunaPelatihPesertaTables extends Migration
         // Tabel kursus
         Schema::create('kursus', function (Blueprint $table) {
             $table->id('kursus_id');
-            $table->unsignedBigInteger('pengguna_id');
+            $table->unsignedBigInteger('pengguna_id')->nullable(); // Menambahkan nullable untuk pengguna_id
             $table->string('judul');
             $table->text('deskripsi');
-            $table->dateTime('jadwal');
+            $table->date('jadwal')->nullable();
             $table->decimal('harga', 10, 2);
-            $table->enum('tingkat_kesulitan', ['-', 'Pemula', 'Menengah', 'Lanjutan'])->default('-'); // Added default value
+            $table->enum('tingkat_kesulitan', ['-', 'Pemula', 'Menengah', 'Lanjutan'])->default('-'); // Default value
             $table->float('rating')->nullable();
             $table->enum('status', ['Aktif', 'Tidak Aktif'])->default('Aktif');
             $table->date('tgl_mulai');
             $table->date('tgl_selesai');
             $table->integer('kapasitas');
-            $table->string('foto_kursus')->nullable(); // Added foto_kursus column
+            $table->string('foto_kursus')->nullable(); // Foto kursus
             $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
             $table->timestamps();
         });
-
 
         // Tabel kurikulum
         Schema::create('kurikulum', function (Blueprint $table) {

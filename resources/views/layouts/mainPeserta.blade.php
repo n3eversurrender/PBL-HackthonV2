@@ -8,6 +8,7 @@
         @vite(['resources/css/app.css','resources/js/app.js'])
         @vite(['resources/js/Waktu.js'])
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>
         <script src="https://www.youtube.com/iframe_api"></script>
     </head>
 

@@ -10,13 +10,14 @@ class KursusController extends Controller
 {
     public function Kursus()
     {
-        // Fetch all kursus data
-        $kursus = Kursus::all();
+        // Fetch kursus data with pagination (5 items per page)
+        $kursus = Kursus::paginate(5);
 
         return view('peserta.Kursus', [
             'kursus' => $kursus,
         ]);
     }
+
     public function kursusModul($id_kursus)
     {
         // Mengambil data kursus berdasarkan id_kursus

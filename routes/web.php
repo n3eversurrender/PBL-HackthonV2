@@ -63,21 +63,32 @@ Route::get('/KursusMateri', [KursusController::class, 'kursusMateri'])->name('ku
 Route::get('/PesanPeserta', [PesanPesertaController::class, 'pesanPeserta']);
 Route::get('/PengaturanPeserta', [PengaturanPesertaController::class, 'pengaturanPeserta']);
 Route::get('/DaftarPelatihan', [DaftarPelatihanController::class, 'daftarPelatihan']);
+Route::delete('/DaftarPelatihan/{kursus_id}', [DaftarPelatihanController::class, 'destroy'])->name('DaftarPelatihan.destroy');
 
 
 //Route Pelatih
 Route::get('/DashboardPelatih', [DashboardPelatihController::class, 'dashboardPelatih']);
 Route::get('/PesanPelatih', [PesanPelatihController::class, 'pesanPelatih']);
 Route::get('/PengaturanPelatih', [PengaturanPelatihController::class, 'pengaturanPelatih']);
-Route::get('/PengelolaanKursus', [PengelolaanKursusController::class, 'pengelolaanKursus']);
 Route::get('/PengelolaanSertifikat', [PengelolaanSertifikatController::class, 'pengelolaanSertifikat']);
 Route::get('/TambahSertifikat', [PengelolaanSertifikatController::class, 'tambahSertifikat']);
-Route::get('/EditSertifikat', [PengelolaanSertifikatController::class, 'editSertifikat']);
+Route::get('/EditSertifikat', [PengelolaanSertifikatController::class, 'editSertifikat'])
+;
 Route::get('/PengelolaanPelatihan', [PengelolaanPelatihanController::class, 'pengelolaanPelatihan']);
 Route::get('/PengelolaanPelatihanDetail/{kursus_id}', [PengelolaanPelatihanController::class, 'pengelolaanPelatihanDetail'])->name('pengelolaanPelatihanDetail.show');
+Route::delete('/pendaftaran/{pendaftaran_id}', [PengelolaanPelatihanController::class, 'destroy'])->name('Pendaftaran.destroy');
+Route::put('/pendaftaran/{pendaftaran_id}', [PengelolaanPelatihanController::class, 'update'])->name('pendaftaran.update');
+
+Route::get('/PengelolaanKursus', [PengelolaanKursusController::class, 'pengelolaanKursus'])->name('PengelolaanKursus');
+Route::delete('/PengelolaanKursus/{kursus_id}', [PengelolaanKursusController::class, 'destroy'])->name('PengelolaanKursus.destroy');
+// Route::get('/PengelolaanKursus/{kursus_id}', [PengelolaanKursusController::class, 'show'])->name('PengelolaanKursus.show');
+Route::put('/PengelolaanKursus/{kursus_id}', [PengelolaanKursusController::class, 'update'])->name('PengelolaanKursus.update');
+Route::post('/PengelolaanKursus', [PengelolaanKursusController::class, 'store'])->name('PengelolaanKursus.store');
 Route::get('/TambahKursus', [TambahKursusController::class, 'tambahKursus']);
-Route::get('/EditKursus', [TambahKursusController::class, 'editKursus']);
 Route::get('/TambahKurikulum', [TambahKurikulumController::class, 'tambahKurikulum']);
+
+
+
 
 
 // Route Admin

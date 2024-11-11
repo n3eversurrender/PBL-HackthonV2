@@ -36,4 +36,25 @@
 </div>
 @endforeach
 
+<!-- Pagination -->
+<div class="flex justify-center items-center mt-5">
+    <ul class="inline-flex -space-x-px text-sm">
+        <li>
+            <a href="{{ $kursus->previousPageUrl() }}" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                Sebelumnya
+            </a>
+        </li>
+        <li>
+            <a href="{{ $kursus->nextPageUrl() }}" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                Berikutnya
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- Menampilkan informasi data -->
+<div class="mt-4 mb-5 text-center text-sm text-gray-600 dark:text-gray-400">
+    Menampilkan {{ $kursus->firstItem() }} sampai {{ $kursus->lastItem() }} dari {{ $kursus->total() }} entri
+</div>
+
 @endsection
