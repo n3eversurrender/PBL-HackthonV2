@@ -21,25 +21,55 @@ class PengelolaanPelatihanController extends Controller
 
     public function pengelolaanPelatihanDetail($kursus_id)
     {
-        // Ambil kursus berdasarkan kursus_id yang diterima di URL
         $kursus = Kursus::find($kursus_id);
 
-        // Pastikan kursus ditemukan
         if (!$kursus) {
-            return redirect()->route('kursus.index'); // Redirect jika kursus tidak ditemukan
+            return redirect()->route('kursus.index');
         }
 
-        // Ambil pengguna yang terdaftar di kursus ini
         $pengguna = Pengguna::whereHas('pendaftaran', function ($query) use ($kursus_id) {
             $query->where('kursus_id', $kursus_id);
         })->get();
 
-        // Ambil status pendaftaran untuk pengguna yang terdaftar di kursus ini
+        // Apply pagination to the pendaftaran query
         $pendaftaran = Pendaftaran::where('kursus_id', $kursus_id)
             ->whereIn('pengguna_id', $pengguna->pluck('pengguna_id'))
-            ->get();
+            ->paginate(10);  // Adjust the number of items per page if needed
 
-        // Kirim data ke view
         return view('pelatih.PengelolaanPelatihanDetail', compact('kursus', 'pengguna', 'pendaftaran'));
+    }
+
+
+    public function destroy($pendaftaran_id)
+    {
+        // Temukan data pendaftaran berdasarkan pendaftaran_id
+        $pendaftaran = Pendaftaran::find($pendaftaran_id);
+
+        // Jika data ditemukan, hapus
+        if ($pendaftaran) {
+            $pendaftaran->delete();
+        }
+
+        // Redirect kembali ke halaman sebelumnya dengan pesan sukses
+        return back()->with('success', 'Pendaftaran berhasil dihapus.');
+    }
+
+    public function update(Request $request, $pendaftaran_id)
+    {
+        $pendaftaran = Pendaftaran::find($pendaftaran_id);
+
+        if (!$pendaftaran) {
+            return back()->with('error', 'Pendaftaran tidak ditemukan.');
+        }
+
+        // Validasi dan update status pendaftaran
+        $request->validate([
+            'status_pendaftaran' => 'required|in:Aktif,Selesai,Dibatalkan',
+        ]);
+
+        $pendaftaran->status_pendaftaran = $request->status_pendaftaran;
+        $pendaftaran->save();
+
+        return back()->with('success', 'Status pendaftaran berhasil diperbarui.');
     }
 }
