@@ -18,4 +18,14 @@ class DaftarPelatihanController extends Controller
             'kursus' => $kursus,
         ]);
     }
+
+    public function destroy($kursus_id)
+    {
+        // Find the kursus by ID and delete it
+        $kursus = Kursus::findOrFail($kursus_id);
+        $kursus->delete();
+
+        // Redirect back to the previous page with a success message
+        return back()->with('success', 'Kursus berhasil dihapus.');
+    }
 }
