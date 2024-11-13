@@ -63,8 +63,7 @@ Route::get('/KursusMateri', [KursusController::class, 'kursusMateri'])->name('ku
 Route::get('/PesanPeserta', [PesanPesertaController::class, 'pesanPeserta']);
 Route::get('/PengaturanPeserta', [PengaturanPesertaController::class, 'pengaturanPeserta']);
 Route::get('/DaftarPelatihan', [DaftarPelatihanController::class, 'daftarPelatihan']);
-Route::delete('/DaftarPelatihan/{kursus_id}', [DaftarPelatihanController::class, 'destroy'])->name('DaftarPelatihan.destroy');
-
+Route::delete('/daftar-pelatihan/{pendaftaran_id}', [DaftarPelatihanController::class, 'destroy'])->name('DaftarPelatihan.destroy');
 
 //Route Pelatih
 Route::get('/DashboardPelatih', [DashboardPelatihController::class, 'dashboardPelatih']);

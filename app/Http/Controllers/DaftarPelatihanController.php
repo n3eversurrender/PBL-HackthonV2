@@ -3,29 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kursus;
+use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 
 class DaftarPelatihanController extends Controller
 {
     public function daftarPelatihan()
     {
-        // Ambil kursus dengan pengguna yang perannya Pelatih dan paginate
-        $kursus = Kursus::with(['pengguna' => function ($query) {
+        // Ambil pendaftaran dengan relasi ke kursus dan pengguna, filter berdasarkan peran 'Pelatih'
+        $pendaftaran = Pendaftaran::with(['kursus', 'pengguna' => function ($query) {
+            // Ambil pengguna dengan peran 'Pelatih'
             $query->where('peran', 'Pelatih');
-        }, 'pendaftaran'])->paginate(10); // Paginate with a page size of 10
+        }])->paginate(10); // Paginate dengan ukuran 10 per halaman
 
         return view('peserta.DaftarPelatihan', [
-            'kursus' => $kursus,
+            'pendaftaran' => $pendaftaran,
         ]);
     }
 
-    public function destroy($kursus_id)
+    public function destroy($pendaftaran_id)
     {
-        // Find the kursus by ID and delete it
-        $kursus = Kursus::findOrFail($kursus_id);
-        $kursus->delete();
+        // Temukan pendaftaran berdasarkan pendaftaran_id dan hapus
+        $pendaftaran = Pendaftaran::findOrFail($pendaftaran_id);
+        $pendaftaran->delete();
 
-        // Redirect back to the previous page with a success message
-        return back()->with('success', 'Kursus berhasil dihapus.');
+        // Redirect kembali dengan pesan sukses
+        return back()->with('success', 'Pendaftaran berhasil dihapus.');
     }
 }
