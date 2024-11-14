@@ -40,7 +40,6 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->unsignedBigInteger('pengguna_id');
             $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
             $table->integer('pengalaman_kerja');
-            $table->float('rating')->nullable();
             $table->enum('status', ['Aktif', 'Tidak Aktif'])->default('Tidak Aktif');
             $table->timestamps();
         });
@@ -79,7 +78,8 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->unsignedBigInteger('pengguna_id')->nullable(); // Menambahkan nullable untuk pengguna_id
             $table->string('judul');
             $table->text('deskripsi');
-            $table->date('jadwal')->nullable();
+            $table->time('waktu_mulai');
+            $table->time('waktu_selesai'); 
             $table->decimal('harga', 10, 2);
             $table->enum('tingkat_kesulitan', ['-', 'Pemula', 'Menengah', 'Lanjutan'])->default('-'); // Default value
             $table->float('rating')->nullable();
@@ -87,6 +87,7 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->date('tgl_mulai');
             $table->date('tgl_selesai');
             $table->integer('kapasitas');
+            $table->string('lokasi');
             $table->string('foto_kursus')->nullable(); // Foto kursus
             $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
             $table->timestamps();
@@ -109,25 +110,22 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->id('pendaftaran_id');
             $table->unsignedBigInteger('pengguna_id');
             $table->unsignedBigInteger('kursus_id');
-            $table->unsignedBigInteger('peserta_id'); // Pastikan kolom ini ada
             $table->date('tgl_pendaftaran');
-            $table->enum('status_pendaftaran', ['Aktif', 'Selesai', 'Dibatalkan']);
+            $table->enum('status_pendaftaran', ['Menunggu', 'Aktif', 'Selesai', 'Dibatalkan'])->default('Menunggu');
             $table->enum('status_pembayaran', ['Pending', 'Berhasil', 'Gagal']);
             $table->text('komentar')->nullable();
             $table->float('rating')->nullable();
             $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
             $table->foreign('kursus_id')->references('kursus_id')->on('kursus')->onDelete('cascade');
-            $table->foreign('peserta_id')->references('peserta_id')->on('peserta')->onDelete('cascade'); // Pastikan kolom foreign key ini ada
             $table->timestamps();
         });
-
 
         // Tabel pembayaran
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id('pembayaran_id');
             $table->unsignedBigInteger('pendaftaran_id');
             $table->date('tgl_pembayaran');
-            $table->string('metode_pembayaran');
+            $table->enum('metode_pembayaran', ['Transfer Bank', 'Kartu Kredit', 'E-Wallet']); // Metode pembayaran dengan pilihan
             $table->decimal('jumlah', 10, 2);
             $table->enum('status', ['Pending', 'Berhasil', 'Gagal']);
             $table->foreign('pendaftaran_id')->references('pendaftaran_id')->on('pendaftaran')->onDelete('cascade');
@@ -138,31 +136,33 @@ class CreatePenggunaPelatihPesertaTables extends Migration
         Schema::create('sertifikat', function (Blueprint $table) {
             $table->id('sertifikat_id');
             $table->unsignedBigInteger('pendaftaran_id');
-            $table->unsignedBigInteger('peserta_id');
             $table->string('nama_kursus');
             $table->string('file_sertifikat');
             $table->string('nomor_sertifikat'); // Pastikan kolom ini ada
             $table->date('tanggal_terbit'); // Pastikan kolom ini ada jika diperlukan
             $table->foreign('pendaftaran_id')->references('pendaftaran_id')->on('pendaftaran')->onDelete('cascade');
-            $table->foreign('peserta_id')->references('peserta_id')->on('peserta')->onDelete('cascade');
             $table->timestamps();
         });
-
 
         // Tabel rating pelatih
         Schema::create('rating_pelatih', function (Blueprint $table) {
             $table->id('rating_pelatih_id');
-            $table->unsignedBigInteger('pelatih_id');
-            $table->unsignedBigInteger('peserta_id');
+            $table->unsignedBigInteger('pengguna_id');
             $table->float('rating');
             $table->text('komentar')->nullable();
             $table->timestamp('waktu')->default(now());
-            $table->foreign('pelatih_id')->references('pelatih_id')->on('pelatih')->onDelete('cascade');
-            $table->foreign('peserta_id')->references('peserta_id')->on('peserta')->onDelete('cascade');
+            $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
+            $table->timestamps();
+        });
+
+        // Tabel umpan balik
+        Schema::create('umpan_balik', function (Blueprint $table) {
+            $table->id('umpan_balik_id');
+            $table->string('nama_komentar');
+            $table->text('komentar');
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -171,8 +171,7 @@ class CreatePenggunaPelatihPesertaTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin');
-        Schema::dropIfExists('umpan_balik');
+        Schema::dropIfExists('umpan_balik'); // Dropping umpan_balik table first
         Schema::dropIfExists('sertifikat');
         Schema::dropIfExists('pembayaran');
         Schema::dropIfExists('pendaftaran');
@@ -184,5 +183,6 @@ class CreatePenggunaPelatihPesertaTables extends Migration
         Schema::dropIfExists('pelatih');
         Schema::dropIfExists('rating_pelatih');
         Schema::dropIfExists('pengguna');
+        Schema::dropIfExists('admin');
     }
 }

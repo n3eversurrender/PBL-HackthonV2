@@ -10,9 +10,8 @@ class PengelolaanSertifikatController extends Controller
 {
     public function pengelolaanSertifikat()
     {
-        
-        $sertifikat = Sertifikat::all();
-        
+        $sertifikat = Sertifikat::paginate(10); // Ambil data dalam bentuk paginasi
+
         return view('pelatih.PengelolaanSertifikat', [
             'sertifikat' => $sertifikat
         ]);
@@ -20,12 +19,11 @@ class PengelolaanSertifikatController extends Controller
 
     public function tambahSertifikat()
     {
-        return view('pelatih/TambahSertifikat', [
-        ]);
+        return view('pelatih/TambahSertifikat', []);
     }
+    
     public function editSertifikat()
     {
-        return view('pelatih/EditSertifikat', [
-        ]);
+        return view('pelatih/EditSertifikat', []);
     }
 }

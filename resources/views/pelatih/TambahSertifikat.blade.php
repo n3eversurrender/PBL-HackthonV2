@@ -3,12 +3,6 @@
 @section('MainPelatih')
 
 <div class="flex items-start space-x-4">
-    <figure class="max-w-96">
-        <!-- Iframe untuk preview PDF -->
-        <iframe id="pdfPreview" class="rounded-lg border-2 border-gray-300" src="{{ asset('pdf/1.pdf') }}" style="width: 100%; height: 275px;" frameborder="0"></iframe>
-        <figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">PDF Preview</figcaption>
-    </figure>
-
     <div class="flex-grow">
         <!-- Input untuk mengunggah file PDF -->
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file PDF untuk sertifikat</label>
@@ -32,26 +26,5 @@
         </form>
     </div>
 </div>
-
-<script>
-    // Fungsi untuk menampilkan preview PDF ketika di-upload
-    document.getElementById('file_input').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-
-        if (file && file.type === "application/pdf") {
-            // Membaca file PDF menggunakan FileReader
-            const reader = new FileReader();
-
-            reader.onload = function(e) {
-                const pdfPreview = document.getElementById('pdfPreview');
-                pdfPreview.src = e.target.result; // Menampilkan PDF di iframe
-            }
-
-            reader.readAsDataURL(file); // Membaca file sebagai URL Data
-        } else {
-            alert("File yang di-upload bukan PDF!");
-        }
-    });
-</script>
 
 @endsection

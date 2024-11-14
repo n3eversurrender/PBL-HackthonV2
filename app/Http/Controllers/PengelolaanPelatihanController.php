@@ -12,7 +12,8 @@ class PengelolaanPelatihanController extends Controller
 {
     public function pengelolaanPelatihan()
     {
-        $kursus = Kursus::all();
+        // Paginate the Kursus data
+        $kursus = Kursus::paginate(10); // Adjust the number as needed
 
         return view('pelatih.PengelolaanPelatihan', [
             'kursus' => $kursus,
