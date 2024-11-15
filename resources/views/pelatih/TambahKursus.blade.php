@@ -31,8 +31,8 @@
     </div>
     <div class="flex gap-3 mb-5">
         <div class="w-1/2">
-            <label for="jadwal" class="block mb-2 text-xl font-bold text-gray-900 dark:text-white">Jadwal Kursus</label>
-            <input type="date" name="jadwal" id="jadwal" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+            <label for="lokasi" class="block mb-2 text-xl font-bold text-gray-900 dark:text-white">Lokasi</label>
+            <input type="text" name="lokasi" id="lokasi" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
         </div>
         <div class="w-1/2">
             <label for="status" class="block mb-2 text-xl font-bold text-gray-900 dark:text-white">Status</label>

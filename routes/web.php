@@ -69,8 +69,13 @@ Route::delete('/daftar-pelatihan/{pendaftaran_id}', [DaftarPelatihanController::
 Route::get('/DashboardPelatih', [DashboardPelatihController::class, 'dashboardPelatih']);
 Route::get('/PesanPelatih', [PesanPelatihController::class, 'pesanPelatih']);
 Route::get('/PengaturanPelatih', [PengaturanPelatihController::class, 'pengaturanPelatih']);
-Route::get('/PengelolaanSertifikat', [PengelolaanSertifikatController::class, 'pengelolaanSertifikat']);
-Route::get('/TambahSertifikat', [PengelolaanSertifikatController::class, 'tambahSertifikat']);
+Route::get('/PengelolaanSertifikat', [PengelolaanSertifikatController::class, 'pengelolaanSertifikat'])->name('PengelolaanSertifikat');
+Route::get('/TambahSertifikat', [PengelolaanSertifikatController::class, 'tambahSertifikat'])->name('TambahSertifikat');
+Route::post('/tambah-sertifikat', [PengelolaanSertifikatController::class, 'store'])->name('sertifikat.store');
+Route::get('/edit-sertifikat/{sertifikat_id}', [PengelolaanSertifikatController::class, 'editSertifikat'])->name('sertifikat.edit');
+Route::put('/update-sertifikat/{sertifikat_id}', [PengelolaanSertifikatController::class, 'update'])->name('sertifikat.update');
+Route::delete('/delete-sertifikat/{sertifikat_id}', [PengelolaanSertifikatController::class, 'destroy'])->name('sertifikat.delete');
+
 Route::get('/EditSertifikat', [PengelolaanSertifikatController::class, 'editSertifikat'])
 ;
 Route::get('/PengelolaanPelatihan', [PengelolaanPelatihanController::class, 'pengelolaanPelatihan']);

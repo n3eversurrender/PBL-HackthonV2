@@ -79,10 +79,10 @@ class PengelolaanKursusController extends Controller
             'deskripsi' => 'required|string',
             'harga' => 'required|numeric',
             'tingkat_kesulitan' => 'required|string',
-            'jadwal' => 'required|date', // Validasi untuk tanggal
             'tgl_mulai' => 'required|date',
             'tgl_selesai' => 'required|date',
             'status' => 'required|string',
+            'lokasi' => 'required|string',
             'kapasitas' => 'required|integer',
             'foto_kursus' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
@@ -92,7 +92,7 @@ class PengelolaanKursusController extends Controller
         $kursus->deskripsi = $validated['deskripsi'];
         $kursus->harga = $validated['harga'];
         $kursus->tingkat_kesulitan = $validated['tingkat_kesulitan'];
-        $kursus->jadwal = $validated['jadwal']; // Simpan tanggal jadwal
+        $kursus->lokasi = $validated['lokasi']; // Simpan tanggal jadwal
         $kursus->tgl_mulai = $validated['tgl_mulai'];
         $kursus->tgl_selesai = $validated['tgl_selesai'];
         $kursus->status = $validated['status'];

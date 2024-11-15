@@ -96,6 +96,7 @@
             <p id="datetime" class="text-sm font-normal text-gray-500 dark:text-gray-400 my-2"></p>
             <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700 mb-5">
             <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+                @include('partials.succesAlert')
                 @yield('MainPeserta')
             </div>
         </div>

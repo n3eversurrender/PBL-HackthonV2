@@ -13,7 +13,7 @@ class Kursus extends Model
     protected $primaryKey = 'kursus_id';
 
     protected $fillable = [
-        'pengguna_id', 'judul', 'deskripsi', 'jadwal', 'harga', 'tingkat_kesulitan', 'rating', 'status', 'tgl_mulai', 'tgl_selesai', 'kapasitas', 'foto_kursus'
+        'pengguna_id', 'judul', 'deskripsi', 'lokasi', 'harga', 'tingkat_kesulitan', 'rating', 'status', 'tgl_mulai', 'tgl_selesai', 'kapasitas', 'foto_kursus'
     ];
 
     public function pengguna()
