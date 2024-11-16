@@ -65,6 +65,8 @@ Route::get('/PengaturanPeserta', [PengaturanPesertaController::class, 'pengatura
 Route::get('/DaftarPelatihan', [DaftarPelatihanController::class, 'daftarPelatihan']);
 Route::delete('/daftar-pelatihan/{pendaftaran_id}', [DaftarPelatihanController::class, 'destroy'])->name('DaftarPelatihan.destroy');
 
+
+
 //Route Pelatih
 Route::get('/DashboardPelatih', [DashboardPelatihController::class, 'dashboardPelatih']);
 Route::get('/PesanPelatih', [PesanPelatihController::class, 'pesanPelatih']);
@@ -76,8 +78,7 @@ Route::get('/edit-sertifikat/{sertifikat_id}', [PengelolaanSertifikatController:
 Route::put('/update-sertifikat/{sertifikat_id}', [PengelolaanSertifikatController::class, 'update'])->name('sertifikat.update');
 Route::delete('/delete-sertifikat/{sertifikat_id}', [PengelolaanSertifikatController::class, 'destroy'])->name('sertifikat.delete');
 
-Route::get('/EditSertifikat', [PengelolaanSertifikatController::class, 'editSertifikat'])
-;
+Route::get('/EditSertifikat', [PengelolaanSertifikatController::class, 'editSertifikat']);
 Route::get('/PengelolaanPelatihan', [PengelolaanPelatihanController::class, 'pengelolaanPelatihan']);
 Route::get('/PengelolaanPelatihanDetail/{kursus_id}', [PengelolaanPelatihanController::class, 'pengelolaanPelatihanDetail'])->name('pengelolaanPelatihanDetail.show');
 Route::delete('/pendaftaran/{pendaftaran_id}', [PengelolaanPelatihanController::class, 'destroy'])->name('Pendaftaran.destroy');
@@ -93,15 +94,26 @@ Route::get('/TambahKurikulum', [TambahKurikulumController::class, 'tambahKurikul
 
 
 
-
-
 // Route Admin
 Route::get('/DashboardAdmin', [DashboardAdminController::class, 'dashboardAdmin']);
-Route::get('/DataAdmin', [DataAdminController::class, 'dataAdmin']);
-Route::get('/DataPeserta', [DataPesertaController::class, 'dataPeserta']);
-Route::get('/DataPelatih', [DataPelatihController::class, 'dataPelatih']);
+Route::get('/DataAdmin', [DataAdminController::class, 'dataAdmin'])->name('admin.index');
+Route::get('/TambahAdmin', [DataAdminController::class, 'tambahAdmin']);
+Route::post('/admin/store', [DataAdminController::class, 'store'])->name('admin.store');
+Route::put('/DataAdmin/{admin_id}', [DataAdminController::class, 'update'])->name('PengelolaanAdmin.update');
+Route::delete('/DataAdmin/{admin_id}', [DataAdminController::class, 'destroy'])->name('PengelolaanAdmin.destroy');
+
+Route::get('/DataPeserta', [DataPesertaController::class, 'dataPeserta'])->name('DataPeserta');
+Route::delete('/peserta/{pengguna_id}', [DataPesertaController::class, 'destroy'])->name('Peserta.destroy');
+
+Route::get('/DataPelatih', [DataPelatihController::class, 'dataPelatih'])->name('DataPelatih');
+Route::delete('/pelatih/{pengguna_id}', [DataPelatihController::class, 'destroy'])->name('Pelatih.destroy');
+
 Route::get('/DataPembayaran', [DataPembayaranController::class, 'dataPembayaran']);
-Route::get('/DataRiwayatTransaksi', [DataRiwayatTransaksiController::class, 'dataRiwayatTransaksi']);
+
+Route::get('/DataRiwayatTransaksi', [DataRiwayatTransaksiController::class, 'dataRiwayatTransaksi'])->name('dataRiwayatTransaksi');
+Route::delete('/pembayaran/{pembayaran_id}', [DataRiwayatTransaksiController::class, 'destroy'])->name('pembayaran.destroy');
+
+
 Route::get('/PesanAdmin', [PesanAdminController::class, 'pesanAdmin']);
 Route::get('/PesertaKursus', [PesertaKursusController::class, 'pesertaKursus']);
 Route::get('/DetailPesertaKursus', [DetailPesertaKursusController::class, 'detailPesertaKursus']);
