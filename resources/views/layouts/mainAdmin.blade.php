@@ -47,7 +47,6 @@
                     <a href="/DataAdmin" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                         <i class="fas fa-user-shield"></i> <!-- Ikon untuk Data Admin -->
                         <span class="flex-1 ms-3 whitespace-nowrap">Data Admin</span>
-                        <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span> <!-- Jika ingin menampilkan jumlah admin, ganti 3 dengan angka sesuai kebutuhan -->
                     </a>
                 </li>
 
@@ -83,12 +82,12 @@
                         <i id="arrowIconTransaksi" class="fas fa-chevron-down ml-auto transition-transform duration-300"></i>
                     </button>
                     <ul id="dropdownTransaksi" class="ml-6 mt-1 hidden">
-                        <li>
+                        <!-- <li>
                             <a href="/DataPembayaran" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                                 <i class="fas fa-money-check-alt"></i>
                                 <span class="ms-3">Data Pembayaran</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="/DataRiwayatTransaksi" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                                 <i class="fas fa-history"></i>
