@@ -3,21 +3,21 @@
 @section('Main')
 
 <!--Section Block-->
-<div class="container mx-auto py-10 px-5">
+<div class="container mx-auto sm:py-10 sm:px-5">
     <div class="flex flex-col lg:flex-row items-center lg:items-start bg-white rounded-lg p-6">
         <!-- Image Section -->
         <div class="w-full lg:w-1/2 p-4">
-            <img src="{{ asset('image/1234.png') }}" alt="Welder Image" class="rounded-lg  object-cover">
+            <img src="{{ asset('image/1234.png') }}" alt="Welder Image" class="rounded-lg  object-cover" />
         </div>
 
         <!-- Text Section -->
         <div class="w-full lg:w-1/2 p-4">
-            <h2 class="text-3xl font-extrabold mb-4 text-gray-800">Who Are We?</h2>
-            <p class="text-gray-600 mb-4 text-justify">
-                SkillBridge is a dynamic online platform designed to connect trainers and trainees in Batam, focusing on skilled labor in fabrication fields such as welding, fitting, and painting.
+            <h2 class="text-xl sm:text-3xl font-extrabold mb-2 text-gray-800">Siapa Kita?</h2>
+            <p class="text-gray-600 mb-4 text-sm sm:text-base text-justify">
+                SkillBridge adalah platform online dinamis yang dirancang untuk menghubungkan pelatih dan peserta pelatihan di Batam, dengan fokus pada tenaga kerja terampil di bidang fabrikasi seperti pengelasan, pemasangan, dan pengecatan.
             </p>
-            <p class="text-gray-600 mb-4 text-justify">
-                We leverage advanced AI technology to facilitate meaningful connections between learners and experienced mentors, ensuring personalized training experiences that align with industry needs. Our mission is to empower individuals with the skills required to excel in their careers while fostering a strong, skilled workforce in Batam.
+            <p class="text-gray-600 mb-4 text-sm sm:text-base text-justify">
+                Kami memanfaatkan teknologi AI yang canggih untuk memfasilitasi hubungan bermakna antara peserta didik dan mentor berpengalaman, memastikan pengalaman pelatihan yang dipersonalisasi dan selaras dengan kebutuhan industri. Misi kami adalah untuk memberdayakan individu dengan keterampilan yang diperlukan untuk unggul dalam karir mereka sambil membina tenaga kerja yang kuat dan terampil di Batam.
             </p>
         </div>
     </div>
@@ -26,14 +26,13 @@
     <!-- Row 1: Satu kolom -->
     <div class="bg-white">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto max-w-5xl lg:text-center">
-                <p class="mt-2 text-5xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">The Feature of
-                    SkillBridge
-                    That you Will Benefit From</p>
-                <p class="mt-5 text-lg leading-8 text-gray-600">Unlock key advantages that will enchance your learning
-                    and career oppurtunities through SkillBridge.</p>
+            <div class="mx-auto sm:px-8 max-w-5xl lg:text-center">
+                <h1 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 ">Fitur SkillBridge yang Akan Anda Manfaatkan</h1>
+                <p class="mt-3 sm:mt-5 text-base sm:text-lg leading-8 text-gray-600">Temukan keuntungan utama yang akan meningkatkan peluang 
+                    pembelajaran dan karier Anda melalui SkillBridge.</p>
             </div>
-            <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+
+            <div class="mx-auto px-5 mt-12 max-w-2xl sm:mt-16  lg:max-w-4xl">
                 <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
                     <div class="relative pl-16">
                         <dt class="text-base font-semibold leading-7 text-gray-900">
@@ -45,11 +44,11 @@
                                         d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
                                 </svg>
                             </div>
-                            AI-Powered Training Recommendations
+                            Rekomendasi Pelatihan yang Didukung AI
                         </dt>
-                        <dd class="mt-2 text-base leading-7 text-gray-600 text-justify">Our AI technology evaluates your skill level
-                            and career goals to provide personalized course recommendations, ensuring a tailored
-                            learning path in welding, fitting, and painting.</dd>
+                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Teknologi AI kami mengevaluasi 
+                            tingkat keahlian dan tujuan karier Anda untuk memberikan rekomendasi kursus yang dipersonalisasi, 
+                            memastikan jalur pembelajaran yang disesuaikan dalam pengelasan, pemasangan, dan pengecatan.</dd>
                     </div>
                     <div class="relative pl-16">
                         <dt class="text-base font-semibold leading-7 text-gray-900">
@@ -61,11 +60,11 @@
                                         d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
                                 </svg>
                             </div>
-                            Experienced Trainer
+                            Pelatih Berpengalaman
                         </dt>
-                        <dd class="mt-2 text-base leading-7 text-gray-600 text-justify">Gain access to a network of seasoned
-                            professionals from Batam's top industries. These mentors provide hands-on training, share
-                            industry insights, and guide you toward mastering fabrication skills.</dd>
+                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Dapatkan akses ke jaringan 
+                            profesional berpengalaman dari industri terkemuka di Batam. Para mentor ini memberikan pelatihan langsung, 
+                            berbagi wawasan industri, dan membimbing Anda untuk menguasai keterampilan fabrikasi.</dd>
                     </div>
                     <div class="relative pl-16">
                         <dt class="text-base font-semibold leading-7 text-gray-900">
@@ -77,11 +76,11 @@
                                         d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
                                 </svg>
                             </div>
-                            Flexible Learning Paths
+                            Jalur Pembelajaran yang Fleksibel
                         </dt>
-                        <dd class="mt-2 text-base leading-7 text-gray-600 text-justify">Whether you’re a beginner or advancing in
-                            your career, SkillBridge offers flexible learning options that fit your schedule. You can
-                            learn at your own pace, with content designed for various skill levels.</dd>
+                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Baik Anda seorang 
+                            pemula atau yang sudah maju dalam karier Anda, SkillBridge menawarkan opsi pembelajaran fleksibel 
+                            yang sesuai dengan jadwal Anda. Anda dapat belajar sesuai keinginan Anda, dengan konten yang dirancang untuk berbagai tingkat keahlian.</dd>
                     </div>
                     <div class="relative pl-16">
                         <dt class="text-base font-semibold leading-7 text-gray-900">
@@ -93,11 +92,11 @@
                                         d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
                                 </svg>
                             </div>
-                            Industry-Aligned Curriculum
+                            Kurikulum yang Selaras dengan Industri
                         </dt>
-                        <dd class="mt-2 text-base leading-7 text-gray-600 text-justify">Our courses are designed based on the current
-                            needs of the fabrication industry in Batam, ensuring that you acquire the most in-demand
-                            skills to excel in the job market.</dd>
+                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Kursus kami dirancang 
+                            berdasarkan kebutuhan industri fabrikasi di Batam saat ini, memastikan bahwa Anda memperoleh 
+                            keterampilan yang paling dibutuhkan untuk unggul di pasar kerja.</dd>
                     </div>
                 </dl>
             </div>
@@ -108,12 +107,12 @@
 
 <div class="container mx-auto mt-10">
     <div class="max-w-5xl mx-auto text-center">
-        <h2 class="text-3xl font-extrabold text-gray-900">
-            Lead the Way with SkillBridge
+        <h2 class=" text-3xl sm:text-4xl font-extrabold text-gray-900">
+            Pimpin Jalan dengan SkillBridge
         </h2>
-        <p class="mt-4 text-lg text-gray-500 mb-8">
-            Join our platform to shape the future of skilled labor. Share your expertise, connect with others, and
-            help build a stronger workforce in Batam.
+        <p class="mt-4 px-6 text-base sm:text-lg text-gray-500 mb-8">
+            Bergabunglah dengan platform kami untuk membentuk masa depan tenaga kerja terampil. 
+            Bagikan keahlian Anda, terhubung dengan orang lain, dan bantu membangun tenaga kerja yang lebih kuat di Batam.
         </p>
     </div>
 </div>
@@ -126,10 +125,9 @@
                 <img class="w-full h-full object-cover" src="{{ asset('image/wle.png') }}"
                     alt="product image" />
                 <div class="absolute inset-0 bg-black opacity-30 rounded-t-lg"></div>
-                <div class="absolute left-24 bottom-1/2 transform translate-y-1/2">
-                    <p class="text-white text-2xl font-bold mb-5">Join SkillBridge</p>
-                    <a href="#" class="bg-[#337DC1] rounded-lg text-white font-medium text-center px-4 py-2">Join
-                        Today</a>
+                <div class="absolute left-8 sm:left-24 bottom-1/2 transform translate-y-1/2">
+                    <p class="text-white text-4xl sm:text-2xl font-bold mb-5">Bergabunglah dengan SkillBridge</p>
+                    <a href="#" class="bg-[#337DC1] rounded-lg text-white text-base font-medium text-center px-6 sm:px-4 py-2">Bergabung</a>
                 </div>
             </div>
         </div>
@@ -137,15 +135,15 @@
 </div>
 
 
-<div class="container mx-auto p-10">
-    <div class="flex">
-        <div class="w-1/2 p-4">
-            <h2 class="font-extrabold text-3xl">Frequently Asked Questions</h2>
-            <span class="text-sm text-[#0F172A] w-1/3">Our FAQ section offers quick answers about our welding courses,
-                covering topics like duration, certification, and required materials. For anything else, feel free to
-                contact us!</span>
+<div class="container mx-auto p-5 sm:p-10">
+    <div class="sm:flex">
+        <div class="sm:w-1/2 p-4">
+            <h2 class="font-extrabold text-2xl mb-2 sm:text-3xl">Pertanyaan yang sering diajukan</h2>
+            <span class="text-sm text-[#0F172A] w-1/3">Bagian FAQ kami menawarkan jawaban cepat
+                 tentang kursus pengelasan kami, yang mencakup topik seperti durasi, sertifikasi, 
+                 dan materi yang dibutuhkan. Untuk hal lain, jangan ragu untuk menghubungi kami!</span>
         </div>
-        <div class="w-1/2 p-4 ">
+        <div class="sm:w-1/2 p-4 ">
             <div id="accordion-open" data-accordion="open">
                 <h2 id="accordion-open-heading-1">
                     <button type="button"
@@ -166,7 +164,7 @@
                     </button>
                 </h2>
                 <div id="accordion-open-body-1" class="hidden" aria-labelledby="accordion-open-heading-1">
-                    <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                    <div class="p-5 border border-b-0 border-gray-200 text-sm sm:text-base dark:border-gray-700 dark:bg-gray-900">
                         <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of
                             interactive components built on top of Tailwind CSS including buttons, dropdowns, modals,
                             navbars, and more.</p>
@@ -181,7 +179,7 @@
                         class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
                         data-accordion-target="#accordion-open-body-2" aria-expanded="false"
                         aria-controls="accordion-open-body-2">
-                        <span class="flex items-center"><svg class="w-5 h-5 me-2 shrink-0" fill="currentColor"
+                        <span class="flex items-center text-left"><svg class="w-5 h-5 me-2 shrink-0" fill="currentColor"
                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
                                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
@@ -195,7 +193,7 @@
                     </button>
                 </h2>
                 <div id="accordion-open-body-2" class="hidden" aria-labelledby="accordion-open-heading-2">
-                    <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                    <div class="p-5 border border-b-0 text-sm sm:text-base border-gray-200 dark:border-gray-700">
                         <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed
                             using the Figma software so everything you see in the library has a design equivalent in our
                             Figma file.</p>
@@ -209,7 +207,7 @@
                         class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
                         data-accordion-target="#accordion-open-body-3" aria-expanded="false"
                         aria-controls="accordion-open-body-3">
-                        <span class="flex items-center"><svg class="w-5 h-5 me-2 shrink-0" fill="currentColor"
+                        <span class="flex items-center text-left"><svg class="w-5 h-5 me-2 shrink-0" fill="currentColor"
                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
                                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
@@ -223,7 +221,7 @@
                     </button>
                 </h2>
                 <div id="accordion-open-body-3" class="hidden" aria-labelledby="accordion-open-heading-3">
-                    <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
+                    <div class="p-5 border border-t-0 text-sm sm:text-base border-gray-200 dark:border-gray-700">
                         <p class="mb-2 text-gray-500 dark:text-gray-400">The main difference is that the core components
                             from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product.
                             Another difference is that Flowbite relies on smaller and standalone components, whereas
@@ -251,46 +249,46 @@
         <div class="container flex flex-col flex-1 px-10 py-12 mx-auto">
             <div class="flex-1 lg:flex lg:items-center lg:-mx-6">
                 <div class="text-white lg:w-1/2 lg:mx-6">
-                    <h1 class="text-2xl font-semibold capitalize lg:text-3xl">Connect with SkillBridge</h1>
+                    <h1 class="text-2xl font-semibold capitalize lg:text-3xl">Terhubung dengan SkillBridge</h1>
 
-                    <p class="max-w-xl mt-6">
-                        SkillBridge is an innovative platform connecting trainers and trainees in Batam’s fabrication
-                        industry. We use AI technology to match learners with expert mentors, offering personalized
-                        training in welding, fitting, painting, and more. Let’s work together to build a skilled
-                        workforce.
+                    <p class="max-w-xl text-sm sm:text-base mt-6">
+                    SkillBridge adalah platform inovatif yang menghubungkan pelatih dan peserta pelatihan 
+                    di industri fabrikasi Batam. Kami menggunakan teknologi AI untuk mencocokkan pelajar 
+                    dengan mentor ahli, menawarkan pelatihan yang dipersonalisasi dalam bidang pengelasan, pemasangan, 
+                    pengecatan, dan banyak lagi. Mari kita bekerja sama untuk membangun tenaga kerja terampil.
                     </p>
 
                     <button
                         class="px-8 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#337DC1] rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">
-                        get in touch
+                        Hubungi Kami
                     </button>
                 </div>
 
                 <div class="mt-8 lg:w-1/2 lg:mx-6">
                     <div
-                        class="w-full px-8 py-10 mx-auto overflow-hidden bg-white shadow-2xl rounded-xl dark:bg-gray-900 lg:max-w-xl">
-                        <h1 class="text-xl font-medium text-gray-700 dark:text-gray-200">Any Question</h1>
+                        class="w-full px-8 py-6 sm:py-10 mx-auto overflow-hidden bg-white shadow-2xl rounded-xl dark:bg-gray-900 lg:max-w-xl">
+                        <h1 class="text-xl font-medium text-gray-700 dark:text-gray-200">Pertanyaan</h1>
 
-                        <p class="mt-2 text-gray-500 dark:text-gray-400">
-                            Feel free to reach out with any questions or inquiries. We’re here to help!
+                        <p class="mt-2 text-sm sm:text-base text-gray-500 dark:text-gray-400">
+                            Jangan ragu untuk menghubungi kami jika ada pertanyaan atau permintaan, kami siap membantu!
                         </p>
 
-                        <form class="mt-6">
+                        <form class="mt-6 text-sm sm:text-base">
                             <div class="flex-1">
-                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Full Name</label>
+                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Nama lengkap</label>
                                 <input type="text" placeholder="John Doe"
                                     class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                             </div>
 
                             <div class="flex-1 mt-6">
-                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email address</label>
+                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Alamat Email</label>
                                 <input type="email" placeholder="johndoe@example.com"
                                     class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                             </div>
 
                             <button
                                 class="w-full px-6 py-3 mt-6 text-sm font-semibold tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#337DC1] rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">
-                                Contact Us!
+                                Hubungi Kami
                             </button>
                         </form>
                     </div>

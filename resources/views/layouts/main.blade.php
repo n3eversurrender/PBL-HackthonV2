@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
-<body>
+<body class="w-full">
+    
     <!-- Navbar + Image -->
     <nav class="bg-black bg-opacity-30 border-gray-200 dark:bg-black dark:bg-opacity-50 fixed w-full z-10">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{ asset('image/SKILLB.png') }}" class="w-10 h-10 rounded-full" alt="Flowbite Logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">SKILL BRIDGE</span>
@@ -51,25 +52,25 @@
                 </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-transparent md:dark:bg-transparent dark:border-gray-700">
+                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-500 rounded-lg bg-gray-400 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-transparent md:dark:bg-transparent dark:border-gray-700">
                     <li>
                         <a href="/Home" class="{{ request()->is('Home') ? 'bg-blue-700 text-white' : 'text-white' }} block py-2 px-3 rounded md:bg-transparent md:p-0 md:dark:text-blue-500">
-                            Home
+                            Beranda
                         </a>
                     </li>
                     <li>
                         <a href="/TentangKami" class="{{ request()->is('TentangKami') ? 'bg-blue-700 text-white' : 'text-white' }} block py-2 px-3 rounded md:bg-transparent md:p-0 md:dark:text-blue-500">
-                            About
+                            Tentang Kami
                         </a>
                     </li>
                     <li>
                         <a href="/DaftarKursus" class="{{ request()->is('DaftarKursus') ? 'bg-blue-700 text-white' : 'text-white' }} block py-2 px-3 rounded md:bg-transparent md:p-0 md:dark:text-blue-500">
-                            Pricing
+                            Kursus
                         </a>
                     </li>
                     <li>
                         <a href="/Contact" class="{{ request()->is('Contact') ? 'bg-blue-700 text-white' : 'text-white' }} block py-2 px-3 rounded md:bg-transparent md:p-0 md:dark:text-blue-500">
-                            Contact
+                            Kontak
                         </a>
                     </li>
 
@@ -77,13 +78,15 @@
             </div>
         </div>
     </nav>
-    <div class="relative">
-        <img class="h-auto w-screen max-h-[700px] object-cover" src="{{ asset('image/12.webp') }}" alt="Background Main">
-        <div class="absolute left-16 top-1/2 transform -translate-y-1/2 text-white p-2 rounded w-1/2">
-            <h2 class="text-5xl font-bold whitespace-normal">
+    
+    
+    <div class="relative w-full">
+        <img class="h-auto w-full max-h-[700px] object-cover" src="{{ asset('image/12.webp') }}" alt="Background Main">
+        <div class="absolute left-4 sm:left-16 top-36 sm:top-1/2 transform -translate-y-1/2 text-white p-2 rounded w-1/2">
+            <h2 class=" text-xl sm:text-4xl lg:text-5xl font-bold whitespace-normal">
                 Membentuk Keterampilan, Menggerakkan Industri!
             </h2>
-            <a href="/Daftar" class="mt-10 inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
+            <a href="/Daftar" class=" mt-4 sm:mt-10 text-sm sm:text-base inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
                 Daftar Sekarang
             </a>
         </div>
@@ -91,25 +94,26 @@
     <!-- Navbar + Image -->
 
     <!-- Section Block-->
-    <div class="flex justify-between">
-        <div class="flex-1 text-center p-4 font-semibold text-3xl text-[#0F172A]" style="background-color: #F8FAFC; height: 6rem;">
+    <div class="flex justify-between w-full">
+        <div class="flex-1 text-center p-4 font-semibold text-xl sm:text-3xl text-[#0F172A]" style="background-color: #F8FAFC; height: 6rem;">
             250+
-            <p class="text-sm text-[#0F172A]">Courses by our best mentors</p>
+            <p class="text-xs sm:text-sm text-[#0F172A]">Courses by our best mentors</p>
         </div>
-        <div class="flex-1 text-center p-4 font-semibold text-3xl text-[#0F172A] border-l border-gray-300" style="background-color: #F8FAFC; height: 6rem;">
+        <div class="flex-1 text-center p-4 font-semibold text-xl sm:text-3xl text-[#0F172A] border-l border-gray-300" style="background-color: #F8FAFC; height: 6rem;">
             1000+
-            <p class="text-sm text-[#0F172A]">Courses by our best mentors</p>
+            <p class="text-xs sm:text-sm text-[#0F172A]">Courses by our best mentors</p>
         </div>
-        <div class="flex-1 text-center p-4 font-semibold text-3xl text-[#0F172A] border-l border-gray-300" style="background-color: #F8FAFC; height: 6rem;">
+        <div class="flex-1 text-center p-4 font-semibold text-xl sm:text-3xl text-[#0F172A] border-l border-gray-300" style="background-color: #F8FAFC; height: 6rem;">
             250+
-            <p class="text-sm text-[#0F172A]">Courses by our best mentors</p>
+            <p class="text-xs sm:text-sm text-[#0F172A]">Courses by our best mentors</p>
         </div>
-        <div class="flex-1 text-center p-4 font-semibold text-3xl text-[#0F172A] border-l border-gray-300" style="background-color: #F8FAFC; height: 6rem;">
+        <div class="flex-1 text-center p-4 font-semibold text-xl sm:text-3xl text-[#0F172A] border-l border-gray-300" style="background-color: #F8FAFC; height: 6rem;">
             2400+
-            <p class="text-sm text-[#0F172A]">Courses by our best mentors</p>
+            <p class="text-xs sm:text-sm text-[#0F172A]">Courses by our best mentors</p>
         </div>
     </div>
     <!-- Section Block-->
+     
 
     <!-- Main -->
     <div>
@@ -118,12 +122,12 @@
     <!-- Main -->
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-gray-900">
+    <footer class="bg-white md:px-4 dark:bg-gray-900">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between">
                 <div>
-                    <h2 class="mb-6 self-center text-2xl font-semibold whitespace-nowrap">SkillBridge</h2>
-                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                    <h2 class=" mb-3 sm:mb-6 self-center text-2xl font-semibold whitespace-nowrap">SkillBridge</h2>
+                    <ul class="text-gray-500 mb-10 dark:text-gray-400 font-medium">
                         <li class="mb-2 flex items-center">
                             <i class="fas fa-envelope mr-2"></i>
                             <a href="mailto:SkillBridge@gmail.com" class="hover:underline">SkillBridge@gmail.com</a>
@@ -139,9 +143,9 @@
                     </ul>
                 </div>
 
-                <div class="grid grid-cols-2 gap-8 sm:gap-20 sm:grid-cols-3">
+                <div class="grid grid-cols-2 mb-10 gap-8 sm:gap-20 sm:grid-cols-3">
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">HOME</h2>
+                        <h2 class=" mb-2 sm:mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">HOME</h2>
                         <ul class="text-gray-500 dark:text-gray-400 font-medium">
                             <li class="mb-2">
                                 <a href="https://flowbite.com/" class="hover:underline">Benefit</a>
@@ -158,7 +162,7 @@
                         </ul>
                     </div>
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">ABOUT US</h2>
+                        <h2 class="mb-2 sm:mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">ABOUT US</h2>
                         <ul class="text-gray-500 dark:text-gray-400 font-medium">
                             <li class="mb-2">
                                 <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Company</a>
@@ -172,8 +176,8 @@
                         </ul>
                     </div>
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">SOCIAL PROFILE</h2>
-                        <ul class="flex justify-start space-x-5 text-gray-500 dark:text-gray-400 font-medium">
+                        <h2 class=" mb-2 sm:mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">SOCIAL PROFILE</h2>
+                        <ul class="flex justify-start space-x-3 text-gray-500 dark:text-gray-400 font-medium">
                             <li>
                                 <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
