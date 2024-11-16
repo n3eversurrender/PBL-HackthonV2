@@ -126,7 +126,7 @@
                     alt="product image" />
                 <div class="absolute inset-0 bg-black opacity-30 rounded-t-lg"></div>
                 <div class="absolute left-8 sm:left-24 bottom-1/2 transform translate-y-1/2">
-                    <p class="text-white text-4xl sm:text-2xl font-bold mb-5">Bergabunglah dengan SkillBridge</p>
+                    <p class="text-white text-2xl font-bold mb-5">Bergabunglah dengan SkillBridge</p>
                     <a href="#" class="bg-[#337DC1] rounded-lg text-white text-base font-medium text-center px-6 sm:px-4 py-2">Bergabung</a>
                 </div>
             </div>
