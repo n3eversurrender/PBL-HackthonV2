@@ -303,7 +303,7 @@
         <div class="text-2xl px-8 font-bold sm:w-1/3 lg:w-1/4 sm:ml-10 mt-10">
             Apa Kata Pelanggan Kami Tentang Kami
         </div>
-        <div class="flex flex-col items-center mt-10">
+        <div class="flex flex-col lg:mx-12 items-center mt-10">
             <div class="inline-flex mt-2 xs:mt-0">
                 <button class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                     <svg class="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
