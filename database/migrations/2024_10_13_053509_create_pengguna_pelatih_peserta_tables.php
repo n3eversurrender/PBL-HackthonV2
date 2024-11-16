@@ -17,6 +17,7 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->id('admin_id');
             $table->string('username')->unique();
             $table->string('kata_sandi');
+            $table->enum('role', ['admin', 'superadmin'])->default('admin'); // Kolom role dengan pilihan 'admin' atau 'superadmin'
             $table->timestamps();
         });
 

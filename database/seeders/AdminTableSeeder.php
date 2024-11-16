@@ -14,11 +14,31 @@ class AdminTableSeeder extends Seeder
     public function run()
     {
         DB::table('admin')->insert([
-            ['username' => 'admin1', 'kata_sandi' => Hash::make('password1')],
-            ['username' => 'admin2', 'kata_sandi' => Hash::make('password2')],
-            ['username' => 'admin3', 'kata_sandi' => Hash::make('password3')],
-            ['username' => 'admin4', 'kata_sandi' => Hash::make('password4')],
-            ['username' => 'admin5', 'kata_sandi' => Hash::make('password5')],
+            [
+                'username' => 'admin1',
+                'kata_sandi' => Hash::make('password1'),
+                'role' => 'admin'
+            ],
+            [
+                'username' => 'admin2',
+                'kata_sandi' => Hash::make('password2'),
+                'role' => 'admin'
+            ],
+            [
+                'username' => 'admin3',
+                'kata_sandi' => Hash::make('password3'),
+                'role' => 'superadmin'
+            ],
+            [
+                'username' => 'admin4',
+                'kata_sandi' => Hash::make('password4'),
+                'role' => 'admin'
+            ],
+            [
+                'username' => 'admin5',
+                'kata_sandi' => Hash::make('password5'),
+                'role' => 'superadmin'
+            ],
         ]);
     }
 }
