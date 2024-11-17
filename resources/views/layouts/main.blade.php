@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
-<body>
+<body class="w-full">
+    
     <!-- Navbar + Image -->
     <nav class="bg-black bg-opacity-30 border-gray-200 dark:bg-black dark:bg-opacity-50 fixed w-full z-10">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{ asset('image/SKILLB.png') }}" class="w-10 h-10 rounded-full" alt="Flowbite Logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">SKILL BRIDGE</span>
@@ -51,39 +52,41 @@
                 </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-transparent md:dark:bg-transparent dark:border-gray-700">
+                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-500 rounded-lg bg-gray-400 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-transparent md:dark:bg-transparent dark:border-gray-700">
                     <li>
                         <a href="/Home" class="{{ request()->is('Home') ? 'bg-blue-700 text-white' : 'text-white' }} block py-2 px-3 rounded md:bg-transparent md:p-0 md:dark:text-blue-500">
-                            Home
+                            Beranda
                         </a>
                     </li>
                     <li>
                         <a href="/TentangKami" class="{{ request()->is('TentangKami') ? 'bg-blue-700 text-white' : 'text-white' }} block py-2 px-3 rounded md:bg-transparent md:p-0 md:dark:text-blue-500">
-                            About
+                            Tentang Kami
                         </a>
                     </li>
                     <li>
                         <a href="/DaftarKursus" class="{{ request()->is('DaftarKursus') ? 'bg-blue-700 text-white' : 'text-white' }} block py-2 px-3 rounded md:bg-transparent md:p-0 md:dark:text-blue-500">
-                            Pricing
+                            Kursus
                         </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="/Contact" class="{{ request()->is('Contact') ? 'bg-blue-700 text-white' : 'text-white' }} block py-2 px-3 rounded md:bg-transparent md:p-0 md:dark:text-blue-500">
-                            Contact
+                            Kontak
                         </a>
-                    </li>
+                    </li> -->
 
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="relative">
-        <img class="h-auto w-screen max-h-[700px] object-cover" src="{{ asset('image/12.webp') }}" alt="Background Main">
-        <div class="absolute left-16 top-1/2 transform -translate-y-1/2 text-white p-2 rounded w-1/2">
-            <h2 class="text-5xl font-bold whitespace-normal">
+    
+    
+    <div class="relative w-full">
+        <img class="h-auto w-full max-h-[700px] object-cover" src="{{ asset('image/12.webp') }}" alt="Background Main">
+        <div class="absolute left-4 sm:left-16 top-36 sm:top-1/2 transform -translate-y-1/2 text-white p-2 rounded w-1/2">
+            <h2 class=" text-xl sm:text-4xl lg:text-5xl font-bold whitespace-normal">
                 Membentuk Keterampilan, Menggerakkan Industri!
             </h2>
-            <a href="/Daftar" class="mt-10 inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
+            <a href="/Daftar" class=" mt-4 sm:mt-10 text-sm sm:text-base inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
                 Daftar Sekarang
             </a>
         </div>
@@ -91,25 +94,26 @@
     <!-- Navbar + Image -->
 
     <!-- Section Block-->
-    <div class="flex justify-between">
-        <div class="flex-1 text-center p-4 font-semibold text-3xl text-[#0F172A]" style="background-color: #F8FAFC; height: 6rem;">
+    <div class="flex justify-between w-full">
+        <div class="flex-1 text-center p-4 font-semibold text-xl sm:text-3xl text-[#0F172A]" style="background-color: #F8FAFC; height: 6rem;">
             250+
-            <p class="text-sm text-[#0F172A]">Courses by our best mentors</p>
+            <p class="text-xs sm:text-sm text-[#0F172A]">Courses by our best mentors</p>
         </div>
-        <div class="flex-1 text-center p-4 font-semibold text-3xl text-[#0F172A] border-l border-gray-300" style="background-color: #F8FAFC; height: 6rem;">
+        <div class="flex-1 text-center p-4 font-semibold text-xl sm:text-3xl text-[#0F172A] border-l border-gray-300" style="background-color: #F8FAFC; height: 6rem;">
             1000+
-            <p class="text-sm text-[#0F172A]">Courses by our best mentors</p>
+            <p class="text-xs sm:text-sm text-[#0F172A]">Courses by our best mentors</p>
         </div>
-        <div class="flex-1 text-center p-4 font-semibold text-3xl text-[#0F172A] border-l border-gray-300" style="background-color: #F8FAFC; height: 6rem;">
+        <div class="flex-1 text-center p-4 font-semibold text-xl sm:text-3xl text-[#0F172A] border-l border-gray-300" style="background-color: #F8FAFC; height: 6rem;">
             250+
-            <p class="text-sm text-[#0F172A]">Courses by our best mentors</p>
+            <p class="text-xs sm:text-sm text-[#0F172A]">Courses by our best mentors</p>
         </div>
-        <div class="flex-1 text-center p-4 font-semibold text-3xl text-[#0F172A] border-l border-gray-300" style="background-color: #F8FAFC; height: 6rem;">
+        <div class="flex-1 text-center p-4 font-semibold text-xl sm:text-3xl text-[#0F172A] border-l border-gray-300" style="background-color: #F8FAFC; height: 6rem;">
             2400+
-            <p class="text-sm text-[#0F172A]">Courses by our best mentors</p>
+            <p class="text-xs sm:text-sm text-[#0F172A]">Courses by our best mentors</p>
         </div>
     </div>
     <!-- Section Block-->
+     
 
     <!-- Main -->
     <div>
@@ -118,12 +122,12 @@
     <!-- Main -->
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-gray-900">
+    <footer class="bg-white md:px-4 dark:bg-gray-900">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between">
                 <div>
-                    <h2 class="mb-6 self-center text-2xl font-semibold whitespace-nowrap">SkillBridge</h2>
-                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                    <h2 class=" mb-2 sm:mb-6 self-center text-lg sm:text-2xl font-semibold whitespace-nowrap">SkillBridge</h2>
+                    <ul class="text-gray-500 mb-5 sm:mb-10 text-xs sm:text-base dark:text-gray-400 font-medium">
                         <li class="mb-2 flex items-center">
                             <i class="fas fa-envelope mr-2"></i>
                             <a href="mailto:SkillBridge@gmail.com" class="hover:underline">SkillBridge@gmail.com</a>
@@ -139,10 +143,10 @@
                     </ul>
                 </div>
 
-                <div class="grid grid-cols-2 gap-8 sm:gap-20 sm:grid-cols-3">
+                <div class="grid grid-cols-2 mb-10 gap-8 sm:gap-20 sm:grid-cols-3">
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">HOME</h2>
-                        <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                        <h2 class=" mb-2 sm:mb-6 text-xs sm:text-sm font-semibold text-gray-900 uppercase dark:text-white">HOME</h2>
+                        <ul class="text-gray-500 text-xs sm:text-sm dark:text-gray-400 font-medium">
                             <li class="mb-2">
                                 <a href="https://flowbite.com/" class="hover:underline">Benefit</a>
                             </li>
@@ -158,8 +162,8 @@
                         </ul>
                     </div>
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">ABOUT US</h2>
-                        <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                        <h2 class="mb-2 sm:mb-6 text-xs sm:text-sm font-semibold text-gray-900 uppercase dark:text-white">ABOUT US</h2>
+                        <ul class="text-gray-500 text-xs sm:text-sm dark:text-gray-400 font-medium">
                             <li class="mb-2">
                                 <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Company</a>
                             </li>
@@ -172,11 +176,11 @@
                         </ul>
                     </div>
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">SOCIAL PROFILE</h2>
-                        <ul class="flex justify-start space-x-5 text-gray-500 dark:text-gray-400 font-medium">
+                        <h2 class=" mb-2 sm:mb-6 text-xs sm:text-sm font-semibold text-gray-900 uppercase dark:text-white">SOCIAL PROFILE</h2>
+                        <ul class="flex justify-start space-x-3 text-gray-500 dark:text-gray-400 font-medium">
                             <li>
                                 <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+                                    <svg class="w-3 h-3 sm:w-4 sm:h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
                                         <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
                                     </svg>
                                     <span class="sr-only">Facebook page</span>
@@ -184,7 +188,7 @@
                             </li>
                             <li>
                                 <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
+                                    <svg class="w-3 h-3 sm:w-4 sm:h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
                                         <path fill-rule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clip-rule="evenodd" />
                                     </svg>
                                     <span class="sr-only">Twitter page</span>
@@ -192,7 +196,7 @@
                             </li>
                             <li>
                                 <a href="https://www.linkedin.com/in/your-linkedin-username" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-                                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-3 h-3 sm:w-4 sm:h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M20.447 20.452h-3.579v-5.576c0-1.331-.026-3.048-1.856-3.048-1.856 0-2.141 1.447-2.141 2.943v5.681h-3.578V9.18h3.433v1.636h.048c.477-.908 1.648-1.867 3.387-1.867 3.628 0 4.295 2.394 4.295 5.51v6.993zM5.005 8.748c-1.146 0-2.071-.935-2.071-2.077 0-1.14.925-2.073 2.071-2.073 1.139 0 2.073.933 2.073 2.073 0 1.142-.934 2.077-2.073 2.077zm-1.789 11.704h3.579v-12H3.216v12zM22.5 0H1.5C.673 0 0 .673 0 1.5v21c0 .827.673 1.5 1.5 1.5h21c.827 0 1.5-.673 1.5-1.5V1.5C24 .673 23.327 0 22.5 0z" />
                                     </svg>
                                     <span class="sr-only">LinkedIn account</span>
@@ -204,7 +208,7 @@
             </div>
             <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
             <div class="sm:flex sm:items-center w-full justify-center">
-                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">Skillbridge™</a>. All Rights Reserved.</span>
+                <span class="text-xs sm:text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">Skillbridge™</a>. All Rights Reserved.</span>
             </div>
         </div>
     </footer>
