@@ -111,12 +111,12 @@
                                 <span class="ms-3">Kursus Tersedia</span>
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="/DataMateri" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                                 <i class="fas fa-file-alt"></i>
                                 <span class="ms-3">Materi Kursus</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="/PesertaKursus" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                                 <i class="fas fa-users"></i>
@@ -124,23 +124,6 @@
                             </a>
                         </li>
                     </ul>
-                </li>
-
-                <!-- Users -->
-                <li>
-                    <a href="/PengaturanAdmin" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
-                        <span class="fa-solid fa-cog"></span>
-                        <span class="ms-3">Pengaturan</span>
-                    </a>
-                </li>
-
-
-                <!-- Products -->
-                <li>
-                    <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
-                        <i class="fas fa-box"></i>
-                        <span class="ms-3">Products</span>
-                    </a>
                 </li>
 
                 <!-- Sign Out -->

@@ -21,6 +21,7 @@ use App\Http\Controllers\PesanAdminController;
 use App\Http\Controllers\DaftarPelatihanController;
 use App\Http\Controllers\DashboardPelatihController;
 use App\Http\Controllers\DashboardPesertaController;
+use App\Http\Controllers\DataKursusController;
 use App\Http\Controllers\PengaturanPelatihController;
 use App\Http\Controllers\PengaturanPesertaController;
 use App\Http\Controllers\PengelolaanKursusController;
@@ -102,13 +103,16 @@ Route::post('/admin/store', [DataAdminController::class, 'store'])->name('admin.
 Route::put('/DataAdmin/{admin_id}', [DataAdminController::class, 'update'])->name('PengelolaanAdmin.update');
 Route::delete('/DataAdmin/{admin_id}', [DataAdminController::class, 'destroy'])->name('PengelolaanAdmin.destroy');
 
+Route::get('/DataKursus', [DataKursusController::class, 'dataKursus'])->name('DataKursus');
+Route::delete('/kursus/{kursus_id}', [DataKursusController::class, 'destroy'])->name('kursus.destroy');
+
 Route::get('/DataPeserta', [DataPesertaController::class, 'dataPeserta'])->name('DataPeserta');
 Route::delete('/peserta/{pengguna_id}', [DataPesertaController::class, 'destroy'])->name('Peserta.destroy');
 
 Route::get('/DataPelatih', [DataPelatihController::class, 'dataPelatih'])->name('DataPelatih');
 Route::delete('/pelatih/{pengguna_id}', [DataPelatihController::class, 'destroy'])->name('Pelatih.destroy');
 
-Route::get('/DataPembayaran', [DataPembayaranController::class, 'dataPembayaran']);
+// Route::get('/DataPembayaran', [DataPembayaranController::class, 'dataPembayaran']);
 
 Route::get('/DataRiwayatTransaksi', [DataRiwayatTransaksiController::class, 'dataRiwayatTransaksi'])->name('dataRiwayatTransaksi');
 Route::delete('/pembayaran/{pembayaran_id}', [DataRiwayatTransaksiController::class, 'destroy'])->name('pembayaran.destroy');
