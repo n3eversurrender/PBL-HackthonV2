@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}"> <!-- CSRF Token -->
     <title>Daftar</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Tambahkan jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -55,11 +56,18 @@
                 <div class="grid gap-6 mb-6 md:grid-cols-2">
                     <div class="mb-6">
                         <label for="kata_sandi" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Password</label>
-                        <input type="password" id="kata_sandi" name="kata_sandi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="•••••••••" required />
+                        <div class="relative">
+                            <input type="password" id="kata_sandi" name="kata_sandi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-10" placeholder="•••••••••" required />
+                            <i id="togglePassword" class="fas fa-eye absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"></i>
+                        </div>
                     </div>
+
                     <div class="mb-6">
                         <label for="confirm_kata_sandi" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Konfirmasi Password</label>
-                        <input type="password" id="confirm_kata_sandi" name="confirm_kata_sandi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="•••••••••" required />
+                        <div class="relative">
+                            <input type="password" id="confirm_kata_sandi" name="confirm_kata_sandi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-10" placeholder="•••••••••" required />
+                            <i id="toggleConfirmPassword" class="fas fa-eye absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"></i>
+                        </div>
                     </div>
                 </div>
                 <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Kirim</button>
@@ -70,36 +78,52 @@
 
     <script>
         $(document).ready(function() {
+            // Fungsi untuk toggle password visibility
+            $('#togglePassword').on('click', function() {
+                const passwordField = $('#kata_sandi');
+                const type = passwordField.attr('type') === 'password' ? 'text' : 'password';
+                passwordField.attr('type', type);
+
+                // Ganti ikon mata sesuai dengan kondisi
+                $(this).toggleClass('fa-eye fa-eye-slash');
+            });
+
+            $('#toggleConfirmPassword').on('click', function() {
+                const confirmPasswordField = $('#confirm_kata_sandi');
+                const type = confirmPasswordField.attr('type') === 'password' ? 'text' : 'password';
+                confirmPasswordField.attr('type', type);
+
+                // Ganti ikon mata sesuai dengan kondisi
+                $(this).toggleClass('fa-eye fa-eye-slash');
+            });
+
             $('#registerForm').on('submit', function(event) {
                 event.preventDefault(); // Mencegah pengiriman form secara tradisional
 
-                // Validasi password
                 const password = $('#kata_sandi').val();
                 const confirmPassword = $('#confirm_kata_sandi').val();
 
                 if (password !== confirmPassword) {
                     alert('Password dan Konfirmasi Password tidak sama!');
-                    return; // Hentikan eksekusi jika password tidak sama
+                    return;
                 }
 
-                // Ambil data dari form
                 const formData = $(this).serialize();
 
                 $.ajax({
-                    url: "{{ route('pengguna.store') }}", // URL API
+                    url: "{{ route('pengguna.store') }}",
                     type: 'POST',
                     data: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
                     success: function(response) {
-                        // Tanggapan sukses
                         alert('Akun berhasil dibuat!');
-                        // Reset form jika perlu
-                        $('#registerForm')[0].reset();
+                        window.location.href = "{{ route('Masuk') }}"; // Redirect ke halaman login
                     },
                     error: function(xhr) {
-                        // Tangani error
                         let errorMessage = 'Ada kesalahan:\n';
 
-                        // Cek jika ada error response JSON
                         if (xhr.responseJSON && xhr.responseJSON.errors) {
                             const errors = xhr.responseJSON.errors;
                             for (const key in errors) {
@@ -108,12 +132,10 @@
                                 }
                             }
                         } else {
-                            // Jika tidak ada error spesifik, tampilkan pesan umum
                             errorMessage += 'Terjadi kesalahan, silakan coba lagi.';
                         }
 
-                        // Tambahkan log respons lengkap untuk debugging
-                        console.log(xhr.responseText); // Menampilkan respons lengkap di console
+                        console.log(xhr.responseText);
                         alert(errorMessage);
                     }
                 });

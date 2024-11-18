@@ -128,10 +128,13 @@
 
                 <!-- Sign Out -->
                 <li>
-                    <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="ms-3">Sign Out</span>
-                    </a>
+                    <form method="POST" action="{{ route('logout') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                        @csrf
+                        <button type="submit" class="flex items-center">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span class="ms-3">Sign Out</span>
+                        </button>
+                    </form>
                 </li>
             </ul>
         </div>
@@ -142,8 +145,10 @@
     <div class="p-4 sm:ml-64">
         <div class="flex justify-between items-center mb-4">
             <h1 class="text-4xl font-extrabold dark:text-white">
-                Selamat Datang
-                <small class="ms-2 font-semibold text-gray-500 dark:text-gray-400">M Zaini Ridha</small>
+                Selamat Datang Admin
+                <small class="ms-2 font-semibold text-gray-500 dark:text-gray-400">
+                    {{ Auth::user()->username }}
+                </small>
             </h1>
             <div>
                 <img class="w-14 h-14 rounded-full" src="{{ asset('image/9203764.png') }}" alt="Rounded avatar">
@@ -157,6 +162,14 @@
         </div>
     </div>
     <!-- Main -->
+
+    <script>
+        document.querySelector('.sign-out-btn').addEventListener('click', function(event) {
+            if (!confirm('Apakah Anda yakin ingin keluar?')) {
+                event.preventDefault(); // Mencegah logout jika pengguna membatalkan
+            }
+        });
+    </script>
 
     <script>
         function toggleDropdown(dropdownId, arrowIconId) {

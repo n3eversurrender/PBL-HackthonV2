@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Pengguna extends Model
+use Illuminate\Notifications\Notifiable;
+class Pengguna extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     protected $table = 'pengguna';
     protected $primaryKey = 'pengguna_id';
@@ -21,6 +21,9 @@ class Pengguna extends Model
         'kata_sandi',
         'foto_profil',
         'peran'
+    ];
+    protected $hidden = [
+        'kata_sandi',
     ];
 
     public function pelatih()

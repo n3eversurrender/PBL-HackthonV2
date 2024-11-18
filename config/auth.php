@@ -60,15 +60,14 @@ return [
     */
 
     'providers' => [
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class, // Model untuk Admin
+        ],
         'users' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\User::class),
+            'model' => App\Models\Pengguna::class, // Model untuk Pengguna
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*

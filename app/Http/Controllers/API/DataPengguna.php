@@ -16,7 +16,6 @@ class DataPengguna extends Controller
         return response()->json($pengguna);
     }
 
-    // Menyimpan pengguna baru
     public function store(Request $request)
     {
         // Validasi input
@@ -31,6 +30,12 @@ class DataPengguna extends Controller
             'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi foto profil
         ]);
 
+        // Mengecek apakah email sudah ada di database
+        $existingUser = Pengguna::where('email', $request->email)->first();
+        if ($existingUser) {
+            return response()->json(['error' => 'Email sudah terdaftar'], 400);
+        }
+
         // Mengenskripsi kata sandi
         $request['kata_sandi'] = Hash::make($request['kata_sandi']);
 
@@ -43,8 +48,10 @@ class DataPengguna extends Controller
         // Menyimpan pengguna baru
         $pengguna = Pengguna::create($request->only(['nama', 'email', 'no_telepon', 'alamat', 'jenis_kelamin', 'peran', 'kata_sandi', 'foto_profil']));
 
+        // Mengembalikan response JSON jika berhasil
         return response()->json($pengguna, 201);
     }
+
 
     // Menampilkan pengguna berdasarkan ID
     public function show($id)
