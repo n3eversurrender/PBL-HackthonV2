@@ -64,7 +64,7 @@ Route::post('/Masuk', [LoginPenggunaController::class, 'login'])->name('login');
 Route::post('/logout', [LoginPenggunaController::class, 'logout'])->name('logout');
 
 // Route Peserta
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
     Route::get('/DashboardPeserta', [DashboardPesertaController::class, 'dashboardPeserta'])->name('DashboardPeserta');
     Route::get('/Kursus', [KursusController::class, 'Kursus']);
     Route::get('/KursusModul/{id_kursus}', [KursusController::class, 'kursusModul'])->name('kursusModul.show');
@@ -73,9 +73,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/PengaturanPeserta', [PengaturanPesertaController::class, 'pengaturanPeserta']);
     Route::get('/DaftarPelatihan', [DaftarPelatihanController::class, 'daftarPelatihan']);
     Route::delete('/daftar-pelatihan/{pendaftaran_id}', [DaftarPelatihanController::class, 'destroy'])->name('DaftarPelatihan.destroy');
-});
+// });
 
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
     Route::get('/DashboardPelatih', [DashboardPelatihController::class, 'dashboardPelatih'])->name('DashboardPelatih');
     Route::get('/PesanPelatih', [PesanPelatihController::class, 'pesanPelatih']);
     Route::get('/PengaturanPelatih', [PengaturanPelatihController::class, 'pengaturanPelatih']);
@@ -95,7 +95,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/PengelolaanKursus', [PengelolaanKursusController::class, 'store'])->name('PengelolaanKursus.store');
     Route::get('/TambahKursus', [TambahKursusController::class, 'tambahKursus']);
     Route::get('/TambahKurikulum', [TambahKurikulumController::class, 'tambahKurikulum']);
-});
+// });
 
 
 
