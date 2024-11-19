@@ -10,7 +10,6 @@
 </head>
 
 <body class="w-full">
-    
     <!-- Navbar + Image -->
     <nav class="bg-black bg-opacity-30 border-gray-200 dark:bg-black dark:bg-opacity-50 fixed w-full z-10">
         <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -145,19 +144,19 @@
 
                 <div class="grid grid-cols-2 mb-10 gap-8 sm:gap-20 sm:grid-cols-3">
                     <div>
-                        <h2 class=" mb-2 sm:mb-6 text-xs sm:text-sm font-semibold text-gray-900 uppercase dark:text-white">HOME</h2>
+                        <h2 class=" mb-2 sm:mb-6 text-xs sm:text-sm font-semibold text-gray-900 uppercase dark:text-white">Beranda</h2>
                         <ul class="text-gray-500 text-xs sm:text-sm dark:text-gray-400 font-medium">
                             <li class="mb-2">
-                                <a href="https://flowbite.com/" class="hover:underline">Benefit</a>
+                                <a href="https://flowbite.com/" class="hover:underline">Keuntungan</a>
                             </li>
                             <li class="mb-2">
-                                <a href="https://tailwindcss.com/" class="hover:underline">Our Courses</a>
+                                <a href="https://tailwindcss.com/" class="hover:underline">Kursus kami</a>
                             </li>
                             <li class="mb-2">
-                                <a href="https://tailwindcss.com/" class="hover:underline">Our Testimonials</a>
+                                <a href="https://tailwindcss.com/" class="hover:underline">Testimonial Kami</a>
                             </li>
                             <li>
-                                <a href="https://tailwindcss.com/" class="hover:underline">Our FAQ</a>
+                                <a href="https://tailwindcss.com/" class="hover:underline">FAQ Kami</a>
                             </li>
                         </ul>
                     </div>
@@ -165,18 +164,18 @@
                         <h2 class="mb-2 sm:mb-6 text-xs sm:text-sm font-semibold text-gray-900 uppercase dark:text-white">ABOUT US</h2>
                         <ul class="text-gray-500 text-xs sm:text-sm dark:text-gray-400 font-medium">
                             <li class="mb-2">
-                                <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Company</a>
+                                <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Perusahaan</a>
                             </li>
                             <li class="mb-2">
-                                <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Achievements</a>
+                                <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Prestasi</a>
                             </li>
                             <li>
-                                <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Our Goals</a>
+                                <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Tujuan Kami</a>
                             </li>
                         </ul>
                     </div>
                     <div>
-                        <h2 class=" mb-2 sm:mb-6 text-xs sm:text-sm font-semibold text-gray-900 uppercase dark:text-white">SOCIAL PROFILE</h2>
+                        <h2 class=" mb-2 sm:mb-6 text-xs sm:text-sm font-semibold text-gray-900 uppercase dark:text-white">Media Sosial</h2>
                         <ul class="flex justify-start space-x-3 text-gray-500 dark:text-gray-400 font-medium">
                             <li>
                                 <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
