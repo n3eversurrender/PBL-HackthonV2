@@ -200,169 +200,70 @@
 
 
 <!-- review start -->
-<div class=" lg:px-14 px-4">
-  <div class="w-full mt-8 border border-gray-300 rounded-lg">
-    <div class="p-3 lg:p-4 text-lg lg:text-xl font-bold text-gray-700 bg-gray-100 border-b border-gray-300">
-     Tinjauan Kursus
+  <div class="mt-12">
+        <div class="sm:flex justify-center sm:px-12 items-center space-y-4 sm:space-x-8 lg:space-x-14 ">
+            <article class="w-96 h-auto px-10 py-4 bg-white rounded-lg sm:shadow-md dark:bg-gray-800">
+                <div class="flex items-center mb-4">
+                    <img class="w-10 h-10 me-4 rounded-full" src="{{ asset('image/9203764.png') }}" alt="">
+                    <div class="font-medium dark:text-white">
+                        <p>Jese Leos <time datetime="2014-08-16 19:00" class="block text-sm text-gray-500 dark:text-gray-400">Joined on August 2014</time></p>
+                    </div>
+                </div>
+                <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
+                    <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <p>8,5<span class=" ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
+                    <h3 class="ms-2 text-sm font-semibold text-gray-900 dark:text-white">Thinking to buy another one!</h3>
+                </div>
+                <footer class="mb-5 text-sm sm:text-base text-gray-500 dark:text-gray-400">
+                    <p>Reviewed in the United Kingdom on <time datetime="2017-03-03 19:00">March 3, 2017</time></p>
+                </footer>
+                <p class="mb-3 text-gray-500 dark:text-gray-400 text-sm sm:text-base">It is obviously not the same build quality as those very expensive watches. But that is like comparing a Citroën to a Ferrari. This watch was well under £100! An absolute bargain.</p>
+            </article>
+
+            <article class="w-96 h-auto px-10 py-4 bg-white rounded-lg sm:shadow-md dark:bg-gray-800">
+                <div class="flex items-center mb-4">
+                    <img class="w-10 h-10 me-4 rounded-full" src="{{ asset('image/9203764.png') }}" alt="">
+                    <div class="font-medium dark:text-white">
+                        <p>Jese Leos <time datetime="2014-08-16 19:00" class="block text-sm text-gray-500 dark:text-gray-400">Joined on August 2014</time></p>
+                    </div>
+                </div>
+                <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
+                    <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <p>8,5<span class=" ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
+                    <h3 class="ms-2 text-sm font-semibold text-gray-900 dark:text-white">Thinking to buy another one!</h3>
+                </div>
+                <footer class="mb-5 text-sm sm:text-base text-gray-500 dark:text-gray-400">
+                    <p>Reviewed in the United Kingdom on <time datetime="2017-03-03 19:00">March 3, 2017</time></p>
+                </footer>
+                <p class="mb-3 text-gray-500 dark:text-gray-400 text-sm sm:text-base">It is obviously not the same build quality as those very expensive watches. But that is like comparing a Citroën to a Ferrari. This watch was well under £100! An absolute bargain.</p>
+            </article>
+
+            <article class="w-96 h-auto px-10 py-4 bg-white rounded-lg sm:shadow-md dark:bg-gray-800">
+                <div class="flex items-center mb-4">
+                    <img class="w-10 h-10 me-4 rounded-full" src="{{ asset('image/9203764.png') }}" alt="">
+                    <div class="font-medium dark:text-white">
+                        <p>Jese Leos <time datetime="2014-08-16 19:00" class="block text-sm text-gray-500 dark:text-gray-400">Joined on August 2014</time></p>
+                    </div>
+                </div>
+                <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
+                    <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <p>8,5<span class=" ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
+                    <h3 class="ms-2 text-sm font-semibold text-gray-900 dark:text-white">Thinking to buy another one!</h3>
+                </div>
+                <footer class="mb-5 text-sm sm:text-base text-gray-500 dark:text-gray-400">
+                    <p>Reviewed in the United Kingdom on <time datetime="2017-03-03 19:00">March 3, 2017</time></p>
+                </footer>
+                <p class="mb-3 text-gray-500 dark:text-gray-400 text-sm sm:text-base">It is obviously not the same build quality as those very expensive watches. But that is like comparing a Citroën to a Ferrari. This watch was well under £100! An absolute bargain.</p>
+            </article>
+        </div>
     </div>
 
-    <!-- diagram start -->
-    <div class=" border-gray-200 sm:grid sm:grid-cols-2 gap-4 px-4 sm:px-8 py-6 sm:py-14">
-
-      <!-- diagram 1 -->
-      <div class="bg-gray-100 p-4 sm:p-7 cursor-default text-base font-semibold">
-        <h1 class="my-3 text-lg sm:text-xl">Kursus ini cocok untuk</h1>
-        <div class="flex items-center space-x-3 p-4 bg-gray-100 rounded-lg my-8">
-            <!-- Bar indikator -->
-            <div class="flex space-x-1">
-                <!-- Bar aktif -->
-                <div class="w-5 h-12 bg-blue-500 rounded-full"></div>
-                <!-- Bar kosong -->
-                <div class="w-5 h-10 mt-2 border-2 border-blue-500 rounded-full"></div>
-                <div class="w-5 h-8 mt-4 border-2 border-blue-500 rounded-full"></div>
-            </div>
-            
-            <!-- Teks level -->
-            <div class="ml-3">
-                <p class="text-sm sm:text-base font-semibold">Pemula</p>
-                <p class="text-xs sm:text-sm">(Berdasarkan 14 ulasan)</p>
-            </div>
-        </div>
-
-        <p class="my-2 sm:my-3 text-lg lg:text-xl">Paling disukai</p>
-
-        <!-- item 1 -->
-        <div class="py-2 px-4 bg-white rounded-lg flex items-center my-2">
-          <svg class="sm:w-5 w-4 h-4 sm:h-5 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path fill="#e60000" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/>
-          </svg>
-          <p class=" text-red-700 text-xs sm:text-sm">12 <span class="text-black">Materi kursus</span></p>
-        </div>
-
-        <!-- item 2 -->
-        <div class="py-2 px-4 bg-white rounded-lg flex items-center my-2">
-          <svg class="sm:w-5 w-4 h-4 sm:h-5 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path fill="#e60000" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/>
-          </svg>
-          <p class=" text-red-700 text-xs sm:text-sm">12 <span class="text-black">Materi kursus</span></p>
-        </div>
-
-        <!-- item 3 -->
-        <div class="py-2 px-4 bg-white rounded-lg flex items-center my-2">
-          <svg class="sm:w-5 w-4 h-4 sm:h-5 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path fill="#e60000" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/>
-          </svg>
-          <p class=" text-red-700 text-xs sm:text-sm">12 <span class="text-black">Materi kursus</span></p>
-        </div>
-      </div>
-
-      <!-- diagram 2 -->
-      <div class="bg-gray-100 p-5">
-        <div class="max-w-md mx-auto my-4 sm:my-8 p-4 rounded-lg">
-            <h2 class="text-center font-bold text-xl lg:text-2xl mb-4">Hasil yang Diharapkan</h2>
-            <canvas id="myDoughnutChart" width="400" height="400"></canvas>
-        </div>
-      </div>
-
-      <!-- script diagram 2  -->
-      <script>
-        const data = {
-          labels: [
-            'Sesuai',
-            'Tidak Sesuai',
-            'Melebihi'
-          ],
-          datasets: [{
-            label: 'My First Dataset',
-            data: [300, 50, 100],
-            backgroundColor: [
-              'rgb(255, 99, 132)',
-              'rgb(54, 162, 235)',
-              'rgb(255, 205, 86)'
-            ],
-            hoverOffset: 4
-          }]
-        };
-
-        const config = {
-          type: 'doughnut',  // Atur tipe chart sebagai 'doughnut'
-          data: data,
-          options: {
-            responsive: true,
-            plugins: {
-              legend: {
-                position: 'top',
-              },
-            }
-          },
-        };
-
-        // Inisialisasi chart
-        const myDoughnutChart = new Chart(
-          document.getElementById('myDoughnutChart'),
-          config
-        );
-      </script>
-    </div>
-
-    <!-- review start -->
-    <div class=" mt-8 mx-4 sm:mx-8">
-      <!-- review 1 -->
-      <div class="flex items-center mb-4 border rounded-lg border-gray-300 p-3">
-          <img class="w-10 sm:w-12 h-10 sm:h-12 me-4 object-cover rounded-full" src="{{ asset('image/12.webp') }}" alt="">
-          <div class="">
-              <p class="font-bold text-base sm:text-lg mb-1 sm:mb-2">Jese Leos</p>
-              <div class="sm:flex gap-4">
-                <div class=" bg-gray-300 rounded-xl sm:rounded-2xl my-1 py-1 px-3 text-xs sm:text-sm">
-                  <p>Kelas ini <span class="font-bold">Melampaui</span> expetasi saya</p>
-                </div>
-                <div class=" bg-gray-300 rounded-xl sm:rounded-2xl my-1 py-1 px-3 text-xs sm:text-sm">
-                  <p>Kelas ini <span class="font-bold">Melampaui</span> expetasi saya</p>
-                </div>
-              </div>
-          </div>
-      </div>
-      
-      <!-- review 2 -->
-      <div class="flex items-center mb-4 border rounded-lg border-gray-300 p-3">
-          <img class="w-10 sm:w-12 h-10 sm:h-12 me-4 object-cover rounded-full" src="{{ asset('image/12.webp') }}" alt="">
-          <div class="">
-              <p class="font-bold text-base sm:text-lg mb-1 sm:mb-2">Jese Leos</p>
-              <div class="sm:flex gap-4">
-                <div class=" bg-gray-300 rounded-xl sm:rounded-2xl my-1 py-1 px-3 text-xs sm:text-sm">
-                  <p>Kelas ini <span class="font-bold">Melampaui</span> expetasi saya</p>
-                </div>
-                <div class=" bg-gray-300 rounded-xl sm:rounded-2xl my-1 py-1 px-3 text-xs sm:text-sm">
-                  <p>Kelas ini <span class="font-bold">Melampaui</span> expetasi saya</p>
-                </div>
-              </div>
-          </div>
-      </div>
-
-      <!-- review 3 -->
-      <div class="flex items-center mb-4 border rounded-lg border-gray-300 p-3">
-          <img class="w-10 sm:w-12 h-10 sm:h-12 me-4 object-cover rounded-full" src="{{ asset('image/12.webp') }}" alt="">
-          <div class="">
-              <p class="font-bold text-base sm:text-lg mb-1 sm:mb-2">Jese Leos</p>
-              <div class="sm:flex gap-4">
-                <div class=" bg-gray-300 rounded-xl sm:rounded-2xl my-1 py-1 px-3 text-xs sm:text-sm">
-                  <p>Kelas ini <span class="font-bold">Melampaui</span> expetasi saya</p>
-                </div>
-                <div class=" bg-gray-300 rounded-xl sm:rounded-2xl my-1 py-1 px-3 text-xs sm:text-sm">
-                  <p>Kelas ini <span class="font-bold">Melampaui</span> expetasi saya</p>
-                </div>
-              </div>
-              <p class=" text-gray-500 text-xs sm:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque molestias aut corporis laboriosam nihil molestiae modi eaque id praesentium sint nemo aperiam, voluptatibus tenetur qui totam repudiandae inventore illo, sunt labore! Pariatur suscipit error eaque, alias dolorem qui non, atque facilis earum velit temporibus. Incidunt rerum suscipit facilis nisi quas.</p>
-          </div>
-      </div>
-     
-    <!-- review end -->
-    <div class=" flex justify-center mb-5">
-      <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-9 py-2 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Lihat lebih banyak</button>
-    </div>
-   
-  </div>      
-</div>
 <!-- review end -->
 
 <!-- cards featured courses -->
