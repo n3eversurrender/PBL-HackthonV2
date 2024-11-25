@@ -29,7 +29,9 @@
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="px-6 py-4 text-center">{{ $pendaftaran->firstItem() + $loop->iteration - 1 }}</td>
                 <td class="px-6 py-4">{{ $pendaftaranItem->kursus->judul }}</td>
-                <td class="px-6 py-4">{{ $pendaftaranItem->pengguna ? $pendaftaranItem->pengguna->nama : 'Tidak ada pelatih' }}</td>
+                <td class="px-6 py-4">
+                    {{ $pendaftaranItem->kursus->pengguna ? $pendaftaranItem->kursus->pengguna->nama : 'Tidak ada pelatih' }}
+                </td>
                 <td class="px-6 py-4">
                     <div class="flex items-center">
                         <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div>
