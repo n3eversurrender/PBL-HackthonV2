@@ -165,245 +165,41 @@
 
             <!-- Cards Start -->
             <div class="mb-4 grid gap-2 lg:gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3">
-                <!-- card 1 -->
+                @foreach ($kursus as $item)
                 <div class="rounded-lg border border-gray-200 bg-white p-2 lg:p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
                     <div class="object-cover aspect-video">
-                        <img class="w-full rounded-lg h-full" src="{{ asset('image/12.webp') }}" alt="" />
+                        <img class="w-full h-full rounded-lg object-cover"
+                            src="{{ $item->foto_kursus ? asset('storage/' . $item->foto_kursus) : asset('image/Thumnnail.jpg') }}"
+                            alt="{{ $item->judul }}" />
                     </div>
                     <div class="sm:pt-6 cursor-default">
-
-                        <h1 class=" text-base sm:text-xl font-bold leading-tight text-gray-900 my-2  ">Beginner's welding</h1>
-                        <p class=" text-sm sm:text-base mb-2 leading-tight text-gray-900 sm:my-2 ">wahyu sucipto</p>
-
+                        <h1 class="text-base sm:text-xl font-bold leading-tight text-gray-900 my-2">{{ $item->judul }}</h1>
+                        <p class="text-sm sm:text-base mb-2 leading-tight text-gray-900 sm:my-2">
+                            {{ $item->pengguna ? $item->pengguna->nama : 'Nama Tidak Ditemukan' }}
+                        </p>
                         <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
                             <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
                                 <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                             </svg>
-                            <p class="text-xs sm:text-sm">8,5<span class=" ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
+                            <p class="text-xs sm:text-sm">{{ $item->rating }}<span class="ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
                         </div>
 
-                        <p href="#" class=" text-xs sm:text-base mb-2 leading-tight text-gray-900 ">Batam</p>
-                        <p class="text-xs mb-2 sm:mb-5 font-semibold">Status : <span class=" text-blue-600">Kursus Aktif</span> </p>
-                        <p href="#" class="text-base sm:text-xl mb-5 font-bold leading-tight text-gray-900 ">Rp.20.000.000</p>
-
+                        <p href="#" class="text-xs sm:text-base mb-2 leading-tight text-gray-900">{{ $item->lokasi }}</p>
+                        <p class="text-xs mb-2 sm:mb-5 font-semibold">Status:
+                            <span class="{{ $item->status == 'aktif' ? 'text-blue-600' : 'text-red-600' }}">
+                                {{ ucfirst($item->status) }}
+                            </span>
+                        </p>
+                        <p href="#" class="text-base sm:text-xl mb-5 font-bold leading-tight text-gray-900">Rp.{{ number_format($item->harga, 0, ',', '.') }}</p>
 
                         <div class="flex justify-end">
-                            <a href="/CoursePage" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                            <a href="/CoursePage/{{ $item->kursus_id }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                                 Lihat Detail
                             </a>
                         </div>
                     </div>
                 </div>
-
-                <!-- card 2 -->
-                <div class="rounded-lg border border-gray-200 bg-white p-2 lg:p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-                    <div class="object-cover aspect-video">
-                        <img class="w-full rounded-lg h-full" src="{{ asset('image/12.webp') }}" alt="" />
-                    </div>
-                    <div class="sm:pt-6 cursor-default">
-
-                        <h1 class=" text-base sm:text-xl font-bold leading-tight text-gray-900 my-2  ">Beginner's welding</h1>
-                        <p class=" text-sm sm:text-base mb-2 leading-tight text-gray-900 sm:my-2 ">wahyu sucipto</p>
-
-                        <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
-                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                            </svg>
-                            <p class="text-xs sm:text-sm">8,5<span class=" ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
-                        </div>
-
-                        <p href="#" class=" text-xs sm:text-base mb-2 leading-tight text-gray-900 ">Batam</p>
-                        <p class="text-xs mb-2 sm:mb-5 font-semibold">Status : <span class=" text-blue-600">Kursus Aktif</span> </p>
-                        <p href="#" class="text-base sm:text-xl mb-5 font-bold leading-tight text-gray-900 ">Rp.20.000.000</p>
-
-
-                        <div class="flex justify-end">
-                            <a href="/CoursePage" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                                Lihat Detail
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- card 3 -->
-                <div class="rounded-lg border border-gray-200 bg-white p-2 lg:p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-                    <div class="object-cover aspect-video">
-                        <img class="w-full rounded-lg h-full" src="{{ asset('image/12.webp') }}" alt="" />
-                    </div>
-                    <div class="sm:pt-6 cursor-default">
-
-                        <h1 class=" text-base sm:text-xl font-bold leading-tight text-gray-900 my-2  ">Beginner's welding</h1>
-                        <p class=" text-sm sm:text-base mb-2 leading-tight text-gray-900 sm:my-2 ">wahyu sucipto</p>
-
-                        <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
-                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                            </svg>
-                            <p class="text-xs sm:text-sm">8,5<span class=" ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
-                        </div>
-
-                        <p href="#" class=" text-xs sm:text-base mb-2 leading-tight text-gray-900 ">Batam</p>
-                        <p class="text-xs mb-2 sm:mb-5 font-semibold">Status : <span class=" text-blue-600">Kursus Aktif</span> </p>
-                        <p href="#" class="text-base sm:text-xl mb-5 font-bold leading-tight text-gray-900 ">Rp.20.000.000</p>
-
-
-                        <div class="flex justify-end">
-                            <a href="/CoursePage" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                                Lihat Detail
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- card 4 -->
-                <div class="rounded-lg border border-gray-200 bg-white p-2 lg:p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-                    <div class="object-cover aspect-video">
-                        <img class="w-full rounded-lg h-full" src="{{ asset('image/12.webp') }}" alt="" />
-                    </div>
-                    <div class="sm:pt-6 cursor-default">
-
-                        <h1 class=" text-base sm:text-xl font-bold leading-tight text-gray-900 my-2  ">Beginner's welding</h1>
-                        <p class=" text-sm sm:text-base mb-2 leading-tight text-gray-900 sm:my-2 ">wahyu sucipto</p>
-
-                        <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
-                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                            </svg>
-                            <p class="text-xs sm:text-sm">8,5<span class=" ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
-                        </div>
-
-                        <p href="#" class=" text-xs sm:text-base mb-2 leading-tight text-gray-900 ">Batam</p>
-                        <p class="text-xs mb-2 sm:mb-5 font-semibold">Status : <span class=" text-blue-600">Kursus Aktif</span> </p>
-                        <p href="#" class="text-base sm:text-xl mb-5 font-bold leading-tight text-gray-900 ">Rp.20.000.000</p>
-
-
-                        <div class="flex justify-end">
-                            <a href="/CoursePage" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                                Lihat Detail
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- card 5 -->
-                <div class="rounded-lg border border-gray-200 bg-white p-2 lg:p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-                    <div class="object-cover aspect-video">
-                        <img class="w-full rounded-lg h-full" src="{{ asset('image/12.webp') }}" alt="" />
-                    </div>
-                    <div class="sm:pt-6 cursor-default">
-
-                        <h1 class=" text-base sm:text-xl font-bold leading-tight text-gray-900 my-2  ">Beginner's welding</h1>
-                        <p class=" text-sm sm:text-base mb-2 leading-tight text-gray-900 sm:my-2 ">wahyu sucipto</p>
-
-                        <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
-                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                            </svg>
-                            <p class="text-xs sm:text-sm">8,5<span class=" ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
-                        </div>
-
-                        <p href="#" class=" text-xs sm:text-base mb-2 leading-tight text-gray-900 ">Batam</p>
-                        <p class="text-xs mb-2 sm:mb-5 font-semibold">Status : <span class=" text-blue-600">Kursus Aktif</span> </p>
-                        <p href="#" class="text-base sm:text-xl mb-5 font-bold leading-tight text-gray-900 ">Rp.20.000.000</p>
-
-
-                        <div class="flex justify-end">
-                            <a href="/CoursePage" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                                Lihat Detail
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- card 6 -->
-                <div class="rounded-lg border border-gray-200 bg-white p-2 lg:p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-                    <div class="object-cover aspect-video">
-                        <img class="w-full rounded-lg h-full" src="{{ asset('image/12.webp') }}" alt="" />
-                    </div>
-                    <div class="sm:pt-6 cursor-default">
-
-                        <h1 class=" text-base sm:text-xl font-bold leading-tight text-gray-900 my-2  ">Beginner's welding</h1>
-                        <p class=" text-sm sm:text-base mb-2 leading-tight text-gray-900 sm:my-2 ">wahyu sucipto</p>
-
-                        <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
-                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                            </svg>
-                            <p class="text-xs sm:text-sm">8,5<span class=" ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
-                        </div>
-
-                        <p href="#" class=" text-xs sm:text-base mb-2 leading-tight text-gray-900 ">Batam</p>
-                        <p class="text-xs mb-2 sm:mb-5 font-semibold">Status : <span class=" text-blue-600">Kursus Aktif</span> </p>
-                        <p href="#" class="text-base sm:text-xl mb-5 font-bold leading-tight text-gray-900 ">Rp.20.000.000</p>
-
-
-                        <div class="flex justify-end">
-                            <a href="/CoursePage" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                                Lihat Detail
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- card 7 -->
-                <div class="rounded-lg border border-gray-200 bg-white p-2 lg:p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-                    <div class="object-cover aspect-video">
-                        <img class="w-full rounded-lg h-full" src="{{ asset('image/12.webp') }}" alt="" />
-                    </div>
-                    <div class="sm:pt-6 cursor-default">
-
-                        <h1 class=" text-base sm:text-xl font-bold leading-tight text-gray-900 my-2  ">Beginner's welding</h1>
-                        <p class=" text-sm sm:text-base mb-2 leading-tight text-gray-900 sm:my-2 ">wahyu sucipto</p>
-
-                        <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
-                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                            </svg>
-                            <p class="text-xs sm:text-sm">8,5<span class=" ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
-                        </div>
-
-                        <p href="#" class=" text-xs sm:text-base mb-2 leading-tight text-gray-900 ">Batam</p>
-                        <p class="text-xs mb-2 sm:mb-5 font-semibold">Status : <span class=" text-blue-600">Kursus Aktif</span> </p>
-                        <p href="#" class="text-base sm:text-xl mb-5 font-bold leading-tight text-gray-900 ">Rp.20.000.000</p>
-
-
-                        <div class="flex justify-end">
-                            <a href="/CoursePage" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                                Lihat Detail
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- card 8 -->
-                <div class="rounded-lg border border-gray-200 bg-white p-2 lg:p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-                    <div class="object-cover aspect-video">
-                        <img class="w-full rounded-lg h-full" src="{{ asset('image/12.webp') }}" alt="" />
-                    </div>
-                    <div class="sm:pt-6 cursor-default">
-
-                        <h1 class=" text-base sm:text-xl font-bold leading-tight text-gray-900 my-2  ">Beginner's welding</h1>
-                        <p class=" text-sm sm:text-base mb-2 leading-tight text-gray-900 sm:my-2 ">wahyu sucipto</p>
-
-                        <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
-                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                            </svg>
-                            <p class="text-xs sm:text-sm">8,5<span class=" ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
-                        </div>
-
-                        <p href="#" class=" text-xs sm:text-base mb-2 leading-tight text-gray-900 ">Batam</p>
-                        <p class="text-xs mb-2 sm:mb-5 font-semibold">Status : <span class=" text-blue-600">Kursus Aktif</span> </p>
-                        <p href="#" class="text-base sm:text-xl mb-5 font-bold leading-tight text-gray-900 ">Rp.20.000.000</p>
-
-
-                        <div class="flex justify-end">
-                            <a href="/CoursePage" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                                Lihat Detail
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
     </section>
 
