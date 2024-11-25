@@ -20,13 +20,11 @@ class DataPesertaController extends Controller
 
     public function destroy($id)
     {
-        // Cari peserta berdasarkan id
         $peserta = Pengguna::findOrFail($id);
 
-        // Hapus peserta
         $peserta->delete();
 
-        // Redirect atau kembali ke halaman sebelumnya
-        return redirect()->route('DataPeserta')->with('success', 'Peserta berhasil dihapus.');
+        return redirect()->back()->with('success', 'Peserta berhasil dihapus.');
     }
+    
 }

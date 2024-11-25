@@ -9,23 +9,40 @@ class DataPelatihController extends Controller
 {
     public function dataPelatih()
     {
-        $pelatihList = Pengguna::where('peran', 'Pelatih')->paginate(10);
-        
+        $pelatihList = Pengguna::where('peran', 'Pelatih')
+            ->with('pelatih') // Mengambil data relasi pelatih
+            ->paginate(10);
+
         return view('Admin.DataPelatih', [
             'pelatihList' => $pelatihList,
         ]);
     }
 
-    // Menghapus pelatih
-    public function destroy($id)
+    public function update($pengguna_id, Request $request)
     {
-        // Cari pelatih berdasarkan id
-        $pelatih = Pengguna::findOrFail($id);
+        // Validasi input
+        $validated = $request->validate([
+            'status' => 'required|in:Aktif,Tidak Aktif',
+        ]);
 
-        // Hapus pelatih
+        // Cari pengguna berdasarkan pengguna_id
+        $pelatih = Pengguna::findOrFail($pengguna_id);
+
+        // Update status pengguna
+        $pelatih->status = $validated['status'];
+        $pelatih->save();
+
+        // Redirect dengan pesan sukses
+        return redirect()->back()->with('success', 'Status pelatih berhasil diupdate');
+    }
+
+    // Menghapus pelatih
+    public function destroy($pengguna_id)
+    {
+        $pelatih = Pengguna::findOrFail($pengguna_id);
+
         $pelatih->delete();
 
-        // Redirect kembali ke halaman daftar pelatih dengan pesan sukses
-        return redirect()->route('DataPelatih')->with('success', 'Pelatih berhasil dihapus.');
+        return redirect()->back()->with('success', 'Pelatih berhasil dihapus.');
     }
 }

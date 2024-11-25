@@ -19,10 +19,10 @@
             <tr>
                 <th scope="col" class="px-6 py-3 text-center">No</th>
                 <th scope="col" class="px-6 py-3">Name</th>
-                <th scope="col" class="px-6 py-3">Jenis Kelamin</th>
                 <th scope="col" class="px-6 py-3">No Telepon</th>
                 <th scope="col" class="px-6 py-3">Alamat</th>
                 <th scope="col" class="px-6 py-3">Peran</th>
+                <th scope="col" class="px-6 py-3">Status</th>
                 <th scope="col" class="px-6 py-3">Action</th>
             </tr>
         </thead>
@@ -39,17 +39,129 @@
                         </div>
                     </div>
                 </td>
-                <td class="px-6 py-4">{{ $peserta->jenis_kelamin }}</td>
-                <td class="px-6 py-4">{{ $peserta->no_telepon }}</td>
-                <td class="px-6 py-4">{{ $peserta->alamat }}</td>
+                <td class="px-6 py-4">
+                    <a href="https://wa.me/{{ $peserta->no_telepon }}" target="_blank" class="text-blue-500 hover:underline">
+                        {{ $peserta->no_telepon }}
+                    </a>
+                </td>
+                <td class="px-6 py-4 truncate max-w-24">{{ $peserta->alamat }}</td>
                 <td class="px-6 py-4">{{ $peserta->peran }}</td>
                 <td class="px-6 py-4">
+                    @if($peserta->status == 'Aktif')
+                    <span class="inline-flex items-center bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                        <span class="w-2 h-2 me-1 bg-green-500 rounded-full"></span>
+                        Aktif
+                    </span>
+                    @elseif($peserta->status == 'Tidak Aktif')
+                    <span class="inline-flex items-center bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">
+                        <span class="w-2 h-2 me-1 bg-red-500 rounded-full"></span>
+                        Tidak Aktif
+                    </span>
+                    @else
+                    <span class="inline-flex items-center bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-gray-900 dark:text-gray-300">
+                        <span class="w-2 h-2 me-1 bg-gray-500 rounded-full"></span>
+                        No Status
+                    </span>
+                    @endif
+                </td>
+                <td class="px-6 py-4">
+                    <button type="button" data-modal-target="my_modal_view_{{ $peserta->pengguna_id }}" data-modal-toggle="my_modal_view_{{ $peserta->pengguna_id }}" class="font-medium text-green-600 dark:text-green-500 hover:text-green-700 dark:hover:text-green-400 my-1 mr-2">
+                        <i class="fas fa-eye"></i> Lihat
+                    </button>
                     <!-- Tombol Hapus -->
                     <button type="button" data-modal-target="my_modal_delete_{{ $peserta->pengguna_id }}" data-modal-toggle="my_modal_delete_{{ $peserta->pengguna_id }}" class="font-medium text-red-600 dark:text-red-500 hover:text-red-700 dark:hover:text-red-400">
                         <i class="fas fa-trash"></i> Hapus
                     </button>
                 </td>
             </tr>
+
+
+            <!-- Modal Lihat peserta -->
+            <div id="my_modal_view_{{ $peserta->pengguna_id }}" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                <div class="relative p-4 w-full max-w-md max-h-full">
+                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                Detail peserta
+                            </h3>
+                            <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="my_modal_view_{{ $peserta->pengguna_id }}">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                </svg>
+                                <span class="sr-only">Tutup modal</span>
+                            </button>
+                        </div>
+                        <div class="p-4 md:p-5 bg-white dark:bg-gray-800">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <img class="w-16 h-16 rounded-full" src="{{ asset($peserta->foto_profil ?? 'image/9203764.png') }}" alt="{{ $peserta->nama }}">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white">{{ $peserta->nama }}</h4>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">{{ $peserta->email }}</p>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-700 dark:text-gray-300 space-y-2">
+                                <div class="space-y-2">
+                                    <div class="flex items-start space-x-2">
+                                        <p class="w-32 font-semibold">Jenis Kelamin</p>:
+                                        <p>{{ $peserta->jenis_kelamin }}</p>
+                                    </div>
+                                    <div class="flex items-start space-x-2">
+                                        <p class="w-32 font-semibold">No Telepon</p>:
+                                        <p><a href="https://wa.me/{{ $peserta->no_telepon }}" target="_blank" class="text-blue-500 hover:underline">{{ $peserta->no_telepon }}</a></p>
+                                    </div>
+                                    <div class="flex items-start space-x-2">
+                                        <p class="w-32 font-semibold">Alamat</p>:
+                                        <p>{{ $peserta->alamat }}</p>
+                                    </div>
+
+                                    <div class="flex items-start space-x-2">
+                                        <p class="w-32 font-semibold">Peran</p>:
+                                        <p>{{ $peserta->peran }}</p>
+                                    </div>
+                                    <div class="flex items-start space-x-2">
+                                        <p class="w-32 font-semibold">Status</p>:
+                                        <p>
+                                            @if($peserta->status == 'Aktif')
+                                            <span class="inline-flex items-center bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                                                <span class="w-2 h-2 me-1 bg-green-500 rounded-full"></span>
+                                                Aktif
+                                            </span>
+                                            @elseif($peserta->status == 'Tidak Aktif')
+                                            <span class="inline-flex items-center bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">
+                                                <span class="w-2 h-2 me-1 bg-red-500 rounded-full"></span>
+                                                Tidak Aktif
+                                            </span>
+                                            @else
+                                            <span class="inline-flex items-center bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-gray-900 dark:text-gray-300">
+                                                <span class="w-2 h-2 me-1 bg-gray-500 rounded-full"></span>
+                                                No Status
+                                            </span>
+                                            @endif
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="relative my-6">
+                                    <hr class="border-gray-300 dark:border-gray-600">
+                                    <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-3 text-sm font-medium text-gray-500 dark:bg-gray-800 dark:text-gray-400">
+                                        Informasi Lainnya
+                                    </span>
+                                    <hr class="border-gray-300 dark:border-gray-600">
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex items-start space-x-2">
+                                        <p class="w-32 font-semibold">Pengalaman</p>:
+                                        <p>{{ $peserta->peserta->pengalaman_kerja ?? 'Tidak ada data' }} tahun</p>
+                                    </div>
+                                    <div class="flex items-start space-x-2">
+                                        <p class="w-32 font-semibold">Keahlian</p>:
+                                        <p>{{ $peserta->peserta->nama_keahlian ?? 'Tidak ada data' }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Modal Hapus Peserta -->
             <div id="my_modal_delete_{{ $peserta->pengguna_id }}" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
