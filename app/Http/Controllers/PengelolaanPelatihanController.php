@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kursus;
 use App\Models\Pendaftaran;
 use App\Models\Pengguna;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 
@@ -12,8 +13,11 @@ class PengelolaanPelatihanController extends Controller
 {
     public function pengelolaanPelatihan()
     {
-        // Paginate the Kursus data
-        $kursus = Kursus::paginate(10); // Adjust the number as needed
+        $id = Auth::id(); // Ambil ID pengguna yang sedang login
+
+        // Ambil data kursus yang hanya terkait dengan pengguna yang sedang login
+        $kursus = Kursus::where('pengguna_id', $id)
+            ->paginate(10); // Sesuaikan jumlah per halaman jika diperlukan
 
         return view('pelatih.PengelolaanPelatihan', [
             'kursus' => $kursus,
@@ -22,24 +26,30 @@ class PengelolaanPelatihanController extends Controller
 
     public function pengelolaanPelatihanDetail($kursus_id)
     {
-        $kursus = Kursus::find($kursus_id);
+        $id = Auth::id(); // Ambil ID pengguna yang sedang login
+
+        // Pastikan kursus yang diminta terkait dengan pelatih yang sedang login
+        $kursus = Kursus::where('kursus_id', $kursus_id)
+            ->where('pengguna_id', $id)
+            ->first();
 
         if (!$kursus) {
-            return redirect()->route('kursus.index');
+            // Redirect jika kursus tidak ditemukan atau bukan milik pelatih
+            return redirect()->route('pelatih.PengelolaanPelatihan')->withErrors('Kursus tidak ditemukan atau Anda tidak memiliki akses.');
         }
 
+        // Ambil pengguna yang mendaftar untuk kursus tertentu
         $pengguna = Pengguna::whereHas('pendaftaran', function ($query) use ($kursus_id) {
             $query->where('kursus_id', $kursus_id);
         })->get();
 
-        // Apply pagination to the pendaftaran query
+        // Ambil data pendaftaran dengan paginasi
         $pendaftaran = Pendaftaran::where('kursus_id', $kursus_id)
             ->whereIn('pengguna_id', $pengguna->pluck('pengguna_id'))
-            ->paginate(10);  // Adjust the number of items per page if needed
+            ->paginate(10); // Sesuaikan jumlah per halaman jika diperlukan
 
         return view('pelatih.PengelolaanPelatihanDetail', compact('kursus', 'pengguna', 'pendaftaran'));
     }
-
 
     public function destroy($pendaftaran_id)
     {

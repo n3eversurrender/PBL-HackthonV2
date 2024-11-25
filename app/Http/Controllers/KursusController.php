@@ -4,31 +4,40 @@ namespace App\Http\Controllers;
 
 use App\Models\Kurikulum;
 use App\Models\Kursus;
+use App\Models\Pendaftaran;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class KursusController extends Controller
 {
     public function Kursus()
     {
-        // Fetch kursus data with pagination (5 items per page)
-        $kursus = Kursus::paginate(5);
+        $id = Auth::id(); // Ambil ID pengguna yang sedang login
+
+        // Ambil pendaftaran yang terkait dengan pengguna yang sedang login
+        $pendaftaran = Pendaftaran::with(['kursus']) // Hanya muat relasi kursus
+            ->where('pengguna_id', $id) // Filter berdasarkan peserta yang login
+            ->paginate(10); // Paginate dengan ukuran 10 per halaman
 
         return view('peserta.Kursus', [
-            'kursus' => $kursus,
+            'pendaftaran' => $pendaftaran,
         ]);
     }
 
+
     public function kursusModul($id_kursus)
     {
-        // Mengambil data kursus berdasarkan id_kursus
-        $kursus = Kursus::findOrFail($id_kursus);
+        // Ambil kursus berdasarkan id_kursus dan muat relasi kurikulum
+        $kursus = Kursus::with('kurikulum')->findOrFail($id_kursus);
 
-        // Mengambil data kurikulum yang berhubungan dengan kursus
-        $kurikulum = Kurikulum::where('kursus_id', $id_kursus)->get();
-
-        // Mengirimkan data kursus dan kurikulum ke view
-        return view('peserta.KursusModul', compact('kursus', 'kurikulum'));
+        // Kirim data kursus dan kurikulum ke view
+        return view('peserta.KursusModul', [
+            'kursus' => $kursus,
+            'kurikulum' => $kursus->kurikulum // Mengirimkan kurikulum ke view
+        ]);
     }
+
+
 
     public function kursusMateri()
     {

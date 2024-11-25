@@ -29,7 +29,11 @@
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="px-6 py-4">{{ $kursus->firstItem() + $loop->iteration - 1 }}</td>
                 <td class="px-6 py-4">{{ $item->judul }}</td>
-                <td class="px-6 py-4">{{ $item->jadwal }}</td>
+                <td class="px-6 py-4">
+                    {{ \Carbon\Carbon::parse($item->tgl_mulai)->format('d M Y') }}
+                    <strong>s/d</strong>
+                    {{ \Carbon\Carbon::parse($item->tgl_selesai)->format('d M Y') }}
+                </td>
                 <td class="px-6 py-4">
                     <div class="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">
                         <div class="bg-green-600 h-1.5 rounded-full dark:bg-green-500" style="width: 45%"></div>

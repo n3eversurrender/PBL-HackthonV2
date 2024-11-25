@@ -6,6 +6,7 @@ use App\Models\Kursus;
 use App\Models\Sertifikat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log; // Untuk logging
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator; // Jika validasi manual digunakan
 
 class PengelolaanSertifikatController extends Controller
@@ -13,22 +14,25 @@ class PengelolaanSertifikatController extends Controller
     // Menampilkan daftar sertifikat dengan paginasi
     public function pengelolaanSertifikat()
     {
-        $sertifikat = Sertifikat::paginate(10); // Ambil data sertifikat dengan paginasi
+        // Ambil semua sertifikat tanpa eager loading
+        $sertifikat = Sertifikat::paginate(10);
 
         return view('pelatih.PengelolaanSertifikat', [
-            'sertifikat' => $sertifikat
+            'sertifikat' => $sertifikat,
         ]);
     }
+
 
     // Menampilkan form untuk menambahkan sertifikat
     public function tambahSertifikat()
     {
-        // Ambil semua kursus dari database
-        $kursus = Kursus::all();
+        $id = Auth::id();
 
-        // Kirim data kursus ke view
+        $kursus = Kursus::where('pengguna_id', $id)->get();
+
         return view('pelatih.TambahSertifikat', compact('kursus'));
     }
+
 
     // Menyimpan sertifikat baru ke database
     public function store(Request $request)

@@ -37,7 +37,7 @@
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="px-3 py-3">{{ $kursus->firstItem() + $loop->iteration - 1 }}</td>
                 <td class="px-3 py-3">{{ $kursusItem->judul }}</td>
-                <td class="px-3 py-3">{{ $kursusItem->harga }}</td>
+                <td class="px-3 py-3">Rp {{ number_format($kursusItem->harga, 0, ',', '.') }}</td>
                 <td class="px-3 py-3">{{ $kursusItem->tingkat_kesulitan }}</td>
                 <td class="px-3 py-3">{{ $kursusItem->status }}</td>
                 <td class="px-3 py-3">{{ $kursusItem->tgl_mulai }}</td>
@@ -75,7 +75,6 @@
                             @method('PUT')
                             <div class="p-4 md:p-5 bg-white dark:bg-gray-800 rounded-lg shadow-lg space-y-4">
                                 <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Edit Informasi Kursus</h2>
-
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label for="judul" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Judul</label>

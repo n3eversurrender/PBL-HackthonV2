@@ -100,8 +100,6 @@
                             @csrf
                             @method('PUT')
                             <div class="p-4 md:p-5 bg-white dark:bg-gray-800 rounded-lg shadow-lg space-y-4">
-                                <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Pilih Status Pendaftaran</h2>
-
                                 <div class="grid grid-cols-1 gap-4">
                                     <div>
                                         <label for="status_pendaftaran" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Status</label>

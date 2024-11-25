@@ -10,7 +10,7 @@
             <div class="px-2">
                 <p class="mt-5 font-bold text-xl sm:text-3xl">Platform Lengkap untuk Penguasaan Pengelasan dan Fabrikasi</p>
                 <span class=" text-xs sm:text-sm text-[#0F172A] w-1/3">
-                Bergabunglah dengan platform utama kami yang menghubungkan Anda dengan mentor berperingkat teratas di bidang pengelasan dan fabrikasi. Lacak kemajuan Anda secara real-time dan terima wawasan yang dipersonalisasi yang disesuaikan dengan kebutuhan pembelajaran Anda. Dengan teknologi AI yang canggih, platform kami menawarkan rekomendasi khusus untuk membantu Anda mempertajam keterampilan Anda secara efektif. Baik Anda seorang pemula atau ingin meningkatkan keahlian Anda, Anda akan mendapatkan manfaat dari pelatihan terstruktur dan umpan balik yang berharga untuk unggul dalam industri fabrikasi. Semua ini dapat diakses dalam satu platform ramah pengguna yang dirancang untuk kesuksesan Anda.
+                    Bergabunglah dengan platform utama kami yang menghubungkan Anda dengan mentor berperingkat teratas di bidang pengelasan dan fabrikasi. Lacak kemajuan Anda secara real-time dan terima wawasan yang dipersonalisasi yang disesuaikan dengan kebutuhan pembelajaran Anda. Dengan teknologi AI yang canggih, platform kami menawarkan rekomendasi khusus untuk membantu Anda mempertajam keterampilan Anda secara efektif. Baik Anda seorang pemula atau ingin meningkatkan keahlian Anda, Anda akan mendapatkan manfaat dari pelatihan terstruktur dan umpan balik yang berharga untuk unggul dalam industri fabrikasi. Semua ini dapat diakses dalam satu platform ramah pengguna yang dirancang untuk kesuksesan Anda.
                 </span>
             </div>
         </div>
@@ -27,28 +27,28 @@
         </div>
 
         <div class="bg-white text-center px-8 py-6 sm:p-6"">
-            <div class="relative inline-flex mb-3 items-center justify-center w-12 h-12 bg-[#337DC1] rounded-lg cursor-pointer">
-                <i class="fa-solid fa-chart-line text-white text-2xl"></i>
-            </div>
-            <p class="text-xl sm:text-2xl font-semibold text-[#0F172A]">Melacak Kemajuan Anda</p>
-            <span class="text-xs sm:text-sm text-[#0F172A] w-1/3">Pantau pencapaian Anda secara real-time dengan alat intuitif kami yang membantu Anda tetap mencapai tujuan Anda</span>
+            <div class=" relative inline-flex mb-3 items-center justify-center w-12 h-12 bg-[#337DC1] rounded-lg cursor-pointer">
+            <i class="fa-solid fa-chart-line text-white text-2xl"></i>
         </div>
+        <p class="text-xl sm:text-2xl font-semibold text-[#0F172A]">Melacak Kemajuan Anda</p>
+        <span class="text-xs sm:text-sm text-[#0F172A] w-1/3">Pantau pencapaian Anda secara real-time dengan alat intuitif kami yang membantu Anda tetap mencapai tujuan Anda</span>
+    </div>
 
-        <div class="bg-white text-center px-8 py-6 sm:p-6"">
-            <div class="relative inline-flex mb-3 items-center justify-center w-12 h-12 bg-[#337DC1] rounded-lg cursor-pointer">
-                <i class="fa-solid fa-user-tie text-white text-2xl"></i>
-            </div>
-            <p class="text-xl sm:text-2xl font-semibold text-[#0F172A]">Mentor dengan Nilai Tertinggi</p>
-            <span class="text-xs sm:text-sm text-[#0F172A] w-1/3">Belajar dari yang terbaik di bidangnya, dengan akses ke mentor yang dinilai tinggi oleh siswa atas keahlian dan pengajaran mereka</span>
-        </div>
+    <div class="bg-white text-center px-8 py-6 sm:p-6"">
+            <div class=" relative inline-flex mb-3 items-center justify-center w-12 h-12 bg-[#337DC1] rounded-lg cursor-pointer">
+        <i class="fa-solid fa-user-tie text-white text-2xl"></i>
+    </div>
+    <p class="text-xl sm:text-2xl font-semibold text-[#0F172A]">Mentor dengan Nilai Tertinggi</p>
+    <span class="text-xs sm:text-sm text-[#0F172A] w-1/3">Belajar dari yang terbaik di bidangnya, dengan akses ke mentor yang dinilai tinggi oleh siswa atas keahlian dan pengajaran mereka</span>
+    </div>
 
-        <div class="bg-white text-center px-8 py-6 sm:p-6"">
-            <div class="relative inline-flex mb-3 items-center justify-center w-12 h-12 bg-[#337DC1] rounded-lg cursor-pointer">
-                <i class="fa-solid fa-braille text-white text-2xl"></i>
-            </div>
-            <p class="text-xl sm:text-2xl font-semibold text-[#0F172A]">Saran saya</p>
-            <span class="text-xs sm:text-sm text-[#0F172A] w-1/3">Dapatkan rekomendasi yang dipersonalisasi dan didukung oleh AI untuk mengoptimalkan perjalanan pembelajaran Anda dan meningkatkan kinerja</span>
-        </div>
+    <div class="bg-white text-center px-8 py-6 sm:p-6"">
+            <div class=" relative inline-flex mb-3 items-center justify-center w-12 h-12 bg-[#337DC1] rounded-lg cursor-pointer">
+        <i class="fa-solid fa-braille text-white text-2xl"></i>
+    </div>
+    <p class="text-xl sm:text-2xl font-semibold text-[#0F172A]">Saran saya</p>
+    <span class="text-xs sm:text-sm text-[#0F172A] w-1/3">Dapatkan rekomendasi yang dipersonalisasi dan didukung oleh AI untuk mengoptimalkan perjalanan pembelajaran Anda dan meningkatkan kinerja</span>
+    </div>
     </div>
 </section>
 
@@ -193,10 +193,10 @@
 <div class="container mx-auto p-5 sm:p-10">
     <div class="sm:flex">
         <div class="sm:w-1/2 p-4">
-        <h2 class="font-extrabold text-2xl mb-2 sm:text-3xl">Pertanyaan yang sering diajukan</h2>
+            <h2 class="font-extrabold text-2xl mb-2 sm:text-3xl">Pertanyaan yang sering diajukan</h2>
             <span class="text-sm text-[#0F172A] w-1/3">Bagian FAQ kami menawarkan jawaban cepat
-                 tentang kursus pengelasan kami, yang mencakup topik seperti durasi, sertifikasi, 
-                 dan materi yang dibutuhkan. Untuk hal lain, jangan ragu untuk menghubungi kami!</span>
+                tentang kursus pengelasan kami, yang mencakup topik seperti durasi, sertifikasi,
+                dan materi yang dibutuhkan. Untuk hal lain, jangan ragu untuk menghubungi kami!</span>
         </div>
         <div class="sm:w-1/2 p-4 ">
             <div id="accordion-open" data-accordion="open">
@@ -323,67 +323,45 @@
 
     <div class="pb-10">
         <div class="sm:flex justify-center sm:px-12 items-center space-y-4 sm:space-x-8 lg:space-x-14 ">
+            @foreach ($data as $umpan_balik)
             <article class="w-96 h-auto px-10 py-4 bg-white rounded-lg sm:shadow-md dark:bg-gray-800">
                 <div class="flex items-center mb-4">
                     <img class="w-10 h-10 me-4 rounded-full" src="{{ asset('image/9203764.png') }}" alt="">
                     <div class="font-medium dark:text-white">
-                        <p>Jese Leos <time datetime="2014-08-16 19:00" class="block text-sm text-gray-500 dark:text-gray-400">Joined on August 2014</time></p>
+                        <p>{{ $umpan_balik->nama_komentar }} <time datetime="2014-08-16 19:00" class="block text-sm text-gray-500 dark:text-gray-400">Joined on August 2014</time></p>
                     </div>
                 </div>
-                <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
-                    <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                    </svg>
-                    <p>8,5<span class=" ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
-                    <h3 class="ms-2 text-sm font-semibold text-gray-900 dark:text-white">Thinking to buy another one!</h3>
-                </div>
-                <footer class="mb-5 text-sm sm:text-base text-gray-500 dark:text-gray-400">
-                    <p>Reviewed in the United Kingdom on <time datetime="2017-03-03 19:00">March 3, 2017</time></p>
-                </footer>
-                <p class="mb-3 text-gray-500 dark:text-gray-400 text-sm sm:text-base">It is obviously not the same build quality as those very expensive watches. But that is like comparing a Citroën to a Ferrari. This watch was well under £100! An absolute bargain.</p>
+                <p class="mb-3 mt-3 text-gray-500 dark:text-gray-400 text-sm sm:text-base text-justify">
+                    {{ $umpan_balik->komentar }}
+                </p>
             </article>
-
-            <article class="w-96 h-auto px-10 py-4 bg-white rounded-lg sm:shadow-md dark:bg-gray-800">
-                <div class="flex items-center mb-4">
-                    <img class="w-10 h-10 me-4 rounded-full" src="{{ asset('image/9203764.png') }}" alt="">
-                    <div class="font-medium dark:text-white">
-                        <p>Jese Leos <time datetime="2014-08-16 19:00" class="block text-sm text-gray-500 dark:text-gray-400">Joined on August 2014</time></p>
-                    </div>
-                </div>
-                <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
-                    <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                    </svg>
-                    <p>8,5<span class=" ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
-                    <h3 class="ms-2 text-sm font-semibold text-gray-900 dark:text-white">Thinking to buy another one!</h3>
-                </div>
-                <footer class="mb-5 text-sm sm:text-base text-gray-500 dark:text-gray-400">
-                    <p>Reviewed in the United Kingdom on <time datetime="2017-03-03 19:00">March 3, 2017</time></p>
-                </footer>
-                <p class="mb-3 text-gray-500 dark:text-gray-400 text-sm sm:text-base">It is obviously not the same build quality as those very expensive watches. But that is like comparing a Citroën to a Ferrari. This watch was well under £100! An absolute bargain.</p>
-            </article>
-
-            <article class="w-96 h-auto px-10 py-4 bg-white rounded-lg sm:shadow-md dark:bg-gray-800">
-                <div class="flex items-center mb-4">
-                    <img class="w-10 h-10 me-4 rounded-full" src="{{ asset('image/9203764.png') }}" alt="">
-                    <div class="font-medium dark:text-white">
-                        <p>Jese Leos <time datetime="2014-08-16 19:00" class="block text-sm text-gray-500 dark:text-gray-400">Joined on August 2014</time></p>
-                    </div>
-                </div>
-                <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
-                    <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                    </svg>
-                    <p>8,5<span class=" ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
-                    <h3 class="ms-2 text-sm font-semibold text-gray-900 dark:text-white">Thinking to buy another one!</h3>
-                </div>
-                <footer class="mb-5 text-sm sm:text-base text-gray-500 dark:text-gray-400">
-                    <p>Reviewed in the United Kingdom on <time datetime="2017-03-03 19:00">March 3, 2017</time></p>
-                </footer>
-                <p class="mb-3 text-gray-500 dark:text-gray-400 text-sm sm:text-base">It is obviously not the same build quality as those very expensive watches. But that is like comparing a Citroën to a Ferrari. This watch was well under £100! An absolute bargain.</p>
-            </article>
+            @endforeach
         </div>
     </div>
 
 
     @endsection
+
+
+    <!-- <div class="pb-10">
+        <div class="sm:flex justify-center sm:px-12 items-center space-y-4 sm:space-x-8 lg:space-x-14 ">
+            <article class="w-96 h-auto px-10 py-4 bg-white rounded-lg sm:shadow-md dark:bg-gray-800">
+                <div class="flex items-center mb-4">
+                    <img class="w-10 h-10 me-4 rounded-full" src="{{ asset('image/9203764.png') }}" alt="">
+                    <div class="font-medium dark:text-white">
+                        <p>Jese Leos <time datetime="2014-08-16 19:00" class="block text-sm text-gray-500 dark:text-gray-400">Joined on August 2014</time></p>
+                    </div>
+                </div>
+                <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
+                    <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <p>8,5<span class=" ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
+                    <h3 class="ms-2 text-sm font-semibold text-gray-900 dark:text-white">Thinking to buy another one!</h3>
+                </div>
+                <p class="mb-3 mt-3 text-gray-500 dark:text-gray-400 text-sm sm:text-base" style="text-align: justify;">
+                    It is obviously not the same build quality as those very expensive watches. But that is like comparing a Citroën to a Ferrari. This watch was well under £100! An absolute bargain.
+                </p>
+            </article>
+        </div>
+    </div> -->

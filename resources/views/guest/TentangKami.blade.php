@@ -2,15 +2,12 @@
 
 @section('Main')
 
-<!--Section Block-->
 <div class="container mx-auto sm:py-10 sm:px-5">
     <div class="flex flex-col lg:flex-row items-center lg:items-start bg-white rounded-lg p-6">
-        <!-- Image Section -->
         <div class="w-full lg:w-1/2 p-4">
             <img src="{{ asset('image/1234.png') }}" alt="Welder Image" class="rounded-lg  object-cover" />
         </div>
 
-        <!-- Text Section -->
         <div class="w-full lg:w-1/2 p-4">
             <h2 class="text-xl sm:text-3xl font-extrabold mb-2 text-gray-800">Siapa Kita?</h2>
             <p class="text-gray-600 mb-4 text-sm sm:text-base text-justify">
@@ -23,12 +20,11 @@
     </div>
 </div>
 <section>
-    <!-- Row 1: Satu kolom -->
     <div class="bg-white">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto sm:px-8 max-w-5xl lg:text-center">
                 <h1 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 ">Fitur SkillBridge yang Akan Anda Manfaatkan</h1>
-                <p class="mt-3 sm:mt-5 text-base sm:text-lg leading-8 text-gray-600">Temukan keuntungan utama yang akan meningkatkan peluang 
+                <p class="mt-3 sm:mt-5 text-base sm:text-lg leading-8 text-gray-600">Temukan keuntungan utama yang akan meningkatkan peluang
                     pembelajaran dan karier Anda melalui SkillBridge.</p>
             </div>
 
@@ -46,8 +42,8 @@
                             </div>
                             Rekomendasi Pelatihan yang Didukung AI
                         </dt>
-                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Teknologi AI kami mengevaluasi 
-                            tingkat keahlian dan tujuan karier Anda untuk memberikan rekomendasi kursus yang dipersonalisasi, 
+                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Teknologi AI kami mengevaluasi
+                            tingkat keahlian dan tujuan karier Anda untuk memberikan rekomendasi kursus yang dipersonalisasi,
                             memastikan jalur pembelajaran yang disesuaikan dalam pengelasan, pemasangan, dan pengecatan.</dd>
                     </div>
                     <div class="relative pl-16">
@@ -62,8 +58,8 @@
                             </div>
                             Pelatih Berpengalaman
                         </dt>
-                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Dapatkan akses ke jaringan 
-                            profesional berpengalaman dari industri terkemuka di Batam. Para mentor ini memberikan pelatihan langsung, 
+                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Dapatkan akses ke jaringan
+                            profesional berpengalaman dari industri terkemuka di Batam. Para mentor ini memberikan pelatihan langsung,
                             berbagi wawasan industri, dan membimbing Anda untuk menguasai keterampilan fabrikasi.</dd>
                     </div>
                     <div class="relative pl-16">
@@ -78,8 +74,8 @@
                             </div>
                             Jalur Pembelajaran yang Fleksibel
                         </dt>
-                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Baik Anda seorang 
-                            pemula atau yang sudah maju dalam karier Anda, SkillBridge menawarkan opsi pembelajaran fleksibel 
+                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Baik Anda seorang
+                            pemula atau yang sudah maju dalam karier Anda, SkillBridge menawarkan opsi pembelajaran fleksibel
                             yang sesuai dengan jadwal Anda. Anda dapat belajar sesuai keinginan Anda, dengan konten yang dirancang untuk berbagai tingkat keahlian.</dd>
                     </div>
                     <div class="relative pl-16">
@@ -94,8 +90,8 @@
                             </div>
                             Kurikulum yang Selaras dengan Industri
                         </dt>
-                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Kursus kami dirancang 
-                            berdasarkan kebutuhan industri fabrikasi di Batam saat ini, memastikan bahwa Anda memperoleh 
+                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Kursus kami dirancang
+                            berdasarkan kebutuhan industri fabrikasi di Batam saat ini, memastikan bahwa Anda memperoleh
                             keterampilan yang paling dibutuhkan untuk unggul di pasar kerja.</dd>
                     </div>
                 </dl>
@@ -111,7 +107,7 @@
             Pimpin Jalan dengan SkillBridge
         </h2>
         <p class="mt-4 px-6 text-base sm:text-lg text-gray-500 mb-8">
-            Bergabunglah dengan platform kami untuk membentuk masa depan tenaga kerja terampil. 
+            Bergabunglah dengan platform kami untuk membentuk masa depan tenaga kerja terampil.
             Bagikan keahlian Anda, terhubung dengan orang lain, dan bantu membangun tenaga kerja yang lebih kuat di Batam.
         </p>
     </div>
@@ -140,8 +136,8 @@
         <div class="sm:w-1/2 p-4">
             <h2 class="font-extrabold text-2xl mb-2 sm:text-3xl">Pertanyaan yang sering diajukan</h2>
             <span class="text-sm text-[#0F172A] w-1/3">Bagian FAQ kami menawarkan jawaban cepat
-                 tentang kursus pengelasan kami, yang mencakup topik seperti durasi, sertifikasi, 
-                 dan materi yang dibutuhkan. Untuk hal lain, jangan ragu untuk menghubungi kami!</span>
+                tentang kursus pengelasan kami, yang mencakup topik seperti durasi, sertifikasi,
+                dan materi yang dibutuhkan. Untuk hal lain, jangan ragu untuk menghubungi kami!</span>
         </div>
         <div class="sm:w-1/2 p-4 ">
             <div id="accordion-open" data-accordion="open">
@@ -252,10 +248,10 @@
                     <h1 class="text-2xl font-semibold capitalize lg:text-3xl">Terhubung dengan SkillBridge</h1>
 
                     <p class="max-w-xl text-sm sm:text-base mt-6">
-                    SkillBridge adalah platform inovatif yang menghubungkan pelatih dan peserta pelatihan 
-                    di industri fabrikasi Batam. Kami menggunakan teknologi AI untuk mencocokkan pelajar 
-                    dengan mentor ahli, menawarkan pelatihan yang dipersonalisasi dalam bidang pengelasan, pemasangan, 
-                    pengecatan, dan banyak lagi. Mari kita bekerja sama untuk membangun tenaga kerja terampil.
+                        SkillBridge adalah platform inovatif yang menghubungkan pelatih dan peserta pelatihan
+                        di industri fabrikasi Batam. Kami menggunakan teknologi AI untuk mencocokkan pelajar
+                        dengan mentor ahli, menawarkan pelatihan yang dipersonalisasi dalam bidang pengelasan, pemasangan,
+                        pengecatan, dan banyak lagi. Mari kita bekerja sama untuk membangun tenaga kerja terampil.
                     </p>
 
                     <button
@@ -273,22 +269,23 @@
                             Jangan ragu untuk menghubungi kami jika ada pertanyaan atau permintaan, kami siap membantu!
                         </p>
 
-                        <form class="mt-6 text-sm sm:text-base">
+                        <form method="POST" action="{{ route('umpan_balik.store') }}" class="mt-6 text-sm sm:text-base">
+                            @csrf
                             <div class="flex-1">
-                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Nama lengkap</label>
-                                <input type="text" placeholder="John Doe"
-                                    class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                <label for="nama_komentar" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Nama</label>
+                                <input id="nama_komentar" name="nama_komentar" type="text" placeholder="John Doe"
+                                    class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required />
                             </div>
 
                             <div class="flex-1 mt-6">
-                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Alamat Email</label>
-                                <input type="email" placeholder="johndoe@example.com"
-                                    class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                <label for="komentar" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Komentar</label>
+                                <textarea id="komentar" name="komentar" placeholder="Your comment here..."
+                                    class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required></textarea>
                             </div>
 
-                            <button
+                            <button type="submit"
                                 class="w-full px-6 py-3 mt-6 text-sm font-semibold tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#337DC1] rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">
-                                Hubungi Kami
+                                Kirim
                             </button>
                         </form>
                     </div>
