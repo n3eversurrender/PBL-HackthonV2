@@ -9,12 +9,15 @@ class PesertaSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('peserta')->insert([
-            ['pengguna_id' => 2, 'pendidikan' => 'S1 Teknik Informatika', 'pengalaman_kerja' => '1 tahun di startup'],
-            ['pengguna_id' => 3, 'pendidikan' => 'S1 Desain Grafis', 'pengalaman_kerja' => 'Magang 6 bulan di agensi'],
-            ['pengguna_id' => 5, 'pendidikan' => 'SMA', 'pengalaman_kerja' => 'Freelancer selama 2 tahun'],
-            ['pengguna_id' => 1, 'pendidikan' => 'S2 Pendidikan', 'pengalaman_kerja' => '3 tahun sebagai guru'],
-            ['pengguna_id' => 4, 'pendidikan' => 'S1 Psikologi', 'pengalaman_kerja' => '1 tahun di perusahaan HR'],
-        ]);
+        $keahlian = ['Programming', 'Design', 'Marketing', 'Writing', 'Management'];
+        for ($i = 0; $i < 10; $i++) {
+            DB::table('peserta')->insert([
+                'pengguna_id' => rand(1, 5), // Random pengguna_id between 1 and 5
+                'pengalaman_kerja' => rand(0, 10), // Random pengalaman kerja (0-10 years)
+                'nama_keahlian' => $keahlian[array_rand($keahlian)], // Random keahlian
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

@@ -18,15 +18,14 @@ class DatabaseSeeder extends Seeder
             AdminTableSeeder::class,
             PenggunaSeeder::class,
             PelatihSeeder::class,
-            SpesialisasiSeeder::class,
             PesertaSeeder::class,
-            KeahlianSeeder::class,
             KursusSeeder::class,
             KurikulumSeeder::class,
             PendaftaranSeeder::class,
             PembayaranSeeder::class,
             SertifikatSeeder::class,
             RatingPelatihSeeder::class,
+            UmpanBalikSeeder::class,
         ]);
     }
 }

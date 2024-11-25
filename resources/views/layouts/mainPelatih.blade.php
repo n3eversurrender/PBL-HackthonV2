@@ -8,7 +8,6 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
     @vite(['resources/js/Waktu.js'])
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 </head>
 
 <body>
@@ -45,6 +44,13 @@
                 </li>
 
                 <li>
+                    <a href="/PengelolaanKurikulum" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                        <i class="fas fa-book"></i>
+                        <span class="ms-3">Pengelolaan Kurikulum</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="/PengelolaanPelatihan" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                         <i class="fas fa-chalkboard-teacher"></i>
                         <span class="ms-3">Pengelolaan Pelatihan</span>
@@ -76,7 +82,7 @@
 
                 <!-- Sign Out -->
                 <li>
-                    <form method="POST" action="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                    <form method="POST" action="{{ route('logoutPelatih') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                         @csrf
                         <button type="submit" class="flex items-center">
                             <i class="fas fa-sign-out-alt"></i>
@@ -93,8 +99,10 @@
     <div class="p-4 sm:ml-64">
         <div class="flex justify-between items-center mb-4">
             <h1 class="text-4xl font-extrabold dark:text-white">
-                Selamat Datang
-                <small class="ms-2 font-semibold text-gray-500 dark:text-gray-400">M Zaini Ridha</small>
+                Selamat Datang Pelatih
+                <small class="ms-2 font-semibold text-gray-500 dark:text-gray-400">
+                {{ Auth::user()->nama }}
+                </small>
             </h1>
             <div>
                 <img class="w-14 h-14 rounded-full" src="{{ asset('image/9203764.png') }}" alt="Rounded avatar">
@@ -108,6 +116,14 @@
         </div>
     </div>
     <!-- Main -->
+
+    <script>
+        document.querySelector('.sign-out-btn').addEventListener('click', function(event) {
+            if (!confirm('Apakah Anda yakin ingin keluar?')) {
+                event.preventDefault(); // Mencegah logout jika pengguna membatalkan
+            }
+        });
+    </script>
 
 </body>
 

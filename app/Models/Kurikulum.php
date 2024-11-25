@@ -13,11 +13,15 @@ class Kurikulum extends Model
     protected $primaryKey = 'kurikulum_id';
 
     protected $fillable = [
-        'kursus_id', 'nama_topik', 'deskripsi', 'durasi', 'materi'
+        'kursus_id',
+        'nama_topik',
+        'deskripsi',
+        'durasi',
+        'materi'
     ];
 
     public function kursus()
     {
-        return $this->belongsTo(Kursus::class, 'kursus_id');
+        return $this->belongsTo(Kursus::class, 'kursus_id', 'kursus_id');
     }
 }

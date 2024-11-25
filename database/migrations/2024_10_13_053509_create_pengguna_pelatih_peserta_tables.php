@@ -32,6 +32,7 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->string('kata_sandi');
             $table->string('foto_profil')->nullable();
             $table->enum('peran', ['Pelatih', 'Peserta']);
+            $table->enum('status', ['Aktif', 'Tidak Aktif'])->nullable();
             $table->timestamps();
         });
 
@@ -39,18 +40,10 @@ class CreatePenggunaPelatihPesertaTables extends Migration
         Schema::create('pelatih', function (Blueprint $table) {
             $table->id('pelatih_id');
             $table->unsignedBigInteger('pengguna_id')->nullable();
+            $table->integer('pengalaman_kerja')->nullable();
+            $table->string('nama_spesialisasi')->nullable();
+            $table->string('file_sertifikasi')->nullable();
             $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
-            $table->integer('pengalaman_kerja');
-            $table->enum('status', ['Aktif', 'Tidak Aktif'])->default('Tidak Aktif');
-            $table->timestamps();
-        });
-
-        // Tabel spesialisasi
-        Schema::create('spesialisasi', function (Blueprint $table) {
-            $table->id('spesialisasi_id');
-            $table->unsignedBigInteger('pelatih_id')->nullable();
-            $table->string('nama_spesialisasi');
-            $table->foreign('pelatih_id')->references('pelatih_id')->on('pelatih')->onDelete('cascade');
             $table->timestamps();
         });
 
@@ -58,18 +51,9 @@ class CreatePenggunaPelatihPesertaTables extends Migration
         Schema::create('peserta', function (Blueprint $table) {
             $table->id('peserta_id');
             $table->unsignedBigInteger('pengguna_id')->nullable();
+            $table->integer('pengalaman_kerja')->nullable();
+            $table->string('nama_keahlian')->nullable();
             $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
-            $table->string('pendidikan')->nullable();
-            $table->text('pengalaman_kerja')->nullable();
-            $table->timestamps();
-        });
-
-        // Tabel keahlian
-        Schema::create('keahlian', function (Blueprint $table) {
-            $table->id('keahlian_id');
-            $table->unsignedBigInteger('peserta_id')->nullable();
-            $table->string('nama_keahlian');
-            $table->foreign('peserta_id')->references('peserta_id')->on('peserta')->onDelete('cascade');
             $table->timestamps();
         });
 
@@ -172,7 +156,7 @@ class CreatePenggunaPelatihPesertaTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('umpan_balik'); // Dropping umpan_balik table first
+        Schema::dropIfExists('umpan_balik'); 
         Schema::dropIfExists('sertifikat');
         Schema::dropIfExists('pembayaran');
         Schema::dropIfExists('pendaftaran');

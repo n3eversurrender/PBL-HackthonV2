@@ -15,28 +15,28 @@ class AdminTableSeeder extends Seeder
     {
         DB::table('admin')->insert([
             [
-                'username' => 'admin1',
-                'kata_sandi' => Hash::make('password1'),
+                'username' => 'admin',
+                'kata_sandi' => Hash::make('123123123'),
                 'role' => 'admin'
             ],
             [
                 'username' => 'admin2',
-                'kata_sandi' => Hash::make('password2'),
+                'kata_sandi' => Hash::make('123123123'),
                 'role' => 'admin'
             ],
             [
                 'username' => 'admin3',
-                'kata_sandi' => Hash::make('password3'),
+                'kata_sandi' => Hash::make('123123123'),
                 'role' => 'superadmin'
             ],
             [
                 'username' => 'admin4',
-                'kata_sandi' => Hash::make('password4'),
+                'kata_sandi' => Hash::make('123123123'),
                 'role' => 'admin'
             ],
             [
                 'username' => 'admin5',
-                'kata_sandi' => Hash::make('password5'),
+                'kata_sandi' => Hash::make('123123123'),
                 'role' => 'superadmin'
             ],
         ]);

@@ -50,7 +50,6 @@
                     </a>
                 </li>
 
-
                 <!-- Data Pengguna -->
                 <li>
                     <button onclick="toggleDropdown('dropdownPengguna', 'arrowIconPengguna')" class="flex items-center w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
@@ -124,6 +123,20 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+
+                <li>
+                    <a href="/DataSertifikat" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                        <i class="fas fa-certificate"></i>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Data Sertifikat</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/DataUmpanBalik" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                        <i class="fas fa-comments"></i> <!-- Ikon untuk Data Umpan Balik -->
+                        <span class="flex-1 ms-3 whitespace-nowrap">Data Umpan Balik</span>
+                    </a>
                 </li>
 
                 <!-- Sign Out -->
