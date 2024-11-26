@@ -13,7 +13,7 @@ class Pelatih extends Model
     protected $primaryKey = 'pelatih_id';
 
     protected $fillable = [
-        'pengguna_id', 'pengalaman_kerja', 'nama_spesialisasi', 'status'
+        'pengguna_id', 'tahun_pengalaman', 'bulan_pengalaman', 'nama_spesialisasi', 'status'
     ];
 
     public function pengguna()

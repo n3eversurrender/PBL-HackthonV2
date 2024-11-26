@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Keahlian;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Pengguna;
 use App\Models\Peserta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 
 class PengaturanPesertaController extends Controller
@@ -41,28 +41,38 @@ class PengaturanPesertaController extends Controller
             'alamat' => 'nullable|string|max:255',
             'kata_sandi' => 'nullable|string|min:6',
             'jenis_kelamin' => 'required|string|in:Laki-laki,Perempuan',
+            'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
         ]);
 
-        // Mendapatkan ID pengguna yang sedang login
         $id = Auth::id();
 
-        // Ambil data pengguna berdasarkan ID
         $pengguna = Pengguna::find($id);
 
-        // Update data pengguna
         $pengguna->nama = $request->nama;
         $pengguna->no_telepon = $request->no_telepon;
         $pengguna->alamat = $request->alamat;
         $pengguna->jenis_kelamin = $request->jenis_kelamin;
 
-        // Perbarui password hanya jika diisi
         if (!empty($request->kata_sandi)) {
             $pengguna->kata_sandi = bcrypt($request->kata_sandi);
         }
 
-        $pengguna->save(); // Simpan perubahan ke database
+        if ($request->hasFile('foto_profil')) {
+            try {
+                $photo = $request->file('foto_profil');
 
-        // Redirect kembali dengan pesan sukses
+
+                $photoPath = $photo->store('foto_profil', 'public');
+                $pengguna->foto_profil = basename($photoPath);
+
+                Log::info("Profile photo uploaded successfully for user ID: {$id}. Photo path: {$photoPath}");
+            } catch (\Exception $e) {
+                Log::error("Error uploading profile photo for user ID: {$id}. Error: {$e->getMessage()}");
+            }
+        }
+
+        $pengguna->save();
+
         return redirect()->back()->with('success', 'Data berhasil diperbarui.');
     }
 
@@ -70,7 +80,8 @@ class PengaturanPesertaController extends Controller
     {
         // Validasi input
         $validatedData = $request->validate([
-            'pengalaman_kerja' => 'nullable|integer',
+            'tahun_pengalaman' => 'nullable|integer|min:0',
+            'bulan_pengalaman' => 'nullable|integer|min:0|max:11',
             'nama_keahlian' => 'nullable|string|max:255',
         ]);
 
@@ -82,7 +93,8 @@ class PengaturanPesertaController extends Controller
         // Membuat instance peserta baru
         $peserta = new Peserta();
         $peserta->pengguna_id = $pengguna_id;
-        $peserta->pengalaman_kerja = $pengalaman_kerja;
+        $peserta->tahun_pengalaman = $validatedData['tahun_pengalaman'] ?? 0;
+        $peserta->bulan_pengalaman = $validatedData['bulan_pengalaman'] ?? 0;
         $peserta->nama_keahlian = $validatedData['nama_keahlian'] ?? null; // Mengganti field nama_spesialisasi menjadi nama_keahlian
         $peserta->save();
 
@@ -92,15 +104,17 @@ class PengaturanPesertaController extends Controller
     public function updatePesertaKeahlian(Request $request, $peserta_id)
     {
         $request->validate([
-            'pengalaman_kerja' => 'required|integer|min:0',
-            'nama_keahlian' => 'required|string|max:255', // Ganti dari nama_spesialisasi ke nama_keahlian
+            'tahun_pengalaman' => 'required|integer|min:0', 
+            'bulan_pengalaman' => 'required|integer|min:0|max:11',
+            'nama_keahlian' => 'required|string|max:255', 
         ]);
 
         // Cari peserta berdasarkan ID
         $peserta = Peserta::findOrFail($peserta_id);
 
         // Update pengalaman kerja dan nama keahlian
-        $peserta->pengalaman_kerja = $request->input('pengalaman_kerja');
+        $peserta->tahun_pengalaman = $request->input('tahun_pengalaman');
+        $peserta->bulan_pengalaman = $request->input('bulan_pengalaman');
         $peserta->nama_keahlian = $request->input('nama_keahlian');
 
         // Simpan perubahan ke database

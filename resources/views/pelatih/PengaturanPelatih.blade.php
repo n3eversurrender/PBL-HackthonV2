@@ -4,13 +4,15 @@
 
 <!-- content start -->
 <section class="bg-white dark:bg-gray-900">
-    <form action="{{ route('pelatih.update') }}" method="POST" class="pb-2 pt-2 px-4">
+    <form action="{{ route('pelatih.update') }}" method="POST" class="pb-2 pt-2 px-4" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
         <div class="flex mb-2">
             <div>
-                <img class="w-16 h-16 rounded-full" src="{{ asset('image/9203764.png') }}" alt="Rounded avatar">
+                <img class="w-16 h-16 rounded-full object-cover"
+                    src="{{ $pengguna->foto_profil ? asset('storage/foto_profil/' . $pengguna->foto_profil) : asset('image/9203764.png') }}"
+                    alt="Rounded avatar">
             </div>
             <div class="flex items-center ms-3">
                 <div>
@@ -79,6 +81,11 @@
                     <option value="Laki-laki" {{ $pengguna->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
                     <option value="Perempuan" {{ $pengguna->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                 </select>
+                <div class="w-full">
+                    <label for="foto_profil" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Foto Profil</label>
+                    <input type="file" name="foto_profil" id="foto_profil"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" accept="image/jpeg, image/png, image/gif, image/svg+xml" disabled>
+                </div>
             </div>
         </div>
 
@@ -105,7 +112,18 @@
         @foreach ($pelatihList as $pelatih)
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
             <td class="px-3 py-3 text-center">{{ $pelatihList->firstItem() + $loop->iteration - 1 }}</td>
-            <td class="px-3 py-3">{{ $pelatih->pengalaman_kerja ?? '0' }} tahun</td>
+            <td class="px-3 py-3">
+                @php
+                $tahun = $pelatih->tahun_pengalaman ?? 0;
+                $bulan = $pelatih->bulan_pengalaman ?? 0;
+                @endphp
+                @if ($tahun > 0 || $bulan > 0)
+                {{ $tahun > 0 ? $tahun . ' tahun' : '' }}
+                {{ $bulan > 0 ? $bulan . ' bulan' : '' }}
+                @else
+                Tidak Ada Pengalaman
+                @endif
+            </td>
             <td class="px-3 py-3">{{ $pelatih->nama_spesialisasi ?? '-' }}</td>
             <td class="px-3 py-3">
                 @if ($pelatih->file_sertifikasi)
@@ -115,18 +133,19 @@
                 @endif
             </td>
             <td class="px-3 py-3">
-                <button type="button" data-modal-target="my_modal_edit_{{ $pelatih->id }}" data-modal-toggle="my_modal_edit_{{ $pelatih->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:text-blue-700 dark:hover:text-blue-400 my-1 mr-2">
+                <!-- Edit Button -->
+                <button type="button" data-modal-target="my_modal_edit_{{ $pelatih->pelatih_id }}" data-modal-toggle="my_modal_edit_{{ $pelatih->pelatih_id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:text-blue-700 dark:hover:text-blue-400 my-1 mr-2">
                     <i class="fas fa-edit"></i> Edit
                 </button>
-                <button type="button" data-modal-target="my_modal_delete_{{ $pelatih->id }}" data-modal-toggle="my_modal_delete_{{ $pelatih->id }}" class="font-medium text-red-600 dark:text-red-500 hover:text-red-700 dark:hover:text-red-400">
+                <!-- Delete Button -->
+                <button type="button" data-modal-target="my_modal_delete_{{ $pelatih->pelatih_id }}" data-modal-toggle="my_modal_delete_{{ $pelatih->pelatih_id }}" class="font-medium text-red-600 dark:text-red-500 hover:text-red-700 dark:hover:text-red-400">
                     <i class="fas fa-trash"></i> Hapus
                 </button>
             </td>
         </tr>
 
-
         <!-- Modal Update -->
-        <div id="my_modal_edit_{{ $pelatih->id }}" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div id="my_modal_edit_{{ $pelatih->pelatih_id }}" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-md max-h-full">
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                     <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
@@ -143,14 +162,25 @@
                         @method('PUT')
                         <div class="p-4 md:p-5 bg-white dark:bg-gray-800 rounded-lg shadow-lg space-y-4">
                             <div class="grid grid-cols-1 gap-4">
+                                <!-- Form Input Tahun Pengalaman -->
                                 <div class="mb-4">
-                                    <label for="pengalaman_kerja" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Pengalaman Kerja</label>
-                                    <input type="number" id="pengalaman_kerja" name="pengalaman_kerja" value="{{ $pelatih->pengalaman_kerja }}" class="mt-1 block w-full border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-300" required>
+                                    <label for="tahun_pengalaman" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Tahun Pengalaman</label>
+                                    <input type="number" id="tahun_pengalaman" name="tahun_pengalaman" value="{{ $pelatih->tahun_pengalaman }}" class="mt-1 block w-full border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-300" required min="0">
                                 </div>
+
+                                <!-- Form Input Bulan Pengalaman -->
+                                <div class="mb-4">
+                                    <label for="bulan_pengalaman" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Bulan Pengalaman</label>
+                                    <input type="number" id="bulan_pengalaman" name="bulan_pengalaman" value="{{ $pelatih->bulan_pengalaman }}" class="mt-1 block w-full border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-300" required min="0" max="11">
+                                </div>
+
+                                <!-- Form Input Spesialisasi -->
                                 <div class="mb-4">
                                     <label for="nama_spesialisasi" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Spesialisasi</label>
                                     <input type="text" id="nama_spesialisasi" name="nama_spesialisasi" value="{{ $pelatih->nama_spesialisasi }}" class="mt-1 block w-full border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-300" required>
                                 </div>
+
+                                <!-- Form Input File Sertifikasi -->
                                 <div class="mb-4">
                                     <label for="file_sertifikasi" class="block text-sm font-medium text-gray-700 dark:text-gray-300">File Sertifikasi</label>
                                     <input type="file" name="file_sertifikasi" id="file_sertifikasi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" accept="application/pdf">
@@ -160,7 +190,7 @@
                                 <button type="submit" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
                                     Simpan
                                 </button>
-                                <button data-modal-hide="my_modal_edit_{{ $pelatih->id }}" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:text-white">
+                                <button data-modal-hide="my_modal_edit_{{ $pelatih->pelatih_id }}" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:text-white">
                                     Batal
                                 </button>
                             </div>
@@ -170,9 +200,8 @@
             </div>
         </div>
 
-
         <!-- Modal Hapus -->
-        <div id="my_modal_delete_{{ $pelatih->id }}" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div id="my_modal_delete_{{ $pelatih->pelatih_id }}" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative p-4 w-full max-w-md max-h-full">
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                     <div class="p-4 md:p-5 text-center">
@@ -183,10 +212,10 @@
                             @csrf
                             @method('DELETE')
                             <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah Anda Yakin Ingin Menghapus Ini?</h3>
-                            <button data-modal-hide="my_modal_delete_{{ $pelatih->id }}" type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                            <button data-modal-hide="my_modal_delete_{{ $pelatih->pelatih_id }}" type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
                                 Yakin
                             </button>
-                            <button data-modal-hide="my_modal_delete_{{ $pelatih->id }}" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <button data-modal-hide="my_modal_delete_{{ $pelatih->pelatih_id }}" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:text-white">
                                 Tidak Yakin
                             </button>
                         </form>
@@ -197,6 +226,7 @@
         @endforeach
     </tbody>
 </table>
+
 
 
 <div id="crud-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -218,8 +248,17 @@
                 @csrf
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     <div class="col-span-2">
-                        <label for="pengalaman_kerja" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pengalaman Kerja</label>
-                        <input type="number" id="pengalaman_kerja" name="pengalaman_kerja" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Isi Dengan Angka">
+                        <label for="tahun_pengalaman" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pengalaman Kerja</label>
+                        <div class="flex space-x-4">
+                            <div class="flex-1">
+                                <label for="tahun_pengalaman" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Tahun</label>
+                                <input type="number" id="tahun_pengalaman" name="tahun_pengalaman" min="0" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="0">
+                            </div>
+                            <div class="flex-1">
+                                <label for="bulan_pengalaman" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Bulan</label>
+                                <input type="number" id="bulan_pengalaman" name="bulan_pengalaman" min="0" max="11" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="0">
+                            </div>
+                        </div>
                     </div>
                     <div class="col-span-2">
                         <label for="nama_spesialisasi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Spesialisasi</label>

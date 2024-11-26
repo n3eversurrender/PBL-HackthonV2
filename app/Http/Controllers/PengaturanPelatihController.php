@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Pengguna;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 
 class PengaturanPelatihController extends Controller
@@ -33,66 +34,81 @@ class PengaturanPelatihController extends Controller
 
     public function updatePelatih(Request $request)
     {
-        // Validasi data input 
+        // Validasi data input
         $request->validate([
             'nama' => 'required|string|max:255',
             'no_telepon' => 'nullable|string|max:15',
             'alamat' => 'nullable|string|max:255',
             'kata_sandi' => 'nullable|string|min:6',
             'jenis_kelamin' => 'required|string|in:Laki-laki,Perempuan',
+            'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120', 
         ]);
 
-        // Mendapatkan ID pengguna yang sedang login
         $id = Auth::id();
 
-        // Ambil data pengguna berdasarkan ID
         $pengguna = Pengguna::find($id);
 
-        // Update data pengguna
         $pengguna->nama = $request->nama;
         $pengguna->no_telepon = $request->no_telepon;
         $pengguna->alamat = $request->alamat;
         $pengguna->jenis_kelamin = $request->jenis_kelamin;
 
-        // Perbarui password hanya jika diisi
         if (!empty($request->kata_sandi)) {
             $pengguna->kata_sandi = bcrypt($request->kata_sandi);
         }
 
-        $pengguna->save(); // Simpan perubahan ke database
+        if ($request->hasFile('foto_profil')) {
+            try {
+                $photo = $request->file('foto_profil');
 
-        // Redirect kembali dengan pesan sukses
+
+                $photoPath = $photo->store('foto_profil', 'public');  
+                $pengguna->foto_profil = basename($photoPath); 
+
+                Log::info("Profile photo uploaded successfully for user ID: {$id}. Photo path: {$photoPath}");
+            } catch (\Exception $e) {
+                Log::error("Error uploading profile photo for user ID: {$id}. Error: {$e->getMessage()}");
+            }
+        }
+
+        $pengguna->save();
+
         return redirect()->back()->with('success', 'Data berhasil diperbarui.');
     }
+
 
     public function storePelatih(Request $request)
     {
         // Validasi input
         $validatedData = $request->validate([
-            'pengalaman_kerja' => 'nullable|integer',
+            'tahun_pengalaman' => 'nullable|integer|min:0',
+            'bulan_pengalaman' => 'nullable|integer|min:0|max:11',
             'nama_spesialisasi' => 'nullable|string|max:255',
             'file_sertifikasi' => 'nullable|file|mimes:pdf|max:5120',
         ]);
 
         $pengguna_id = Auth::id();
 
-        $pengalaman_kerja = $validatedData['pengalaman_kerja'] ?? 0; // Set ke 0 jika null
-
+        // Jika file sertifikasi diunggah
         $file_sertifikasi = null;
         if ($request->hasFile('file_sertifikasi')) {
             $file = $request->file('file_sertifikasi');
             $namaFile = $file->getClientOriginalName();
 
+            // Simpan file ke storage public
             $file_sertifikasi = $file->storeAs('sertifikasi_pdfs', $namaFile, 'public');
         }
 
+        // Buat data pelatih baru
         $pelatih = new Pelatih();
         $pelatih->pengguna_id = $pengguna_id;
-        $pelatih->pengalaman_kerja = $pengalaman_kerja;
+        $pelatih->tahun_pengalaman = $validatedData['tahun_pengalaman'] ?? 0;
+        $pelatih->bulan_pengalaman = $validatedData['bulan_pengalaman'] ?? 0;
         $pelatih->nama_spesialisasi = $validatedData['nama_spesialisasi'] ?? null;
         $pelatih->file_sertifikasi = $file_sertifikasi;
         $pelatih->save();
 
+        // Redirect kembali dengan pesan sukses
         return redirect()->back()->with('success', 'Data berhasil disimpan.');
     }
 
@@ -100,7 +116,8 @@ class PengaturanPelatihController extends Controller
     {
         // Validasi input
         $request->validate([
-            'pengalaman_kerja' => 'required|integer|min:0',
+            'tahun_pengalaman' => 'required|integer|min:0', // Validasi tahun pengalaman
+            'bulan_pengalaman' => 'required|integer|min:0|max:11', // Validasi bulan pengalaman
             'nama_spesialisasi' => 'required|string|max:255',
             'file_sertifikasi' => 'nullable|file|mimes:pdf|max:5120', // Validasi file PDF
         ]);
@@ -109,7 +126,8 @@ class PengaturanPelatihController extends Controller
         $pelatih = Pelatih::findOrFail($pelatih_id);
 
         // Update pengalaman kerja dan spesialisasi
-        $pelatih->pengalaman_kerja = $request->input('pengalaman_kerja');
+        $pelatih->tahun_pengalaman = $request->input('tahun_pengalaman');
+        $pelatih->bulan_pengalaman = $request->input('bulan_pengalaman');
         $pelatih->nama_spesialisasi = $request->input('nama_spesialisasi');
 
         // Periksa apakah ada file sertifikasi yang diupload
