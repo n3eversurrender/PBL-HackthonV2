@@ -55,9 +55,7 @@
             <!-- Modal Edit -->
             <div id="my_modal_edit_{{ $kursusItem->kursus_id }}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                 <div class="relative p-4 w-full max-w-2xl max-h-full">
-                    <!-- Konten Modal -->
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                        <!-- Header Modal -->
                         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                                 Edit Informasi Kursus
@@ -78,19 +76,19 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label for="judul" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Judul</label>
-                                        <input type="text" name="judul" id="judul" class="mt-1 p-2 border border-gray-300 rounded w-full" value="{{ old('judul', $kursusItem->judul) }}">
+                                        <input type="text" name="judul" id="judul" class="border border-gray-300 rounded w-full" value="{{ old('judul', $kursusItem->judul) }}">
                                     </div>
                                     <div>
                                         <label for="deskripsi" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Deskripsi</label>
-                                        <textarea name="deskripsi" id="deskripsi" class="mt-1 p-2 border border-gray-300 rounded w-full">{{ old('deskripsi', $kursusItem->deskripsi) }}</textarea>
+                                        <textarea name="deskripsi" id="deskripsi" class="border border-gray-300 rounded w-full">{{ old('deskripsi', $kursusItem->deskripsi) }}</textarea>
                                     </div>
                                     <div>
                                         <label for="harga" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Harga</label>
-                                        <input type="text" name="harga" id="harga" class="mt-1 p-2 border border-gray-300 rounded w-full" value="{{ old('harga', $kursusItem->harga) }}">
+                                        <input type="text" name="harga" id="harga" class="border border-gray-300 rounded w-full" value="{{ old('harga', $kursusItem->harga) }}">
                                     </div>
                                     <div>
                                         <label for="tingkat_kesulitan" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tingkat Kesulitan</label>
-                                        <select name="tingkat_kesulitan" id="tingkat_kesulitan" class="mt-1 p-2 border border-gray-300 rounded w-full">
+                                        <select name="tingkat_kesulitan" id="tingkat_kesulitan" class="border border-gray-300 rounded w-full">
                                             <option value="Pemula" {{ $kursusItem->tingkat_kesulitan == 'Pemula' ? 'selected' : '' }}>Pemula</option>
                                             <option value="Menengah" {{ $kursusItem->tingkat_kesulitan == 'Menengah' ? 'selected' : '' }}>Menengah</option>
                                             <option value="Lanjutan" {{ $kursusItem->tingkat_kesulitan == 'Lanjutan' ? 'selected' : '' }}>Lanjutan</option>
@@ -98,30 +96,25 @@
                                     </div>
                                     <div>
                                         <label for="tgl_mulai" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tanggal Mulai</label>
-                                        <input type="date" name="tgl_mulai" id="tgl_mulai" class="mt-1 p-2 border border-gray-300 rounded w-full" value="{{ old('tgl_mulai', $kursusItem->tgl_mulai) }}">
+                                        <input type="date" name="tgl_mulai" id="tgl_mulai" class="border border-gray-300 rounded w-full" value="{{ old('tgl_mulai', $kursusItem->tgl_mulai) }}">
                                     </div>
                                     <div>
                                         <label for="tgl_selesai" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tanggal Selesai</label>
-                                        <input type="date" name="tgl_selesai" id="tgl_selesai" class="mt-1 p-2 border border-gray-300 rounded w-full" value="{{ old('tgl_selesai', $kursusItem->tgl_selesai) }}">
-                                    </div>
-                                    <div>
-                                        <label for="status" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Status</label>
-                                        <select name="status" id="status" class="mt-1 p-2 border border-gray-300 rounded w-full">
-                                            <option value="Aktif" {{ $kursusItem->status == 'Aktif' ? 'selected' : '' }}>Aktif</option>
-                                            <option value="Tidak Aktif" {{ $kursusItem->status == 'Tidak Aktif' ? 'selected' : '' }}>Tidak Aktif</option>
-                                        </select>
+                                        <input type="date" name="tgl_selesai" id="tgl_selesai" class="border border-gray-300 rounded w-full" value="{{ old('tgl_selesai', $kursusItem->tgl_selesai) }}">
                                     </div>
                                     <div>
                                         <label for="kapasitas" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Kapasitas</label>
-                                        <input type="number" name="kapasitas" id="kapasitas" class="mt-1 p-2 border border-gray-300 rounded w-full" value="{{ old('kapasitas', $kursusItem->kapasitas) }}">
+                                        <input type="number" name="kapasitas" id="kapasitas" class="border border-gray-300 rounded w-full" value="{{ old('kapasitas', $kursusItem->kapasitas) }}">
                                     </div>
                                     <!-- Foto Kursus -->
                                     <div>
                                         <label for="foto_kursus" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Foto Kursus</label>
-                                        <input type="file" name="foto_kursus" id="foto_kursus" class="mt-1 p-2 border border-gray-300 rounded w-full">
+                                        <input type="file" name="foto_kursus" id="foto_kursus" class="border border-gray-300 rounded w-full" accept="image/jpeg, image/png, image/gif, image/svg+xml">
+                                    </div>
+                                    <div class="justify-right mb-2">
                                         @if($kursusItem->foto_kursus)
                                         <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Current image:</p>
-                                        <img src="{{ asset('storage/'.$kursusItem->foto_kursus) }}" alt="Foto Kursus" class="w-32 h-32 object-cover mt-2">
+                                        <img src="{{ asset('storage/'.$kursusItem->foto_kursus) }}" alt="Foto Kursus" class="w-full h- object-cover mt-2">
                                         @endif
                                     </div>
                                 </div>
