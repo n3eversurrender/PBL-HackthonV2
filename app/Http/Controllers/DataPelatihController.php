@@ -9,12 +9,12 @@ class DataPelatihController extends Controller
 {
     public function dataPelatih()
     {
-        $pelatihList = Pengguna::where('peran', 'Pelatih')
+        $penggunaList = Pengguna::where('peran', 'Pelatih')
             ->with('pelatih') // Mengambil data relasi pelatih
             ->paginate(10);
 
         return view('Admin.DataPelatih', [
-            'pelatihList' => $pelatihList,
+            'penggunaList' => $penggunaList,
         ]);
     }
 
@@ -26,11 +26,11 @@ class DataPelatihController extends Controller
         ]);
 
         // Cari pengguna berdasarkan pengguna_id
-        $pelatih = Pengguna::findOrFail($pengguna_id);
+        $pengguna = Pengguna::findOrFail($pengguna_id);
 
         // Update status pengguna
-        $pelatih->status = $validated['status'];
-        $pelatih->save();
+        $pengguna->status = $validated['status'];
+        $pengguna->save();
 
         // Redirect dengan pesan sukses
         return redirect()->back()->with('success', 'Status pelatih berhasil diupdate');
@@ -39,9 +39,9 @@ class DataPelatihController extends Controller
     // Menghapus pelatih
     public function destroy($pengguna_id)
     {
-        $pelatih = Pengguna::findOrFail($pengguna_id);
+        $pengguna = Pengguna::findOrFail($pengguna_id);
 
-        $pelatih->delete();
+        $pengguna->delete();
 
         return redirect()->back()->with('success', 'Pelatih berhasil dihapus.');
     }

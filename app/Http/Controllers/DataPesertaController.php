@@ -10,11 +10,11 @@ class DataPesertaController extends Controller
     public function dataPeserta()
     {
         // Ambil data peserta dengan peran 'Peserta'
-        $pesertaList = Pengguna::where('peran', 'Peserta')->paginate(10);
+        $penggunaList = Pengguna::where('peran', 'Peserta')->paginate(10);
 
         // Kirim data ke view
         return view('Admin.DataPeserta', [
-            'pesertaList' => $pesertaList,
+            'penggunaList' => $penggunaList,
         ]);
     }
 
