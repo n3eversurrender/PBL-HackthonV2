@@ -19,9 +19,8 @@
                 <th scope="col" class="px-6 py-3 text-center">No</th>
                 <th scope="col" class="px-6 py-3">Name</th>
                 <th scope="col" class="px-6 py-3">No Telepon</th>
-                <th scope="col" class="px-6 py-3">Alamat</th>
-                <th scope="col" class="px-6 py-3">Peran</th>
                 <th scope="col" class="px-6 py-3">Status</th>
+                <th scope="col" class="px-6 py-3">Verifikasi</th>
                 <th scope="col" class="px-6 py-3">Action</th>
             </tr>
         </thead>
@@ -31,7 +30,7 @@
                 <td class="px-3 py-3 text-center">{{ $penggunaList->firstItem() + $loop->iteration - 1 }}</td>
                 <td class="px-6 py-4">
                     <div class="flex items-center">
-                        <img class="w-10 h-10 rounded-full" src="{{ asset($pengguna->foto_profil ?? 'image/9203764.png') }}" alt="{{ $pengguna->nama }}">
+                        <img class="w-10 h-10 rounded-full" src="{{ $pengguna->foto_profil ? asset('storage/foto_profil/' . $pengguna->foto_profil) : asset('image/9203764.png') }}" alt="{{ $pengguna->nama }}">
                         <div class="ps-3">
                             <div class="text-base font-semibold">{{ $pengguna->nama }}</div>
                             <div class="font-normal text-gray-500">{{ $pengguna->email }}</div>
@@ -43,8 +42,6 @@
                         {{ $pengguna->no_telepon }}
                     </a>
                 </td>
-                <td class="px-6 py-4 truncate max-w-24">{{ $pengguna->alamat }}</td>
-                <td class="px-6 py-4">{{ $pengguna->peran }}</td>
                 <td class="px-6 py-4">
                     @if($pengguna->status == 'Aktif')
                     <span class="inline-flex items-center bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
@@ -61,6 +58,35 @@
                         <span class="w-2 h-2 me-1 bg-gray-500 rounded-full"></span>
                         No Status
                     </span>
+                    @endif
+                </td>
+                <td class="px-6 py-4">
+                    @if($pengguna->verifikasi)
+                    @if($pengguna->verifikasi->status_verifikasi == 'Disetujui')
+                    <span class="text-green-500 font-medium">Sudah Diverifikasi</span>
+                    @elseif($pengguna->verifikasi->status_verifikasi == 'Ditolak')
+                    <span class="text-red-500 font-medium">Ditolak</span>
+                    @else
+                    <div class="flex items-center space-x-4">
+                        <form action="{{ route('admin.verifikasi.konfirmasi', ['verifikasi_id' => $pengguna->verifikasi->verifikasi_id, 'status' => 'Disetujui']) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit" class="text-green-500 hover:text-green-700">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </button>
+                        </form>
+
+                        <form action="{{ route('admin.verifikasi.konfirmasi', ['verifikasi_id' => $pengguna->verifikasi->verifikasi_id, 'status' => 'Ditolak']) }}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit" class="text-red-500 hover:text-red-700">
+                                <i class="fas fa-times-circle text-xl"></i>
+                            </button>
+                        </form>
+                    </div>
+                    @endif
+                    @else
+                    <span class="text-gray-500 text-sm italic">Belum mengajukan</span>
                     @endif
                 </td>
                 <td class="px-6 py-4">
@@ -133,7 +159,7 @@
                         </div>
                         <div class="p-4 md:p-5 bg-white dark:bg-gray-800">
                             <div class="flex items-center space-x-4 mb-4">
-                                <img class="w-16 h-16 rounded-full" src="{{ asset($pengguna->foto_profil ?? 'image/9203764.png') }}" alt="{{ $pengguna->nama }}">
+                                <img class="w-16 h-16 rounded-full" src="{{ $pengguna->foto_profil ? asset('storage/foto_profil/' . $pengguna->foto_profil) : asset('image/9203764.png') }}" alt="{{ $pengguna->nama }}">
                                 <div>
                                     <h4 class="text-lg font-semibold text-gray-900 dark:text-white">{{ $pengguna->nama }}</h4>
                                     <p class="text-sm text-gray-500 dark:text-gray-400">{{ $pengguna->email }}</p>

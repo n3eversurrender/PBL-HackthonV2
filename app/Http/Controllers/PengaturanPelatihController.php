@@ -6,9 +6,9 @@ use App\Models\Pelatih;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Pengguna;
+use App\Models\Verifikasi;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
-
 
 class PengaturanPelatihController extends Controller
 {
@@ -23,14 +23,55 @@ class PengaturanPelatihController extends Controller
         }
 
         // Ambil daftar pelatih (jika ada)
-        $pelatihList = Pelatih::where('pengguna_id', $id)->paginate(10); // Gunakan paginate jika diperlukan
+        $pelatihList = Pelatih::where('pengguna_id', $id)->paginate(10);
 
         return view('pelatih.PengaturanPelatih', [
             'pengguna' => $pengguna,
-            'pelatih' => $pengguna->pelatih, // Relasi pelatih dari pengguna
-            'pelatihList' => $pelatihList, // Tambahkan variabel $pelatihList ke view
+            'pelatih' => $pengguna->pelatih,
+            'pelatihList' => $pelatihList,
         ]);
     }
+
+    public function ajukanVerifikasi()
+    {
+        $penggunaId = Auth::id(); // Ambil ID pengguna yang sedang login
+
+        // Pastikan pengguna login
+        if (!$penggunaId) {
+            return redirect()->back()->with('error', 'Anda tidak terautentikasi.');
+        }
+
+        // Cek apakah pengguna sudah pernah mengajukan verifikasi sebelumnya
+        $existingVerifikasi = Verifikasi::where('pengguna_id', $penggunaId)->first();
+
+        if ($existingVerifikasi) {
+            // Jika status verifikasi sebelumnya Ditolak, update status menjadi Menunggu
+            if ($existingVerifikasi->status_verifikasi == 'Ditolak') {
+                $existingVerifikasi->status_verifikasi = 'Menunggu';
+                $existingVerifikasi->save();
+
+                return redirect()->back()->with('success', 'Pengajuan verifikasi telah diperbarui. Harap tunggu konfirmasi admin.');
+            }
+
+            // Jika status verifikasi sebelumnya Menunggu, tampilkan pesan error
+            if ($existingVerifikasi->status_verifikasi == 'Menunggu') {
+                return redirect()->back()->with('error', 'Anda sudah mengajukan verifikasi. Harap tunggu konfirmasi admin.');
+            }
+        }
+
+        try {
+            // Jika belum pernah mengajukan atau status sebelumnya tidak Ditolak, buat pengajuan baru
+            Verifikasi::create([
+                'pengguna_id' => $penggunaId,
+                'status_verifikasi' => 'Menunggu',
+            ]);
+
+            return redirect()->back()->with('success', 'Pengajuan verifikasi berhasil diajukan. Harap tunggu konfirmasi admin.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan, coba lagi nanti.');
+        }
+    }
+
 
     public function updatePelatih(Request $request)
     {
@@ -41,7 +82,7 @@ class PengaturanPelatihController extends Controller
             'alamat' => 'nullable|string|max:255',
             'kata_sandi' => 'nullable|string|min:6',
             'jenis_kelamin' => 'required|string|in:Laki-laki,Perempuan',
-            'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120', 
+            'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
         ]);
 
         $id = Auth::id();
@@ -62,8 +103,8 @@ class PengaturanPelatihController extends Controller
                 $photo = $request->file('foto_profil');
 
 
-                $photoPath = $photo->store('foto_profil', 'public');  
-                $pengguna->foto_profil = basename($photoPath); 
+                $photoPath = $photo->store('foto_profil', 'public');
+                $pengguna->foto_profil = basename($photoPath);
 
                 Log::info("Profile photo uploaded successfully for user ID: {$id}. Photo path: {$photoPath}");
             } catch (\Exception $e) {

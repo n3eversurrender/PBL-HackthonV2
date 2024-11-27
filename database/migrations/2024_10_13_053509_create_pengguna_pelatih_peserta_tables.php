@@ -17,7 +17,7 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->id('admin_id');
             $table->string('username')->unique();
             $table->string('kata_sandi');
-            $table->enum('role', ['admin', 'superadmin'])->default('admin'); 
+            $table->enum('role', ['admin', 'superadmin'])->default('admin');
             $table->timestamps();
         });
 
@@ -36,12 +36,20 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->timestamps();
         });
 
+        Schema::create('verifikasi', function (Blueprint $table) {
+            $table->id('verifikasi_id');
+            $table->unsignedBigInteger('pengguna_id'); // Gunakan unsignedBigInteger untuk foreign key
+            $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
+            $table->enum('status_verifikasi', ['Menunggu', 'Disetujui', 'Ditolak'])->default('Menunggu');
+            $table->timestamps();
+        });
+
         // Tabel pelatih
         Schema::create('pelatih', function (Blueprint $table) {
             $table->id('pelatih_id');
             $table->unsignedBigInteger('pengguna_id')->nullable();
-            $table->integer('tahun_pengalaman')->nullable(); 
-            $table->integer('bulan_pengalaman')->nullable(); 
+            $table->integer('tahun_pengalaman')->nullable();
+            $table->integer('bulan_pengalaman')->nullable();
             $table->string('nama_spesialisasi')->nullable();
             $table->string('file_sertifikasi')->nullable();
             $table->timestamps();
@@ -52,7 +60,7 @@ class CreatePenggunaPelatihPesertaTables extends Migration
         Schema::create('peserta', function (Blueprint $table) {
             $table->id('peserta_id');
             $table->unsignedBigInteger('pengguna_id')->nullable();
-            $table->integer('tahun_pengalaman')->nullable(); 
+            $table->integer('tahun_pengalaman')->nullable();
             $table->integer('bulan_pengalaman')->nullable();
             $table->string('nama_keahlian')->nullable();
             $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
@@ -62,18 +70,18 @@ class CreatePenggunaPelatihPesertaTables extends Migration
         // Tabel kursus
         Schema::create('kursus', function (Blueprint $table) {
             $table->id('kursus_id');
-            $table->unsignedBigInteger('pengguna_id')->nullable(); 
+            $table->unsignedBigInteger('pengguna_id')->nullable();
             $table->string('judul');
             $table->text('deskripsi');
             $table->decimal('harga', 10, 2);
-            $table->enum('tingkat_kesulitan', ['-', 'Pemula', 'Menengah', 'Lanjutan'])->default('-'); 
+            $table->enum('tingkat_kesulitan', ['-', 'Pemula', 'Menengah', 'Lanjutan'])->default('-');
             $table->float('rating')->nullable();
             $table->enum('status', ['Aktif', 'Tidak Aktif'])->default('Tidak Aktif');
             $table->date('tgl_mulai');
             $table->date('tgl_selesai');
             $table->integer('kapasitas');
             $table->string('lokasi');
-            $table->string('foto_kursus')->nullable(); 
+            $table->string('foto_kursus')->nullable();
             $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
             $table->timestamps();
         });
@@ -84,8 +92,8 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->unsignedBigInteger('kursus_id')->nullable();
             $table->string('nama_topik');
             $table->text('deskripsi');
-            $table->integer('durasi'); 
-            $table->string('materi')->nullable(); 
+            $table->integer('durasi');
+            $table->string('materi')->nullable();
             $table->foreign('kursus_id')->references('kursus_id')->on('kursus')->onDelete('cascade');
             $table->timestamps();
         });
@@ -158,7 +166,8 @@ class CreatePenggunaPelatihPesertaTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('umpan_balik'); 
+        Schema::dropIfExists('verifikasi');
+        Schema::dropIfExists('umpan_balik');
         Schema::dropIfExists('sertifikat');
         Schema::dropIfExists('pembayaran');
         Schema::dropIfExists('pendaftaran');

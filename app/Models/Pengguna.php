@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
+
 class Pengguna extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -44,5 +45,9 @@ class Pengguna extends Authenticatable
     public function pendaftaran()
     {
         return $this->hasMany(Pendaftaran::class, 'pengguna_id');
+    }
+    public function verifikasi()
+    {
+        return $this->hasOne(Verifikasi::class, 'pengguna_id', 'pengguna_id');
     }
 }

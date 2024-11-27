@@ -4,39 +4,61 @@
 
 <!-- content start -->
 <section class="bg-white dark:bg-gray-900">
-    <form action="{{ route('pelatih.update') }}" method="POST" class="pb-2 pt-2 px-4" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-
-        <div class="flex mb-2">
+    <div class="flex mb-2">
+        <div>
+            <img class="w-16 h-16 rounded-full object-cover"
+                src="{{ $pengguna->foto_profil ? asset('storage/foto_profil/' . $pengguna->foto_profil) : asset('image/9203764.png') }}"
+                alt="Rounded avatar">
+        </div>
+        <div class="flex flex-col ms-3 w-full">
             <div>
-                <img class="w-16 h-16 rounded-full object-cover"
-                    src="{{ $pengguna->foto_profil ? asset('storage/foto_profil/' . $pengguna->foto_profil) : asset('image/9203764.png') }}"
-                    alt="Rounded avatar">
+                <h2 class="text-base font-bold">{{ $pengguna->nama }}</h2>
+                <p class="text-xs">{{ $pengguna->email }}</p>
             </div>
-            <div class="flex items-center ms-3">
-                <div>
-                    <h2 class="text-base font-bold">{{ $pengguna->nama }}</h2>
-                    <p class="text-xs">{{ $pengguna->email }}</p>
-                    @if($pengguna->status == 'Aktif')
-                    <span class="inline-flex items-center bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
-                        <span class="w-2 h-2 me-1 bg-green-500 rounded-full"></span>
-                        Aktif
-                    </span>
-                    @elseif($pengguna->status == 'Tidak Aktif')
-                    <span class="inline-flex items-center bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">
-                        <span class="w-2 h-2 me-1 bg-red-500 rounded-full"></span>
-                        Tidak Aktif
-                    </span>
-                    @else
-                    <span class="inline-flex items-center bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-gray-900 dark:text-gray-300">
-                        <span class="w-2 h-2 me-1 bg-gray-500 rounded-full"></span>
-                        No Status
-                    </span>
-                    @endif
-                </div>
+
+            <div class="flex items-center mt-2">
+                @if($pengguna->status == 'Aktif')
+                <span class="inline-flex items-center bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300 me-2">
+                    <span class="w-2 h-2 me-1 bg-green-500 rounded-full"></span>
+                    Aktif
+                </span>
+                <i class="fas fa-check-circle text-green-500 text-xs"></i>
+
+                @elseif($pengguna->status == 'Tidak Aktif')
+                <span class="inline-flex items-center bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300 me-2">
+                    <span class="w-2 h-2 me-1 bg-red-500 rounded-full"></span>
+                    Tidak Aktif
+                </span>
+                <i class="fas fa-times-circle text-red-500 text-xs"></i>
+                <span class="text-red-500 text-xs ml-2">Akun Anda Tidak Aktif</span>
+
+                @if($pengguna->verifikasi && ($pengguna->verifikasi->status_verifikasi == 'Ditolak' || $pengguna->verifikasi->status_verifikasi == 'Menunggu'))
+                <form action="{{ route('pengaturanPelatih.ajukanVerifikasi') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="text-blue-500 text-xs ml-2 hover:underline">
+                        Ajukan Verifikasi
+                    </button>
+                </form>
+                @endif
+                @else
+                <span class="inline-flex items-center bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-gray-900 dark:text-gray-300 me-2">
+                    <span class="w-2 h-2 me-1 bg-gray-500 rounded-full"></span>
+                    No Status
+                </span>
+                <form action="{{ route('pengaturanPelatih.ajukanVerifikasi') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="text-blue-500 text-xs font-medium hover:underline">
+                        Ajukan Verifikasi
+                    </button>
+                </form>
+                @endif
             </div>
         </div>
+    </div>
+
+    <form action="{{ route('pelatih.update') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
 
         <div class="flex justify-end w-full">
             <button type="button" id="tambahButton" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-6 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
@@ -84,7 +106,7 @@
                 <div class="w-full">
                     <label for="foto_profil" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Foto Profil</label>
                     <input type="file" name="foto_profil" id="foto_profil"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" accept="image/jpeg, image/png, image/gif, image/svg+xml" disabled>
+                        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" accept="image/jpeg, image/png, image/gif, image/svg+xml" disabled>
                 </div>
             </div>
         </div>
