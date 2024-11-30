@@ -5,13 +5,13 @@
 <section class="flex mx-4 sm:mx-12 mt-4">
     <aside class="h-auto min-h-screen">
         <div class="h-full py-4 w-28 sm:w-64 bg-white">
-            <h1 class=" font-bold text-lg sm:text-3xl py-1 sm:py-3">Kursus</h1>
-            <p class=" font-bold text-sm sm:text-xl mb-2 sm:py-2">Semua Kursus</p>
+            <h2 class=" font-bold text-lg sm:text-3xl py-1 sm:py-3">Kursus</h2>
+            <h3 class=" font-bold text-sm sm:text-2xl mb-4 sm:py-2">Semua Kursus</h3>
             <ul class="space-y-2  font-medium">
                 <!-- Kategori-->
                 <li>
                     <button type="button" class="flex items-center w-full p-2 text-xs sm:text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-category" data-collapse-toggle="dropdown-category">
-                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Kategori</span>
+                        <h3 class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Kategori</h3>
                         <svg class="w-2 h-2 sm:w-3 sm:h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                             <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
                         </svg>
@@ -19,27 +19,27 @@
                     <hr>
                     <ul id="dropdown-category" class="hidden px-4 space-y-2">
                         <li>
-                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-gray-900 transition duration-75 rounded-lg  group">
-                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="default-radio-1" class="ms-2  text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-300">Semua Kursus</label>
+                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-text-slate-800 transition duration-75 rounded-lg  group">
+                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-ButtonBase bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                <label for="default-radio-1" class="ms-2  text-xs sm:text-sm font-medium text-text-slate-800 dark:text-gray-300">Semua Kursus</label>
                             </div>
                         </li>
                         <li>
-                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-gray-900 transition duration-75 rounded-lg  group">
-                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="default-radio-1" class="ms-2 text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-300">Pemotong</label>
+                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-text-slate-800 transition duration-75 rounded-lg  group">
+                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-ButtonBase bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                <label for="default-radio-1" class="ms-2 text-xs sm:text-sm font-medium text-text-slate-800 dark:text-gray-300">Pemotong</label>
                             </div>
                         </li>
                         <li>
-                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-gray-900 transition duration-75 rounded-lg  group">
-                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="default-radio-1" class="ms-2 text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-300">Pelipatan</label>
+                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-text-slate-800 transition duration-75 rounded-lg  group">
+                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-ButtonBase bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                <label for="default-radio-1" class="ms-2 text-xs sm:text-sm font-medium text-text-slate-800 dark:text-gray-300">Pelipatan</label>
                             </div>
                         </li>
                         <li>
-                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-gray-900 transition duration-75 rounded-lg  group">
-                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="default-radio-1" class="ms-2 text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-300">Punching</label>
+                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-text-slate-800 transition duration-75 rounded-lg  group">
+                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-ButtonBase bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                <label for="default-radio-1" class="ms-2 text-xs sm:text-sm font-medium text-text-slate-800 dark:text-gray-300">Punching</label>
                             </div>
                         </li>
                     </ul>
@@ -48,7 +48,7 @@
                 <!-- Level -->
                 <li>
                     <button type="button" class="flex items-center w-full p-2 text-xs sm:text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-level" data-collapse-toggle="dropdown-level">
-                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Level</span>
+                        <h3 class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Level</h3>
                         <svg class="w-2 h-2 sm:w-3 sm:h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                             <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
                         </svg>
@@ -56,27 +56,27 @@
                     <hr>
                     <ul id="dropdown-level" class="hidden px-4 space-y-2">
                         <li>
-                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-gray-900 transition duration-75 rounded-lg  group">
-                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="default-radio-1" class="ms-2 text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-300">Semua Level</label>
+                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-gray-800 transition duration-75 rounded-lg  group">
+                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-ButtonBase bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                <label for="default-radio-1" class="ms-2 text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-300">Semua Level</label>
                             </div>
                         </li>
                         <li>
-                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-gray-900 transition duration-75 rounded-lg  group">
-                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="default-radio-1" class="ms-2 text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-300">Pemula</label>
+                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-gray-800 transition duration-75 rounded-lg  group">
+                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-ButtonBase bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                <label for="default-radio-1" class="ms-2 text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-300">Pemula</label>
                             </div>
                         </li>
                         <li>
-                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-gray-900 transition duration-75 rounded-lg  group">
-                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="default-radio-1" class="ms-2 text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-300">Menengah</label>
+                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-gray-800 transition duration-75 rounded-lg  group">
+                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-ButtonBase bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                <label for="default-radio-1" class="ms-2 text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-300">Menengah</label>
                             </div>
                         </li>
                         <li>
-                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-gray-900 transition duration-75 rounded-lg  group">
-                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="default-radio-1" class="ms-2 text-xs sm:text-sm font-medium text-gray-900 dark:text-gray-300">Ahli</label>
+                            <div class="flex items-center w-full sm:p-2 py-1 pr-4 text-gray-800 transition duration-75 rounded-lg  group">
+                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-ButtonBase bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                <label for="default-radio-1" class="ms-2 text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-300">Ahli</label>
                             </div>
                         </li>
                     </ul>
@@ -92,7 +92,7 @@
             <!-- Heading & Filters -->
             <div class="mb-4 justify-end space-y-4 space-x-3 sm:flex sm:space-y-0 ">
                 <!-- Modal toggle -->
-                <button data-modal-target="select-modal" data-modal-toggle="select-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm px-5 py-2 sm:py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                <button data-modal-target="select-modal" data-modal-toggle="select-modal" class="block text-white bg-ButtonBase hover:bg-HoverGlow transition duration-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm px-5 py-2 sm:py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                     Tanya Saya ?
                 </button>
 
@@ -163,44 +163,46 @@
                 </div>
             </div>
 
+
+           
             <!-- Cards Start -->
             <div class="mb-4 grid gap-2 lg:gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3">
                 @foreach ($kursus as $item)
-                <div class="rounded-lg border border-gray-200 bg-white p-2 lg:p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                <div class="rounded-lg border border-gray-200 bg-white p-2 lg:p-4 shadow-sm">
                     <div class="object-cover aspect-video">
                         <img class="w-full h-full rounded-lg object-cover"
                             src="{{ $item->foto_kursus ? asset('storage/' . $item->foto_kursus) : asset('image/Thumnnail.jpg') }}"
                             alt="{{ $item->judul }}" />
                     </div>
-                    <div class="sm:pt-6 cursor-default">
-                        <h1 class="text-base sm:text-xl font-bold leading-tight text-gray-900 my-2">{{ $item->judul }}</h1>
-                        <p class="text-sm sm:text-base mb-2 leading-tight text-gray-900 sm:my-2">
+                    <div class="sm:pt-6 cursor-default px-3">
+                        <h4 class=" flex items-center text-base sm:text-xl font-bold leading-tight text-slate-950 my-1 h-12 sm:h-14 overflow-hidden">{{ $item->judul }}</h4>
+                        <p class="text-sm sm:text-base mb-2 leading-tight text-slate-800 font-medium sm:my-2 h-6 overflow-hidden">
                             {{ $item->pengguna ? $item->pengguna->nama : 'Nama Tidak Ditemukan' }}
                         </p>
                         <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
                             <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
                                 <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                             </svg>
-                            <p class="text-xs sm:text-sm">{{ $item->rating }}<span class="ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
+                            <p class="text-xs sm:text-sm">{{ $item->rating }}<span class="ml-2 text-xs sm:text-sm text-TeksSecond">Rate</span></p>
                         </div>
 
-                        <p href="#" class="text-xs sm:text-base mb-2 leading-tight text-gray-900">{{ $item->lokasi }}</p>
-                        <p class="text-xs mb-2 sm:mb-5 font-semibold">Status:
+                        <p href="#" class="text-xs sm:text-base mb-2 h-6 overflow-hidden leading-tight text-slate-800 font-medium">{{ $item->lokasi }}</p>
+                        <p class="text-xs mb-2 font-semibold">Status:
                             <span class="{{ $item->status == 'aktif' ? 'text-blue-600' : 'text-red-600' }}">
                                 {{ ucfirst($item->status) }}
                             </span>
                         </p>
-                        <p href="#" class="text-base sm:text-xl mb-5 font-bold leading-tight text-gray-900">Rp.{{ number_format($item->harga, 0, ',', '.') }}</p>
+                        <p href="#" class="text-base sm:text-xl h-7 overflow-hidden mb-5 leading-tight text-slate-800 font-bold">Rp.{{ number_format($item->harga, 0, ',', '.') }}</p>
 
                         <div class="flex justify-end">
-                            <a href="/CoursePage/{{ $item->kursus_id }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                            <a href="/CoursePage/{{ $item->kursus_id }}" class="text-white bg-ButtonBase hover:bg-HoverGlow transition duration-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                                 Lihat Detail
                             </a>
                         </div>
                     </div>
                 </div>
                 @endforeach
-            </div>
+            </div> 
     </section>
 
     @endsection

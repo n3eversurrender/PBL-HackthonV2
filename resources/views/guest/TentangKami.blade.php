@@ -9,11 +9,11 @@
         </div>
 
         <div class="w-full lg:w-1/2 p-4">
-            <h2 class="text-xl sm:text-3xl font-bold mb-2 text-[#020617]">Siapa Kita?</h2>
-            <p class="text-[#1E293B] mb-4 text-sm sm:text-base text-justify">
+            <h2 class="text-xl sm:text-3xl font-bold mb-2 text-slate-950">Siapa Kita?</h2>
+            <p class=" text-slate-800 mb-4 text-sm sm:text-base text-justify">
                 SkillBridge adalah platform online dinamis yang dirancang untuk menghubungkan pelatih dan peserta pelatihan di Batam, dengan fokus pada tenaga kerja terampil di bidang fabrikasi seperti pengelasan, pemasangan, dan pengecatan.
             </p>
-            <p class="text-[#1E293B] mb-4 text-sm sm:text-base text-justify">
+            <p class=" text-slate-800 mb-4 text-sm sm:text-base text-justify">
                 Kami memanfaatkan teknologi AI yang canggih untuk memfasilitasi hubungan bermakna antara peserta didik dan mentor berpengalaman, memastikan pengalaman pelatihan yang dipersonalisasi dan selaras dengan kebutuhan industri. Misi kami adalah untuk memberdayakan individu dengan keterampilan yang diperlukan untuk unggul dalam karir mereka sambil membina tenaga kerja yang kuat dan terampil di Batam.
             </p>
         </div>
@@ -24,17 +24,17 @@
     <div class="bg-white">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto sm:px-8 max-w-5xl lg:text-center">
-                <h2 class="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 ">Fitur SkillBridge yang Akan Anda Manfaatkan</h2>
-                <p class="mt-3 text-base leading-8 text-gray-600">Temukan keuntungan utama yang akan meningkatkan peluang
+                <h2 class="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-slate-950 ">Fitur SkillBridge yang Akan Anda Manfaatkan</h2>
+                <p class="mt-3 text-base leading-8 text-slate-800">Temukan keuntungan utama yang akan meningkatkan peluang
                     pembelajaran dan karier Anda melalui SkillBridge.</p>
             </div>
 
             <div class="mx-auto px-5 mt-12 max-w-2xl sm:mt-16  lg:max-w-4xl">
                 <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
                     <div class="relative pl-16">
-                        <dt class="text-base font-semibold leading-7 text-gray-900">
+                        <dt class="text-base font-semibold leading-7 text-slate-950">
                             <div
-                                class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                                class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-CalmBlue">
                                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                     stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -43,15 +43,15 @@
                             </div>
                             Rekomendasi Pelatihan yang Didukung AI
                         </dt>
-                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Teknologi AI kami mengevaluasi
+                        <dd class="mt-2 text-sm sm:text-base leading-7 text-TeksSecond text-justify">Teknologi AI kami mengevaluasi
                             tingkat keahlian dan tujuan karier Anda untuk memberikan rekomendasi kursus yang dipersonalisasi,
                             memastikan jalur pembelajaran yang disesuaikan dalam pengelasan, pemasangan, dan pengecatan.</dd>
                     </div>
 
                     <div class="relative pl-16">
-                        <dt class="text-base font-semibold leading-7 text-gray-900">
+                        <dt class="text-base font-semibold leading-7 text-slate-950">
                             <div
-                                class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                                class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-CalmBlue">
                                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                     stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -60,15 +60,15 @@
                             </div>
                             Pelatih Berpengalaman
                         </dt>
-                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Dapatkan akses ke jaringan
+                        <dd class="mt-2 text-sm sm:text-base leading-7 text-TeksSecond text-justify">Dapatkan akses ke jaringan
                             profesional berpengalaman dari industri terkemuka di Batam. Para mentor ini memberikan pelatihan langsung,
                             berbagi wawasan industri, dan membimbing Anda untuk menguasai keterampilan fabrikasi.</dd>
                     </div>
 
                     <div class="relative pl-16">
-                        <dt class="text-base font-semibold leading-7 text-gray-900">
+                        <dt class="text-base font-semibold leading-7 text-slate-950">
                             <div
-                                class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                                class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-CalmBlue">
                                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                     stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -77,15 +77,15 @@
                             </div>
                             Jalur Pembelajaran yang Fleksibel
                         </dt>
-                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Baik Anda seorang
+                        <dd class="mt-2 text-sm sm:text-base leading-7 text-TeksSecond text-justify">Baik Anda seorang
                             pemula atau yang sudah maju dalam karier Anda, SkillBridge menawarkan opsi pembelajaran fleksibel
                             yang sesuai dengan jadwal Anda. Anda dapat belajar sesuai keinginan Anda, dengan konten yang dirancang untuk berbagai tingkat keahlian.</dd>
                     </div>
 
                     <div class="relative pl-16">
-                        <dt class="text-base font-semibold leading-7 text-gray-900">
+                        <dt class="text-base font-semibold leading-7 text-slate-950">
                             <div
-                                class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
+                                class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-CalmBlue">
                                 <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                     stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -94,7 +94,7 @@
                             </div>
                             Kurikulum yang Selaras dengan Industri
                         </dt>
-                        <dd class="mt-2 text-sm sm:text-base leading-7 text-gray-600 text-justify">Kursus kami dirancang
+                        <dd class="mt-2 text-sm sm:text-base leading-7 text-TeksSecond text-justify">Kursus kami dirancang
                             berdasarkan kebutuhan industri fabrikasi di Batam saat ini, memastikan bahwa Anda memperoleh
                             keterampilan yang paling dibutuhkan untuk unggul di pasar kerja.</dd>
                     </div>
@@ -107,10 +107,10 @@
 
 <div class="container mx-auto mt-10">
     <div class="max-w-5xl mx-auto text-center">
-        <h2 class=" text-2xl sm:text-3xl font-bold text-gray-900">
+        <h2 class=" text-2xl sm:text-3xl font-bold text-slate-950">
             Pimpin Jalan dengan SkillBridge
         </h2>
-        <p class="mt-4 px-6 text-base text-gray-500 mb-8">
+        <p class="mt-4 px-6 text-base text-slate-800 mb-8">
             Bergabunglah dengan platform kami untuk membentuk masa depan tenaga kerja terampil.
             Bagikan keahlian Anda, terhubung dengan orang lain, dan bantu membangun tenaga kerja yang lebih kuat di Batam.
         </p>
@@ -139,10 +139,10 @@
 <div class="container mx-auto p-5 sm:p-10">
     <div class="sm:flex">
         <div class="sm:w-1/2 p-4">
-            <h2 class="font-bold text-2xl mb-2 sm:text-3xl">Pertanyaan yang sering diajukan</h2>
-            <span class="text-sm text-[#0F172A] w-1/3">Bagian FAQ kami menawarkan jawaban cepat
+            <h2 class="font-bold text-2xl mb-2 sm:text-3xl text-slate-950">Pertanyaan yang sering diajukan</h2>
+            <p class="text-sm text-slate-800">Bagian FAQ kami menawarkan jawaban cepat
                 tentang kursus pengelasan kami, yang mencakup topik seperti durasi, sertifikasi,
-                dan materi yang dibutuhkan. Untuk hal lain, jangan ragu untuk menghubungi kami!</span>
+                dan materi yang dibutuhkan. Untuk hal lain, jangan ragu untuk menghubungi kami!</p>
         </div>
         <div class="sm:w-1/2 p-4 ">
             <div id="accordion-open" data-accordion="open">
@@ -250,7 +250,7 @@
         <div class="container flex flex-col flex-1 px-10 py-12 mx-auto">
             <div class="flex-1 lg:flex lg:items-center lg:-mx-6">
                 <div class="text-white lg:w-1/2 lg:mx-6">
-                    <h1 class="text-2xl font-semibold capitalize lg:text-3xl">Terhubung dengan SkillBridge</h1>
+                    <h2 class="text-2xl font-semibold capitalize lg:text-3xl">Terhubung dengan SkillBridge</h2>
                     <p class="max-w-xl text-sm sm:text-base mt-6">
                         SkillBridge adalah platform inovatif yang menghubungkan pelatih dan peserta pelatihan
                         di industri fabrikasi Batam. Kami menggunakan teknologi AI untuk mencocokkan pelajar
@@ -258,7 +258,7 @@
                         pengecatan, dan banyak lagi. Mari kita bekerja sama untuk membangun tenaga kerja terampil.
                     </p>
                     <button
-                        class="px-8 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#0D92F4] rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">
+                        class="px-8 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-ButtonBase rounded-md hover:bg-HoverGlow focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">
                         Hubungi Kami
                     </button>
                 </div>

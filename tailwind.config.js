@@ -11,6 +11,13 @@ module.exports = {
         '9/16': '9 / 16',
         '3/4': '3 /4',
       },
+      colors: {
+        'ButtonBase': '#2563EB',
+        'HoverGlow': '#161D6F',
+        'CalmBlue': '#0D92F4',
+        'TeksSecond': '#475569',
+        'Border': '#B7B7B7',
+      },
     },
   },
   plugins: [

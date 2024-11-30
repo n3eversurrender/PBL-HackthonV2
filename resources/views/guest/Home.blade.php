@@ -9,7 +9,7 @@
     <!-- Row 1: Satu kolom -->
     <div class="sm:my-5 my-3">
         <div class="bg-gwhite text-center p-6">
-            <button type="button" class="px-5 py-2.5 text-sm sm:text-lg font-medium text-white bg-[#0D92F4] rounded-lg">Temukan Apa yang Kami Sediakan</button>
+            <button type="button" class="px-5 py-2.5 text-sm sm:text-lg font-medium text-white bg-CalmBlue rounded-lg">Temukan Apa yang Kami Sediakan</button>
             <div class="px-2">
                 <h2 class="mt-5 mb-2 font-bold text-xl sm:text-3xl text-slate-950">Platform Lengkap untuk Penguasaan Pengelasan dan Fabrikasi</h2>
                 <p class="text-xs sm:text-sm sm:px-5 text-slate-800">
@@ -23,7 +23,7 @@
     <div class="sm:grid sm:grid-cols-4 sm:px-4">
         <!-- Peningkatan Keterampilan -->
         <div class="bg-white text-center px-8 py-6 sm:p-3 lg:p-6">
-            <div class="relative inline-flex mb-3 items-center justify-center w-12 h-12 bg-[#0D92F4] rounded-lg cursor-pointer">
+            <div class="relative inline-flex mb-3 items-center justify-center w-12 h-12 bg-CalmBlue rounded-lg cursor-pointer">
                 <i class="fas fa-envelope text-white text-2xl"></i>
             </div>
             <h3 class=" text-xl lg:text-2xl py-2 sm:h-20 font-semibold text-slate-950">Peningkatan Keterampilan</h3>
@@ -32,7 +32,7 @@
 
         <!-- Melacak Kemajuan -->
         <div class="bg-white text-center px-8 py-6 sm:p-3 lg:p-6">
-            <div class=" relative inline-flex mb-3 items-center justify-center w-12 h-12 bg-[#0D92F4] rounded-lg cursor-pointer">
+            <div class=" relative inline-flex mb-3 items-center justify-center w-12 h-12 bg-CalmBlue rounded-lg cursor-pointer">
                 <i class="fa-solid fa-chart-line text-white text-2xl"></i>
             </div>
             <h3 class="text-xl lg:text-2xl py-2 sm:h-20 font-semibold text-slate-950">Melacak Kemajuan Anda</h3>
@@ -41,7 +41,7 @@
 
         <!-- Mentor dengan nilai tertinggi -->
         <div class="bg-white text-center px-8 py-6 sm:p-3 lg:p-6">
-            <div class=" relative inline-flex mb-3 items-center justify-center w-12 h-12 bg-[#0D92F4] rounded-lg cursor-pointer">
+            <div class=" relative inline-flex mb-3 items-center justify-center w-12 h-12 bg-CalmBlue rounded-lg cursor-pointer">
                 <i class="fa-solid fa-user-tie text-white text-2xl"></i>
             </div>
             <h3 class="text-xl lg:text-2xl py-2 sm:h-20 font-semibold text-slate-950">Mentor dengan Nilai Tertinggi</h3>
@@ -50,7 +50,7 @@
 
         <!-- Mentor dengan nilai tertinggi -->
         <div class="bg-white text-center px-8 py-6 sm:p-3 lg:p-6">
-            <div class=" relative inline-flex mb-3 items-center justify-center w-12 h-12 bg-[#0D92F4] rounded-lg cursor-pointer">
+            <div class=" relative inline-flex mb-3 items-center justify-center w-12 h-12 bg-CalmBlue rounded-lg cursor-pointer">
                 <i class="fa-solid fa-braille text-white text-2xl"></i>
             </div>
             <h3 class="text-xl lg:text-2xl pt-2 sm:h-20 font-semibold text-slate-950">Saran saya</h3>
@@ -68,16 +68,16 @@
     <div class="flex flex-wrap justify-center gap-5 pb-10"> <!-- Ubah justify-between menjadi justify-center untuk menyejajarkan di tengah -->
         <div class="w-80 h-96 p-2"> <!-- Mengatur lebar card menjadi 80 dan tinggi menjadi 96 -->
             <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full">
-                <div class=" flex justify-center py-10 bg-[#0D92F4]">
+                <div class=" flex justify-center py-10 bg-CalmBlue">
                     <img class="h-24 w-24 rounded-full object-cover" src="{{ asset('image/mentor-career-success.jpg') }}" alt="product image" />
                 </div>
                 <div class="px-4 py-4">
                     <div>
                         <h3 class="text-lg text-center sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white mb-3">Johnny Mar & Partner</h3>
-                        <p class="text-center mb-3 text-sm max-h-16 overflow-hidden text-[#475569]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error temporibus fugit cum optio! Praesentium magni autem, dolores ipsam atque corporis quasi deleniti enim totam, aliquid, at facere assumenda impedit modi quos? Perferendis dolores ipsum ipsam, aspernatur magni nesciunt debitis fuga est facere similique dolor ducimus, suscipit voluptate iure dolorem nam.</p>
+                        <p class="text-center mb-3 text-sm max-h-16 overflow-hidden text-TeksSecond">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error temporibus fugit cum optio! Praesentium magni autem, dolores ipsam atque corporis quasi deleniti enim totam, aliquid, at facere assumenda impedit modi quos? Perferendis dolores ipsum ipsam, aspernatur magni nesciunt debitis fuga est facere similique dolor ducimus, suscipit voluptate iure dolorem nam.</p>
                     </div>
                     <div class="flex items-center justify-center">
-                        <button class="w-32 bg-[#2563EB] rounded-full text-white font-medium text-sm px-4 py-1.5 text-center transition duration-700 ease-in-out hover:bg-[#161D6F]">Lihat Detail</button>
+                        <button class="w-32 bg-ButtonBase rounded-full text-white font-medium text-sm px-4 py-1.5 text-center transition duration-700 ease-in-out hover:bg-HoverGlow">Lihat Detail</button>
                     </div>
                 </div>
             </div>
@@ -86,16 +86,16 @@
         <!-- Duplikat Card -->
         <div class="w-80 h-96 p-2"> <!-- Mengatur lebar card menjadi 80 dan tinggi menjadi 96 -->
             <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full">
-                <div class=" flex justify-center py-10 bg-[#0D92F4]">
+                <div class=" flex justify-center py-10 bg-CalmBlue">
                     <img class="h-24 w-24 rounded-full object-cover" src="{{ asset('image/mentor-career-success.jpg') }}" alt="product image" />
                 </div>
                 <div class="px-4 py-4">
                     <div>
                         <h3 class="text-lg text-center sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white mb-3">Johnny Mar & Partner</h3>
-                        <p class="text-center mb-3 text-sm max-h-16 overflow-hidden text-[#475569]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error temporibus fugit cum optio! Praesentium magni autem, dolores ipsam atque corporis quasi deleniti enim totam, aliquid, at facere assumenda impedit modi quos? Perferendis dolores ipsum ipsam, aspernatur magni nesciunt debitis fuga est facere similique dolor ducimus, suscipit voluptate iure dolorem nam.</p>
+                        <p class="text-center mb-3 text-sm max-h-16 overflow-hidden text-TeksSecond">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error temporibus fugit cum optio! Praesentium magni autem, dolores ipsam atque corporis quasi deleniti enim totam, aliquid, at facere assumenda impedit modi quos? Perferendis dolores ipsum ipsam, aspernatur magni nesciunt debitis fuga est facere similique dolor ducimus, suscipit voluptate iure dolorem nam.</p>
                     </div>
                     <div class="flex items-center justify-center">
-                        <button class="w-32 bg-[#2563EB] rounded-full text-white font-medium text-sm px-4 py-1.5 text-center transition duration-700 ease-in-out hover:bg-[#161D6F]">Lihat Detail</button>
+                        <button class="w-32 bg-ButtonBase rounded-full text-white font-medium text-sm px-4 py-1.5 text-center transition duration-700 ease-in-out hover:bg-HoverGlow">Lihat Detail</button>
                     </div>
                 </div>
             </div>
@@ -105,16 +105,16 @@
         <!-- Duplikat Card -->
         <div class="w-80 h-96 p-2"> <!-- Mengatur lebar card menjadi 80 dan tinggi menjadi 96 -->
             <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full">
-                <div class=" flex justify-center py-10 bg-[#0D92F4]">
+                <div class=" flex justify-center py-10 bg-CalmBlue">
                     <img class="h-24 w-24 rounded-full object-cover" src="{{ asset('image/mentor-career-success.jpg') }}" alt="product image" />
                 </div>
                 <div class="px-4 py-4">
                     <div>
                         <h3 class="text-lg text-center sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white mb-3">Johnny Mar & Partner</h3>
-                        <p class="text-center mb-3 text-sm max-h-16 overflow-hidden text-[#475569]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error temporibus fugit cum optio! Praesentium magni autem, dolores ipsam atque corporis quasi deleniti enim totam, aliquid, at facere assumenda impedit modi quos? Perferendis dolores ipsum ipsam, aspernatur magni nesciunt debitis fuga est facere similique dolor ducimus, suscipit voluptate iure dolorem nam.</p>
+                        <p class="text-center mb-3 text-sm max-h-16 overflow-hidden text-TeksSecond">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error temporibus fugit cum optio! Praesentium magni autem, dolores ipsam atque corporis quasi deleniti enim totam, aliquid, at facere assumenda impedit modi quos? Perferendis dolores ipsum ipsam, aspernatur magni nesciunt debitis fuga est facere similique dolor ducimus, suscipit voluptate iure dolorem nam.</p>
                     </div>
                     <div class="flex items-center justify-center">
-                        <button class="w-32 bg-[#2563EB] rounded-full text-white font-medium text-sm px-4 py-1.5 text-center transition duration-700 ease-in-out hover:bg-[#161D6F]">Lihat Detail</button>
+                        <button class="w-32 bg-ButtonBase rounded-full text-white font-medium text-sm px-4 py-1.5 text-center transition duration-700 ease-in-out hover:bg-HoverGlow">Lihat Detail</button>
                     </div>
                 </div>
             </div>
