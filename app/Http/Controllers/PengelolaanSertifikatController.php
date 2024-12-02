@@ -14,13 +14,18 @@ class PengelolaanSertifikatController extends Controller
     // Menampilkan daftar sertifikat dengan paginasi
     public function pengelolaanSertifikat()
     {
-        // Ambil semua sertifikat tanpa eager loading
-        $sertifikat = Sertifikat::paginate(10);
+        $id = Auth::id(); // Ambil ID pengguna yang sedang login
+
+        // Ambil sertifikat berdasarkan kursus yang dimiliki oleh pengguna
+        $sertifikat = Sertifikat::whereHas('kursus', function ($query) use ($id) {
+            $query->where('pengguna_id', $id);
+        })->paginate(10);
 
         return view('pelatih.PengelolaanSertifikat', [
             'sertifikat' => $sertifikat,
         ]);
     }
+
 
 
     // Menampilkan form untuk menambahkan sertifikat

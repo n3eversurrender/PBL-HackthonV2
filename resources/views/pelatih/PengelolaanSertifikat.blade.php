@@ -5,11 +5,19 @@
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <div class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900">
         <div>
+            @if(Auth::check() && Auth::user()->peran == 'Pelatih' && Auth::user()->status == 'Aktif')
             <a href="/TambahSertifikat" class="flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                 <i class="fas fa-plus mr-2"></i>
                 Tambah Sertifikat
             </a>
+            @else
+            <button class="flex items-center px-4 py-2 bg-gray-400 text-white font-semibold rounded-lg cursor-not-allowed" disabled>
+                <i class="fas fa-plus mr-2"></i>
+                Tambah Sertifikat
+            </button>
+            @endif
         </div>
+
         <div class="relative">
             <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
                 <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
