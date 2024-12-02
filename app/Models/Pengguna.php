@@ -50,4 +50,9 @@ class Pengguna extends Authenticatable
     {
         return $this->hasOne(Verifikasi::class, 'pengguna_id', 'pengguna_id');
     }
+
+    public function ratingKursus()
+    {
+        return $this->hasMany(RatingKursus::class, 'pengguna_id');
+    }
 }
