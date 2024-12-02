@@ -5,13 +5,13 @@
 <section class="flex mx-4 sm:mx-12 mt-4">
     <aside class="h-auto min-h-screen">
         <div class="h-full py-4 w-28 sm:w-64 bg-white">
-            <h1 class=" font-bold text-lg sm:text-3xl py-1 sm:py-3">Kursus</h1>
-            <p class=" font-bold text-sm sm:text-xl mb-2 sm:py-2">Semua Kursus</p>
+            <h2 class=" font-bold text-lg sm:text-3xl py-1 sm:py-3">Kursus</h2>
+            <h3 class=" font-bold text-sm sm:text-2xl mb-4 sm:py-2">Semua Kursus</h3>
             <ul class="space-y-2  font-medium">
                 <!-- Kategori-->
                 <li>
                     <button type="button" class="flex items-center w-full p-2 text-xs sm:text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-category" data-collapse-toggle="dropdown-category">
-                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Kategori</span>
+                        <h3 class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Kategori</h3>
                         <svg class="w-2 h-2 sm:w-3 sm:h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                             <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
                         </svg>
@@ -79,7 +79,7 @@
             <!-- Heading & Filters -->
             <div class="mb-4 justify-end space-y-4 space-x-3 sm:flex sm:space-y-0 ">
                 <!-- Modal toggle -->
-                <button data-modal-target="select-modal" data-modal-toggle="select-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm px-5 py-2 sm:py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                <button data-modal-target="select-modal" data-modal-toggle="select-modal" class="block text-white bg-ButtonBase hover:bg-HoverGlow transition duration-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm px-5 py-2 sm:py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                     Tanya Saya ?
                 </button>
 
@@ -150,10 +150,12 @@
                 </div>
             </div>
 
+
+           
             <!-- Cards Start -->
             <div class="mb-4 grid gap-2 lg:gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3">
                 @foreach ($kursus as $item)
-                <div class="rounded-lg border border-gray-200 bg-white p-2 lg:p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                <div class="rounded-lg border border-gray-200 bg-white p-2 lg:p-4 shadow-sm">
                     <div class="object-cover aspect-video">
                         <img class="w-full h-full rounded-lg object-cover"
                             src="{{ $item->foto_kursus ? asset('storage/' . $item->foto_kursus) : asset('image/Thumnnail.jpg') }}"

@@ -32,7 +32,7 @@ class MainController extends Controller
     public function Home()
     {
         // Ambil maksimal 4 data dari tabel 'umpan_balik'
-        $data = UmpanBalik::take(3)->get();
+        $data = UmpanBalik::all();
 
         // Kirim data ke view
         return view('guest.Home', compact('data'));
