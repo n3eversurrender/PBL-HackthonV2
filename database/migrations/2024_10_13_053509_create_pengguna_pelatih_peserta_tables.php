@@ -67,10 +67,18 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->timestamps();
         });
 
-        // Tabel kursus
+        // Tabel kategori
+        Schema::create('kategori', function (Blueprint $table) {
+            $table->id('kategori_id');
+            $table->string('nama_kategori')->unique();
+            $table->timestamps();
+        });
+
+        // Tabel kursus dengan relasi ke kategori
         Schema::create('kursus', function (Blueprint $table) {
             $table->id('kursus_id');
-            $table->unsignedBigInteger('pengguna_id')->nullable();
+            $table->unsignedBigInteger('pengguna_id');  // Jika pengguna_id harus ada
+            $table->unsignedBigInteger('kategori_id');  // Tidak nullable jika ingin memastikan setiap kursus memiliki kategori
             $table->string('judul');
             $table->text('deskripsi');
             $table->decimal('harga', 10, 2);
@@ -83,8 +91,21 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->string('lokasi');
             $table->string('foto_kursus')->nullable();
             $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
+            $table->foreign('kategori_id')->references('kategori_id')->on('kategori')->onDelete('cascade'); // Relasi ke kategori
             $table->timestamps();
         });
+
+        Schema::create('rating_kursus', function (Blueprint $table) {
+            $table->id('rating_kursus_id');
+            $table->unsignedBigInteger('kursus_id')->nullable();
+            $table->unsignedBigInteger('pengguna_id')->nullable();
+            $table->float('rating')->nullable();
+            $table->text('komentar')->nullable();
+            $table->foreign('kursus_id')->references('kursus_id')->on('kursus')->onDelete('cascade');
+            $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
+            $table->timestamps();
+        });
+
 
         // Tabel kurikulum
         Schema::create('kurikulum', function (Blueprint $table) {
@@ -145,7 +166,6 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->unsignedBigInteger('pengguna_id');
             $table->float('rating');
             $table->text('komentar')->nullable();
-            $table->timestamp('waktu')->default(now());
             $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
             $table->timestamps();
         });
@@ -180,5 +200,7 @@ class CreatePenggunaPelatihPesertaTables extends Migration
         Schema::dropIfExists('rating_pelatih');
         Schema::dropIfExists('pengguna');
         Schema::dropIfExists('admin');
+        Schema::dropIfExists('sub_kategori');
+        Schema::dropIfExists('kategori');
     }
 }

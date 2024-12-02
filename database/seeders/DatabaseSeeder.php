@@ -19,12 +19,14 @@ class DatabaseSeeder extends Seeder
             PenggunaSeeder::class,
             PelatihSeeder::class,
             PesertaSeeder::class,
+            KategoriSeeder::class,
             KursusSeeder::class,
             KurikulumSeeder::class,
             PendaftaranSeeder::class,
             PembayaranSeeder::class,
             SertifikatSeeder::class,
             RatingPelatihSeeder::class,
+            RatingKursusSeeder::class,
             UmpanBalikSeeder::class,
         ]);
     }
