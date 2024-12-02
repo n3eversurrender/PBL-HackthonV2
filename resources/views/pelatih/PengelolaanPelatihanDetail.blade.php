@@ -5,7 +5,7 @@
 <div class="flex items-start">
     <figure class="max-w-96">
         <img class="h-48 w-full object-cover md:h-full md:w-48 border-r border-gray-300 rounded-lg"
-            src="{{ $kursus->foto_kursus ? asset('image/' . $kursus->foto_kursus) : asset('image/Thumnnail.jpg') }}"
+            src="{{ $kursus->foto_kursus ? asset('storage/' . $kursus->foto_kursus) : asset('image/Thumnnail.jpg') }}"
             alt="Course Image">
     </figure>
     <div class="ml-4">
@@ -31,12 +31,7 @@
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th scope="col" class="p-4">
-                    <div class="flex items-center">
-                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                    </div>
-                </th>
+                <th scope="col" class="px-6 py-3">NO</th>
                 <th scope="col" class="px-6 py-3">Name</th>
                 <th scope="col" class="px-6 py-3">Email</th>
                 <th scope="col" class="px-6 py-3">Gender</th>
@@ -49,17 +44,8 @@
         <tbody>
             @foreach($pendaftaran as $item)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td class="w-4 p-4">
-                    <div class="flex items-center">
-                        <input id="checkbox-table-search-{{ $item->pengguna->pengguna_id }}" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="checkbox-table-search-{{ $item->pengguna->pengguna_id }}" class="sr-only">checkbox</label>
-                    </div>
-                </td>
-                <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                    <div class="ps-3">
-                        <div class="text-base font-semibold">{{ $item->pengguna->nama }}</div>
-                    </div>
-                </th>
+                <td class="px-6 py-4">{{ $pendaftaran->firstItem() + $loop->iteration - 1 }}</td>
+                <td class="px-6 py-4">{{ $item->pengguna->nama }}</td>
                 <td class="px-6 py-4">{{ $item->pengguna->email }}</td>
                 <td class="px-6 py-4">{{ $item->pengguna->jenis_kelamin }}</td>
                 <td class="px-6 py-4">{{ $item->pengguna->no_telepon }}</td>

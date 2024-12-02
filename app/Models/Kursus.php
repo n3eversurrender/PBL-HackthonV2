@@ -13,13 +13,25 @@ class Kursus extends Model
     protected $primaryKey = 'kursus_id';
 
     protected $fillable = [
-        'pengguna_id', 'judul', 'deskripsi', 'lokasi', 'harga', 'tingkat_kesulitan', 'rating', 'status', 'tgl_mulai', 'tgl_selesai', 'kapasitas', 'foto_kursus'
+        'pengguna_id',
+        'pengguna_id',
+        'judul',
+        'deskripsi',
+        'lokasi',
+        'harga',
+        'tingkat_kesulitan',
+        'rating',
+        'status',
+        'tgl_mulai',
+        'tgl_selesai',
+        'kapasitas',
+        'foto_kursus'
     ];
 
     public function pengguna()
     {
         return $this->belongsTo(Pengguna::class, 'pengguna_id', 'pengguna_id');
-    }    
+    }
 
     public function kurikulum()
     {
@@ -29,5 +41,15 @@ class Kursus extends Model
     public function pendaftaran()
     {
         return $this->hasMany(Pendaftaran::class, 'kursus_id');
+    }
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'kategori_id', 'kategori_id');
+    }
+
+    public function ratingKursus()
+    {
+        return $this->hasMany(RatingKursus::class, 'kursus_id');
     }
 }

@@ -19,7 +19,6 @@
                 <th scope="col" class="px-6 py-3">No</th>
                 <th scope="col" class="px-6 py-3">Nama Kursus</th>
                 <th scope="col" class="px-6 py-3">Jadwal</th>
-                <th scope="col" class="px-6 py-3">Persentase Progres</th>
                 <th scope="col" class="px-6 py-3 text-center">Anggota</th>
                 <th scope="col" class="px-6 py-3">Action</th>
             </tr>
@@ -33,11 +32,6 @@
                     {{ \Carbon\Carbon::parse($item->tgl_mulai)->format('d M Y') }}
                     <strong>s/d</strong>
                     {{ \Carbon\Carbon::parse($item->tgl_selesai)->format('d M Y') }}
-                </td>
-                <td class="px-6 py-4">
-                    <div class="w-full bg-gray-200 rounded-full h-1.5 mb-4 dark:bg-gray-700">
-                        <div class="bg-green-600 h-1.5 rounded-full dark:bg-green-500" style="width: 45%"></div>
-                    </div>
                 </td>
                 <td class="px-6 py-4 text-center">{{ $item->kapasitas }}</td>
                 <td class="px-6 py-4">
