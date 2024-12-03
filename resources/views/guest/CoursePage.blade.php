@@ -54,6 +54,20 @@
       </div>
 
       <!-- Tombol Aksi -->
+      @auth
+      @if (Auth::user()->peran === 'Peserta')
+      @php
+      $pendaftaranSebelumnya = \App\Models\Pendaftaran::where('pengguna_id', Auth::id())
+      ->where('kursus_id', $kursus->kursus_id)
+      ->where('status_pendaftaran', '!=', 'Selesai')
+      ->exists();
+      @endphp
+
+      @if ($pendaftaranSebelumnya)
+      <div class="mt-4">
+        <p class="text-gray-500">Anda sudah terdaftar di kursus ini dan belum menyelesaikannya.</p>
+      </div>
+      @else
       <form action="/DaftarPendaftaran" method="POST" class="mt-4">
         @csrf
         <input type="hidden" name="kursus_id" value="{{ $kursus->kursus_id }}">
@@ -62,6 +76,18 @@
           Mulai Belajar
         </button>
       </form>
+      @endif
+      @else
+      <div class="mt-4">
+        <p class="text-gray-500">Kamu Adalah Seorang <strong>Pelatih</strong></p>
+      </div>
+      @endif
+      @else
+      <div class="mt-4">
+        <p class="text-red-500">Silakan <a href="{{ route('login') }}" class="text-blue-500 underline">login</a> untuk mulai belajar.</p>
+      </div>
+      @endauth
+
 
     </div>
   </div>

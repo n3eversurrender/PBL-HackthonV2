@@ -57,7 +57,7 @@ Route::get('/CoursePage/{kursus_id}', [MainController::class, 'coursePage'])->na
 Route::get('/DaftarTransaksi', [MainController::class, 'daftarTransaksi'])->name('daftarTransaksi');
 Route::post('/DaftarPendaftaran', [MainController::class, 'store']);
 
-Route::get('/PaymentPage', [MainController::class, 'paymentPage']);
+Route::get('/PaymentPage', [MainController::class, 'paymentPage'])->name('PaymentPage');
 Route::post('/umpan-balik', [UmpanBalikController::class, 'store'])->name('umpan_balik.store');
 
 

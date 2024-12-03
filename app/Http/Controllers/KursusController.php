@@ -14,9 +14,10 @@ class KursusController extends Controller
     {
         $id = Auth::id(); // Ambil ID pengguna yang sedang login
 
-        // Ambil pendaftaran yang terkait dengan pengguna yang sedang login
-        $pendaftaran = Pendaftaran::with(['kursus']) // Hanya muat relasi kursus
+        // Ambil pendaftaran yang terkait dengan pengguna yang sedang login dengan status 'Aktif'
+        $pendaftaran = Pendaftaran::with(['kursus']) // Muat relasi kursus
             ->where('pengguna_id', $id) // Filter berdasarkan peserta yang login
+            ->where('status_pendaftaran', 'Aktif') // Filter hanya pendaftaran dengan status 'Aktif'
             ->paginate(10); // Paginate dengan ukuran 10 per halaman
 
         return view('peserta.Kursus', [

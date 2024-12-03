@@ -5,7 +5,6 @@
 <section class="flex mx-4 sm:mx-12 mt-4">
     <aside class="h-auto min-h-screen">
         <div class="h-full py-4 w-28 sm:w-64 bg-white">
-            <h2 class=" font-bold text-lg sm:text-3xl py-1 sm:py-3">Kursus</h2>
             <h3 class=" font-bold text-sm sm:text-2xl mb-4 sm:py-2">Semua Kursus</h3>
             <ul class="space-y-2  font-medium">
                 <!-- Kategori-->

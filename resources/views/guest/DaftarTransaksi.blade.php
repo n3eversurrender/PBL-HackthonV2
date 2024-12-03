@@ -59,102 +59,28 @@
                     </div>
                 </td>
                 <td class="px-6 py-4">
-                    <!-- Button Detail -->
-                    <button type="button" data-modal-target="my_modal_detail_{{ $pendaftaranItem->pendaftaran_id }}" data-modal-toggle="my_modal_detail_{{ $pendaftaranItem->pendaftaran_id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:text-blue-700 dark:hover:text-blue-400 mr-4">
-                        <i class="fas fa-eye"></i> Detail
+                    @if($pendaftaranItem->status_pendaftaran === 'Aktif')
+                    @if($pendaftaranItem->status_pembayaran === 'Pending')
+                    <!-- Button Bayar hanya jika status pembayaran 'Pending' -->
+                    <a href="{{ route('PaymentPage') }}" class="font-medium text-green-600 dark:text-green-500 hover:text-green-700 dark:hover:text-green-400">
+                        <i class="fas fa-money-bill-alt"></i> Bayar
+                    </a>
+                    @endif
+                    @endif
+
+                    @if($pendaftaranItem->status_pembayaran === 'Berhasil')
+                    <!-- Lihat Detail Transaksi hanya jika status pembayaran 'Berhasil' -->
+                    <button type="button" data-modal-target="my_modal_view_{{ $pendaftaranItem->pendaftaran_id }}" data-modal-toggle="my_modal_view_{{ $pendaftaranItem->pendaftaran_id }}" class="font-medium text-green-600 dark:text-green-500 hover:text-green-700 dark:hover:text-green-400 my-1 mr-2">
+                        <i class="fas fa-eye"></i> Lihat Detail Transaksi
                     </button>
-                    <!-- Button Hapus -->
-                    <button type="button" data-modal-target="my_modal_delete_{{ $pendaftaranItem->pendaftaran_id }}" data-modal-toggle="my_modal_delete_{{ $pendaftaranItem->pendaftaran_id }}" class="font-medium text-red-600 dark:text-red-500 hover:text-red-700 dark:hover:text-red-400">
-                        <i class="fas fa-trash"></i> Hapus
-                    </button>
+                    @elseif($pendaftaranItem->status_pembayaran === 'Gagal')
+                    <!-- Peringatan jika status pembayaran 'Gagal' -->
+                    <span class="text-red-600 dark:text-red-400 font-medium">Pembayaran Gagal</span>
+                    @endif
                 </td>
             </tr>
-
-            <!-- Modal Detail -->
-            <div id="my_modal_detail_{{ $pendaftaranItem->pendaftaran_id }}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                <div class="relative p-4 w-full max-w-2xl max-h-full">
-                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                Detail Informasi
-                            </h3>
-                            <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="my_modal_detail_{{ $pendaftaranItem->pendaftaran_id }}">
-                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                </svg>
-                                <span class="sr-only">Tutup modal</span>
-                            </button>
-                        </div>
-                        <!-- Isi Modal -->
-                        <div class="p-4 md:p-5 bg-white dark:bg-gray-800 rounded-lg shadow-lg space-y-4">
-                            <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Detail Informasi</h2>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Judul</p>
-                                    <p class="text-base text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->kursus->judul }}</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Deskripsi</p>
-                                    <p class="text-base text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->kursus->deskripsi }}</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Harga</p>
-                                    <p class="text-base text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->kursus->harga }}</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tanggal Mulai</p>
-                                    <p class="text-base text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->kursus->tgl_mulai }}</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tanggal Selesai</p>
-                                    <p class="text-base text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->kursus->tgl_selesai }}</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Pelatih</p>
-                                    <p class="text-base text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->pengguna->nama ?? 'Tidak ada pelatih' }}</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Status Pendaftaran</p>
-                                    <p class="text-base text-gray-800 dark:text-gray-200">
-                                        @if($pendaftaranItem->status_pendaftaran)
-                                        {{ $pendaftaranItem->status_pendaftaran }}
-                                        @else
-                                        Belum terdaftar
-                                        @endif
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal Hapus -->
-            <div id="my_modal_delete_{{ $pendaftaranItem->pendaftaran_id }}" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                <div class="relative p-4 w-full max-w-md max-h-full">
-                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                        <div class="p-4 md:p-5 text-center">
-                            <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                            </svg>
-                            <form action="{{ route('DaftarPelatihan.destroy', $pendaftaranItem->pendaftaran_id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah Anda Yakin Ingin Menghapus Ini?</h3>
-                                <button data-modal-hide="my_modal_delete_{{ $pendaftaranItem->pendaftaran_id }}" type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
-                                    Yakin
-                                </button>
-                                <button data-modal-hide="my_modal_delete_{{ $pendaftaranItem->pendaftaran_id }}" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:text-white">
-                                    Tidak Yakin
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
             @endforeach
-        </tbody>
+        </tbody>    
     </table>
 </div>
 

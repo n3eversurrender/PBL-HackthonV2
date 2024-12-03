@@ -121,6 +121,17 @@ class MainController extends Controller
             'kursus_id' => 'required|exists:kursus,kursus_id',
         ]);
 
+        // Cek apakah pengguna sudah pernah mendaftar di kursus ini
+        $pendaftaranSebelumnya = Pendaftaran::where('pengguna_id', auth()->id())
+            ->where('kursus_id', $validated['kursus_id'])
+            ->where('status_pendaftaran', '!=', 'Selesai') // Hanya cek jika status belum "Selesai"
+            ->first();
+
+        if ($pendaftaranSebelumnya) {
+            // Redirect dengan pesan error
+            return redirect()->back()->with('error', 'Anda sudah terdaftar di kursus ini.');
+        }
+
         // Simpan data pendaftaran
         Pendaftaran::create([
             'pengguna_id' => auth()->id(), // ID pengguna yang sedang login
