@@ -14,13 +14,12 @@ class KategoriSeeder extends Seeder
     public function run(): void
     {
         DB::table('kategori')->insert([
-            ['nama_kategori' => 'Minyak dan Gas'],
-            ['nama_kategori' => 'Kelautan'],
-            ['nama_kategori' => 'Konstruksi'],
-            ['nama_kategori' => 'Elektronik'],
-            ['nama_kategori' => 'Logam dan Baja'],
-            ['nama_kategori' => 'Plastik'],
-            ['nama_kategori' => 'Energi Terbarukan'],
+            ['nama_kategori' => 'Pengelasan dan Logam'],
+            ['nama_kategori' => 'Pemrograman dan Otomasi'],
+            ['nama_kategori' => 'Desain dan Prototyping'],
+            ['nama_kategori' => 'Konstruksi dan Infrastruktur'],
+            ['nama_kategori' => 'Manufaktur dan Mesin'],
         ]);
     }
 }
+    

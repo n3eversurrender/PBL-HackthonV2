@@ -2,29 +2,144 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class KursusSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('kursus')->insert([
-            ['pengguna_id' => 1, 'kategori_id' => 1, 'judul' => 'Kursus Bahasa Inggris Dasar', 'deskripsi' => 'Belajar Bahasa Inggris dari nol', 'harga' => 500000, 'tingkat_kesulitan' => 'Pemula', 'rating' => 4.5, 'status' => 'Aktif', 'tgl_mulai' => '2024-12-01', 'tgl_selesai' => '2024-12-31', 'kapasitas' => 20, 'lokasi' => 'Jakarta', 'foto_kursus' => null],
-            ['pengguna_id' => 1, 'kategori_id' => 2, 'judul' => 'Kursus Public Speaking', 'deskripsi' => 'Tingkatkan kemampuan berbicara di depan umum', 'harga' => 750000, 'tingkat_kesulitan' => 'Menengah', 'rating' => 4.8, 'status' => 'Aktif', 'tgl_mulai' => '2024-12-05', 'tgl_selesai' => '2025-01-05', 'kapasitas' => 15, 'lokasi' => 'Bandung', 'foto_kursus' => null],
-            ['pengguna_id' => 2, 'kategori_id' => 3, 'judul' => 'Kursus Desain Grafis', 'deskripsi' => 'Pelajari desain grafis dengan Adobe Illustrator', 'harga' => 600000, 'tingkat_kesulitan' => 'Menengah', 'rating' => 4.2, 'status' => 'Aktif', 'tgl_mulai' => '2024-12-10', 'tgl_selesai' => '2025-01-10', 'kapasitas' => 10, 'lokasi' => 'Yogyakarta', 'foto_kursus' => null],
-            ['pengguna_id' => 2, 'kategori_id' => 4, 'judul' => 'Kursus Pemrograman Python', 'deskripsi' => 'Dasar-dasar pemrograman dengan Python', 'harga' => 550000, 'tingkat_kesulitan' => 'Pemula', 'rating' => 4.0, 'status' => 'Aktif', 'tgl_mulai' => '2024-12-15', 'tgl_selesai' => '2025-01-15', 'kapasitas' => 25, 'lokasi' => 'Surabaya', 'foto_kursus' => null],
-            ['pengguna_id' => 3, 'kategori_id' => 5, 'judul' => 'Kursus Manajemen Proyek', 'deskripsi' => 'Pelajari dasar-dasar manajemen proyek', 'harga' => 800000, 'tingkat_kesulitan' => 'Lanjutan', 'rating' => 4.7, 'status' => 'Aktif', 'tgl_mulai' => '2024-12-20', 'tgl_selesai' => '2025-01-20', 'kapasitas' => 30, 'lokasi' => 'Medan', 'foto_kursus' => null],
-            ['pengguna_id' => 3, 'kategori_id' => 1, 'judul' => 'Kursus SEO Dasar', 'deskripsi' => 'Pelajari dasar SEO untuk meningkatkan ranking website', 'harga' => 450000, 'tingkat_kesulitan' => 'Pemula', 'rating' => 4.3, 'status' => 'Aktif', 'tgl_mulai' => '2024-12-25', 'tgl_selesai' => '2025-01-25', 'kapasitas' => 35, 'lokasi' => 'Palembang', 'foto_kursus' => null],
-            ['pengguna_id' => 1, 'kategori_id' => 2, 'judul' => 'Kursus Manajemen Waktu', 'deskripsi' => 'Cara efektif mengatur waktu dalam kehidupan sehari-hari', 'harga' => 400000, 'tingkat_kesulitan' => 'Pemula', 'rating' => 4.0, 'status' => 'Aktif', 'tgl_mulai' => '2025-01-01', 'tgl_selesai' => '2025-01-31', 'kapasitas' => 40, 'lokasi' => 'Jakarta', 'foto_kursus' => null],
-            ['pengguna_id' => 2, 'kategori_id' => 3, 'judul' => 'Kursus Digital Marketing', 'deskripsi' => 'Pelajari dasar-dasar digital marketing untuk bisnis', 'harga' => 700000, 'tingkat_kesulitan' => 'Menengah', 'rating' => 4.6, 'status' => 'Aktif', 'tgl_mulai' => '2025-01-05', 'tgl_selesai' => '2025-02-05', 'kapasitas' => 20, 'lokasi' => 'Bali', 'foto_kursus' => null],
-            ['pengguna_id' => 1, 'kategori_id' => 4, 'judul' => 'Kursus Fotografi Dasar', 'deskripsi' => 'Belajar teknik dasar dalam fotografi', 'harga' => 550000, 'tingkat_kesulitan' => 'Pemula', 'rating' => 4.1, 'status' => 'Aktif', 'tgl_mulai' => '2025-01-10', 'tgl_selesai' => '2025-02-10', 'kapasitas' => 15, 'lokasi' => 'Jakarta', 'foto_kursus' => null],
-            ['pengguna_id' => 3, 'kategori_id' => 5, 'judul' => 'Kursus Adobe Photoshop', 'deskripsi' => 'Pelajari teknik desain grafis menggunakan Photoshop', 'harga' => 650000, 'tingkat_kesulitan' => 'Menengah', 'rating' => 4.4, 'status' => 'Aktif', 'tgl_mulai' => '2025-01-15', 'tgl_selesai' => '2025-02-15', 'kapasitas' => 18, 'lokasi' => 'Bali', 'foto_kursus' => null],
-            ['pengguna_id' => 2, 'kategori_id' => 4, 'judul' => 'Kursus Web Development', 'deskripsi' => 'Dasar-dasar pengembangan website menggunakan HTML, CSS, dan JavaScript', 'harga' => 700000, 'tingkat_kesulitan' => 'Pemula', 'rating' => 4.3, 'status' => 'Aktif', 'tgl_mulai' => '2025-01-20', 'tgl_selesai' => '2025-02-20', 'kapasitas' => 30, 'lokasi' => 'Surabaya', 'foto_kursus' => null],
-            ['pengguna_id' => 1, 'kategori_id' => 2, 'judul' => 'Kursus Data Science', 'deskripsi' => 'Pelajari dasar-dasar data science dan analisis data', 'harga' => 800000, 'tingkat_kesulitan' => 'Lanjutan', 'rating' => 4.7, 'status' => 'Aktif', 'tgl_mulai' => '2025-02-01', 'tgl_selesai' => '2025-03-01', 'kapasitas' => 25, 'lokasi' => 'Jakarta', 'foto_kursus' => null],
-            ['pengguna_id' => 3, 'kategori_id' => 5, 'judul' => 'Kursus Machine Learning', 'deskripsi' => 'Pelajari dasar-dasar machine learning dan penerapannya', 'harga' => 950000, 'tingkat_kesulitan' => 'Lanjutan', 'rating' => 4.9, 'status' => 'Aktif', 'tgl_mulai' => '2025-02-05', 'tgl_selesai' => '2025-03-05', 'kapasitas' => 20, 'lokasi' => 'Bali', 'foto_kursus' => null],
-            ['pengguna_id' => 1, 'kategori_id' => 3, 'judul' => 'Kursus Keuangan Pribadi', 'deskripsi' => 'Pelajari cara mengelola keuangan pribadi secara bijak', 'harga' => 550000, 'tingkat_kesulitan' => 'Pemula', 'rating' => 4.6, 'status' => 'Aktif', 'tgl_mulai' => '2025-02-10', 'tgl_selesai' => '2025-03-10', 'kapasitas' => 40, 'lokasi' => 'Jakarta', 'foto_kursus' => null],
-            ['pengguna_id' => 2, 'kategori_id' => 5, 'judul' => 'Kursus Manajemen Risiko', 'deskripsi' => 'Pelajari dasar-dasar manajemen risiko dalam proyek', 'harga' => 850000, 'tingkat_kesulitan' => 'Menengah', 'rating' => 4.5, 'status' => 'Aktif', 'tgl_mulai' => '2025-02-15', 'tgl_selesai' => '2025-03-15', 'kapasitas' => 20, 'lokasi' => 'Surabaya', 'foto_kursus' => null],
-        ]);
+        $faker = Faker::create('id_ID');
+
+        // Daftar judul kursus yang berhubungan dengan dunia fabrikasi di Batam
+        $kursus_titles = [
+            'Pelatihan Pengelasan Listrik untuk Pemula',
+            'Pelatihan Pemrograman Mesin CNC di Dunia Fabrikasi',
+            'Desain dan Prototyping 3D dalam Proses Fabrikasi',
+            'Pengenalan Mesin Pemotong Laser untuk Fabrikasi',
+            'Pembuatan Mold dan Die untuk Produksi Massal',
+            'Teknik Pengelasan MIG dan TIG untuk Fabrikasi',
+            'Manajemen Proyek di Industri Fabrikasi',
+            'Teknik Pemrograman Robot Industri di Batam',
+            'Pelatihan Pengoperasian Mesin Milling untuk Fabrikasi',
+            'Pembuatan Prototipe dengan Teknologi Additive Manufacturing',
+            'Kursus Pengelasan Aluminium dan Baja untuk Fabrikasi',
+            'Pengoperasian Mesin Laser Cutting di Batam',
+            'Pembuatan Alat Ukur untuk Konstruksi dan Fabrikasi',
+            'Pelatihan Pengoperasian Mesin Gerinda di Industri Fabrikasi',
+            'Teknik Perawatan Mesin dalam Industri Fabrikasi',
+            'Pelatihan Pengelasan Stainless Steel dan Inox',
+            'Desain Cetakan untuk Fabrikasi Plastik di Batam',
+            'Kursus Pembuatan Alat-alat Konstruksi dari Logam',
+            'Teknik Finishing dan Polishing untuk Produk Fabrikasi',
+            'Pengantar Desain CAD untuk Produksi Fabrikasi',
+            'Pelatihan Pengelasan dan Pembuatan Struktur Baja',
+            'Proses Manufaktur Komponen Elektronik untuk Fabrikasi',
+            'Pelatihan Pengoperasian Mesin Pabrik Komponen Logam',
+            'Kursus Pengelasan Mig dan Tig untuk Profesional',
+            'Pembuatan Jembatan dan Struktur Baja untuk Infrastruktur',
+            'Teknik Penggunaan Printer 3D dalam Proses Fabrikasi',
+            'Teknik Perawatan dan Reparasi Alat Fabrikasi',
+            'Pelatihan Menggunakan Mesin Bubut untuk Fabrikasi',
+            'Desain dan Pembuatan Produk untuk Industri Konstruksi',
+            'Pelatihan Proses Pemotongan dan Perakitan Logam',
+        ];
+
+        $lokasi_batam = [
+            'Nagoya', 'Batam Center', 'Baloi', 'Muka Kuning', 'Sei Beduk', 
+            'Teban', 'Batu Aji', 'Lubuk Baja', 'Simpang Base', 'Tanjung Uncang',
+            'Kabil', 'Bintan Center', 'Bintan', 'Tiban', 'Kampung Belian',
+            'Batam Kota', 'Jodoh', 'Batu Besar', 'Batu Ampar', 'Teluk Tering'
+        ];
+
+        foreach ($kursus_titles as $index => $judul) {
+            DB::table('kursus')->insert([
+                'pengguna_id' => $faker->numberBetween(1, 5),
+                'kategori_id' => $faker->numberBetween(1, 5),
+                'judul' => $judul,  // Judul kursus yang sudah disesuaikan
+                'deskripsi' => $this->generateDescription($judul),  // Deskripsi yang disesuaikan dengan judul
+                'harga' => $faker->randomFloat(2, 1500000, 10000000),  // Harga kursus antara 1.5 juta hingga 10 juta
+                'tingkat_kesulitan' => $faker->randomElement(['Pemula', 'Menengah', 'Lanjutan']),
+                'rating' => $faker->numberBetween(5, 10),  // Rating skala 1-10
+                'status' => $faker->randomElement(['Aktif']),
+                'tgl_mulai' => $faker->date(),
+                'tgl_selesai' => $faker->date(),
+                'kapasitas' => $faker->numberBetween(10, 30),
+                'lokasi' => 'Batam ' . $faker->randomElement($lokasi_batam),  // Lokasi di Batam
+                'foto_kursus' => null,  // Foto di-set null
+            ]);
+        }
+    }
+
+    // Fungsi untuk generate deskripsi sesuai dengan judul
+    private function generateDescription($judul)
+    {
+        $faker = Faker::create('id_ID');  // Pindahkan Faker ke dalam fungsi
+
+        switch ($judul) {
+            case 'Pelatihan Pengelasan Listrik untuk Pemula':
+                return "Pelatihan ini ditujukan bagi pemula yang ingin mempelajari dasar-dasar pengelasan listrik. Peserta akan dikenalkan dengan peralatan pengelasan, teknik dasar pengelasan yang aman, serta penerapannya dalam industri fabrikasi. Kursus ini sangat penting bagi mereka yang ingin memulai karir di industri manufaktur di Batam.";
+            case 'Pelatihan Pemrograman Mesin CNC di Dunia Fabrikasi':
+                return "Kursus ini memberikan pemahaman mendalam tentang pengoperasian mesin CNC (Computer Numerical Control), termasuk cara membaca gambar teknik dan pemrograman mesin untuk produksi komponen presisi. Pelatihan ini sangat relevan dengan kebutuhan industri manufaktur di Batam yang mengandalkan mesin CNC untuk produksi komponen presisi.";
+            case 'Desain dan Prototyping 3D dalam Proses Fabrikasi':
+                return "Pelatihan ini mengajarkan peserta cara mendesain produk menggunakan perangkat lunak CAD dan mencetak prototipe menggunakan printer 3D. Dengan keterampilan ini, peserta dapat menghasilkan prototipe untuk evaluasi dan pengujian, yang sangat dibutuhkan dalam industri fabrikasi di Batam.";
+            case 'Pengenalan Mesin Pemotong Laser untuk Fabrikasi':
+                return "Kursus ini memberikan pelatihan mengenai pengoperasian mesin pemotong laser untuk memotong bahan seperti logam, plastik, dan kayu. Peserta akan mempelajari cara pengaturan dan pemrograman mesin untuk menghasilkan potongan dengan presisi tinggi, sesuai dengan kebutuhan produksi di Batam.";
+            case 'Pembuatan Mold dan Die untuk Produksi Massal':
+                return "Pelatihan ini dirancang untuk mengajarkan pembuatan mold dan die yang digunakan dalam proses produksi massal. Peserta akan mempelajari teknik merancang dan membuat cetakan yang dapat digunakan untuk memproduksi komponen dalam jumlah besar, sangat diperlukan di industri besar di Batam.";
+            case 'Teknik Pengelasan MIG dan TIG untuk Fabrikasi':
+                return "Kursus ini berfokus pada teknik pengelasan MIG (Metal Inert Gas) dan TIG (Tungsten Inert Gas) yang banyak digunakan dalam industri fabrikasi. Peserta akan mempelajari cara mengelas berbagai jenis logam, termasuk baja dan aluminium, dengan teknik yang tepat untuk menghasilkan sambungan yang kuat dan tahan lama.";
+            case 'Manajemen Proyek di Industri Fabrikasi':
+                return "Pelatihan ini memberikan keterampilan manajerial yang dibutuhkan untuk mengelola proyek-proyek fabrikasi. Peserta akan mempelajari cara merencanakan, mengatur, dan mengendalikan proyek dari awal hingga akhir, termasuk pengelolaan anggaran, sumber daya, dan waktu yang sangat penting dalam industri fabrikasi di Batam.";
+            case 'Teknik Pemrograman Robot Industri di Batam':
+                return "Pelatihan ini mengajarkan peserta cara memprogram robot industri untuk tugas-tugas otomatisasi dalam proses fabrikasi. Peserta akan belajar cara mengoptimalkan penggunaan robot dalam lini produksi, sesuai dengan perkembangan pesat teknologi di Batam yang banyak menggunakan robot dalam produksi.";
+            case 'Pelatihan Pengoperasian Mesin Milling untuk Fabrikasi':
+                return "Pelatihan ini memberikan keterampilan praktis dalam pengoperasian mesin milling, yang digunakan untuk memotong dan membentuk bahan logam dan plastik. Peserta akan diajarkan cara mengoperasikan mesin dengan aman dan efektif untuk menghasilkan komponen presisi yang dibutuhkan di industri fabrikasi.";
+            case 'Pembuatan Prototipe dengan Teknologi Additive Manufacturing':
+                return "Kursus ini memberikan pemahaman tentang teknologi Additive Manufacturing (AM), termasuk penggunaan printer 3D untuk membuat prototipe. Peserta akan belajar cara mendesain dan mencetak prototipe yang dapat digunakan untuk pengujian dan evaluasi, yang relevan untuk industri manufaktur di Batam.";
+            case 'Kursus Pengelasan Aluminium dan Baja untuk Fabrikasi':
+                return "Pelatihan ini berfokus pada teknik pengelasan yang khusus untuk aluminium dan baja. Peserta akan mempelajari perbedaan antara pengelasan bahan logam ringan dan berat, serta teknik yang tepat untuk menghasilkan sambungan yang kuat dan tahan lama pada bahan stainless steel dan baja.";
+            case 'Pengoperasian Mesin Laser Cutting di Batam':
+                return "Pelatihan ini mengajarkan peserta cara mengoperasikan mesin laser cutting yang digunakan untuk memotong berbagai bahan, termasuk logam, plastik, dan kayu. Peserta akan mempelajari pengaturan dan pemrograman mesin untuk memastikan hasil pemotongan yang presisi.";
+            case 'Pembuatan Alat Ukur untuk Konstruksi dan Fabrikasi':
+                return "Kursus ini mengajarkan peserta cara mendesain dan membuat alat ukur yang digunakan dalam proses fabrikasi dan konstruksi. Peserta akan mempelajari berbagai jenis alat ukur serta cara penggunaannya dalam industri fabrikasi di Batam.";
+            case 'Pelatihan Pengoperasian Mesin Gerinda di Industri Fabrikasi':
+                return "Pelatihan ini memberikan keterampilan dalam mengoperasikan mesin gerinda yang digunakan untuk memotong dan merapikan bahan logam dan material lainnya. Peserta akan mempelajari teknik pengoperasian dan pengaturan mesin gerinda untuk menghasilkan produk yang sesuai dengan spesifikasi yang diinginkan.";
+            case 'Teknik Perawatan Mesin dalam Industri Fabrikasi':
+                return "Kursus ini mengajarkan teknik-teknik perawatan dan pemeliharaan mesin yang digunakan dalam fabrikasi. Peserta akan mempelajari cara merawat dan memperbaiki mesin fabrikasi untuk memastikan kelancaran operasional dan mengurangi downtime di industri fabrikasi.";
+            case 'Pelatihan Pengelasan Stainless Steel dan Inox':
+                return "Pelatihan ini mengajarkan teknik pengelasan pada material stainless steel dan inox. Peserta akan mempelajari berbagai metode pengelasan yang digunakan untuk menyambung material ini, yang banyak digunakan di industri manufaktur dan konstruksi di Batam.";
+            case 'Desain Cetakan untuk Fabrikasi Plastik di Batam':
+                return "Kursus ini mengajarkan desain cetakan untuk fabrikasi plastik, mulai dari perancangan hingga produksi cetakan. Peserta akan mempelajari teknik dan material yang digunakan dalam proses pembuatan cetakan untuk industri plastik yang banyak berkembang di Batam.";
+            case 'Kursus Pembuatan Alat-alat Konstruksi dari Logam':
+                return "Pelatihan ini memberikan keterampilan dalam pembuatan alat konstruksi yang terbuat dari logam. Peserta akan mempelajari teknik pembuatan alat-alat seperti palu, bor, dan kunci pas yang digunakan di berbagai proyek konstruksi dan fabrikasi.";
+            case 'Teknik Finishing dan Polishing untuk Produk Fabrikasi':
+                return "Pelatihan ini mengajarkan teknik finishing dan polishing untuk menghasilkan produk akhir yang halus dan estetis. Peserta akan belajar cara menghaluskan dan memberi finishing produk fabrikasi untuk memastikan kualitas dan daya tahan produk.";
+            case 'Pengantar Desain CAD untuk Produksi Fabrikasi':
+                return "Kursus ini memperkenalkan penggunaan perangkat lunak CAD (Computer-Aided Design) untuk desain produk fabrikasi. Peserta akan mempelajari cara mendesain komponen dan produk dengan menggunakan teknologi CAD untuk mempermudah proses fabrikasi.";
+            case 'Pelatihan Pengelasan dan Pembuatan Struktur Baja':
+                return "Pelatihan ini berfokus pada pengelasan dan pembuatan struktur baja yang digunakan dalam berbagai proyek besar, seperti pembangunan gedung dan infrastruktur. Peserta akan mempelajari teknik-teknik pengelasan dan fabrikasi struktur baja yang kuat dan tahan lama.";
+            case 'Proses Manufaktur Komponen Elektronik untuk Fabrikasi':
+                return "Kursus ini mengajarkan proses manufaktur untuk komponen elektronik yang digunakan dalam fabrikasi. Peserta akan mempelajari cara merakit, menguji, dan memproduksi komponen elektronik yang digunakan dalam perangkat dan produk akhir.";
+            case 'Pelatihan Pengoperasian Mesin Pabrik Komponen Logam':
+                return "Pelatihan ini memberikan pemahaman tentang cara mengoperasikan mesin di pabrik komponen logam, seperti mesin bubut, mesin CNC, dan mesin milling. Peserta akan belajar cara memproduksi komponen logam untuk berbagai aplikasi industri.";
+            case 'Kursus Pengelasan Mig dan Tig untuk Profesional':
+                return "Kursus ini dirancang untuk para profesional yang ingin meningkatkan keterampilan pengelasan mereka dengan metode MIG (Metal Inert Gas) dan TIG (Tungsten Inert Gas). Peserta akan mempelajari teknik pengelasan yang lebih lanjut dan aplikasinya dalam berbagai industri.";
+            case 'Pembuatan Jembatan dan Struktur Baja untuk Infrastruktur':
+                return "Pelatihan ini mengajarkan cara merancang dan membuat struktur baja untuk jembatan dan proyek infrastruktur lainnya. Peserta akan mempelajari teknik konstruksi yang digunakan untuk memastikan kekuatan dan ketahanan struktur baja yang dibangun.";
+            case 'Teknik Penggunaan Printer 3D dalam Proses Fabrikasi':
+                return "Kursus ini mengajarkan penggunaan printer 3D dalam proses fabrikasi untuk membuat komponen dan prototipe. Peserta akan belajar cara mendesain dan mencetak produk dengan teknologi 3D untuk industri fabrikasi yang berkembang pesat di Batam.";
+            case 'Teknik Perawatan dan Reparasi Alat Fabrikasi':
+                return "Pelatihan ini berfokus pada perawatan dan perbaikan alat-alat yang digunakan dalam fabrikasi. Peserta akan mempelajari cara merawat dan memperbaiki mesin dan alat yang digunakan untuk memastikan kelancaran proses produksi.";
+            case 'Pelatihan Menggunakan Mesin Bubut untuk Fabrikasi':
+                return "Pelatihan ini mengajarkan penggunaan mesin bubut dalam proses fabrikasi untuk memotong dan membentuk bahan logam. Peserta akan mempelajari teknik-teknik pemrograman dan pengoperasian mesin bubut untuk menghasilkan produk presisi.";
+            case 'Desain dan Pembuatan Produk untuk Industri Konstruksi':
+                return "Kursus ini memberikan keterampilan dalam mendesain dan membuat produk yang digunakan dalam industri konstruksi. Peserta akan mempelajari cara membuat berbagai produk konstruksi yang aman dan efektif untuk proyek besar.";
+            case 'Pelatihan Proses Pemotongan dan Perakitan Logam':
+                return "Pelatihan ini mengajarkan proses pemotongan dan perakitan logam untuk menghasilkan produk jadi. Peserta akan mempelajari teknik-teknik pemotongan dan pengelasan yang digunakan dalam produksi logam." ;
+            default:
+                return $faker->paragraph(10);  // Jika tidak ada kecocokan, gunakan paragraf acak dari Faker
+        }
     }
 }
