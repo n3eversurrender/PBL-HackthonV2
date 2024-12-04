@@ -105,17 +105,17 @@
                     </button>
                     <ul id="dropdownKursus" class="ml-6 mt-1 hidden">
                         <li>
+                            <a href="/DataKategori" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                                <i class="fas fa-file-alt"></i>
+                                <span class="ms-3">Category Kursus</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="/DataKursus" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                                 <i class="fas fa-book-open"></i>
                                 <span class="ms-3">Kursus Tersedia</span>
                             </a>
                         </li>
-                        <!-- <li>
-                            <a href="/DataMateri" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
-                                <i class="fas fa-file-alt"></i>
-                                <span class="ms-3">Materi Kursus</span>
-                            </a>
-                        </li> -->
                         <li>
                             <a href="/PesertaKursus" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
                                 <i class="fas fa-users"></i>

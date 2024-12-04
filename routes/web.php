@@ -17,6 +17,7 @@ use App\Http\Controllers\PesanAdminController;
 use App\Http\Controllers\DaftarPelatihanController;
 use App\Http\Controllers\DashboardPelatihController;
 use App\Http\Controllers\DashboardPesertaController;
+use App\Http\Controllers\DataKategoriController;
 use App\Http\Controllers\DataKursusController;
 use App\Http\Controllers\DataSertifikatController;
 use App\Http\Controllers\DataUmpanBalikController;
@@ -148,6 +149,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/admin/store', [DataAdminController::class, 'store'])->name('admin.store');
     Route::put('/DataAdmin/{admin_id}', [DataAdminController::class, 'update'])->name('PengelolaanAdmin.update');
     Route::delete('/DataAdmin/{admin_id}', [DataAdminController::class, 'destroy'])->name('PengelolaanAdmin.destroy');
+
+    Route::get('/DataKategori', [DataKategoriController::class, 'dataKategori'])->name('DataKategori');
+    Route::get('/TambahKategori', [DataKategoriController::class, 'tambahKategori'])->name('TambahKategori');
+    Route::post('/TambahKategori/store', [DataKategoriController::class, 'store'])->name('kategori.store');
+    Route::delete('/TambahKategori/{kategori_id}', [DataKategoriController::class, 'destroy'])->name('kategori.destroy');
+
 
     Route::get('/DataKursus', [DataKursusController::class, 'dataKursus'])->name('DataKursus');
     Route::delete('/kursus/{kursus_id}', [DataKursusController::class, 'destroy'])->name('kursus.destroy');
