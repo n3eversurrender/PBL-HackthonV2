@@ -78,19 +78,19 @@
 
         <!-- Main -->
         <div class="sm:ml-64">
-            <div class="flex justify-between items-center bg-white pt-4 px-4">
-                <h1 class="text-3xl lg:text-4xl font-extrabold dark:text-white">
+            <div class=" grid grid-cols-7 sm:flex justify-between items-center bg-white pt-4 px-4">
+                <h1 class="text-3xl col-span-6 lg:text-4xl font-extrabold dark:text-white">
                     Selamat Datang Peserta
                     <small class="ms-2 text-xl lg:text-2xl font-semibold text-TeksSecond">
                         {{ Auth::user()->nama }}
                     </small>
                 </h1>
-                <div>
+                <div class="col-span-1">
                     <img class="w-14 h-auto object-cover aspect-square rounded-full" src="{{ asset('image/9203764.png') }}" alt="Rounded avatar">
                 </div>
             </div>
 
-            <p id="datetime" class="sm:text-sm ps-4 text-xs font-normal text-TeksSecond py-1 bg-white"></p>
+            <p id="datetime" class="sm:text-sm ps-4 text-xs font-normal text-TeksSecond pt-5  sm:pt-3 lg:py-1 bg-white "></p>
             <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700 mb-5">
             <div class="p-4 m-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
                 @include('partials.succesAlert')
