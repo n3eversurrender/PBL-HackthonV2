@@ -20,19 +20,19 @@
             </svg>
         </button>
 
-        <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-            <div class="h-full px-3 py-4 border overflow-y-auto bg-gray-50 dark:bg-gray-800">
+        <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 " aria-label="Sidebar">
+            <div class="h-full px-3 py-4 border overflow-y-auto bg-sky-50 dark:bg-gray-800">
                 <div class="flex justify-center">
                     <a href="/Home">
                         <img src="{{ asset('image/SKILLB.png') }}" class="w-20 h-20 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" alt="SkillBridge Logo" />
                     </a>
                 </div>
-                <p class="text-xl font-semibold text-center text-[#0F172A] mb-5">SKILLBRIDGE</p>
+                <p class="text-xl font-bold text-center text-[#0F172A] mb-5">SKILLBRIDGE</p>
                 <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
                 <ul class="space-y-2 font-medium mt-2">
                     <!-- Dashboard -->
                     <li>
-                        <a href="/DashboardPeserta" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                        <a href="/DashboardPeserta" class="{{ request()->is('DashboardPeserta') ? 'text-ButtonBase font-bold' : 'text-black' }} flex items-center p-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 group">
                             <i class="fas fa-tachometer-alt"></i>
                             <span class="ms-3">Dashboard</span>
                         </a>
@@ -40,7 +40,7 @@
 
                     <!-- Daftar Kursus -->
                     <li>
-                        <a href="/DaftarPelatihan" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                        <a href="/DaftarPelatihan" class="{{ request()->is('DaftarPelatihan') ? 'text-ButtonBase font-bold' : 'text-black' }}   flex items-center p-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 group">
                             <i class="fas fa-box"></i>
                             <span class="ms-3">Daftar Pelatihan</span>
                         </a>
@@ -48,7 +48,7 @@
 
                     <!-- Kursus -->
                     <li>
-                        <a href="/Kursus" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                        <a href="/Kursus" class="{{ request()->is('Kursus') ? 'text-ButtonBase font-bold' : 'text-black' }}   flex items-center p-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 group">
                             <i class="fas fa-book"></i>
                             <span class="ms-3">Kursus</span>
                         </a>
@@ -56,7 +56,7 @@
 
                     <!-- Users -->
                     <li>
-                        <a href="/PengaturanPeserta" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                        <a href="/PengaturanPeserta" class="{{ request()->is('PengaturanPeserta') ? 'text-ButtonBase font-bold' : 'text-black' }}   flex items-center p-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 group">
                             <span class="fa-solid fa-cog"></span>
                             <span class="ms-3">Pengaturan</span>
                         </a>
@@ -77,11 +77,11 @@
         <!-- Navbar + Image -->
 
         <!-- Main -->
-        <div class="p-4 sm:ml-64 ">
-            <div class="flex justify-between items-center lg:mb-4">
+        <div class="sm:ml-64">
+            <div class="flex justify-between items-center bg-white pt-4 px-4">
                 <h1 class="text-3xl lg:text-4xl font-extrabold dark:text-white">
                     Selamat Datang Peserta
-                    <small class="ms-2 text-xl lg:text-2xl font-semibold text-gray-500 dark:text-gray-400">
+                    <small class="ms-2 text-xl lg:text-2xl font-semibold text-TeksSecond">
                         {{ Auth::user()->nama }}
                     </small>
                 </h1>
@@ -90,9 +90,9 @@
                 </div>
             </div>
 
-            <p id="datetime" class="sm:text-sm text-xs font-normal text-gray-500 dark:text-gray-400 lg::my-2 my-1"></p>
+            <p id="datetime" class="sm:text-sm ps-4 text-xs font-normal text-TeksSecond py-1 bg-white"></p>
             <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700 mb-5">
-            <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+            <div class="p-4 m-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
                 @include('partials.succesAlert')
                 @yield('MainPeserta')
             </div>
