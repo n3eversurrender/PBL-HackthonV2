@@ -13,16 +13,18 @@ class RatingPelatih extends Model
     protected $primaryKey = 'rating_pelatih_id';
 
     protected $fillable = [
-        'pelatih_id', 'peserta_id', 'rating', 'komentar', 'waktu'
+        'pemberi_id',
+        'pengguna_id',
+        'rating',
+        'komentar'
     ];
 
-    public function pelatih()
+    public function pemberi()
     {
-        return $this->belongsTo(Pelatih::class, 'pelatih_id');
+        return $this->belongsTo(Pengguna::class, 'pemberi_id');
     }
-
-    public function peserta()
+    public function pengguna()
     {
-        return $this->belongsTo(Peserta::class, 'peserta_id');
+        return $this->belongsTo(Pengguna::class, 'pengguna_id', 'pengguna_id');
     }
 }

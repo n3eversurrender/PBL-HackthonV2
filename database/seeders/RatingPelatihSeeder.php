@@ -9,12 +9,17 @@ class RatingPelatihSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('rating_pelatih')->insert([
-            ['pengguna_id' => 1, 'rating' => 4.5, 'komentar' => 'Pelatih sangat berpengalaman dan jelas dalam mengajarkan materi.'],
-            ['pengguna_id' => 2, 'rating' => 4.8, 'komentar' => 'Pelatih luar biasa dalam menyampaikan materi dan memberikan tips praktis.'],
-            ['pengguna_id' => 3, 'rating' => 4.7, 'komentar' => 'Pelatih sangat sabar dan membantu peserta selama kursus.'],
-            ['pengguna_id' => 1, 'rating' => 5.0, 'komentar' => 'Pelatih sangat profesional dan menyenangkan, memberikan penjelasan yang sangat detail.'],
-            ['pengguna_id' => 2, 'rating' => 4.3, 'komentar' => 'Pelatih sangat membantu namun materi bisa lebih diperjelas.'],
-        ]);
+        $data = [];
+
+        for ($i = 0; $i < 30; $i++) {
+            $data[] = [
+                'pemberi_id' => rand(6, 10),
+                'pengguna_id' => rand(1, 5),
+                'rating' => round(rand(50, 100) / 10, 1), // Menghasilkan angka desimal antara 5.0 - 10.0
+                'komentar' => null, // Kosong karena hanya menampilkan rating
+            ];
+        }
+
+        DB::table('rating_pelatih')->insert($data);
     }
 }

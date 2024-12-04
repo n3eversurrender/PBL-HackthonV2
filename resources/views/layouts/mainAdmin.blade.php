@@ -171,6 +171,7 @@
         <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700 mb-5">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
             @include('partials.succesAlert')
+            @include('partials.daggerAlert')
             @yield('MainAdmin')
         </div>
     </div>

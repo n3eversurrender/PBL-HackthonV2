@@ -34,6 +34,7 @@ use App\Http\Controllers\DetailPesertaKursusController;
 use App\Http\Controllers\LoginAdminController;
 use App\Http\Controllers\LoginPenggunaController;
 use App\Http\Controllers\PengelolaanKurikulumController;
+use App\Http\Controllers\PenilaianKursusController;
 use App\Http\Controllers\UmpanBalikController;
 use App\Http\Middleware\PeranMiddleware;
 
@@ -72,7 +73,8 @@ Route::middleware(['auth', PeranMiddleware::class . ':Peserta'])->group(function
     Route::get('/Kursus', [KursusController::class, 'Kursus']);
     Route::get('/KursusModul/{id_kursus}', [KursusController::class, 'kursusModul'])->name('kursusModul.show');
     Route::get('/KursusMateri', [KursusController::class, 'kursusMateri'])->name('kursusMateri');
-    Route::get('/PesanPeserta', [PesanPesertaController::class, 'pesanPeserta']);
+    Route::get('/PenilaianKursus', [PenilaianKursusController::class, 'penilaianKursus']);
+    Route::post('/submit-rating', [PenilaianKursusController::class, 'submitRating'])->name('submit.rating');
 
 
     Route::get('/PengaturanPeserta', [PengaturanPesertaController::class, 'pengaturanPeserta'])->name('PengaturanPeserta');    Route::post('/peserta/store', [PengaturanPesertaController::class, 'storePeserta'])->name('peserta.store');

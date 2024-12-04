@@ -71,43 +71,55 @@
                         </div>
                         <!-- Isi Modal -->
                         <div class="p-4 md:p-5 bg-white dark:bg-gray-800 rounded-lg shadow-lg space-y-4">
-                            <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Detail Informasi</h2>
+                            <div class="grid grid-cols-1 sm:grid-cols-1 gap-4">
+                                <div class="space-y-6">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex-1">
+                                            <p class="text-md font-bold text-gray-500 dark:text-gray-400 w-44">Judul</p>
+                                            <p class="text-sm text-gray-800 dark:text-gray-200 w-44">{{ $pendaftaranItem->kursus->judul }}</p>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-md font-bold text-gray-500 dark:text-gray-400">Pelatih</p>
+                                            <p class="text-sm text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->pengguna->nama ?? 'Tidak ada pelatih' }}</p>
+                                        </div>
+                                    </div>
 
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Judul</p>
-                                    <p class="text-base text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->kursus->judul }}</p>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex-1">
+                                            <p class="text-md font-bold text-gray-500 dark:text-gray-400">Deskripsi</p>
+                                            <p class="text-sm text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->kursus->deskripsi }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex-1">
+                                            <p class="text-md font-bold text-gray-500 dark:text-gray-400">Tanggal Mulai</p>
+                                            <p class="text-sm text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->kursus->tgl_mulai }}</p>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-md font-bold text-gray-500 dark:text-gray-400">Tanggal Selesai</p>
+                                            <p class="text-sm text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->kursus->tgl_selesai }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex-1">
+                                            <p class="text-md font-bold text-gray-500 dark:text-gray-400">Harga</p>
+                                            <p class="text-sm text-gray-800 dark:text-gray-200">Rp. {{ number_format($pendaftaranItem->kursus->harga, 0, ',', '.') }}</p>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-md font-bold text-gray-500 dark:text-gray-400">Status Pendaftaran</p>
+                                            <p class="text-base text-gray-800 dark:text-gray-200">
+                                                @if($pendaftaranItem->status_pendaftaran)
+                                                {{ $pendaftaranItem->status_pendaftaran }}
+                                                @else
+                                                Belum terdaftar
+                                                @endif
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Deskripsi</p>
-                                    <p class="text-base text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->kursus->deskripsi }}</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Harga</p>
-                                    <p class="text-base text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->kursus->harga }}</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tanggal Mulai</p>
-                                    <p class="text-base text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->kursus->tgl_mulai }}</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tanggal Selesai</p>
-                                    <p class="text-base text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->kursus->tgl_selesai }}</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Pelatih</p>
-                                    <p class="text-base text-gray-800 dark:text-gray-200">{{ $pendaftaranItem->pengguna->nama ?? 'Tidak ada pelatih' }}</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-semibold text-gray-500 dark:text-gray-400">Status Pendaftaran</p>
-                                    <p class="text-base text-gray-800 dark:text-gray-200">
-                                        @if($pendaftaranItem->status_pendaftaran)
-                                        {{ $pendaftaranItem->status_pendaftaran }}
-                                        @else
-                                        Belum terdaftar
-                                        @endif
-                                    </p>
-                                </div>
+
                             </div>
                         </div>
                     </div>

@@ -127,8 +127,6 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->date('tgl_pendaftaran');
             $table->enum('status_pendaftaran', ['Menunggu', 'Aktif', 'Selesai', 'Dibatalkan'])->default('Menunggu');
             $table->enum('status_pembayaran', ['Pending', 'Berhasil', 'Gagal']);
-            $table->text('komentar')->nullable();
-            $table->float('rating')->nullable();
             $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
             $table->foreign('kursus_id')->references('kursus_id')->on('kursus')->onDelete('cascade');
             $table->timestamps();
@@ -160,12 +158,13 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->timestamps();
         });
 
-        // Tabel rating pelatih
         Schema::create('rating_pelatih', function (Blueprint $table) {
             $table->id('rating_pelatih_id');
-            $table->unsignedBigInteger('pengguna_id');
+            $table->unsignedBigInteger('pemberi_id'); // Kolom untuk pemberi penilaian
+            $table->unsignedBigInteger('pengguna_id'); // Kolom untuk penerima penilaian
             $table->float('rating');
             $table->text('komentar')->nullable();
+            $table->foreign('pemberi_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
             $table->foreign('pengguna_id')->references('pengguna_id')->on('pengguna')->onDelete('cascade');
             $table->timestamps();
         });

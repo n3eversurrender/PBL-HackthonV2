@@ -25,12 +25,12 @@ class RatingKursus extends Model
     // A RatingKursus belongs to a Kursus
     public function kursus()
     {
-        return $this->belongsTo(Kursus::class, 'kursus_id');
+        return $this->belongsTo(Kursus::class, 'kursus_id', 'kursus_id');
     }
 
     // A RatingKursus belongs to a Pengguna
     public function pengguna()
     {
-        return $this->belongsTo(Pengguna::class, 'pengguna_id');
+        return $this->belongsTo(Pengguna::class, 'pengguna_id', 'pengguna_id');
     }
 }

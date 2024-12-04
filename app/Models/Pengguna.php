@@ -55,4 +55,12 @@ class Pengguna extends Authenticatable
     {
         return $this->hasMany(RatingKursus::class, 'pengguna_id');
     }
+    public function ratingsPelatih()
+    {
+        return $this->hasMany(RatingPelatih::class, 'pengguna_id', 'pengguna_id');
+    }
+    public function ratingPemberi()
+    {
+        return $this->hasMany(RatingPelatih::class, 'pemberi_id');
+    }
 }
