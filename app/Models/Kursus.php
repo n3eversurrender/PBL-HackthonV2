@@ -14,7 +14,7 @@ class Kursus extends Model
 
     protected $fillable = [
         'pengguna_id',
-        'pengguna_id',
+        'kategori_id',
         'judul',
         'deskripsi',
         'lokasi',

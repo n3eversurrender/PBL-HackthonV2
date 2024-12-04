@@ -163,28 +163,11 @@
                     <div class="cursor-default">
                         <h1 class="text-base sm:text-xl font-bold leading-tight text-gray-900 my-2">{{ $item->judul }}</h1>
                         <div class="space-y-2"> <!-- Pembungkus utama untuk semua item -->
-                            <!-- Pelatih -->
-                            <div class="flex space-x-2">
-                                <strong class="text-xs text-gray-900">Pelatih:</strong>
-                                <p class="text-xs text-gray-900">
-                                    {{ $item->pengguna ? $item->pengguna->nama : 'Nama Tidak Ditemukan' }}
-                                </p>
-                            </div>
 
                             <!-- Rating -->
                             <div class="flex space-x-2">
                                 <strong class="text-xs text-gray-900">Rating:</strong>
                                 <p class="text-xs">{{ $item->rating }}</p>
-                            </div>
-
-                            <!-- Jadwal -->
-                            <div class="flex space-x-2">
-                                <strong class="text-xs text-gray-900">Jadwal:</strong>
-                                <p class="text-xs">
-                                    {{ \Carbon\Carbon::parse($item->tgl_mulai)->format('d M Y') }}
-                                    <strong>s/d</strong>
-                                    {{ \Carbon\Carbon::parse($item->tgl_selesai)->format('d M Y') }}
-                                </p>
                             </div>
 
                             <!-- Kapasitas -->
@@ -204,12 +187,6 @@
                                     @endif">
                                     {{ $item->tingkat_kesulitan }}
                                 </p>
-                            </div>
-
-                            <!-- Lokasi -->
-                            <div class="flex space-x-2">
-                                <strong class="text-xs text-gray-900">Lokasi:</strong>
-                                <p class="text-xs text-gray-900">{{ $item->lokasi }}</p>
                             </div>
 
                             <!-- Harga -->

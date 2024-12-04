@@ -2,23 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\Kursus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 class PengelolaanKursusController extends Controller
 {
     public function pengelolaanKursus()
     {
-        $id = Auth::id(); // Ambil ID pengguna yang sedang login
-        // Ambil kursus yang terkait dengan pengguna yang sedang login
-        $kursus = Kursus::where('pengguna_id', $id) // Filter berdasarkan ID pengguna
-            ->paginate(10); // Paginate dengan ukuran 10 per halaman
+        $id = Auth::id(); 
+        $kursus = Kursus::where('pengguna_id', $id)->paginate(10); 
+
+        $kategori = Kategori::all();
 
         return view('pelatih.PengelolaanKursus', [
             'kursus' => $kursus,
+            'kategori' => $kategori,
         ]);
     }
 
@@ -29,13 +30,15 @@ class PengelolaanKursusController extends Controller
             'judul' => 'required|string|max:255',
             'deskripsi' => 'required|string',
             'harga' => 'required|numeric',
-            'tingkat_kesulitan' => 'required|string',
+            'tingkat_kesulitan' => 'required|in:Pemula,Menengah,Lanjutan',
             'tgl_mulai' => 'required|date',
-            'tgl_selesai' => 'required|date',
+            'tgl_selesai' => 'required|date|after_or_equal:tgl_mulai',
             'lokasi' => 'required|string',
             'kapasitas' => 'required|integer',
+            'kategori_id' => 'required|exists:kategori,kategori_id',
             'foto_kursus' => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
         ]);
+
 
         $kursus = new Kursus();
         $kursus->judul = $validated['judul'];
@@ -46,6 +49,7 @@ class PengelolaanKursusController extends Controller
         $kursus->tgl_mulai = $validated['tgl_mulai'];
         $kursus->tgl_selesai = $validated['tgl_selesai'];
         $kursus->kapasitas = $validated['kapasitas'];
+        $kursus->kategori_id = $validated['kategori_id'];
 
         // Menambahkan pengguna_id (ID pengguna yang sedang login)
         $kursus->pengguna_id = Auth::id();  // Mengambil ID pengguna yang sedang login
@@ -72,6 +76,7 @@ class PengelolaanKursusController extends Controller
             'tgl_mulai' => 'required|date',
             'tgl_selesai' => 'required|date',
             'kapasitas' => 'required|integer',
+            'kategori_id' => 'required|exists:kategori,kategori_id',
             'foto_kursus' => 'nullable|image|mimes:jpg,jpeg,png|max:5120', // Validation for image
         ]);
 
@@ -83,6 +88,8 @@ class PengelolaanKursusController extends Controller
         $kursus->tgl_mulai = $validated['tgl_mulai'];
         $kursus->tgl_selesai = $validated['tgl_selesai'];
         $kursus->kapasitas = $validated['kapasitas'];
+        $kursus->kategori_id = $validated['kategori_id'];
+
 
         // Handle file upload
         if ($request->hasFile('foto_kursus')) {

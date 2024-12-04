@@ -30,7 +30,7 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-3 py-3">NO</th>
-                <th scope="col" class="px-3 py-3">Nama Kursus</th>
+                <th scope="col" class="px-3 py-3 w-52">Nama Kursus</th>
                 <th scope="col" class="px-3 py-3">Harga</th>
                 <th scope="col" class="px-3 py-3">Tingkat Kesulitan</th>
                 <th scope="col" class="px-3 py-3">Status</th>
@@ -43,7 +43,7 @@
             @foreach ($kursus as $kursusItem)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="px-3 py-3">{{ $kursus->firstItem() + $loop->iteration - 1 }}</td>
-                <td class="px-3 py-3">{{ $kursusItem->judul }}</td>
+                <td class="px-3 py-3 w-52">{{ $kursusItem->judul }}</td>
                 <td class="px-3 py-3">Rp {{ number_format($kursusItem->harga, 0, ',', '.') }}</td>
                 <td class="px-3 py-3">{{ $kursusItem->tingkat_kesulitan }}</td>
                 <td class="px-3 py-3">{{ $kursusItem->status }}</td>
@@ -79,44 +79,52 @@
                             @csrf
                             @method('PUT')
                             <div class="p-4 md:p-5 bg-white dark:bg-gray-800 rounded-lg shadow-lg space-y-4">
-                                <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Edit Informasi Kursus</h2>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label for="judul" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Judul</label>
-                                        <input type="text" name="judul" id="judul" class="border border-gray-300 rounded w-full" value="{{ old('judul', $kursusItem->judul) }}">
+                                        <input type="text" name="judul" id="judul" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('judul', $kursusItem->judul) }}">
                                     </div>
                                     <div>
                                         <label for="deskripsi" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Deskripsi</label>
-                                        <textarea name="deskripsi" id="deskripsi" class="border border-gray-300 rounded w-full">{{ old('deskripsi', $kursusItem->deskripsi) }}</textarea>
-                                    </div>
-                                    <div>
-                                        <label for="harga" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Harga</label>
-                                        <input type="text" name="harga" id="harga" class="border border-gray-300 rounded w-full" value="{{ old('harga', $kursusItem->harga) }}">
+                                        <textarea name="deskripsi" id="deskripsi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ old('deskripsi', $kursusItem->deskripsi) }}</textarea>
                                     </div>
                                     <div>
                                         <label for="tingkat_kesulitan" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tingkat Kesulitan</label>
-                                        <select name="tingkat_kesulitan" id="tingkat_kesulitan" class="border border-gray-300 rounded w-full">
+                                        <select name="tingkat_kesulitan" id="tingkat_kesulitan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="Pemula" {{ $kursusItem->tingkat_kesulitan == 'Pemula' ? 'selected' : '' }}>Pemula</option>
                                             <option value="Menengah" {{ $kursusItem->tingkat_kesulitan == 'Menengah' ? 'selected' : '' }}>Menengah</option>
                                             <option value="Lanjutan" {{ $kursusItem->tingkat_kesulitan == 'Lanjutan' ? 'selected' : '' }}>Lanjutan</option>
                                         </select>
                                     </div>
                                     <div>
+                                        <label for="tingkat_kesulitan" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tingkat Kesulitan</label>
+                                        <select name="kategori_id" id="kategori_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                            <option value="-" disabled selected>Pilih Kategori</option>
+                                            @foreach ($kategori as $item)
+                                            <option value="{{ $item->kategori_id }}">{{ $item->nama_kategori }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="harga" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Harga</label>
+                                        <input type="text" name="harga" id="harga" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('harga', $kursusItem->harga) }}">
+                                    </div>
+                                    <div>
                                         <label for="tgl_mulai" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tanggal Mulai</label>
-                                        <input type="date" name="tgl_mulai" id="tgl_mulai" class="border border-gray-300 rounded w-full" value="{{ old('tgl_mulai', $kursusItem->tgl_mulai) }}">
+                                        <input type="date" name="tgl_mulai" id="tgl_mulai" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('tgl_mulai', $kursusItem->tgl_mulai) }}">
                                     </div>
                                     <div>
                                         <label for="tgl_selesai" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tanggal Selesai</label>
-                                        <input type="date" name="tgl_selesai" id="tgl_selesai" class="border border-gray-300 rounded w-full" value="{{ old('tgl_selesai', $kursusItem->tgl_selesai) }}">
+                                        <input type="date" name="tgl_selesai" id="tgl_selesai" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('tgl_selesai', $kursusItem->tgl_selesai) }}">
                                     </div>
                                     <div>
                                         <label for="kapasitas" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Kapasitas</label>
-                                        <input type="number" name="kapasitas" id="kapasitas" class="border border-gray-300 rounded w-full" value="{{ old('kapasitas', $kursusItem->kapasitas) }}">
+                                        <input type="number" name="kapasitas" id="kapasitas" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('kapasitas', $kursusItem->kapasitas) }}">
                                     </div>
                                     <!-- Foto Kursus -->
                                     <div>
                                         <label for="foto_kursus" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Foto Kursus</label>
-                                        <input type="file" name="foto_kursus" id="foto_kursus" class="border border-gray-300 rounded w-full" accept="image/jpeg, image/png, image/gif, image/svg+xml">
+                                        <input type="file" name="foto_kursus" id="foto_kursus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" accept="image/jpeg, image/png, image/gif, image/svg+xml">
                                     </div>
                                     <div class="justify-right mb-2">
                                         @if($kursusItem->foto_kursus)
