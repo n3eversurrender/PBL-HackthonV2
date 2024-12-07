@@ -47,10 +47,26 @@ class KursusSeeder extends Seeder
         ];
 
         $lokasi_batam = [
-            'Nagoya', 'Batam Center', 'Baloi', 'Muka Kuning', 'Sei Beduk', 
-            'Teban', 'Batu Aji', 'Lubuk Baja', 'Simpang Base', 'Tanjung Uncang',
-            'Kabil', 'Bintan Center', 'Bintan', 'Tiban', 'Kampung Belian',
-            'Batam Kota', 'Jodoh', 'Batu Besar', 'Batu Ampar', 'Teluk Tering'
+            'Nagoya',
+            'Batam Center',
+            'Baloi',
+            'Muka Kuning',
+            'Sei Beduk',
+            'Teban',
+            'Batu Aji',
+            'Lubuk Baja',
+            'Simpang Base',
+            'Tanjung Uncang',
+            'Kabil',
+            'Bintan Center',
+            'Bintan',
+            'Tiban',
+            'Kampung Belian',
+            'Batam Kota',
+            'Jodoh',
+            'Batu Besar',
+            'Batu Ampar',
+            'Teluk Tering'
         ];
 
         foreach ($kursus_titles as $index => $judul) {
@@ -62,8 +78,8 @@ class KursusSeeder extends Seeder
                 'harga' => $faker->randomFloat(2, 1500000, 10000000),  // Harga kursus antara 1.5 juta hingga 10 juta
                 'tingkat_kesulitan' => $faker->randomElement(['Pemula', 'Menengah', 'Lanjutan']),
                 'status' => $faker->randomElement(['Aktif']),
-                'tgl_mulai' => $faker->date(),
-                'tgl_selesai' => $faker->date(),
+                'tgl_mulai' => $faker->date('Y-m-d', '2025-12-31'),
+                'tgl_selesai' => $faker->date('Y-m-d', '2025-12-31'),
                 'kapasitas' => $faker->numberBetween(10, 30),
                 'lokasi' => 'Batam ' . $faker->randomElement($lokasi_batam),  // Lokasi di Batam
                 'foto_kursus' => null,  // Foto di-set null
@@ -136,7 +152,7 @@ class KursusSeeder extends Seeder
             case 'Desain dan Pembuatan Produk untuk Industri Konstruksi':
                 return "Kursus ini memberikan keterampilan dalam mendesain dan membuat produk yang digunakan dalam industri konstruksi. Peserta akan mempelajari cara membuat berbagai produk konstruksi yang aman dan efektif untuk proyek besar.";
             case 'Pelatihan Proses Pemotongan dan Perakitan Logam':
-                return "Pelatihan ini mengajarkan proses pemotongan dan perakitan logam untuk menghasilkan produk jadi. Peserta akan mempelajari teknik-teknik pemotongan dan pengelasan yang digunakan dalam produksi logam." ;
+                return "Pelatihan ini mengajarkan proses pemotongan dan perakitan logam untuk menghasilkan produk jadi. Peserta akan mempelajari teknik-teknik pemotongan dan pengelasan yang digunakan dalam produksi logam.";
             default:
                 return $faker->paragraph(10);  // Jika tidak ada kecocokan, gunakan paragraf acak dari Faker
         }

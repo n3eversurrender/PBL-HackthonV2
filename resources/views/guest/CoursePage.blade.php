@@ -197,118 +197,29 @@
   <h1 class="font-bold text-xl sm:text-2xl mb-2 sm:mb-4">Kursus Unggulan</h1>
   <!-- Cards Start -->
   <div class="mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-4">
-    <!-- card 1 -->
+    @foreach ($relatedCourses as $related)
     <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
       <div class="object-cover aspect-video">
-        <a href="#">
-          <img class="w-full rounded-lg h-full" src="{{ asset('image/12.webp') }}" alt="" />
-        </a>
+        <img class="w-full rounded-lg h-full object-cover" src="{{ $related->foto_kursus ? asset('storage/' . $related->foto_kursus) : asset('image/Thumnnail.jpg') }}" alt="{{ $related->judul }}" />
       </div>
 
-      <!-- penjelasan -->
-      <div class=" grid grid-cols-3  mt-2 mb-4 text-xs sm:text-sm lg:text-xs ">
-        <div class=" mt-2">
-          <span class=" border rounded-lg py-2 px-4 sm:px-6 lg:px-2  text-gray-500"> 10 weeks</span>
-        </div>
-        <div class="mt-2">
-          <span class=" border rounded-lg py-2 px-4 sm:px-6 lg:px-2  text-gray-500 "> tembesi</span>
-        </div>
-        <div>
-          <p class="pt-2">Agung huci</p>
-        </div>
-      </div>
+      <!-- Penjelasan -->
       <div class="pt-2 cursor-default">
-        <a href="#" class="text-xl font-bold leading-tight text-gray-900 my-2  text-balance">Beginner's welding</a>
-        <p class=" text-sm pt-2 pb-4 text-gray-500">Pelajari dasar-dasar pengelasan, termasuk teknik dasar, praktik keselamatan, dan peralatan penting. Mulailah membangun fondasi yang kuat untuk berkarir di bidang pengelasan.</p>
-        <button class=" bg-blue-500 text-white sm:p-4 p-2 rounded-lg w-full"> Dapatkan sekarang</button>
+        <p class="text-xl font-bold leading-tight text-gray-900 my-2 text-balance">
+          {{ $related->judul }}
+        </p>
+        <p class="text-sm pt-2 pb-4 text-gray-500">
+          {{ Str::limit($related->deskripsi, 100) }}
+        </p>
+        <a href="/CoursePage/{{ $related->id }}" class="bg-blue-500 text-white sm:p-4 p-2 rounded-lg w-full text-center block">Dapatkan sekarang</a>
       </div>
     </div>
-
-    <!-- card 2 -->
-    <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-      <div class="object-cover aspect-video">
-        <a href="#">
-          <img class="w-full rounded-lg h-full" src="{{ asset('image/12.webp') }}" alt="" />
-        </a>
-      </div>
-
-      <!-- penjelasan -->
-      <div class=" grid grid-cols-3  mt-2 mb-4 text-xs sm:text-sm lg:text-xs ">
-        <div class=" mt-2">
-          <span class=" border rounded-lg py-2 px-4 sm:px-6 lg:px-2  text-gray-500"> 10 weeks</span>
-        </div>
-        <div class="mt-2">
-          <span class=" border rounded-lg py-2 px-4 sm:px-6 lg:px-2  text-gray-500 "> tembesi</span>
-        </div>
-        <div>
-          <p class="pt-2">Agung huci</p>
-        </div>
-      </div>
-      <div class="pt-2 cursor-default">
-        <a href="#" class="text-xl font-bold leading-tight text-gray-900 my-2  text-balance">Beginner's welding</a>
-        <p class=" text-sm pt-2 pb-4 text-gray-500">Pelajari dasar-dasar pengelasan, termasuk teknik dasar, praktik keselamatan, dan peralatan penting. Mulailah membangun fondasi yang kuat untuk berkarir di bidang pengelasan.</p>
-        <button class=" bg-blue-500 text-white sm:p-4 p-2 rounded-lg w-full"> Dapatkan sekarang</button>
-      </div>
-    </div>
-
-    <!-- card 3 -->
-    <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-      <div class="object-cover aspect-video">
-        <a href="#">
-          <img class="w-full rounded-lg h-full" src="{{ asset('image/12.webp') }}" alt="" />
-        </a>
-      </div>
-
-      <!-- penjelasan -->
-      <div class=" grid grid-cols-3  mt-2 mb-4 text-xs sm:text-sm lg:text-xs ">
-        <div class=" mt-2">
-          <span class=" border rounded-lg py-2 px-4 sm:px-6 lg:px-2  text-gray-500"> 10 weeks</span>
-        </div>
-        <div class="mt-2">
-          <span class=" border rounded-lg py-2 px-4 sm:px-6 lg:px-2  text-gray-500 "> tembesi</span>
-        </div>
-        <div>
-          <p class="pt-2">Agung huci</p>
-        </div>
-      </div>
-      <div class="pt-2 cursor-default">
-        <a href="#" class="text-xl font-bold leading-tight text-gray-900 my-2  text-balance">Beginner's welding</a>
-        <p class=" text-sm pt-2 pb-4 text-gray-500">Pelajari dasar-dasar pengelasan, termasuk teknik dasar, praktik keselamatan, dan peralatan penting. Mulailah membangun fondasi yang kuat untuk berkarir di bidang pengelasan.</p>
-        <button class=" bg-blue-500 text-white sm:p-4 p-2 rounded-lg w-full"> Dapatkan sekarang</button>
-      </div>
-    </div>
-
-    <!-- card 4 -->
-    <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
-      <div class="object-cover aspect-video">
-        <a href="#">
-          <img class="w-full rounded-lg h-full" src="{{ asset('image/12.webp') }}" alt="" />
-        </a>
-      </div>
-
-      <!-- penjelasan -->
-      <div class=" grid grid-cols-3  mt-2 mb-4 text-xs sm:text-sm lg:text-xs ">
-        <div class=" mt-2">
-          <span class=" border rounded-lg py-2 px-4 sm:px-6 lg:px-2  text-gray-500"> 10 weeks</span>
-        </div>
-        <div class="mt-2">
-          <span class=" border rounded-lg py-2 px-4 sm:px-6 lg:px-2  text-gray-500 "> tembesi</span>
-        </div>
-        <div>
-          <p class="pt-2">Agung huci</p>
-        </div>
-      </div>
-      <div class="pt-2 cursor-default">
-        <a href="#" class="text-xl font-bold leading-tight text-gray-900 my-2  text-balance">Beginner's welding</a>
-        <p class=" text-sm pt-2 pb-4 text-gray-500">Pelajari dasar-dasar pengelasan, termasuk teknik dasar, praktik keselamatan, dan peralatan penting. Mulailah membangun fondasi yang kuat untuk berkarir di bidang pengelasan.</p>
-        <button class=" bg-blue-500 text-white sm:p-4 p-2 rounded-lg w-full"> Dapatkan sekarang</button>
-      </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@1.4.1/dist/flowbite.min.js"></script>
+    @endforeach
   </div>
+
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/flowbite@1.4.1/dist/flowbite.min.js"></script>
 
 <!-- content -->
 

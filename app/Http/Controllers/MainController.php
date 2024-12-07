@@ -46,9 +46,9 @@ class MainController extends Controller
 
         // Query dasar untuk mengambil kursus
         $query = Kursus::with(['kategori', 'ratingKursus']) // Pastikan nama relasi sesuai
-        ->withAvg('ratingKursus as average_rating', 'rating') // Ambil rata-rata rating
-        ->where('status', 'Aktif'); // Filter berdasarkan status
-        
+            ->withAvg('ratingKursus as average_rating', 'rating') // Ambil rata-rata rating
+            ->where('status', 'Aktif'); // Filter berdasarkan status
+
         // Filter berdasarkan kategori jika ada
         if ($kategori_id) {
             $query->where('kategori_id', $kategori_id);
@@ -86,16 +86,17 @@ class MainController extends Controller
 
     public function coursePage($id)
     {
-        // Fetch kursus dengan 4 rating pertama
+        // Fetch kursus berdasarkan ID dengan relasi kurikulum dan rating
         $kursus = Kursus::with(['kurikulum', 'ratingKursus.pengguna'])
             ->findOrFail($id);
 
-        // Ambil hanya 4 rating pertama
+        // Ambil kursus lain untuk ditampilkan (misalnya kursus terkait)
         $ratings = $kursus->ratingKursus->take(4);
+        $relatedCourses = Kursus::inRandomOrder()->take(4)->get();
 
-        // Pass kursus dan rating yang dibatasi ke view
-        return view('guest.CoursePage', compact('kursus', 'ratings'));
+        return view('guest.CoursePage', compact('kursus', 'relatedCourses', 'ratings'));
     }
+
 
 
     public function paymentPage()
