@@ -4,7 +4,7 @@
 
 <section class="flex mx-4 sm:mx-12 mt-4">
     <aside class="h-auto min-h-screen">
-        <div class="h-full py-4 w-28 sm:w-64 bg-white">
+        <div class="h-full py-4 w-32 sm:w-48 lg:w-64 bg-white">
             <h3 class=" font-bold text-sm sm:text-2xl mb-4 sm:py-2">Semua Kursus</h3>
             <ul class="space-y-2  font-medium">
                 <!-- Kategori-->
@@ -150,14 +150,14 @@
             <!-- Cards Start -->
             <div class="mb-4 grid gap-2 lg:gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3">
                 @foreach ($kursus as $item)
-                <div class="rounded-lg border border-gray-200 bg-white p-2 lg:p-4 shadow-sm">
+                <div class="rounded-lg border border-Border bg-gray-100 p-2 lg:p-4 shadow-sm">
                     <div class="object-cover aspect-video">
-                        <img class="w-full h-full rounded-lg object-cover"
+                        <img class="w-full h-full rounded-lg object-cover aspect-video"
                             src="{{ $item->foto_kursus ? asset('storage/' . $item->foto_kursus) : asset('image/Thumnnail.jpg') }}"
                             alt="{{ $item->judul }}" />
                     </div>
                     <div class="cursor-default">
-                        <h1 class="text-base sm:text-xl font-bold leading-tight text-gray-900 my-2">{{ $item->judul }}</h1>
+                        <h1 class="text-base lg:text-xl h-11 lg:h-14 overflow-hidden font-bold leading-tight text-gray-900 my-2">{{ $item->judul }}</h1>
                         <div class="space-y-2"> <!-- Pembungkus utama untuk semua item -->
 
                             <!-- Rating -->
@@ -186,15 +186,15 @@
                             </div>
 
                             <!-- Harga -->
-                            <div class="flex space-x-2 mb-4"> <!-- Menambahkan margin bottom disini -->
-                                <strong class="text-xl text-gray-900">Harga:</strong>
-                                <p class="text-xl font-bold text-gray-900">Rp.{{ number_format($item->harga, 0, ',', '.') }}</p>
+                            <div class="flex space-x-2 mb-4 sm:h-11 h-6 overflow-hidden"> <!-- Menambahkan margin bottom disini -->
+                                <strong class="lg:text-base text-sm text-gray-900">Harga:</strong>
+                                <p class="lg:text-base text-sm font-bold text-gray-900">Rp.{{ number_format($item->harga, 0, ',', '.') }}</p>
                             </div>
                         </div>
 
                         <!-- Tombol Lihat Detail -->
                         <div class="flex justify-end mt-5">
-                            <a href="/CoursePage/{{ $item->kursus_id }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                            <a href="/CoursePage/{{ $item->kursus_id }}" class="text-white bg-ButtonBase hover:bg-HoverGlow focus:ring-4 focus:ring-HoverGlow font-medium rounded-lg text-xs px-4 py-2.5 me-2 mb-2  focus:outline-none transition duration-700">
                                 Lihat Detail
                             </a>
                         </div>
