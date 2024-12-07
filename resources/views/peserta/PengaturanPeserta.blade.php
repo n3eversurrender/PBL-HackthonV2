@@ -39,43 +39,43 @@
         </div>
 
         <div class="flex justify-end w-full">
-            <button type="button" id="tambahButton" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-6 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+            <button type="button" id="tambahButton" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="text-white bg-ButtonBase hover:bg-HoverGlow focus:ring-4 focus:ring-HoverGlow font-medium rounded-md text-sm px-6 py-1.5 me-2 mb-2 focus:outline-none transition duration-700">
                 Tambah Data
             </button>
 
-            <button type="button" id="editButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-6 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+            <button type="button" id="editButton" class="text-white bg-ButtonBase hover:bg-HoverGlow focus:ring-4 focus:ring-HoverGlow font-medium rounded-md text-sm px-6 py-1.5 me-2 mb-2 focus:outline-none transition duration-700">
                 Edit
             </button>
         </div>
 
-        <div class="flex gap-6 mb-5">
+        <div class="sm:flex gap-6 my-5">
             <div class="w-full">
                 <label for="nama" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Nama</label>
                 <input type="text" id="nama" name="nama" value="{{ $pengguna->nama }}"
                     aria-label="disabled input"
-                    class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="mb-6 bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Your name" disabled>
 
                 <label for="no_telepon" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">No Telepon</label>
-                <input type="text" name="no_telepon" id="no_telepon" value="{{ $pengguna->no_telepon }}"
-                    class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                <input type="number" name="no_telepon" id="no_telepon" value="{{ $pengguna->no_telepon }}"
+                    class="mb-6 bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Your phone number" disabled>
 
                 <label for="alamat" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Alamat</label>
                 <textarea name="alamat" id="alamat"
-                    class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="mb-6 bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Your address" disabled>{{ $pengguna->alamat }}</textarea>
             </div>
 
             <div class="w-full">
                 <label for="kata_sandi" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Kata Sandi</label>
                 <input type="password" name="kata_sandi" id="kata_sandi"
-                    class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="mb-6 bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Kata Sandi" disabled>
 
                 <label for="jenis_kelamin" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Jenis Kelamin</label>
                 <select id="jenis_kelamin" name="jenis_kelamin"
-                    class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="mb-6 bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     disabled>
                     <option selected disabled>Pilih Jenis Kelamin</option>
                     <option value="Laki-laki" {{ $pengguna->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
@@ -84,13 +84,13 @@
                 <div class="w-full">
                     <label for="foto_profil" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Foto Profil</label>
                     <input type="file" name="foto_profil" id="foto_profil"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" accept="image/jpeg, image/png, image/gif, image/svg+xml" disabled>
+                        class="bg-gray-50 border border-Border text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" accept="image/jpeg, image/png, image/gif, image/svg+xml" disabled>
                 </div>
             </div>
         </div>
 
         <div class="flex justify-end w-full">
-            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-10 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+            <button type="submit" class="text-white bg-ButtonBase hover:bg-HoverGlow focus:ring-4 focus:ring-HoverGlow font-medium rounded-md text-sm px-10 py-1.5 me-2 mb-2  focus:outline-none duration-700 transition">
                 Save
             </button>
         </div>

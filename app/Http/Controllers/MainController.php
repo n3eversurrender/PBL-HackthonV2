@@ -35,6 +35,7 @@ class MainController extends Controller
         $data = UmpanBalik::all();
 
         // Kirim data ke view
+        $data = UmpanBalik::paginate(3);
         return view('guest.Home', compact('data'));
     }
 

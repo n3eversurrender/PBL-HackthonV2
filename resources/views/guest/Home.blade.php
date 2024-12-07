@@ -12,7 +12,7 @@
             <button type="button" class="px-5 py-2.5 text-sm sm:text-lg font-medium text-white bg-CalmBlue rounded-lg">Temukan Apa yang Kami Sediakan</button>
             <div class="px-2">
                 <h2 class="mt-5 mb-2 font-bold text-xl sm:text-3xl text-slate-950">Platform Lengkap untuk Penguasaan Pengelasan dan Fabrikasi</h2>
-                <p class="text-xs sm:text-sm sm:px-5 text-slate-800">
+                <p class="text-xs sm:text-sm sm:px-5 text-slate-800 text-justify sm:text-center">
                     Bergabunglah dengan platform utama kami yang menghubungkan Anda dengan mentor berperingkat teratas di bidang pengelasan dan fabrikasi. Lacak kemajuan Anda secara real-time dan terima wawasan yang dipersonalisasi yang disesuaikan dengan kebutuhan pembelajaran Anda. Dengan teknologi AI yang canggih, platform kami menawarkan rekomendasi khusus untuk membantu Anda mempertajam keterampilan Anda secara efektif. Baik Anda seorang pemula atau ingin meningkatkan keahlian Anda, Anda akan mendapatkan manfaat dari pelatihan terstruktur dan umpan balik yang berharga untuk unggul dalam industri fabrikasi. Semua ini dapat diakses dalam satu platform ramah pengguna yang dirancang untuk kesuksesan Anda.
                 </p>
             </div>
@@ -59,7 +59,7 @@
     </div>
 </section>
 
-<section class="sm:mt-10 bg-[#F8FAFC]">
+<section class="sm:mt-10 bg-slate-100">
     <div class="text-center mb-8 px-8">
         <h2 class="text-2xl sm:text-3xl font-bold mb-1 sm:mb-3 pt-10 text-slate-950">Belajar dari Pakar Nilai Tertinggi</h2>
         <p class="text-sm sm:text-base text-slate-800">Dapatkan pengalaman langsung dan wawasan industri dari mentor yang dipercaya dan dinilai tinggi oleh pelajar seperti Anda.</p>
@@ -123,9 +123,9 @@
 </section>
 
 <section>
-    <div class="sm:my-10 px-6 text-center">
-        <h2 class=" text-2xl sm:text-3xl sm:pb-2 font-bold">Pimpin Jalan sebagai Mentor</h2>
-        <p class="text-sm sm:text-base text-[#0F172A] sm:px-5">Membantu membentuk masa depan dengan membimbing calon pelajar. Jadilah mentor, bagikan pengetahuan Anda, dan berikan inspirasi kepada generasi profesional terampil berikutnya.</p>
+    <div class="sm:my-10 my-5 px-6 text-center">
+        <h2 class=" text-2xl sm:text-3xl text-slate-950 sm:pb-2 font-bold">Pimpin Jalan sebagai Mentor</h2>
+        <p class="text-sm sm:text-base text-slate-800 sm:px-5">Membantu membentuk masa depan dengan membimbing calon pelajar. Jadilah mentor, bagikan pengetahuan Anda, dan berikan inspirasi kepada generasi profesional terampil berikutnya.</p>
     </div>
 
     <div class="container mx-auto p-4"> <!-- Container untuk menampung semua konten -->
@@ -137,7 +137,7 @@
                         <div class="absolute inset-0 bg-black opacity-30 rounded-t-lg"></div> <!-- Overlay hitam transparan -->
                         <div class="absolute left-8 sm:left-24 bottom-1/2 transform translate-y-1/2"> <!-- Mengatur posisi tombol dan teks di kiri tengah -->
                             <h2 class="text-white text-3xl font-bold mb-5">Menjadi Mentor</h2> <!-- Teks di atas tombol dengan warna putih -->
-                            <a href="#" class="bg-[#337DC1] rounded-lg lg:text-lg text-white font-medium text-center px-4 py-2.5">Mulailah kursus hari ini</a>
+                            <a href="#" class="bg-CalmBlue rounded-lg lg:text-lg text-white font-medium text-center px-4 py-2.5">Mulailah kursus hari ini</a>
                         </div>
                     </div>
                 </div>
@@ -256,16 +256,16 @@
 
 <section class="sm:mx-12 mx-3 bg-[#F8FAFC]">
     <div class="container sm:flex justify-between mb-5">
-        <div class="text-2xl sm:text-3xl px-8 font-bold lg:w-1/3 sm:w-1/2 mt-10">
+        <div class="text-2xl sm:text-3xl px-5 sm:px-8 font-bold lg:w-1/3 sm:w-1/2 mt-10">
            <h2>Apa Kata Pelanggan Kami Tentang Kami</h2>
         </div>
     </div>
 
     <div class="pb-10">
-        <div class="flex gap-3 overflow-x-auto scrollbar-hidden h-auto">
+        <div class="flex flex-wrap justify-center gap-3 h-auto">
          @foreach ($data as $umpan_balik)
             <div class="article-container">
-                <article class="w-96 min-h-72 px-10 py-5 mb-2 bg-white rounded-lg shadow-md">
+                <article class=" w-80 min-h-72 px-10 py-5 mb-2 bg-slate-50 rounded-lg shadow-md">
                     <div class="flex items-center mb-4">
                         <img class="w-10 h-10 me-4 rounded-full" src="{{ asset('image/9203764.png') }}" alt="">
                         <div class="font-medium dark:text-white">
@@ -290,7 +290,58 @@
                 </article>
             </div>
             @endforeach
-        </div>  
+        </div> 
+        
+        <!-- Menampilkan pagination -->
+        <div class="flex flex-col items-center">
+            <!-- Help text -->
+            <span class="text-sm text-gray-700 dark:text-gray-400">
+                Showing 
+                <span class="font-semibold text-gray-900 dark:text-white">{{ $data->firstItem() }}</span> 
+                to 
+                <span class="font-semibold text-gray-900 dark:text-white">{{ $data->lastItem() }}</span> 
+                of 
+                <span class="font-semibold text-gray-900 dark:text-white">{{ $data->total() }}</span> 
+                Entries
+            </span>
+        
+            <!-- Manual navigation (Optional) -->
+            <div class="inline-flex mt-2 xs:mt-0">
+                <!-- Prev Button -->
+                @if ($data->onFirstPage())
+                    <button class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-500 cursor-not-allowed rounded-s">
+                        <svg class="w-3.5 h-3.5 me-2 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+                        </svg>
+                        Prev
+                    </button>
+                @else
+                    <a href="{{ $data->previousPageUrl() }}" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900">
+                        <svg class="w-3.5 h-3.5 me-2 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+                        </svg>
+                        Prev
+                    </a>
+                @endif
+
+                <!-- Next Button -->
+                @if ($data->hasMorePages())
+                    <a href="{{ $data->nextPageUrl() }}" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 rounded-e hover:bg-gray-900">
+                        Next
+                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </a>
+                @else
+                    <button class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-500 cursor-not-allowed rounded-e">
+                        Next
+                        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </button>
+                @endif
+            </div>
+        </div>
     </div>
    
     @endsection
