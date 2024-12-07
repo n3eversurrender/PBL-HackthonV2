@@ -90,7 +90,7 @@
                             <!-- Modal header -->
                             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                                    Open positions
+                                    Cari Rekomendasi Kursus
                                 </h3>
                                 <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm h-8 w-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="select-modal">
                                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -100,57 +100,53 @@
                                 </button>
                             </div>
                             <!-- Modal body -->
-                            <div class="p-4 md:p-5">
-                                <p class="text-gray-500 dark:text-gray-400 mb-4">Select your desired position:</p>
-                                <ul class="space-y-4 mb-4">
-                                    <li>
-                                        <input type="radio" id="job-1" name="job" value="job-1" class="hidden peer" required />
-                                        <label for="job-1" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
-                                            <div class="block">
-                                                <div class="w-full text-lg font-semibold">UI/UX Engineer</div>
-                                                <div class="w-full text-gray-500 dark:text-gray-400">Flowbite</div>
-                                            </div>
-                                            <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                            </svg>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" id="job-2" name="job" value="job-2" class="hidden peer">
-                                        <label for="job-2" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
-                                            <div class="block">
-                                                <div class="w-full text-lg font-semibold">React Developer</div>
-                                                <div class="w-full text-gray-500 dark:text-gray-400">Alphabet</div>
-                                            </div>
-                                            <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                            </svg>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" id="job-3" name="job" value="job-3" class="hidden peer">
-                                        <label for="job-3" class="inline-flex items-center justify-between w-full p-5 text-gray-900 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-500 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-900 hover:bg-gray-100 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-500">
-                                            <div class="block">
-                                                <div class="w-full text-lg font-semibold">Full Stack Engineer</div>
-                                                <div class="w-full text-gray-500 dark:text-gray-400">Apple</div>
-                                            </div>
-                                            <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                            </svg>
-                                        </label>
-                                    </li>
-                                </ul>
-                                <button class="text-white inline-flex w-full justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    Next step
-                                </button>
+
+                            <div class="container mx-auto p-4">
+                                <form action="{{ route('rekomendasi') }}" method="POST" class="space-y-4">
+                                    @csrf
+
+                                    <div>
+                                        <label for="harga_maks" class="block text-sm font-semibold text-gray-700">Harga Maksimum</label>
+                                        <input type="number" name="harga_maks" id="harga_maks" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Harga Yang Di Inginkan" required>
+                                    </div>
+
+                                    <div>
+                                        <label for="rating_min" class="block text-sm font-semibold text-gray-700">Rating Minimum</label>
+                                        <input type="number" name="rating_min" id="rating_min" step="0.1" max="10" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Rating Yang Di Inginkan" required>
+                                    </div>
+
+                                    <div>
+                                        <label for="pengalaman_min" class="block text-sm font-semibold text-gray-700">Pengalaman Minimum Pelatih (Tahun)</label>
+                                        <input type="number" name="pengalaman_min" id="pengalaman_min" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Pengalaman Pelatih Yang Di Inginkan" required>
+                                    </div>
+
+                                    <div>
+                                        <label for="tingkat_kesulitan" class="block text-sm font-semibold text-gray-700">Tingkat Kesulitan</label>
+                                        <select name="tingkat_kesulitan" id="tingkat_kesulitan" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                                            <option value="Pemula">Pemula</option>
+                                            <option value="Menengah">Menengah</option>
+                                            <option value="Lanjutan">Lanjutan</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label for="lokasi" class="block text-sm font-semibold text-gray-700">Lokasi</label>
+                                        <input type="text" name="lokasi" id="lokasi" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Lokasi Yang Di Inginkan" required>
+                                    </div>
+
+
+                                    <div>
+                                        <button type="submit" class="w-full px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500">Cari Rekomendasi</button>
+                                    </div>
+                                </form>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-
-
-           
+            
+            
             <!-- Cards Start -->
             <div class="mb-4 grid gap-2 lg:gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3">
                 @foreach ($kursus as $item)
@@ -167,7 +163,7 @@
                             <!-- Rating -->
                             <div class="flex space-x-2">
                                 <strong class="text-xs text-gray-900">Rating:</strong>
-                                <p class="text-xs">{{ $item->rating }}</p>
+                                <p class="text-xs">{{ number_format($item->average_rating, 1) ?? 'Belum Ada Rating' }}</p>
                             </div>
 
                             <!-- Kapasitas -->

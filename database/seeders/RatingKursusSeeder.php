@@ -13,12 +13,12 @@ class RatingKursusSeeder extends Seeder
         // Initialize Faker
         $faker = Faker::create();
 
-        // Create 30 ratings for courses with IDs 1, 2, and 3
-        for ($i = 0; $i < 30; $i++) {
+        // Create 200 ratings
+        for ($i = 0; $i < 300; $i++) {
             DB::table('rating_kursus')->insert([
-                'kursus_id' => rand(1, 10), // Randomly select course ID between 1 and 3
-                'pengguna_id' => rand(6, 10), // Randomly assign a user ID (assuming 10 users for example)
-                'rating' => rand(5, 10), // Random rating between 1 and 5
+                'kursus_id' => rand(1, 30), // Randomly select course ID between 1 and 30
+                'pengguna_id' => rand(6, 30), // Randomly assign a user ID between 6 and 30
+                'rating' => rand(5, 10), // Random rating between 1 and 10
                 'komentar' => $faker->sentence(), // Generate a random comment
                 'created_at' => now(),
                 'updated_at' => now(),

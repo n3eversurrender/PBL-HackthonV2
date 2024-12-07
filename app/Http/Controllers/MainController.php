@@ -44,7 +44,10 @@ class MainController extends Controller
         $tingkat_kesulitan = $request->input('tingkat_kesulitan'); // Ambil tingkat kesulitan yang dipilih
 
         // Query dasar untuk mengambil kursus
-        $query = Kursus::with('kategori')->where('status', 'Aktif'); // Filter berdasarkan status
+        $query = Kursus::with(['kategori', 'ratingKursus']) // Pastikan nama relasi sesuai
+        ->withAvg('ratingKursus as average_rating', 'rating') // Ambil rata-rata rating
+        ->where('status', 'Aktif'); // Filter berdasarkan status
+        
         // Filter berdasarkan kategori jika ada
         if ($kategori_id) {
             $query->where('kategori_id', $kategori_id);

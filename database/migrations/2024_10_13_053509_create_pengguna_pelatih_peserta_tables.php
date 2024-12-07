@@ -83,7 +83,6 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->text('deskripsi');
             $table->decimal('harga', 10, 2);
             $table->enum('tingkat_kesulitan', ['-', 'Pemula', 'Menengah', 'Lanjutan'])->default('-');
-            $table->float('rating')->nullable();
             $table->enum('status', ['Aktif', 'Tidak Aktif'])->default('Tidak Aktif');
             $table->date('tgl_mulai');
             $table->date('tgl_selesai');

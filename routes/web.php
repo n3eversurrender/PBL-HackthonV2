@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Request;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ManajemenAkunController;
+
 
 use Illuminate\Support\Facades\Auth;
 
@@ -35,6 +38,7 @@ use App\Http\Controllers\LoginAdminController;
 use App\Http\Controllers\LoginPenggunaController;
 use App\Http\Controllers\PengelolaanKurikulumController;
 use App\Http\Controllers\PenilaianKursusController;
+use App\Http\Controllers\RekomendasiController;
 use App\Http\Controllers\UmpanBalikController;
 use App\Http\Middleware\PeranMiddleware;
 
@@ -62,6 +66,9 @@ Route::post('/DaftarPendaftaran', [MainController::class, 'store']);
 Route::get('/PaymentPage', [MainController::class, 'paymentPage'])->name('PaymentPage');
 Route::post('/umpan-balik', [UmpanBalikController::class, 'store'])->name('umpan_balik.store');
 
+Route::post('/rekomendasi', [RekomendasiController::class, 'getRecommendation'])->name('rekomendasi');
+
+
 
 
 Route::post('/Masuk', [LoginPenggunaController::class, 'login'])->name('login');
@@ -77,7 +84,8 @@ Route::middleware(['auth', PeranMiddleware::class . ':Peserta'])->group(function
     Route::post('/submit-rating', [PenilaianKursusController::class, 'submitRating'])->name('submit.rating');
 
 
-    Route::get('/PengaturanPeserta', [PengaturanPesertaController::class, 'pengaturanPeserta'])->name('PengaturanPeserta');    Route::post('/peserta/store', [PengaturanPesertaController::class, 'storePeserta'])->name('peserta.store');
+    Route::get('/PengaturanPeserta', [PengaturanPesertaController::class, 'pengaturanPeserta'])->name('PengaturanPeserta');
+    Route::post('/peserta/store', [PengaturanPesertaController::class, 'storePeserta'])->name('peserta.store');
     Route::put('/peserta/update', [PengaturanPesertaController::class, 'updatePeserta'])->name('peserta.update');
 
     Route::put('/peserta/{peserta_id}', [PengaturanPesertaController::class, 'updatePesertaKeahlian'])->name('pesertaKeahlian.update');

@@ -11,9 +11,9 @@ class RatingPelatihSeeder extends Seeder
     {
         $data = [];
 
-        for ($i = 0; $i < 30; $i++) {
+        for ($i = 0; $i < 200; $i++) {
             $data[] = [
-                'pemberi_id' => rand(6, 10),
+                'pemberi_id' => rand(6, 100),
                 'pengguna_id' => rand(1, 5),
                 'rating' => round(rand(50, 100) / 10, 1), // Menghasilkan angka desimal antara 5.0 - 10.0
                 'komentar' => null, // Kosong karena hanya menampilkan rating

@@ -61,7 +61,6 @@ class KursusSeeder extends Seeder
                 'deskripsi' => $this->generateDescription($judul),  // Deskripsi yang disesuaikan dengan judul
                 'harga' => $faker->randomFloat(2, 1500000, 10000000),  // Harga kursus antara 1.5 juta hingga 10 juta
                 'tingkat_kesulitan' => $faker->randomElement(['Pemula', 'Menengah', 'Lanjutan']),
-                'rating' => $faker->numberBetween(5, 10),  // Rating skala 1-10
                 'status' => $faker->randomElement(['Aktif']),
                 'tgl_mulai' => $faker->date(),
                 'tgl_selesai' => $faker->date(),
