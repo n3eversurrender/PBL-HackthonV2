@@ -36,6 +36,7 @@ use App\Http\Controllers\PesertaKursusController;
 use App\Http\Controllers\DetailPesertaKursusController;
 use App\Http\Controllers\LoginAdminController;
 use App\Http\Controllers\LoginPenggunaController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PengelolaanKurikulumController;
 use App\Http\Controllers\PenilaianKursusController;
 use App\Http\Controllers\RekomendasiController;
@@ -58,12 +59,17 @@ Route::get('/Home', [MainController::class, 'Home']);
 Route::get('/DaftarKursus', [MainController::class, 'daftarKursus'])->name('daftarKursus');
 Route::get('/TentangKami', [MainController::class, 'tentangKami']);
 Route::get('/Daftar', [ManajemenAkunController::class, 'Daftar']);
+Route::post('/pengguna/store', [ManajemenAkunController::class, 'store'])->name('pengguna.store');
+
+
 Route::get('/Masuk', [ManajemenAkunController::class, 'Masuk'])->name('Masuk');
 Route::get('/CoursePage/{kursus_id}', [MainController::class, 'coursePage'])->name('coursePage');
 Route::get('/DaftarTransaksi', [MainController::class, 'daftarTransaksi'])->name('daftarTransaksi');
 Route::post('/DaftarPendaftaran', [MainController::class, 'store']);
 
-Route::get('/PaymentPage', [MainController::class, 'paymentPage'])->name('PaymentPage');
+Route::get('/PaymentPage/{id}', [MainController::class, 'paymentPage'])->name('PaymentPage');
+Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('processPayment');
+
 Route::post('/umpan-balik', [UmpanBalikController::class, 'store'])->name('umpan_balik.store');
 
 Route::post('/rekomendasi', [RekomendasiController::class, 'getRecommendation'])->name('rekomendasi');

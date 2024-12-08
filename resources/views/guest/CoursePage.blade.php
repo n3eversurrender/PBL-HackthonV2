@@ -48,6 +48,8 @@
           </p>
 
           <p><span>Lokasi: {{ $kursus->lokasi }}</span></p>
+          <p>Kapasitas tersisa: {{ $kursus->kapasitas - $kursus->pendaftaran->count() }}</p>
+
         </div>
 
         <p class="text-xl font-bold mt-4">Rp.{{ number_format($kursus->harga, 0, ',', '.') }}</p>
@@ -72,12 +74,27 @@
         @csrf
         <input type="hidden" name="kursus_id" value="{{ $kursus->kursus_id }}">
         <input type="hidden" name="tgl_pendaftaran" value="{{ now()->toDateString() }}">
+
+        @php
+        $pendaftaranSebelumnya = \App\Models\Pendaftaran::where('pengguna_id', auth()->id())
+        ->where('kursus_id', $kursus->kursus_id)
+        ->where('status_pendaftaran', '!=', 'Selesai')
+        ->exists();
+        $kursusPenuh = $kursus->pendaftaran->count() >= $kursus->kapasitas;
+        @endphp
+
+        @if ($pendaftaranSebelumnya)
+        <p class="text-gray-500">Anda sudah terdaftar di kursus ini dan belum menyelesaikannya.</p>
+        @elseif ($kursusPenuh)
+        <p class="text-red-500">Kapasitas kursus telah penuh.</p>
+        @else
         <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg">
           Mulai Belajar
         </button>
+        @endif
       </form>
       @endif
-      @else
+      @elseif(Auth::user()->peran === 'Pelatih')
       <div class="mt-4">
         <p class="text-gray-500">Kamu Adalah Seorang <strong>Pelatih</strong></p>
       </div>
@@ -87,8 +104,6 @@
         <p class="text-red-500">Silakan <a href="{{ route('login') }}" class="text-blue-500 underline">login</a> untuk mulai belajar.</p>
       </div>
       @endauth
-
-
     </div>
   </div>
 

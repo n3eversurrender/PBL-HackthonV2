@@ -136,9 +136,13 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->id('pembayaran_id');
             $table->unsignedBigInteger('pendaftaran_id')->nullable();
             $table->date('tgl_pembayaran');
-            $table->enum('metode_pembayaran', ['Transfer Bank', 'Kartu Kredit', 'E-Wallet']); // Metode pembayaran dengan pilihan
+            $table->enum('metode_pembayaran', ['Bank Transfer', 'Credit Card', 'E-Wallet', 'Midtrans']);
             $table->decimal('jumlah', 10, 2);
-            $table->enum('status', ['Pending', 'Berhasil', 'Gagal']);
+            $table->enum('status', ['Pending', 'Berhasil', 'Gagal']); // Status dari transaksi lokal
+            $table->string('midtrans_order_id')->nullable(); // ID pesanan unik dari Midtrans
+            $table->string('midtrans_transaction_id')->nullable(); // ID transaksi unik dari Midtrans
+            $table->string('midtrans_status')->nullable(); // Status transaksi dari Midtrans
+            $table->text('midtrans_response')->nullable(); // JSON response dari Midtrans
             $table->foreign('pendaftaran_id')->references('pendaftaran_id')->on('pendaftaran')->onDelete('cascade');
             $table->timestamps();
         });

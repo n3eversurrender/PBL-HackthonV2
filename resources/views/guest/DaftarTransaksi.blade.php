@@ -35,12 +35,19 @@
                 </td>
                 <td class="px-6 py-4">
                     <div class="flex items-center">
-                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div>
-                        @if($pendaftaranItem->status_pendaftaran)
-                        {{ $pendaftaranItem->status_pendaftaran }}
-                        @else
-                        Belum terdaftar
-                        @endif
+                        @php
+                        $statusColors = [
+                        'Menunggu' => 'bg-yellow-500', // Warna kuning untuk status Menunggu
+                        'Aktif' => 'bg-green-500', // Warna hijau untuk status Aktif
+                        'Selesai' => 'bg-blue-500', // Warna biru untuk status Selesai
+                        'Dibatalkan' => 'bg-red-500', // Warna merah untuk status Dibatalkan
+                        ];
+                        $status = $pendaftaranItem->status_pendaftaran ?? 'Belum terdaftar';
+                        $colorClass = $statusColors[$status] ?? 'bg-gray-500'; // Warna default abu-abu
+                        @endphp
+
+                        <div class="h-2.5 w-2.5 rounded-full {{ $colorClass }} mr-2"></div>
+                        {{ $status }}
                     </div>
                 </td>
                 <td class="px-6 py-4">
@@ -62,9 +69,11 @@
                     @if($pendaftaranItem->status_pendaftaran === 'Aktif')
                     @if($pendaftaranItem->status_pembayaran === 'Pending')
                     <!-- Button Bayar hanya jika status pembayaran 'Pending' -->
-                    <a href="{{ route('PaymentPage') }}" class="font-medium text-green-600 dark:text-green-500 hover:text-green-700 dark:hover:text-green-400">
+                    <a href="{{ route('PaymentPage', ['id' => $pendaftaranItem->pendaftaran_id]) }}"
+                        class="font-medium text-green-600 dark:text-green-500 hover:text-green-700 dark:hover:text-green-400">
                         <i class="fas fa-money-bill-alt"></i> Bayar
                     </a>
+
                     @endif
                     @endif
 
@@ -80,7 +89,7 @@
                 </td>
             </tr>
             @endforeach
-        </tbody>    
+        </tbody>
     </table>
 </div>
 
