@@ -123,7 +123,7 @@
                         </li>
                         <li>
                             <a href="/DaftarKursus"
-                                class="{{ request()->is('DaftarKursus', 'CoursePage/*') ? ' text-blue-700 font-bold' : 'text-black sm:text-white' }} block py-2 px-3 rounded md:border-0 md:p-0 hover:text-blue-500">
+                                class="{{ request()->is('DaftarKursus', 'CoursePage/*', 'DaftarTransaksi') ? ' text-blue-700 font-bold' : 'text-black sm:text-white' }} block py-2 px-3 rounded md:border-0 md:p-0 hover:text-blue-500">
                                 Kursus
                             </a>
                         </li>

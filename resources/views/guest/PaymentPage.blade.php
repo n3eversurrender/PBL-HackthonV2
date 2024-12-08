@@ -9,8 +9,7 @@
         <!-- Checkout Container  -->
         <div class=" bg-white p-8 shadow-lg rounded-lg border-b">
             <h2 class="sm:text-2xl text-3xl font-bold mb-2">Buat Pesanan</h2>
-            <h3 class="text-lg sm:text-xl font-semibold mb-1 sm:mb-4">Billing detail</h3>
-            <p class="mb-4 text-sm sm:text-base">Ada 3 produk di keranjang Anda</p>
+            <h3 class="text-lg sm:text-xl font-semibold mb-7">Billing detail</h3>
             <form action="#" method="POST" class="space-y-4">
                 <div class="sm:grid sm:grid-cols-2 sm:gap-6 space-y-4 sm:space-y-0">
                     <input type="text" name="first_name" placeholder="Nama depan*" class="border border-gray-300 p-2 sm:p-3 rounded-lg w-full placeholder:text-sm sm:placeholder:text-base">
@@ -105,7 +104,7 @@
                     </div>
                 </div>
                 <div class="flex justify-center">
-                    <button class="bg-blue-500 text-white px-8 py-3 rounded-lg  text-sm sm:text-base hover:bg-blue-800 duration-700">Dapatkan Sekarang</button>
+                    <button class="bg-ButtonBase text-white px-8 py-3 rounded-lg  text-sm sm:text-base hover:bg-HoverGlow transition duration-700">Dapatkan Sekarang</button>
                 </div> 
             </form>
         </div>

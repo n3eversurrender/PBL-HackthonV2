@@ -4,6 +4,7 @@
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+@vite(['resources/js/home.js'])
 
 <!-- content -->
 <section class="sm:grid sm:grid-cols-3 gap-4 mt-24 sm:pr-8 pr-4">
@@ -190,6 +191,7 @@
     </article>
     @endforeach
   </div>
+  
 </div>
 <!-- review end -->
 

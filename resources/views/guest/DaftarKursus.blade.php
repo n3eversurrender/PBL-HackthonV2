@@ -150,14 +150,14 @@
             <!-- Cards Start -->
             <div class="mb-4 grid gap-2 lg:gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3">
                 @foreach ($kursus as $item)
-                <div class="rounded-lg border border-Border bg-gray-100 p-2 lg:p-4 shadow-sm">
+                <div class="rounded-lg border border-Border bg-gray-100 p-4 shadow-sm">
                     <div class="object-cover aspect-video">
                         <img class="w-full h-full rounded-lg object-cover aspect-video"
                             src="{{ $item->foto_kursus ? asset('storage/' . $item->foto_kursus) : asset('image/Thumnnail.jpg') }}"
                             alt="{{ $item->judul }}" />
                     </div>
                     <div class="cursor-default">
-                        <h1 class="text-base lg:text-lg h-11 lg:h-14 overflow-hidden font-bold leading-tight text-slate-950 mt-2 mb-4 ">{{ $item->judul }}</h1>
+                        <h1 class="text-base lg:text-lg h-11 lg:h-14 overflow-hidden font-bold leading-tight text-slate-950 my-2  ">{{ $item->judul }}</h1>
                         <div class="space-y-2"> <!-- Pembungkus utama untuk semua item -->
 
                             <!-- Rating -->
