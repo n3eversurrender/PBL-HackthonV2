@@ -4,11 +4,12 @@
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+@vite(['resources/js/home.js'])
 
 <!-- content -->
 <section class="sm:grid sm:grid-cols-3 gap-4 mt-24 sm:pr-8 pr-4">
-  <div class=" pl-4 sm:pl-8 mb-12 sm:mb-0">
-    <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+  <div class=" pl-4 sm:pl-8 mb-10 sm:mb-0">
+    <div class="rounded-lg border border-gray-200 bg-gray-100 px-4 py-6 shadow-sm ">
       <!-- Gambar -->
       <div class="object-cover aspect-video">
         <img class="w-full rounded-lg h-full hover:brightness-50 object-cover"
@@ -18,7 +19,7 @@
 
       <!-- Informasi -->
       <div class="mt-4">
-        <h1 class="text-2xl font-bold">{{ $kursus->judul }}</h1>
+        <h2 class="text-lg lg:text-2xl font-bold">{{ $kursus->judul }}</h2>
         <div class="mt-4 text-sm text-gray-500">
           <p>
             <span>Jadwal:
@@ -52,7 +53,7 @@
 
         </div>
 
-        <p class="text-xl font-bold mt-4">Rp.{{ number_format($kursus->harga, 0, ',', '.') }}</p>
+        <p class="lg:text-xl text-base font-bold mt-4">Rp.{{ number_format($kursus->harga, 0, ',', '.') }}</p>
       </div>
 
       <!-- Tombol Aksi -->
@@ -67,7 +68,7 @@
 
       @if ($pendaftaranSebelumnya)
       <div class="mt-4">
-        <p class="text-gray-500">Anda sudah terdaftar di kursus ini dan belum menyelesaikannya.</p>
+        <p class="text-gray-500 text-sm">Anda sudah terdaftar di kursus ini dan belum menyelesaikannya.</p>
       </div>
       @else
       <form action="/DaftarPendaftaran" method="POST" class="mt-4">
@@ -96,11 +97,11 @@
       @endif
       @elseif(Auth::user()->peran === 'Pelatih')
       <div class="mt-4">
-        <p class="text-gray-500">Kamu Adalah Seorang <strong>Pelatih</strong></p>
+        <p class="text-gray-500 text-sm">Kamu Adalah Seorang <strong>Pelatih</strong></p>
       </div>
       @endif
       @else
-      <div class="mt-4">
+      <div class="mt-4 text-sm">
         <p class="text-red-500">Silakan <a href="{{ route('login') }}" class="text-blue-500 underline">login</a> untuk mulai belajar.</p>
       </div>
       @endauth
@@ -120,7 +121,7 @@
       </div>
 
       <!-- Module 1 -->
-      <div class="border-b border-gray-200">
+      <div class="border-b border-gray-200 ">
         <div id="accordion-collapse" class="mt-5">
           @if($kursus->kurikulum->isEmpty()) <!-- Check if kurikulum is empty -->
           <p class="text-center text-gray-500 dark:text-gray-400">Tidak ada modul yang tersedia.</p>
@@ -128,7 +129,7 @@
           @foreach($kursus->kurikulum as $kurikulum) <!-- Loop through kurikulums -->
           <h2 id="accordion-collapse-heading-{{ $kurikulum->kurikulum_id }}">
             <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-{{ $kurikulum->kurikulum_id }}" aria-expanded="false" aria-controls="accordion-collapse-body-{{ $kurikulum->kurikulum_id }}">
-              <span>{{ $kurikulum->nama_topik }}</span>
+              <span class="text-left">{{ $kurikulum->nama_topik }}</span>
               <i id="lock-icon-closed-{{ $kurikulum->kurikulum_id }}" class="fas fa-lock text-gray-500 dark:text-gray-400"></i>
             </button>
           </h2>
@@ -173,17 +174,18 @@
 
 
 <!-- review start -->
-<div class="mt-12">
-  <div class="sm:flex justify-center sm:px-12 items-center space-y-4 sm:space-x-8 lg:space-x-14 ">
+<div class="mt-16 py-14 bg-gray-100">
+  <div class="flex flex-wrap justify-center gap-3 h-auto">
     <!-- Loop through the limited ratings for this kursus -->
     @foreach ($ratings as $rating)
-    <article class="w-96 h-auto px-10 py-4 bg-white rounded-lg sm:shadow-md dark:bg-gray-800">
+    <article class="w-72 h-72 px-10 py-5 mb-2 bg-white rounded-lg shadow-md">
 
       <!-- User info section -->
       <div class="flex items-center mb-4">
         <img class="w-10 h-10 me-4 rounded-full" src="{{ asset('image/9203764.png') }}" alt="">
-        <div class="font-medium dark:text-white">
-          <p>{{ $rating->pengguna->nama }}
+        <div class="font-medium dark:text-white text-xs sm:text-sm">
+          <h4 class="h-5 overflow-hidden">{{ $rating->pengguna->nama }}</h4>
+          <p>
             <time datetime="2014-08-16 19:00" class="block text-sm text-gray-500 dark:text-gray-400">
               Joined on {{ optional($rating->pengguna->created_at)->format('F Y') ?? 'Date not available' }}
             </time>
@@ -193,40 +195,41 @@
 
       <!-- Rating stars -->
       <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
-        <p>{{ $rating->rating }} <span class="ml-2 text-xs sm:text-sm text-gray-600">Rate</span></p>
+      <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+        <p class="text-xs">{{ $rating->rating }} <span class="ml-2 text-xs  text-TeksSecond">Rate</span></p>
       </div>
 
       <!-- Comment section -->
-      <p class="mb-3 text-gray-500 dark:text-gray-400 text-sm sm:text-base">
+      <p class="my-3 text-TeksSecond dark:text-gray-400 text-xs sm:text-sm">
         {{ $rating->komentar ?? 'No comment provided.' }}
       </p>
     </article>
     @endforeach
   </div>
+  
 </div>
-
 <!-- review end -->
 
 <!-- cards featured courses -->
 <section class=" mx-4 sm:mx-8 lg:mx-16 sm:my-24 my-12">
-  <h1 class="font-bold text-xl sm:text-2xl mb-2 sm:mb-4">Kursus Unggulan</h1>
+  <h1 class="font-bold text-xl sm:text-3xl mb-3 sm:mb-6">Kursus Unggulan</h1>
   <!-- Cards Start -->
   <div class="mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-4">
     @foreach ($relatedCourses as $related)
-    <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+    <div class="rounded-lg border border-gray-200 bg-gray-100 p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
       <div class="object-cover aspect-video">
-        <img class="w-full rounded-lg h-full object-cover" src="{{ $related->foto_kursus ? asset('storage/' . $related->foto_kursus) : asset('image/Thumnnail.jpg') }}" alt="{{ $related->judul }}" />
+        <img class="w-full rounded-lg h-full aspect-video object-cover" src="{{ $related->foto_kursus ? asset('storage/' . $related->foto_kursus) : asset('image/Thumnnail.jpg') }}" alt="{{ $related->judul }}" />
       </div>
 
       <!-- Penjelasan -->
       <div class="pt-2 cursor-default">
-        <p class="text-xl font-bold leading-tight text-gray-900 my-2 text-balance">
+        <p class="text-lg h-11 overflow-hidden font-bold leading-tight text-gray-900 my-2 text-balance">
           {{ $related->judul }}
         </p>
-        <p class="text-sm pt-2 pb-4 text-gray-500">
+        <p class="text-sm h-24 overflow-hidden pt-2 mb-3 text-TeksSecond">
           {{ Str::limit($related->deskripsi, 100) }}
         </p>
-        <a href="/CoursePage/{{ $related->id }}" class="bg-blue-500 text-white sm:p-4 p-2 rounded-lg w-full text-center block">Dapatkan sekarang</a>
+        <a href="/CoursePage/{{ $related->id }}" class="bg-ButtonBase hover:bg-HoverGlow transition duration-700 text-xs sm:text-sm text-white  p-2 rounded-lg w-full text-center block">Dapatkan sekarang</a>
       </div>
     </div>
     @endforeach

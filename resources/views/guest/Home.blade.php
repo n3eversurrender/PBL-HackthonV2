@@ -146,7 +146,7 @@
     </div>
 </section>
 
-<section class="container p-5 mx-auto sm:p-10">
+<!-- <section class="container p-5 mx-auto sm:p-10">
     <div class="sm:flex">
         <div class="sm:w-1/2 p-4">
             <h2 class="font-extrabold text-2xl mb-2 sm:text-3xl">Pertanyaan yang sering diajukan</h2>
@@ -252,9 +252,9 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
-<section class="sm:mx-12 mx-3 bg-[#F8FAFC]">
+<section class="sm:mx-12 mx-3 sm:mt-10 bg-[#F8FAFC]">
     <div class="container sm:flex justify-between mb-5">
         <div class="text-2xl sm:text-3xl px-5 sm:px-8 font-bold lg:w-1/3 sm:w-1/2 mt-10">
            <h2>Apa Kata Pelanggan Kami Tentang Kami</h2>

@@ -4,7 +4,7 @@
 
 <section class="flex mx-4 sm:mx-12 mt-4">
     <aside class="h-auto min-h-screen">
-        <div class="h-full py-4 w-28 sm:w-64 bg-white">
+        <div class="h-full py-4 w-32 sm:w-48 lg:w-64 bg-white">
             <h3 class=" font-bold text-sm sm:text-2xl mb-4 sm:py-2">Semua Kursus</h3>
             <ul class="space-y-2  font-medium">
                 <!-- Kategori-->
@@ -150,52 +150,59 @@
             <!-- Cards Start -->
             <div class="mb-4 grid gap-2 lg:gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3">
                 @foreach ($kursus as $item)
-                <div class="rounded-lg border border-gray-200 bg-white p-2 lg:p-4 shadow-sm">
+                <div class="rounded-lg border border-Border bg-gray-100 p-4 shadow-sm">
                     <div class="object-cover aspect-video">
-                        <img class="w-full h-full rounded-lg object-cover"
+                        <img class="w-full h-full rounded-lg object-cover aspect-video"
                             src="{{ $item->foto_kursus ? asset('storage/' . $item->foto_kursus) : asset('image/Thumnnail.jpg') }}"
                             alt="{{ $item->judul }}" />
                     </div>
                     <div class="cursor-default">
-                        <h1 class="text-base sm:text-xl font-bold leading-tight text-gray-900 my-2">{{ $item->judul }}</h1>
+                        <h1 class="text-base lg:text-lg h-11 lg:h-14 overflow-hidden font-bold leading-tight text-slate-950 my-2  ">{{ $item->judul }}</h1>
                         <div class="space-y-2"> <!-- Pembungkus utama untuk semua item -->
 
                             <!-- Rating -->
-                            <div class="flex space-x-2">
-                                <strong class="text-xs text-gray-900">Rating:</strong>
-                                <p class="text-xs">{{ number_format($item->average_rating, 1) ?? 'Belum Ada Rating' }}</p>
+                            <div class="flex space-x-4">
+                                <div class="flex space-x-1 ">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                        <path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+                                    </svg>
+                                    <p class="text-sm ">{{ number_format($item->average_rating, 1) ?? 'Belum Ada Rating' }}</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm
+                                        @if($item->tingkat_kesulitan == 'Pemula') text-green-500
+                                        @elseif($item->tingkat_kesulitan == 'Menengah') text-yellow-500
+                                        @elseif($item->tingkat_kesulitan == 'Lanjutan') text-red-500
+                                        @else text-gray-500
+                                        @endif">
+                                        {{ $item->tingkat_kesulitan }}
+                                    </p>
+                                </div>
                             </div>
 
                             <!-- Kapasitas -->
-                            <div class="flex space-x-2">
+                            <!-- <div class="flex space-x-2">
                                 <strong class="text-xs text-gray-900">Kapasitas:</strong>
                                 <p class="text-xs">{{ $item->kapasitas }}</p>
-                            </div>
+                            </div> -->
 
                             <!-- Level -->
-                            <div class="flex space-x-2">
+                            <!-- <div class="flex space-x-2">
                                 <strong class="text-xs text-gray-900">Level:</strong>
-                                <p class="text-xs
-                                    @if($item->tingkat_kesulitan == 'Pemula') text-green-500
-                                    @elseif($item->tingkat_kesulitan == 'Menengah') text-yellow-500
-                                    @elseif($item->tingkat_kesulitan == 'Lanjutan') text-red-500
-                                    @else text-gray-500
-                                    @endif">
-                                    {{ $item->tingkat_kesulitan }}
-                                </p>
-                            </div>
+                               
+                            </div> -->
 
                             <!-- Harga -->
-                            <div class="flex space-x-2 mb-4"> <!-- Menambahkan margin bottom disini -->
-                                <strong class="text-xl text-gray-900">Harga:</strong>
-                                <p class="text-xl font-bold text-gray-900">Rp.{{ number_format($item->harga, 0, ',', '.') }}</p>
+                            <div class="flex space-x-2 my-4 h-6 overflow-hidden"> <!-- Menambahkan margin bottom disini -->
+                                <!-- <strong class="lg:text-base text-sm text-gray-900">Harga:</strong> -->
+                                <p class="lg:text-lg text-base font-bold text-gray-900">Rp.{{ number_format($item->harga, 0, ',', '.') }}</p>
                             </div>
                         </div>
 
                         <!-- Tombol Lihat Detail -->
-                        <div class="flex justify-end mt-5">
-                            <a href="/CoursePage/{{ $item->kursus_id }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                                Lihat Detail
+                        <div class="flex justify-end my-5">
+                            <a href="/CoursePage/{{ $item->kursus_id }}" class="text-ButtonBase hover:text-HoverGlow transition duration-700">
+                                <i class="fas fa-info-circle cursor-pointer me-2"></i>Lihat Detail
                             </a>
                         </div>
                     </div>
