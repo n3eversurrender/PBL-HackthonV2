@@ -11,54 +11,71 @@
 
 <body>
     <div class="flex flex-col lg:flex-row lg:justify-between h-screen">
-    <!-- Image Section -->
-    <img class="w-full h-48 sm:h-1/3 object-cover lg:w-1/3 lg:h-auto" 
-         src="{{ asset('image/12.webp') }}" 
-         alt="Background Main" />
-    
-    <!-- Form Section -->
-    <div class="bg-white p-4 w-full mt-5 sm:mt-14 lg:mt-0 flex flex-col justify-center items-center">
-        <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-center mb-6 lg:mb-10 w-full">
-            Ayo Segera Masuk 
-            <br>Ke Halamanmu
-        </h2>
-       
-        <form method="POST" action="{{ route('login') }}" class="w-full px-12 lg:px-0 mt-5 lg:mt-0 lg:max-w-md">
-            @csrf
-            <div class="mb-4 lg:mb-6">
-                <label for="email" class="block mb-2 text-sm font-semibold text-gray-950 dark:text-white">
-                    Email
-                </label>
-                <input type="email" id="email" name="email"
-                    class="bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="john.doe@company.com" required />
-            </div>
-            <div class="mb-4 lg:mb-6 relative">
-                <label for="kata_sandi" class="block mb-2 text-sm font-semibold text-gray-950 dark:text-white">
-                    Kata Sandi
-                </label>
-                <input type="password" id="kata_sandi" name="kata_sandi"
-                    class="bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="•••••••••" required />
-                <i class="fas fa-eye absolute right-3 top-12 transform -translate-y-1/2 cursor-pointer"
-                    id="togglePassword"></i>
-            </div>
-            <div class="flex justify-center sm:mt-8 mt-0 lg:mt-0 ">
-                <button type="submit"
-                    class="text-white bg-ButtonBase hover:bg-HoverGlow focus:ring-4 focus:outline-none focus:ring-HoverGlow font-semibold rounded-lg text-sm w-full sm:w-1/2 lg:w-full px-5 py-2 text-center transition duration-700">
-                    Masuk
-                </button>
-            </div>
-        </form>
-        <a href="/Daftar" class="group font-semibold text-sm sm:text-base mt-2 text-ButtonBase transition duration-700">
-            <span class="group-hover:text-HoverGlow text-slate-950">Belum Punya Akun?</span>
-            <span class="group-hover:text-HoverGlow">Daftar</span>
-        </a>
+        <!-- Image Section -->
+        <img class="w-full h-48 sm:h-1/3 object-cover lg:w-1/3 lg:h-auto"
+            src="{{ asset('image/12.webp') }}"
+            alt="Background Main" />
 
-        <a href="/Home" class="text-sm sm:text-base font-semibold mt-7 text-slate-800 hover:text-HoverGlow transition duration-700">Kembali Ke Beranda</a>
+        <!-- Form Section -->
+        <div class="bg-white p-4 w-full mt-5 sm:mt-14 lg:mt-0 flex flex-col justify-center items-center">
+            <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-center mb-6 lg:mb-10 w-full">
+                Ayo Segera Masuk
+                <br>Ke Halamanmu
+            </h2>
+
+            <!-- Cek apakah ada pesan kesalahan untuk login_error -->
+            @if ($errors->has('login_error'))
+            <div class="text-red-500 text-sm mb-4">
+                <strong>{{ $errors->first('login_error') }}</strong>
+            </div>
+            @endif
+
+            <form method="POST" action="{{ route('login') }}" class="w-full px-12 lg:px-0 mt-5 lg:mt-0 lg:max-w-md">
+                @csrf
+                <div class="mb-4 lg:mb-6">
+                    <label for="email" class="block mb-2 text-sm font-semibold text-gray-950 dark:text-white">
+                        Email
+                    </label>
+                    <input type="email" id="email" name="email" value="{{ old('email') }}"
+                        class="bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="john.doe@company.com" />
+                    <!-- Pesan error untuk email -->
+                    @error('email')
+                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-4 lg:mb-6 relative">
+                    <label for="kata_sandi" class="block mb-2 text-sm font-semibold text-gray-950 dark:text-white">
+                        Kata Sandi
+                    </label>
+                    <input type="password" id="kata_sandi" name="kata_sandi"
+                        class="bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="•••••••••" />
+                    <i class="fas fa-eye absolute right-3 top-12 transform -translate-y-1/2 cursor-pointer"
+                        id="togglePassword"></i>
+                    <!-- Pesan error untuk kata sandi -->
+                    @error('kata_sandi')
+                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="flex justify-center sm:mt-8 mt-0 lg:mt-0 ">
+                    <button type="submit"
+                        class="text-white bg-ButtonBase hover:bg-HoverGlow focus:ring-4 focus:outline-none focus:ring-HoverGlow font-semibold rounded-lg text-sm w-full sm:w-1/2 lg:w-full px-5 py-2 text-center transition duration-700">
+                        Masuk
+                    </button>
+                </div>
+            </form>
+
+            <a href="/Daftar" class="group font-semibold text-sm sm:text-base mt-2 text-ButtonBase transition duration-700">
+                <span class="group-hover:text-HoverGlow text-slate-950">Belum Punya Akun?</span>
+                <span class="group-hover:text-HoverGlow">Daftar</span>
+            </a>
+
+            <a href="/Home" class="text-sm sm:text-base font-semibold mt-7 text-slate-800 hover:text-HoverGlow transition duration-700">Kembali Ke Beranda</a>
+        </div>
     </div>
-</div>
-
 
 </body>
 

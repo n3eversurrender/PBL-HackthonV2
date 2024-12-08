@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengguna;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -14,36 +13,47 @@ class LoginPenggunaController extends Controller
     {
         // Validasi input
         $validated = $request->validate([
-            'email' => 'required|string',
+            'email' => 'required|string|email', // Menambahkan validasi email
             'kata_sandi' => 'required|string',
+        ], [
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'kata_sandi.required' => 'Kata sandi wajib diisi.',
         ]);
 
-        // Mencari admin berdasarkan username
+        // Mencari pengguna berdasarkan email
         $pengguna = Pengguna::where('email', $validated['email'])->first();
 
         // Mengecek apakah pengguna ditemukan dan password cocok
-        if ($pengguna && Hash::check($validated['kata_sandi'], $pengguna->kata_sandi)) {
-            // Login berhasil, arahkan ke dashboard atau halaman pengguna
-            Auth::login($pengguna);
-            if ($pengguna->peran === 'Pelatih') {
-                return redirect()->route('DashboardPelatih');
-            } elseif ($pengguna->peran === 'Peserta') {
-                return redirect()->route('DashboardPeserta');
-            }
-        } else {
-            // Login gagal, kembali ke halaman login dengan pesan kesalahan
+        if (!$pengguna) {
             return back()->withErrors([
-                'login_error' => 'Username atau kata sandi salah.',
+                'login_error' => 'Email tidak ditemukan.',
             ]);
         }
+
+        if (!Hash::check($validated['kata_sandi'], $pengguna->kata_sandi)) {
+            return back()->withErrors([
+                'login_error' => 'Kata sandi salah.',
+            ]);
+        }
+
+        // Login berhasil, arahkan ke dashboard sesuai peran
+        Auth::login($pengguna);
+
+        if ($pengguna->peran === 'Pelatih') {
+            return redirect()->route('DashboardPelatih');
+        } elseif ($pengguna->peran === 'Peserta') {
+            return redirect()->route('DashboardPeserta');
+        }
     }
+
 
     public function logoutPeserta()
     {
         Auth::logout();
         return redirect('/Masuk');
     }
-    
+
     public function logoutPelatih()
     {
         Auth::logout();
