@@ -82,6 +82,9 @@
                                 <a href="{{ route('PengaturanPeserta') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Pengaturan Peserta</a>
                             </li>
                             <li>
+                                <a href="{{ route('daftarTransaksi') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Daftar Transaksi</a>
+                            </li>
+                            <li>
                                 <form action="{{ route('logoutPeserta') }}" method="POST">
                                     @csrf
                                     <button type="submit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
@@ -98,7 +101,6 @@
                         Masuk
                     </button>
                     @endif
-
                 </div>
 
                 <button data-collapse-toggle="navbar-default" type="button" class="inline-flex mt-2 z-20 items-center p-1 w-7 h-7 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">

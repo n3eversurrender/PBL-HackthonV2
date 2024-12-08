@@ -97,12 +97,21 @@ class MainController extends Controller
         return view('guest.CoursePage', compact('kursus', 'relatedCourses', 'ratings'));
     }
 
-
-
-    public function paymentPage()
+    public function paymentPage($id)
     {
-        return view('guest/PaymentPage', []);
+        $pendaftaran = Pendaftaran::findOrFail($id);
+
+        // Ambil kursus yang terkait dengan pendaftaran
+        $kursus = $pendaftaran->kursus;
+
+        return view('guest.PaymentPage', [
+            'pendaftaran_id' => $pendaftaran->pendaftaran_id,
+            'total_pembayaran' => $kursus->harga ?? 0, // Harga kursus terkait
+            'kursus' => $kursus, // Kirim data kursus ke view
+            'pendaftaran' => $pendaftaran,
+        ]);
     }
+
 
     public function daftarTransaksi()
     {
@@ -136,13 +145,19 @@ class MainController extends Controller
             return redirect()->back()->with('error', 'Anda sudah terdaftar di kursus ini.');
         }
 
-        // Simpan data pendaftaran
+        // Cek apakah kapasitas kursus sudah penuh
+        $kursus = Kursus::find($validated['kursus_id']);
+        if ($kursus->pendaftaran->count() >= $kursus->kapasitas) {
+            // Redirect dengan pesan error
+            return redirect()->back()->with('error', 'Kapasitas kursus telah penuh.');
+        }
+
+        // Jika lolos validasi, buat pendaftaran baru
         Pendaftaran::create([
-            'pengguna_id' => auth()->id(), // ID pengguna yang sedang login
+            'pengguna_id' => auth()->id(),
             'kursus_id' => $validated['kursus_id'],
-            'tgl_pendaftaran' => $request->tgl_pendaftaran,
-            'status_pendaftaran' => 'Menunggu',
-            'status_pembayaran' => 'Pending',
+            'tgl_pendaftaran' => now(),
+            'status_pendaftaran' => 'Menunggu', // Default status
         ]);
 
         // Redirect dengan pesan sukses

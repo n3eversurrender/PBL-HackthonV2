@@ -33,7 +33,6 @@
             <tr>
                 <th scope="col" class="px-6 py-3">NO</th>
                 <th scope="col" class="px-6 py-3">Name</th>
-                <th scope="col" class="px-6 py-3">Email</th>
                 <th scope="col" class="px-6 py-3">Gender</th>
                 <th scope="col" class="px-6 py-3">Phone Number</th>
                 <th scope="col" class="px-6 py-3">Address</th>
@@ -46,14 +45,24 @@
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="px-6 py-4">{{ $pendaftaran->firstItem() + $loop->iteration - 1 }}</td>
                 <td class="px-6 py-4">{{ $item->pengguna->nama }}</td>
-                <td class="px-6 py-4">{{ $item->pengguna->email }}</td>
                 <td class="px-6 py-4">{{ $item->pengguna->jenis_kelamin }}</td>
                 <td class="px-6 py-4">{{ $item->pengguna->no_telepon }}</td>
                 <td class="px-6 py-4">{{ $item->pengguna->alamat }}</td>
                 <td class="px-6 py-4">
                     <div class="flex items-center">
-                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> {{ $item->status_pendaftaran ?? 'Tidak Diketahui' }}
+                        @php
+                        $statusColor = match($item->status_pendaftaran ?? 'Tidak Diketahui') {
+                        'Menunggu' => 'bg-yellow-500', // Warna untuk status Menunggu
+                        'Aktif' => 'bg-green-500', // Warna untuk status Aktif
+                        'Selesai' => 'bg-blue-500', // Warna untuk status Selesai
+                        'Dibatalkan' => 'bg-red-500', // Warna untuk status Dibatalkan
+                        default => 'bg-gray-500', // Warna default
+                        };
+                        @endphp
+                        <div class="h-2.5 w-2.5 rounded-full {{ $statusColor }} me-2"></div>
+                        {{ $item->status_pendaftaran ?? 'Tidak Diketahui' }}
                     </div>
+
                 </td>
                 <td class="px-6 py-4">
                     <button data-modal-target="my_modal_edit_{{ $item->pengguna->pengguna_id }}" data-modal-toggle="my_modal_edit_{{ $item->pengguna->pengguna_id }}" class="text-blue-600 hover:text-blue-900 mr-2">

@@ -20,7 +20,6 @@
                 <th scope="col" class="px-6 py-3 text-center">No</th>
                 <th scope="col" class="px-6 py-3">Name</th>
                 <th scope="col" class="px-6 py-3">No Telepon</th>
-                <th scope="col" class="px-6 py-3">Alamat</th>
                 <th scope="col" class="px-6 py-3">Peran</th>
                 <th scope="col" class="px-6 py-3">Status</th>
                 <th scope="col" class="px-6 py-3">Action</th>
@@ -44,7 +43,6 @@
                         {{ $pengguna->no_telepon }}
                     </a>
                 </td>
-                <td class="px-6 py-4 truncate max-w-24">{{ $pengguna->alamat }}</td>
                 <td class="px-6 py-4">{{ $pengguna->peran }}</td>
                 <td class="px-6 py-4">
                     @if($pengguna->status == 'Aktif')
