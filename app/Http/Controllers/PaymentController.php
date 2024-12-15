@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Midtrans\Config;
 use Midtrans\Snap;
 use Carbon\Carbon;
-use Midtrans\Transaction;
 use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
@@ -78,79 +77,34 @@ class PaymentController extends Controller
         }
     }
 
-    public function checkPaymentStatus(Request $request)
+    public function updatePaymentStatus(Request $request)
     {
-        // Ambil order_id dari request
         $orderId = $request->order_id;
+        $status = $request->status;
 
-        // Cari pembayaran berdasarkan order_id
-        $pembayaran = Pembayaran::where('midtrans_order_id', $orderId)->first();
+        // Cari pembayaran berdasarkan Order ID
+        $pembayaran = \App\Models\Pembayaran::where('midtrans_order_id', $orderId)->first();
 
         if (!$pembayaran) {
-            return response()->json(['error' => 'Pembayaran tidak ditemukan'], 404);
+            return response()->json(['error' => 'Order ID tidak ditemukan'], 404);
         }
 
-        // Konfigurasi Midtrans
-        Config::$serverKey = config('midtrans.server_key');
-        Config::$isProduction = config('midtrans.is_production');
-        Config::$isSanitized = config('midtrans.is_sanitized');
-        Config::$is3ds = config('midtrans.is_3ds');
+        // Update status pembayaran
+        $pembayaran->status = $status;
+        $pembayaran->midtrans_status = $status;
+        $pembayaran->save();
 
-        try {
-            // Memanggil API Midtrans untuk memeriksa status transaksi
-            $status = Transaction::status($orderId);
+        if ($status == 'Berhasil') {
+            // Cari pendaftaran terkait
+            $pendaftaran = Pendaftaran::find($pembayaran->pendaftaran_id);
 
-            // Log status untuk debugging
-            Log::info('Status Pembayaran: ', (array) $status);
-
-            // Periksa jika $status adalah objek atau array
-            if (is_object($status)) {
-                $transactionStatus = $status->transaction_status;
-                $transactionId = $status->transaction_id;
-            } else {
-                // Jika status adalah array, gunakan indeks array
-                $transactionStatus = $status['transaction_status'];
-                $transactionId = $status['transaction_id'];
+            if ($pendaftaran) {
+                // Update status_pendaftaran dan status_pembayaran di tabel pendaftaran
+                $pendaftaran->status_pendaftaran = 'Aktif'; // Atur status_pendaftaran menjadi 'Aktif'
+                $pendaftaran->status_pembayaran = 'Berhasil'; // Atur status_pembayaran menjadi 'Berhasil'
+                $pendaftaran->save();
             }
-
-            // Proses status transaksi yang diterima
-            switch ($transactionStatus) {
-                case 'settlement':
-                case 'capture':
-                    // Pembayaran berhasil
-                    $pembayaran->status = 'Berhasil';
-                    $pembayaran->midtrans_status = 'Berhasil';
-                    break;
-
-                case 'pending':
-                    // Pembayaran masih dalam status pending
-                    $pembayaran->status = 'Pending';
-                    $pembayaran->midtrans_status = 'Pending';
-                    break;
-
-                case 'cancel':
-                case 'expire':
-                    // Pembayaran dibatalkan atau kedaluwarsa
-                    $pembayaran->status = 'Gagal';
-                    $pembayaran->midtrans_status = 'Gagal';
-                    break;
-
-                default:
-                    $pembayaran->status = 'Gagal';
-                    $pembayaran->midtrans_status = 'Gagal';
-                    break;
-            }
-
-            // Menyimpan status terbaru ke database
-            $pembayaran->midtrans_transaction_id = $transactionId;
-            $pembayaran->midtrans_response = json_encode($status);
-            $pembayaran->save();
-
-            return response()->json(['status' => $pembayaran->status]);
-        } catch (\Exception $e) {
-            // Log error jika gagal memeriksa status transaksi
-            Log::error('Gagal memeriksa status pembayaran: ' . $e->getMessage());
-            return response()->json(['error' => 'Gagal memeriksa status pembayaran'], 500);
         }
+        return response()->json(['message' => 'Status pembayaran dan pendaftaran diperbarui.'], 200);
     }
 }

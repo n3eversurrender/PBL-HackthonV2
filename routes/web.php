@@ -69,7 +69,7 @@ Route::post('/DaftarPendaftaran', [MainController::class, 'store']);
 
 Route::get('/PaymentPage/{id}', [MainController::class, 'paymentPage'])->name('PaymentPage');
 Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('processPayment');
-
+Route::post('/payment/update-status', [PaymentController::class, 'updatePaymentStatus'])->name('updatePaymentStatus');
 
 Route::post('/umpan-balik', [UmpanBalikController::class, 'store'])->name('umpan_balik.store');
 

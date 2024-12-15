@@ -2,6 +2,13 @@
 
 @section('NavAndFoot')
 
+@if(session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
+
+
 <div class="container mx-auto sm:px-4 mt-20">
     <form action="{{ route('processPayment') }}" method="POST" class="space-y-4">
         @csrf
@@ -37,10 +44,14 @@
         </div>
     </form>
 
+    <!-- Midtrans Snap.js -->
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('midtrans.client_key') }}"></script>
+    
     <script>
         document.getElementById('pay-button').addEventListener('click', function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Mencegah submit form
+
+            // Request Snap Token dari server
             fetch('{{ route("processPayment") }}', {
                 method: 'POST',
                 headers: {
@@ -55,26 +66,60 @@
             .then(response => response.json())
             .then(data => {
                 if (data.snapToken) {
+                    // Menampilkan popup Snap Midtrans
                     snap.pay(data.snapToken, {
                         onSuccess: function(result) {
-                            console.log(result);
+                            console.log('Success:', result);
                             alert('Pembayaran berhasil!');
+
+                            // Update status ke server
+                            updatePaymentStatus(result.order_id, 'Berhasil');
                         },
                         onPending: function(result) {
-                            console.log(result);
-                            alert('Menunggu pembayaran!');
+                            console.log('Pending:', result);
+                            alert('Menunggu pembayaran.');
+
+                            // Update status ke server
+                            updatePaymentStatus(result.order_id, 'Pending');
                         },
                         onError: function(result) {
-                            console.error(result);
+                            console.error('Error:', result);
                             alert('Pembayaran gagal!');
+
+                            // Update status ke server
+                            updatePaymentStatus(result.order_id, 'Gagal');
+                        },
+                        onClose: function() {
+                            alert('Anda menutup popup tanpa menyelesaikan pembayaran.');
                         }
                     });
                 } else {
-                    alert(data.error || 'Terjadi kesalahan.');
+                    alert(data.error || 'Gagal mendapatkan Snap Token.');
                 }
             })
-            .catch(error => console.error(error));
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan.');
+            });
         });
+
+        // Fungsi untuk update status ke server
+        function updatePaymentStatus(orderId, status) {
+            fetch('{{ route("updatePaymentStatus") }}', {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    order_id: orderId,
+                    status: status
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log('Status updated:', data.message))
+            .catch(error => console.error('Error updating status:', error));
+        }
     </script>
 </div>
 
