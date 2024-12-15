@@ -16,8 +16,8 @@ class PenggunaSeeder extends Seeder
         $users = [
             ['nama' => 'M Zaini Ridha', 'email' => 'zaini@gmail.com', 'no_telepon' => '08123456789', 'alamat' => 'Jakarta', 'jenis_kelamin' => 'Laki-laki', 'kata_sandi' => bcrypt('123123123'), 'foto_profil' => null, 'peran' => 'Pelatih', 'status' => 'Aktif'],
             ['nama' => 'Niati', 'email' => 'niati@gmail.com', 'no_telepon' => '08123456788', 'alamat' => 'Bandung', 'jenis_kelamin' => 'Perempuan', 'kata_sandi' => bcrypt('123123123'), 'foto_profil' => null, 'peran' => 'Pelatih', 'status' => 'Aktif'],
-            ['nama' => 'Aiko', 'email' => 'aiko@gmail.com', 'no_telepon' => '08123456787', 'alamat' => 'Surabaya', 'jenis_kelamin' => 'Perempuan', 'kata_sandi' => bcrypt('password'), 'foto_profil' => null, 'peran' => 'Pelatih', 'status' => 'Aktif'],
-            ['nama' => 'Dina', 'email' => 'dina@gmail.com', 'no_telepon' => '08123456786', 'alamat' => 'Yogyakarta', 'jenis_kelamin' => 'Perempuan', 'kata_sandi' => bcrypt('password'), 'foto_profil' => null, 'peran' => 'Pelatih', 'status' => 'Aktif'],
+            ['nama' => 'Aiko', 'email' => 'aiko@gmail.com', 'no_telepon' => '08123456787', 'alamat' => 'Surabaya', 'jenis_kelamin' => 'Perempuan', 'kata_sandi' => bcrypt('123123123'), 'foto_profil' => null, 'peran' => 'Pelatih', 'status' => 'Aktif'],
+            ['nama' => 'Dina', 'email' => 'dina@gmail.com', 'no_telepon' => '08123456786', 'alamat' => 'Yogyakarta', 'jenis_kelamin' => 'Perempuan', 'kata_sandi' => bcrypt('123123123'), 'foto_profil' => null, 'peran' => 'Pelatih', 'status' => 'Aktif'],
             ['nama' => 'Aziz', 'email' => 'aziz@gmail.com', 'no_telepon' => '08123456785', 'alamat' => 'Semarang', 'jenis_kelamin' => 'Laki-laki', 'kata_sandi' => bcrypt('123123123'), 'foto_profil' => null, 'peran' => 'Pelatih', 'status' => 'Aktif'],
             ['nama' => 'Ozed', 'email' => 'ozed@gmail.com', 'no_telepon' => '08123456785', 'alamat' => 'Semarang', 'jenis_kelamin' => 'Laki-laki', 'kata_sandi' => bcrypt('123123123'), 'foto_profil' => null, 'peran' => 'Peserta', 'status' => 'Aktif'],
         ];

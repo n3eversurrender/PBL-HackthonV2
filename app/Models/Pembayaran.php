@@ -13,7 +13,15 @@ class Pembayaran extends Model
     protected $primaryKey = 'pembayaran_id';
 
     protected $fillable = [
-        'pendaftaran_id', 'tgl_pembayaran', 'metode_pembayaran', 'jumlah', 'status'
+        'pendaftaran_id',
+        'tgl_pembayaran',
+        'metode_pembayaran',
+        'jumlah',
+        'status',
+        'midtrans_order_id',
+        'midtrans_transaction_id',
+        'midtrans_status',
+        'midtrans_response',
     ];
 
     public function pendaftaran()
