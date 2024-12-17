@@ -36,4 +36,5 @@ class Sertifikat extends Model
     {
         return $this->belongsTo(Kursus::class, 'kursus_id', 'kursus_id');
     }
+   
 }

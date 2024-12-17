@@ -3,14 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kursus;
+use App\Models\Pendaftaran;
+use App\Models\Pengguna;
+use App\Models\Peserta;
 use App\Models\Sertifikat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log; // Untuk logging
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator; // Jika validasi manual digunakan
+use Illuminate\Support\Facades\Storage;
+
 
 class PengelolaanSertifikatController extends Controller
 {
+    public function index()
+    {
+        $sertifikat = Sertifikat::paginate(10); // Ensure pagination
+        return view('nama_view', compact('sertifikat'));
+    }
+    
+    
     // Menampilkan daftar sertifikat dengan paginasi
     public function pengelolaanSertifikat()
     {
@@ -20,6 +32,8 @@ class PengelolaanSertifikatController extends Controller
         $sertifikat = Sertifikat::whereHas('kursus', function ($query) use ($id) {
             $query->where('pengguna_id', $id);
         })->paginate(10);
+
+        $peserta = Peserta::all();
 
         return view('pelatih.PengelolaanSertifikat', [
             'sertifikat' => $sertifikat,
@@ -32,11 +46,13 @@ class PengelolaanSertifikatController extends Controller
     public function tambahSertifikat()
     {
         $id = Auth::id();
-
+    
         $kursus = Kursus::where('pengguna_id', $id)->get();
-
-        return view('pelatih.TambahSertifikat', compact('kursus'));
+        $pendaftaran = Pendaftaran::with('peserta', 'pengguna')->get(); // Fetch Pendaftaran with related data
+    
+        return view('pelatih.TambahSertifikat', compact('kursus', 'pendaftaran'));
     }
+    
 
 
     // Menyimpan sertifikat baru ke database
@@ -45,50 +61,47 @@ class PengelolaanSertifikatController extends Controller
         // Validasi input
         $validatedData = $request->validate([
             'kursus_id' => 'required|exists:kursus,kursus_id',
+            'pendaftaran_id' => 'required|exists:pendaftaran,pendaftaran_id',
             'file_sertifikat' => 'required|file|mimes:pdf|max:10240',
             'nomor_sertifikat' => 'required|string',
             'tanggal_terbit' => 'required|date',
         ]);
 
-        // Menyimpan file sertifikat ke folder 'sertifikat_pdfs'
         $file = $request->file('file_sertifikat');
-        $filePath = $file->store('sertifikat_pdfs');  // Menyimpan file sertifikat
+        $filePath = $file->store('sertifikat_pdfs', 'public'); 
 
-        // Mengambil nama file untuk ditampilkan
-        $fileName = $file->getClientOriginalName(); // Get the original file name
+        
+        $fileName = $filePath; 
 
-        // Menyimpan data sertifikat ke database
         $sertifikat = new Sertifikat();
         $sertifikat->kursus_id = $request->kursus_id;
-        $sertifikat->nama_kursus = Kursus::find($request->kursus_id)->judul;  // Menyimpan nama kursus berdasarkan kursus_id
-        $sertifikat->file_sertifikat = $fileName; // Menyimpan nama file sertifikat
+        $sertifikat->pendaftaran_id = $request->pendaftaran_id;
+        $sertifikat->nama_kursus = Kursus::find($request->kursus_id)->judul; 
+        $sertifikat->file_sertifikat = $fileName; 
         $sertifikat->nomor_sertifikat = $request->nomor_sertifikat;
         $sertifikat->tanggal_terbit = $request->tanggal_terbit;
         $sertifikat->save();
 
-        // Redirect ke halaman pengelolaan sertifikat dengan pesan sukses
         return redirect()->route('PengelolaanSertifikat')->with('success', 'Sertifikat berhasil ditambahkan.');
     }
 
-    // Menampilkan form untuk mengedit sertifikat berdasarkan id
     public function editSertifikat($sertifikat_id)
     {
-        // Mengambil data sertifikat berdasarkan id
         $sertifikat = Sertifikat::findOrFail($sertifikat_id);
-        $kursus = Kursus::all(); // Mengambil semua kursus untuk dropdown
+        $kursus = Kursus::all(); 
 
-        // Kirim data sertifikat dan kursus ke view
+       
         return view('pelatih.EditSertifikat', compact('sertifikat', 'kursus'));
     }
 
-    // Mengupdate sertifikat yang sudah ada di database
     public function update(Request $request, $sertifikat_id)
     {
 
         Log::info('Request Data: ', $request->all());
 
         $validatedData = $request->validate([
-            'file_sertifikat' => 'nullable|file|mimes:pdf|max:10240', // Hanya file yang divalidasi
+            'pendaftaran_id' => 'required|exists:peserta,pendaftaran_id',
+            'file_sertifikat' => 'nullable|file|mimes:pdf|max:10240', 
             'nomor_sertifikat' => 'required|string',
             'tanggal_terbit' => 'required|date',
         ]);
@@ -96,12 +109,16 @@ class PengelolaanSertifikatController extends Controller
         $sertifikat = Sertifikat::findOrFail($sertifikat_id);
 
         if ($request->hasFile('file_sertifikat')) {
+            if (Storage::disk('public')->exists($sertifikat->file_sertifikat)) {
+                Storage::disk('public')->delete($sertifikat->file_sertifikat);
+            }
             $file = $request->file('file_sertifikat');
             $originalFileName = $file->getClientOriginalName();
-            $filePath = $file->storeAs('sertifikat_pdfs', $originalFileName);
+            $filePath = $file->store('sertifikat_pdfs', 'public');
             $sertifikat->file_sertifikat = $filePath;
         }
 
+        $sertifikat->pendaftaran_id = $validatedData['pendaftaran_id'];
         $sertifikat->nomor_sertifikat = $validatedData['nomor_sertifikat'];
         $sertifikat->tanggal_terbit = $validatedData['tanggal_terbit'];
 
@@ -117,21 +134,16 @@ class PengelolaanSertifikatController extends Controller
     }
 
 
-    // Menghapus sertifikat dari database
     public function destroy($sertifikat_id)
     {
-        // Mengambil data sertifikat berdasarkan id
         $sertifikat = Sertifikat::findOrFail($sertifikat_id);
 
-        // Hapus file sertifikat jika ada
-        if (file_exists(storage_path('app/sertifikat_pdfs/' . $sertifikat->file_sertifikat))) {
-            unlink(storage_path('app/sertifikat_pdfs/' . $sertifikat->file_sertifikat));  // Hapus file sertifikat
+        if (Storage::disk('public')->exists($sertifikat->file_sertifikat)) {
+            Storage::disk('public')->delete($sertifikat->file_sertifikat);
         }
 
-        // Hapus sertifikat dari database
         $sertifikat->delete();
 
-        // Redirect kembali ke halaman pengelolaan sertifikat dengan pesan sukses
         return redirect()->route('PengelolaanSertifikat')->with('success', 'Sertifikat berhasil dihapus.');
     }
 }

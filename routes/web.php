@@ -100,12 +100,16 @@ Route::middleware(['auth', PeranMiddleware::class . ':Peserta'])->group(function
 
 
     // Route untuk menghapus satu item 
-    Route::delete('/peserta/{peserta_id}/hapuspendidikan/{pendidikan}', [PengaturanPesertaController::class, 'hapusPendidikanItem'])->name('peserta.hapusPendidikanItem');
-    Route::delete('/peserta/{peserta_id}/hapus-pengalaman/{pengalaman_kerja}', [PengaturanPesertaController::class, 'hapusPengalamanItem'])->name('peserta.hapusPengalamanItem');
-    Route::delete('/peserta/{peserta_id}/hapus-keahlian/{keahlian}', [PengaturanPesertaController::class, 'hapusKeahlianItem'])->name('peserta.hapusKeahlianItem');
+    
+    Route::get('/DaftarPelatihan', [DaftarPelatihanController::class, 'daftarPelatihan']);
+    Route::get('/daftar-pelatihan/{pendaftaran_id}/sertifikat', [DaftarPelatihanController::class, 'downloadSertifikat'])->name('DaftarPelatihan.sertifikat');
+    Route::delete('/daftar-pelatihan/{pendaftaran_id}', [DaftarPelatihanController::class, 'destroy'])->name('DaftarPelatihan.destroy');
 
     Route::get('/DaftarPelatihan', [DaftarPelatihanController::class, 'daftarPelatihan']);
+    Route::get('/daftar-pelatihan/sertifikat/{pendaftaran_id}', [DaftarPelatihanController::class, 'downloadSertifikat'])->name('DaftarPelatihan.sertifikat');
+    Route::get('/daftar-pelatihan/{pendaftaran_id}/sertifikat', [DaftarPelatihanController::class, 'downloadSertifikat'])->name('DaftarPelatihan.sertifikat');
     Route::delete('/daftar-pelatihan/{pendaftaran_id}', [DaftarPelatihanController::class, 'destroy'])->name('DaftarPelatihan.destroy');
+
 });
 
 
@@ -124,10 +128,9 @@ Route::middleware(['auth', PeranMiddleware::class . ':Pelatih'])->group(function
     Route::put('/pelatih/{pelatih_id}', [PengaturanPelatihController::class, 'updatePelatihSpesialisasi'])->name('pelatihSpesialisasi.update');
     Route::delete('/pelatih/{pelatih_id}', [PengaturanPelatihController::class, 'destroyPelatih'])->name('pelatih.destroy');
 
-
-
     Route::get('/PengelolaanSertifikat', [PengelolaanSertifikatController::class, 'pengelolaanSertifikat'])->name('PengelolaanSertifikat');
     Route::get('/TambahSertifikat', [PengelolaanSertifikatController::class, 'tambahSertifikat'])->name('TambahSertifikat');
+    Route::get('/get-peserta/{kursus_id}', [PengelolaanSertifikatController::class, 'getPesertaByKursusId']);
     Route::post('/tambah-sertifikat', [PengelolaanSertifikatController::class, 'store'])->name('sertifikat.store');
     Route::get('/edit-sertifikat/{sertifikat_id}', [PengelolaanSertifikatController::class, 'editSertifikat'])->name('sertifikat.edit');
     Route::put('/update-sertifikat/{sertifikat_id}', [PengelolaanSertifikatController::class, 'update'])->name('sertifikat.update');
@@ -172,8 +175,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/TambahKategori/store', [DataKategoriController::class, 'store'])->name('kategori.store');
     Route::delete('/TambahKategori/{kategori_id}', [DataKategoriController::class, 'destroy'])->name('kategori.destroy');
 
-
     Route::get('/DataKursus', [DataKursusController::class, 'dataKursus'])->name('DataKursus');
+    Route::put('/kursus/{kursus_id}', [DataKursusController::class, 'update'])->name('kursus.update');
     Route::delete('/kursus/{kursus_id}', [DataKursusController::class, 'destroy'])->name('kursus.destroy');
 
     Route::get('/DataPeserta', [DataPesertaController::class, 'dataPeserta'])->name('DataPeserta');
