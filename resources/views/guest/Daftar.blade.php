@@ -53,7 +53,7 @@
                     <div>
                         <label for="jenis_kelamin" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Jenis Kelamin</label>
                         <select id="jenis_kelamin" name="jenis_kelamin" class="bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                            <option selected>Pilih Jenis Kelamin</option>
+                            <option selected disabled>Pilih Jenis Kelamin</option>
                             <option value="Laki-laki">Laki-Laki</option>
                             <option value="Perempuan">Perempuan</option>
                         </select>
@@ -62,9 +62,9 @@
                         @enderror
                     </div>
                     <div>
-                        <label for="peran" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Role</label>
+                        <label for="peran" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Peran</label>
                         <select id="peran" name="peran" class="bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                            <option selected>Pilih Role</option>
+                            <option selected disabled>Pilih Peran</option>
                             <option value="Peserta">Peserta</option>
                             <option value="Pelatih">Pelatih</option>
                         </select>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="grid gap-6 mb-6 md:grid-cols-2">
                     <div class="lg:mb-3">
-                        <label for="kata_sandi" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Password</label>
+                        <label for="kata_sandi" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Kata Sandi</label>
                         <div class="relative">
                             <input type="password" id="kata_sandi" name="kata_sandi" class="bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-10" placeholder="•••••••••" />
                             <i id="togglePassword" class="fas fa-eye absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"></i>
@@ -86,7 +86,7 @@
                     </div>
 
                     <div class="lg:mb-3">
-                        <label for="kata_sandi_confirmation" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Konfirmasi Password</label>
+                        <label for="kata_sandi_confirmation" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Konfirmasi Kata Sandi</label>
                         <div class="relative">
                             <input type="password" id="kata_sandi_confirmation" name="kata_sandi_confirmation"
                                 class="bg-gray-100 border @error('kata_sandi_confirmation') border-red-500 @else border-Border @enderror text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-10"
