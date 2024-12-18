@@ -39,6 +39,14 @@ class PenilaianKursusController extends Controller
             'komentar_pelatih' => 'nullable|string',
             'rating_kursus' => 'required|numeric|min:1|max:10',
             'komentar_kursus' => 'nullable|string',
+        ], [
+            'rating_pelatih.required' => 'Rating wajib diisi',
+            'rating_pelatih.min' => 'Rating minimal harus bernilai 1',
+            'rating_pelatih.max' => 'Rating maksimal harus bernilai 10',
+
+            'rating_kursus.required' => 'Rating wajib diisi',
+            'rating_kursus.min' => 'Rating minimal harus bernilai 1',
+            'rating_kursus.max' => 'Rating maksimal harus bernilai 10',
         ]);
 
         // Cek apakah pengguna sudah memberikan rating pada kursus yang sama

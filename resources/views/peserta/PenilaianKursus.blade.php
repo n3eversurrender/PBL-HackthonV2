@@ -129,7 +129,7 @@
                     <div>
                         <label for="pengguna_id" class="block text-sm font-medium text-gray-700">Pilih Pelatih</label>
                         <select id="pengguna_id" name="pengguna_id" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-                            <option value="">Pilih Pelatih</option>
+                            <option value="" selected disabled>Pilih Pelatih</option>
                             @foreach($pelatihs as $pelatih)
                             <option value="{{ $pelatih->pengguna_id }}">{{ $pelatih->nama }}</option>
                             @endforeach
@@ -138,7 +138,10 @@
 
                     <div>
                         <label for="rating_pelatih" class="text-md font-bold text-gray-500 dark:text-gray-400">Rating Pelatih</label>
-                        <input type="number" name="rating_pelatih" id="rating_pelatih" min="1" max="10" step="0.1" class="w-full p-2 border border-gray-300 rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600" placeholder="Berikan rating antara 1 dan 10" required>
+                        <input type="number" name="rating_pelatih" id="rating_pelatih"  step="0.1" class="w-full p-2 border border-gray-300 rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600" placeholder="Berikan rating antara 1 dan 10">
+                        @error('rating_pelatih')
+                        <div class="text-red-500 text-sm">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <!-- Komentar Pelatih -->
@@ -150,7 +153,7 @@
                     <div>
                         <label for="kursus_id" class="block text-sm font-medium text-gray-700">Pilih Kursus</label>
                         <select id="kursus_id" name="kursus_id" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-                            <option value="">Pilih Kursus</option>
+                            <option value="" selected disabled>Pilih Kursus</option>
                             @foreach($kursus as $kursusItem)
                             <option value="{{ $kursusItem->kursus_id }}">{{ $kursusItem->judul }}</option>
                             @endforeach
@@ -161,7 +164,10 @@
                     <!-- Rating Kursus -->
                     <div>
                         <label for="rating_kursus" class="text-md font-bold text-gray-500 dark:text-gray-400">Rating Kursus</label>
-                        <input type="number" name="rating_kursus" id="rating_kursus" min="1" max="10" step="0.1" class="w-full p-2 border border-gray-300 rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600" placeholder="Berikan rating antara 1 dan 10" required>
+                        <input type="number" name="rating_kursus" id="rating_kursus"  step="0.1" class="w-full p-2 border border-gray-300 rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600" placeholder="Berikan rating antara 1 dan 10">
+                        @error('rating_kursus')
+                        <div class="text-red-500 text-sm">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <!-- Komentar Kursus -->
@@ -180,6 +186,34 @@
         </div>
     </div>
 </div>
+<!-- Sweetalert -->
+    @if (session('success'))
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            Swal.fire({
+                position: "middle",
+                icon: "success",
+                title: "{{ session('success') }}",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        });
+    </script>
+    @endif
+
+    @if (session('error'))
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            Swal.fire({
+                position: "middle",
+                icon: "error",
+                title: "{{ session('error') }}",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        });
+    </script>
+    @endif
 
 <!-- Pagination -->
 <div class="flex justify-center items-center mt-5">
