@@ -67,6 +67,20 @@
         </tbody>
     </table>
 </div>
+    <!-- sweetalert -->
+    @if (session('success'))
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            Swal.fire({
+                position: "middle",
+                icon: "success",
+                title: "{{ session('success') }}",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        });
+    </script>
+    @endif
 
 
 <!-- Pagination -->
