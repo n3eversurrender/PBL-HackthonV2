@@ -248,24 +248,43 @@
                         <form method="POST" action="{{ route('umpan_balik.store') }}" class="mt-6 text-sm sm:text-base">
                             @csrf
                             <div class="flex-1">
-                                <label for="nama_komentar" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Nama</label>
+                                <label for="nama_komentar" class="block  text-sm text-gray-600 dark:text-gray-200">Nama</label>
                                 <input id="nama_komentar" name="nama_komentar" type="text" placeholder="John Doe"
-                                    class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required />
+                                    class="block w-full px-5 py-3 mt-2 text-sm placeholder:text-sm text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                                    @error('nama_komentar')
+                                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <div class="flex-1 mt-6">
-                                <label for="komentar" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Ulasan</label>
+                                <label for="komentar" class="block mt-2 text-sm text-gray-600 dark:text-gray-200">Komentar</label>
                                 <textarea id="komentar" name="komentar" placeholder="Ulasan kamu..."
-                                    class="block w-full px-5 py-3 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required></textarea>
+                                    class="block w-full px-5 py-3 mt-2 text-gray-700 text-sm placeholder:text-sm bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"></textarea>
+                                    @error('komentar')
+                                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <button type="submit"
-                                class="w-full px-6 py-3 mt-6 text-sm font-semibold tracking-wide text-white capitalize transition-colors duration-700 transform bg-[#2563EB] rounded-md hover:bg-[#161D6F] focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">
+                                class="w-full px-6 py-3 mt-8 text-sm font-semibold tracking-wide text-white capitalize transition-colors duration-700 transform bg-[#2563EB] rounded-md hover:bg-[#161D6F] focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">
                                 Kirim
                             </button>
                         </form>
                     </div>
                 </div>
+                @if (session('success'))
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            Swal.fire({
+                position: "middle",
+                icon: "success",
+                title: "{{ session('success') }}",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        });
+    </script>
+    @endif
             </div>
         </div>
     </div>
