@@ -7,6 +7,9 @@
     <title>Masuk</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Script modal -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -43,6 +46,7 @@
                     @error('email')
                     <div class="text-red-500 text-sm">{{ $message }}</div>
                     @enderror
+
                 </div>
 
                 <div class="mb-4 lg:mb-6 relative">
@@ -77,6 +81,19 @@
         </div>
     </div>
 
+    @if (session('success'))
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            Swal.fire({
+                position: "middle",
+                icon: "success",
+                title: "{{ session('success') }}",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        });
+    </script>
+    @endif
 </body>
 
 <script>

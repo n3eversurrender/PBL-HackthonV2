@@ -12,7 +12,7 @@
 <body class="w-full">
 
     <!-- Navbar + Image -->
-    <nav class="bg-black bg-opacity-70 border-gray-200 dark:bg-black dark:bg-opacity-50 fixed top-0 w-full z-10">
+    <nav class="bg-black bg-opacity-90 border-gray-200 dark:bg-black dark:bg-opacity-50 fixed top-0 w-full z-10">
         <div class="max-w-screen-2xl grid grid-cols-12 items-center sm:justify-between mx-auto p-2 sm:p-4">
             <a href="#" class="flex {{ Auth::check() ? 'col-span-9' : 'col-span-8' }} sm:col-span-5 items-center space-x-2 rtl:space-x-reverse">
                 <img src="{{ asset('image/SKILLB.png') }}" class="w-10 h-10 rounded-full" alt="Flowbite Logo" />
@@ -114,19 +114,19 @@
                     <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-transparent md:dark:bg-transparent dark:border-gray-700">
                         <li>
                             <a href="/Home"
-                                class="{{ request()->is('Home') ? ' text-blue-700 font-bold' : 'text-black sm:text-white' }} block py-2 px-3 rounded md:border-0 md:p-0 hover:text-blue-500">
+                                class="{{ request()->is('Home') ? ' text-blue-600 font-bold' : 'text-black sm:text-white' }} block py-2 px-3 rounded md:border-0 md:p-0 hover:text-blue-500">
                                 Beranda
                             </a>
                         </li>
                         <li>
                             <a href="/TentangKami"
-                                class="{{ request()->is('TentangKami') ? ' text-blue-700 font-bold' : 'text-black sm:text-white' }} block py-2 px-3 rounded md:border-0 md:p-0 hover:text-blue-500">
+                                class="{{ request()->is('TentangKami') ? ' text-blue-600 font-bold' : 'text-black sm:text-white' }} block py-2 px-3 rounded md:border-0 md:p-0 hover:text-blue-500">
                                 Tentang Kami
                             </a>
                         </li>
                         <li>
                             <a href="/DaftarKursus"
-                                class="{{ request()->is('DaftarKursus', 'CoursePage/*', 'DaftarTransaksi') ? ' text-blue-700 font-bold' : 'text-black sm:text-white' }} block py-2 px-3 rounded md:border-0 md:p-0 hover:text-blue-500">
+                                class="{{ request()->is('DaftarKursus', 'CoursePage/*', 'DaftarTransaksi') ? ' text-blue-600 font-bold' : 'text-black sm:text-white' }} block py-2 px-3 rounded md:border-0 md:p-0 hover:text-blue-500">
                                 Kursus
                             </a>
                         </li>
