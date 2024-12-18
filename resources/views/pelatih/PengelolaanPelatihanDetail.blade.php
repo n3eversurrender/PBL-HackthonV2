@@ -109,7 +109,7 @@
                             <!-- Tombol Update -->
                             <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-b">
                                 <button type="submit" class="px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg">
-                                    Update Status
+                                    Perbarui Status
                                 </button>
                             </div>
                         </form>
@@ -144,6 +144,19 @@
         </tbody>
     </table>
 </div>
+@if (session('success'))
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            Swal.fire({
+                position: "middle",
+                icon: "success",
+                title: "{{ session('success') }}",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        });
+    </script>
+    @endif
 
 <!-- Pagination -->
 <div class="flex justify-center items-center mt-5">
