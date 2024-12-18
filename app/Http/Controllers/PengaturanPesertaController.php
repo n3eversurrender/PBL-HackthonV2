@@ -37,11 +37,30 @@ class PengaturanPesertaController extends Controller
         // Validasi data input 
         $request->validate([
             'nama' => 'required|string|max:255',
-            'no_telepon' => 'nullable|string|max:15',
-            'alamat' => 'nullable|string|max:255',
-            'kata_sandi' => 'nullable|string|min:6',
+            'no_telepon' => 'required|digits_between:10,15',
+            'alamat' => 'required|string|max:255',
+            'kata_sandi' => [
+                'nullable',
+                'string',
+                'min:8',
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
+            ],
             'jenis_kelamin' => 'required|string|in:Laki-laki,Perempuan',
             'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+        ], [
+            'nama.required' => 'Nama wajib diisi',
+            'no_telepon.required' => 'Nomor Telepone wajib diisi',
+            'no_telepon.digits_between' => 'Nomor telepon harus antara 10 hingga 15 digit.',
+
+            'alamat.required' => 'Alamat wajib diisi',
+            
+            'kata_sandi.string' => 'Kata sandi harus berupa teks.',
+            'kata_sandi.min' => 'Kata sandi minimal 8 karakter.',
+            'kata_sandi.regex' => 'Kata sandi harus mengandung huruf besar, huruf kecil, dan angka.',
+
+            'foto_profil.image' => 'Format gambar tidak sesuai',
+            'foto_profil.mimes' => 'Format gambar tidak sesuai',
+            'foto_profil.max' => 'Ukuran gambar melebihi kapasitas, Maksimal 5MB'
         ]);
 
         $id = Auth::id();
