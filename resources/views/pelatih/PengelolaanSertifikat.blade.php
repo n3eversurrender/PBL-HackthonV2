@@ -88,11 +88,17 @@
                                 <div>
                                     <label for="file_sertifikat" class="text-sm font-semibold text-gray-500 dark:text-gray-400">File Sertifikat</label>
                                     <input type="file" name="file_sertifikat" id="file_sertifikat" class="mt-1 p-2 border border-gray-300 rounded w-full" accept="application/pdf">
-                                </div>
+                                        @error('file_sertifikat')
+                                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                                    @enderror
+                            </div>
                                 <div>
                                     <label for="nama_kursus" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Nama Kursus</label>
                                     <input type="text" name="nama_kursus" id="nama_kursus" class="block w-full text-sm p-2 border rounded-lg" value="{{ old('nama_kursus', $srtf->nama_kursus) }}">
-                                </div>
+                                        @error('nama_kursus')
+                                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                                    @enderror
+                            </div>
                                 <div>
                                     <label for="nomor_sertifikat" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Nomor Sertifikat</label>
                                     <input type="text" name="nomor_sertifikat" id="nomor_sertifikat" class="block w-full text-sm p-2 border rounded-lg" value="{{ old('nomor_sertifikat', $srtf->nomor_sertifikat) }}">
@@ -101,6 +107,9 @@
                                     <label for="tanggal_terbit" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tanggal Terbit</label>
                                     <input type="date" name="tanggal_terbit" id="tanggal_terbit" class="block w-full text-sm p-2 border rounded-lg" value="{{ old('tanggal_terbit', $srtf->tanggal_terbit) }}">
                                 </div>
+                                    @error('nomor_sertifikat')
+                                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                                    @enderror
                             </div>
                             <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-b">
                                 <button type="submit" class="px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg">Update Sertifikat</button>
@@ -133,6 +142,19 @@
         </tbody>
     </table>
 </div>
+            @if (session('success'))
+            <script>
+                document.addEventListener('DOMContentLoaded', (event) => {
+                    Swal.fire({
+                        position: "middle",
+                        icon: "success",
+                        title: "{{ session('success') }}",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                });
+            </script>
+            @endif
 
 <!-- Pagination -->
 <div class="flex justify-center items-center mt-5">

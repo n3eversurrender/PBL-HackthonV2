@@ -65,6 +65,14 @@ class PengelolaanSertifikatController extends Controller
             'file_sertifikat' => 'required|file|mimes:pdf|max:10240',
             'nomor_sertifikat' => 'required|string',
             'tanggal_terbit' => 'required|date',
+        ], [
+            'kursus_id.required' => 'Kursus wajib diisi',
+            'pendaftaran_id.required' => 'Peserta wajib diisi',
+            'file_sertifikat.required' => 'Sertifikat wajib diisi',
+            'nomor_sertifikat.required' => 'Nomor sertifikat wajib diisi',
+            'tanggal_terbit.required' => 'Tanggal terbit wajib diisi',
+            'file_sertifikat.mimes' => 'Format sertifikat harus PDF',
+            'file_sertifikat.max' => 'Ukuran sertifikat tidak boleh lebih dari 10MB',
         ]);
 
         $file = $request->file('file_sertifikat');
@@ -105,6 +113,13 @@ class PengelolaanSertifikatController extends Controller
             'file_sertifikat' => 'nullable|file|mimes:pdf|max:10240', // Maksimum 10MB
             'nomor_sertifikat' => 'nullable|string',
             'tanggal_terbit' => 'nullable|date',
+        ], [
+            'pendaftaran_id.required' => 'Peserta wajib diisi',
+            'file_sertifikat.required' => 'Sertifikat wajib diisi',
+            'nomor_sertifikat.required' => 'Nomor sertifikat wajib diisi',
+            'tanggal_terbit.required' => 'Tanggal terbit wajib diisi',
+            'file_sertifikat.mimes' => 'Format sertifikat harus PDF',
+            'file_sertifikat.max' => 'Ukuran sertifikat tidak boleh lebih dari 10MB',
         ]);
 
         // Ambil data sertifikat berdasarkan ID

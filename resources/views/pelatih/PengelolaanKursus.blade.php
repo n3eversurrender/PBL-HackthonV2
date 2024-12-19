@@ -85,10 +85,16 @@
                                     <div>
                                         <label for="judul" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Judul</label>
                                         <input type="text" name="judul" id="judul" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('judul', $kursusItem->judul) }}">
+                                        @error('judul')
+                                            <div class="text-red-500 text-sm">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div>
                                         <label for="deskripsi" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Deskripsi</label>
                                         <textarea name="deskripsi" id="deskripsi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ old('deskripsi', $kursusItem->deskripsi) }}</textarea>
+                                        @error('deskripsi')
+                                            <div class="text-red-500 text-sm">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div>
                                         <label for="tingkat_kesulitan" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tingkat Kesulitan</label>
@@ -97,6 +103,9 @@
                                             <option value="Menengah" {{ $kursusItem->tingkat_kesulitan == 'Menengah' ? 'selected' : '' }}>Menengah</option>
                                             <option value="Lanjutan" {{ $kursusItem->tingkat_kesulitan == 'Lanjutan' ? 'selected' : '' }}>Lanjutan</option>
                                         </select>
+                                        @error('tingkat_kesulitan')
+                                            <div class="text-red-500 text-sm">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div>
                                         <label for="kategori_id" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tingkat Kesulitan</label>
@@ -106,27 +115,45 @@
                                             <option value="{{ $item->kategori_id }}">{{ $item->nama_kategori }}</option>
                                             @endforeach
                                         </select>
+                                        @error('kategori_id')
+                                            <div class="text-red-500 text-sm">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div>
                                         <label for="harga" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Harga</label>
                                         <input type="text" name="harga" id="harga" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('harga', $kursusItem->harga) }}">
+                                        @error('harga')
+                                            <div class="text-red-500 text-sm">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div>
                                         <label for="tgl_mulai" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tanggal Mulai</label>
                                         <input type="date" name="tgl_mulai" id="tgl_mulai" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('tgl_mulai', $kursusItem->tgl_mulai) }}">
+                                        @error('tgl_mulai')
+                                            <div class="text-red-500 text-sm">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div>
                                         <label for="tgl_selesai" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tanggal Selesai</label>
                                         <input type="date" name="tgl_selesai" id="tgl_selesai" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('tgl_selesai', $kursusItem->tgl_selesai) }}">
+                                        @error('tgl_selesai')
+                                            <div class="text-red-500 text-sm">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div>
                                         <label for="kapasitas" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Kapasitas</label>
                                         <input type="number" name="kapasitas" id="kapasitas" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{ old('kapasitas', $kursusItem->kapasitas) }}">
+                                        @error('kapasitas')
+                                            <div class="text-red-500 text-sm">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <!-- Foto Kursus -->
                                     <div>
                                         <label for="foto_kursus" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Foto Kursus</label>
                                         <input type="file" name="foto_kursus" id="foto_kursus" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" accept="image/jpeg, image/png, image/gif, image/svg+xml">
+                                        @error('foto_kursus')
+                                            <div class="text-red-500 text-sm">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="justify-right mb-2">
                                         @if($kursusItem->foto_kursus)

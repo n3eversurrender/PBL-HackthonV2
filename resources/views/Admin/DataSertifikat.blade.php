@@ -115,6 +115,19 @@
         </tbody>
     </table>
 </div>
+            @if (session('success'))
+            <script>
+                document.addEventListener('DOMContentLoaded', (event) => {
+                    Swal.fire({
+                        position: "middle",
+                        icon: "success",
+                        title: "{{ session('success') }}",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                });
+            </script>
+            @endif
 
 <!-- Pagination -->
 <div class="flex justify-center items-center mt-5">
