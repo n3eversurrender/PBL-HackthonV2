@@ -59,6 +59,8 @@
                 </td>
             </tr>
 
+           
+
             <!-- Modal Edit -->
             <div id="my_modal_edit_{{ $kursusItem->kursus_id }}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                 <div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -97,7 +99,7 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <label for="tingkat_kesulitan" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tingkat Kesulitan</label>
+                                        <label for="kategori_id" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Tingkat Kesulitan</label>
                                         <select name="kategori_id" id="kategori_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                             <option value="-" disabled selected>Pilih Kategori</option>
                                             @foreach ($kategori as $item)
@@ -172,6 +174,19 @@
         </tbody>
     </table>
 </div>
+            @if (session('success'))
+            <script>
+                document.addEventListener('DOMContentLoaded', (event) => {
+                    Swal.fire({
+                        position: "middle",
+                        icon: "success",
+                        title: "{{ session('success') }}",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                });
+            </script>
+            @endif
 
 <!-- Pagination -->
 <div class="flex justify-center items-center mt-5">
