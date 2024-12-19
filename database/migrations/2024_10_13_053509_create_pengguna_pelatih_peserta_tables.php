@@ -20,11 +20,11 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->string('nama');
             $table->string('email')->unique();
             $table->string('no_telepon');
-            $table->text('alamat');
-            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
+            $table->text('alamat')->nullable();
+            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan'])->nullable();
             $table->string('kata_sandi');
             $table->string('foto_profil')->nullable();
-            $table->enum('peran', ['Pelatih', 'Peserta', 'Admin']);
+            $table->enum('peran', ['Pelatih', 'Peserta', 'Admin'])->nullable();
             $table->enum('status', ['Aktif', 'Tidak Aktif'])->nullable();
             $table->timestamps();
         });

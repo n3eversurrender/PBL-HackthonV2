@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\Pengguna;
 use Illuminate\Support\Facades\Hash;
 
 class DataAdminController extends Controller
@@ -11,7 +12,7 @@ class DataAdminController extends Controller
     public function dataAdmin()
     {
         // Ambil semua data dari tabel admin
-        $admins = Admin::paginate(10);
+        $admins = Pengguna::where('peran', 'Admin')->paginate(10);
 
         // Kirim data ke view
         return view('Admin/DataAdmin', [
@@ -26,51 +27,42 @@ class DataAdminController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'username' => 'required|string|unique:admin,username|max:255',
-            'password' => 'required|string|min:6',
-            'role' => 'required|in:admin,superadmin',
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'email' => 'required|email|unique:pengguna', // Ubah ke 'pengguna'
+            'no_telepon' => 'required|numeric',
+            'kata_sandi' => 'required|min:8',
         ]);
 
-        Admin::create([
-            'username' => $validated['username'],
-            'kata_sandi' => Hash::make($validated['password']),
-            'role' => $validated['role'],
+        Pengguna::create([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'no_telepon' => $request->no_telepon,
+            'kata_sandi' => bcrypt($request->kata_sandi),
+            'peran' => 'Admin', // Posisi ditetapkan langsung di sini
         ]);
 
-        return redirect()->route('admin.index')->with('success', 'Admin berhasil ditambahkan!');
+        return redirect()->route('admin.index')->with('success', 'Admin berhasil ditambahkan.');
     }
 
     public function update(Request $request, $id)
     {
-        $admin = Admin::findOrFail($id);
+        $admin = Pengguna::findOrFail($id);
 
-        // Validasi input
-        $validated = $request->validate([
-            'username' => 'required|string|unique:admin,username,' . $admin->admin_id . ',admin_id|max:255',
-            'password' => 'nullable|string|min:6',
-            'role' => 'required|in:admin,superadmin',
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'kata_sandi' => 'nullable|string|min:8',
         ]);
 
-        // Update data
-        $admin->username = $validated['username'];
-        if (!empty($validated['password'])) {
-            $admin->kata_sandi = Hash::make($validated['password']);
+        $admin->nama = $request->nama;
+
+        if ($request->filled('kata_sandi')) {
+            $admin->kata_sandi = bcrypt($request->kata_sandi);
         }
-        $admin->role = $validated['role'];
+
         $admin->save();
 
         // Redirect kembali ke halaman admin dengan pesan sukses
         return redirect()->route('admin.index')->with('success', 'Informasi admin berhasil diperbarui!');
-    }
-
-
-    public function destroy($id)
-    {
-        $admin = Admin::findOrFail($id);
-
-        $admin->delete();
-
-        return redirect()->route('admin.index')->with('success', 'Admin berhasil dihapus!');
     }
 }

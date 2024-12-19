@@ -25,6 +25,8 @@
             <tr>
                 <th scope="col" class="px-6 py-3">NO</th>
                 <th scope="col" class="px-6 py-3">Nama</th>
+                <th scope="col" class="px-6 py-3">Email</th>
+                <th scope="col" class="px-6 py-3">No Telepon</th>
                 <th scope="col" class="px-6 py-3">Posisi</th>
                 <th scope="col" class="px-6 py-3">Action</th>
             </tr>
@@ -33,8 +35,12 @@
             @foreach ($admins as $index => $admin)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="px-6 py-4">{{ $admins->firstItem() + $index }}</td>
-                <td class="px-6 py-4">{{ $admin->username }}</td>
-                <td class="px-6 py-4">{{ ucfirst($admin->role) }}</td>
+                <td class="px-6 py-4">{{ $admin->nama }}</td>
+                <td class="px-6 py-4">{{ $admin->email }}</td>
+                <td class="px-6 py-4">
+                    <p><a href="https://wa.me/{{ $admin->no_telepon }}" target="_blank" class="text-blue-500 hover:underline">{{ $admin->no_telepon }}</a></p>
+                </td>
+                <td class="px-6 py-4">{{ ucfirst($admin->peran) }}</td>
                 <td class="px-6 py-4">
                     <button type="button" data-modal-target="my_modal_edit_{{ $admin->admin_id }}" data-modal-toggle="my_modal_edit_{{ $admin->admin_id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:text-blue-700 dark:hover:text-blue-400 my-1 mr-2">
                         <i class="fas fa-edit"></i> Edit
@@ -63,29 +69,18 @@
                             </button>
                         </div>
                         <!-- Isi Modal -->
-                        <form action="{{ route('PengelolaanAdmin.update', $admin->admin_id) }}" method="POST">
+                        <form action="{{ route('PengelolaanAdmin.update', $admin->pengguna_id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="p-4 md:p-5 bg-white dark:bg-gray-800 rounded-lg shadow-lg space-y-4">
-                                <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Edit Informasi Admin</h2>
-
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div>
-                                        <label for="username" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Username</label>
-                                        <input type="text" name="username" id="username" class="mt-1 p-2 border border-gray-300 rounded w-full" value="{{ old('username', $admin->username) }}">
-                                    </div>
-                                    <div>
-                                        <label for="password" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Password (Opsional)</label>
-                                        <input type="password" name="password" id="password" class="mt-1 p-2 border border-gray-300 rounded w-full">
-                                        <small class="text-sm text-gray-500 dark:text-gray-400">Kosongkan jika tidak ingin mengubah password.</small>
-                                    </div>
-                                    <div>
-                                        <label for="role" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Role</label>
-                                        <select name="role" id="role" class="mt-1 p-2 border border-gray-300 rounded w-full">
-                                            <option value="admin" {{ $admin->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                                            <option value="superadmin" {{ $admin->role == 'superadmin' ? 'selected' : '' }}>Superadmin</option>
-                                        </select>
-                                    </div>
+                                <div>
+                                    <label for="nama" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Nama</label>
+                                    <input type="text" name="nama" id="nama" class="mt-1 p-2 border border-gray-300 rounded w-full" value="{{ old('nama', $admin->nama) }}" required>
+                                </div>
+                                <div>
+                                    <label for="kata_sandi" class="text-sm font-semibold text-gray-500 dark:text-gray-400">Kata Sandi (Opsional)</label>
+                                    <input type="password" name="kata_sandi" id="kata_sandi" class="mt-1 p-2 border border-gray-300 rounded w-full">
+                                    <small class="text-sm text-gray-500 dark:text-gray-400">Kosongkan jika tidak ingin mengubah kata sandi.</small>
                                 </div>
                             </div>
                             <!-- Tombol Update -->
@@ -107,7 +102,7 @@
                             <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                             </svg>
-                            <form action="{{ route('PengelolaanAdmin.destroy', $admin->admin_id) }}" method="post">
+                            <form action="{{ route('pengguna.destroy', $admin->pengguna_id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah Anda Yakin Ingin Menghapus Ini?</h3>
@@ -146,7 +141,5 @@
     <div class="mt-4 mb-5 text-center text-sm text-gray-600 dark:text-gray-400">
         Menampilkan {{ $admins->firstItem() }} sampai {{ $admins->lastItem() }} dari {{ $admins->total() }} entri
     </div>
-
-
 
     @endsection

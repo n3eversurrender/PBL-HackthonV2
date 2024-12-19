@@ -157,8 +157,8 @@ Route::middleware(['auth', PeranMiddleware::class . ':Admin'])->group(function (
     Route::get('/DataAdmin', [DataAdminController::class, 'dataAdmin'])->name('admin.index');
     Route::get('/TambahAdmin', [DataAdminController::class, 'tambahAdmin']);
     Route::post('/admin/store', [DataAdminController::class, 'store'])->name('admin.store');
-    Route::put('/DataAdmin/{admin_id}', [DataAdminController::class, 'update'])->name('PengelolaanAdmin.update');
-    Route::delete('/DataAdmin/{admin_id}', [DataAdminController::class, 'destroy'])->name('PengelolaanAdmin.destroy');
+    Route::put('/DataAdmin/{id}', [DataAdminController::class, 'update'])->name('PengelolaanAdmin.update');
+
 
     Route::get('/DataKategori', [DataKategoriController::class, 'dataKategori'])->name('DataKategori');
     Route::get('/TambahKategori', [DataKategoriController::class, 'tambahKategori'])->name('TambahKategori');
