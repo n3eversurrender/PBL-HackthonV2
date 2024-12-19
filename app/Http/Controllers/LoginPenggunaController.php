@@ -27,13 +27,13 @@ class LoginPenggunaController extends Controller
         // Mengecek apakah pengguna ditemukan dan password cocok
         if (!$pengguna) {
             return back()->withErrors([
-                'login_error' => 'Email tidak ditemukan.',
+                'login_error' => 'Email tidak ditemukan, silahkan masukkan email dengan benar!',
             ]);
         }
 
         if (!Hash::check($validated['kata_sandi'], $pengguna->kata_sandi)) {
             return back()->withErrors([
-                'login_error' => 'Kata sandi salah.',
+                'login_error' => 'Kata sandi salah, silahkan masukkan kata sandi dengan benar!',
             ]);
         }
 
@@ -58,13 +58,13 @@ class LoginPenggunaController extends Controller
     public function logoutPeserta()
     {
         Auth::logout();
-        return redirect('/Masuk');
+        return redirect('/Masuk')->with('success', 'Logout berhasil!');
     }
 
     public function logoutPelatih()
     {
         Auth::logout();
-        return redirect('/Masuk');
+        return redirect('/Masuk')->with('success', 'Logout berhasil!');
     }
 
     public function logoutAdmin()
@@ -72,4 +72,6 @@ class LoginPenggunaController extends Controller
         Auth::logout();
         return redirect('/Masuk');
     }
+
+
 }

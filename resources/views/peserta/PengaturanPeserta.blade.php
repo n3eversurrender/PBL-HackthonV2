@@ -53,38 +53,56 @@
                 <label for="nama" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Nama</label>
                 <input type="text" id="nama" name="nama" value="{{ $pengguna->nama }}"
                     aria-label="disabled input"
-                    class="mb-6 bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Your name" disabled>
+                    class=" bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Nama Anda" disabled>
+                    @error('nama')
+                        <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+                    @enderror
 
-                <label for="no_telepon" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">No Telepon</label>
+                <label for="no_telepon" class="block mb-2 mt-6 text-sm font-bold text-gray-900 dark:text-white">No Telepon</label>
                 <input type="number" name="no_telepon" id="no_telepon" value="{{ $pengguna->no_telepon }}"
-                    class="mb-6 bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Your phone number" disabled>
+                    class=" bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="nomor telepon Anda" disabled>
+                    @error('no_telepon')
+                        <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+                    @enderror
 
-                <label for="alamat" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Alamat</label>
+                <label for="alamat" class="block mb-2 mt-6 text-sm font-bold text-gray-900 dark:text-white">Alamat</label>
                 <textarea name="alamat" id="alamat"
-                    class="mb-6 bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Your address" disabled>{{ $pengguna->alamat }}</textarea>
+                    class="bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Alamat Anda" disabled>{{ $pengguna->alamat }}</textarea>
+                    @error('alamat')
+                        <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+                    @enderror
             </div>
 
             <div class="w-full">
                 <label for="kata_sandi" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Kata Sandi</label>
                 <input type="password" name="kata_sandi" id="kata_sandi"
-                    class="mb-6 bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class=" bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Kata Sandi" disabled>
+                    @error('kata_sandi')
+                        <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+                    @enderror
 
-                <label for="jenis_kelamin" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Jenis Kelamin</label>
+                <label for="jenis_kelamin" class="block mb-2 mt-6 text-sm font-bold text-gray-900 dark:text-white">Jenis Kelamin</label>
                 <select id="jenis_kelamin" name="jenis_kelamin"
-                    class="mb-6 bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class=" bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     disabled>
                     <option selected disabled>Pilih Jenis Kelamin</option>
                     <option value="Laki-laki" {{ $pengguna->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
                     <option value="Perempuan" {{ $pengguna->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                    @error('jenis_kelamin')
+                        <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+                    @enderror
                 </select>
                 <div class="w-full">
-                    <label for="foto_profil" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Foto Profil</label>
+                    <label for="foto_profil" class="block mb-2 mt-6 text-sm font-bold text-gray-900 dark:text-white">Foto Profil</label>
                     <input type="file" name="foto_profil" id="foto_profil"
                         class="bg-gray-50 border border-Border text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" accept="image/jpeg, image/png, image/gif, image/svg+xml" disabled>
+                        @error('foto_profil')
+                        <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+                        @enderror
                 </div>
             </div>
         </div>

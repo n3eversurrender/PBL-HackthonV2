@@ -107,31 +107,46 @@
 
                                     <div>
                                         <label for="harga_maks" class="block text-sm font-semibold text-gray-700">Harga Maksimum</label>
-                                        <input type="number" name="harga_maks" id="harga_maks" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Harga Yang Di Inginkan" required>
+                                        <input type="number" name="harga_maks" id="harga_maks" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Harga Yang Di Inginkan" >
+                                        @error('harga_maks')
+                                            <span class="text-sm text-red-500">{{ $message }}</span>
+                                        @enderror
                                     </div>
 
                                     <div>
                                         <label for="rating_min" class="block text-sm font-semibold text-gray-700">Rating Minimum</label>
-                                        <input type="number" name="rating_min" id="rating_min" step="0.1" max="10" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Rating Yang Di Inginkan" required>
+                                        <input type="number" name="rating_min" id="rating_min" step="0.1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Rating Yang Di Inginkan">
+                                        @error('rating_min')
+                                            <span class="text-sm text-red-500">{{ $message }}</span>
+                                        @enderror
                                     </div>
 
                                     <div>
                                         <label for="pengalaman_min" class="block text-sm font-semibold text-gray-700">Pengalaman Minimum Pelatih (Tahun)</label>
-                                        <input type="number" name="pengalaman_min" id="pengalaman_min" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Pengalaman Pelatih Yang Di Inginkan" required>
+                                        <input type="number" name="pengalaman_min" id="pengalaman_min" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Pengalaman Pelatih Yang Di Inginkan">
+                                        @error('pengalaman_min')
+                                            <span class="text-sm text-red-500">{{ $message }}</span>
+                                        @enderror
                                     </div>
 
                                     <div>
                                         <label for="tingkat_kesulitan" class="block text-sm font-semibold text-gray-700">Tingkat Kesulitan</label>
-                                        <select name="tingkat_kesulitan" id="tingkat_kesulitan" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                                        <select name="tingkat_kesulitan" id="tingkat_kesulitan" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                             <option value="Pemula">Pemula</option>
                                             <option value="Menengah">Menengah</option>
                                             <option value="Lanjutan">Lanjutan</option>
                                         </select>
+                                        @error('tingkat_kesulitan')
+                                            <span class="text-sm text-red-500">{{ $message }}</span>
+                                        @enderror
                                     </div>
 
                                     <div>
                                         <label for="lokasi" class="block text-sm font-semibold text-gray-700">Lokasi</label>
-                                        <input type="text" name="lokasi" id="lokasi" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Lokasi Yang Di Inginkan" required>
+                                        <input type="text" name="lokasi" id="lokasi" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Lokasi Yang Di Inginkan">
+                                        @error('lokasi')
+                                            <span class="text-sm text-red-500">{{ $message }}</span>
+                                        @enderror
                                     </div>
 
 

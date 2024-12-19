@@ -29,13 +29,15 @@ class ManajemenAkunController extends Controller
             'alamat.string' => 'Alamat harus berupa teks.',
             'jenis_kelamin.required' => 'Jenis kelamin wajib dipilih.',
             'jenis_kelamin.in' => 'Jenis kelamin tidak valid.',
-            'peran.required' => 'Role wajib dipilih.',
-            'peran.in' => 'Role tidak valid.',
-            'kata_sandi.required' => 'Password wajib diisi.',
-            'kata_sandi.string' => 'Password harus berupa teks.',
-            'kata_sandi.min' => 'Password minimal 8 karakter.',
-            'kata_sandi.regex' => 'Password harus mengandung huruf besar, huruf kecil, dan angka.',
-            'kata_sandi.confirmed' => 'Konfirmasi password tidak cocok.',
+
+            'peran.required' => 'Peran wajib dipilih.',
+            'peran.in' => 'Peran tidak valid.',
+
+            'kata_sandi.required' => 'Kata sandi wajib diisi.',
+            'kata_sandi.string' => 'Kata sandi harus berupa teks.',
+            'kata_sandi.min' => 'Kata sandi minimal 8 karakter.',
+            'kata_sandi.regex' => 'Kata sandi harus mengandung huruf besar, huruf kecil, dan angka.',
+            'kata_sandi.confirmed' => 'Konfirmasi Kata sandi tidak cocok.',
         ];
 
         $validator = Validator::make($request->all(), [

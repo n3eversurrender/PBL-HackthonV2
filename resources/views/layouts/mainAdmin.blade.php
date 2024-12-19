@@ -14,6 +14,9 @@
             transform: rotate(-180deg);
         }
     </style>
+
+    <!-- Script modal -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>

@@ -18,7 +18,7 @@ class LoginAdminController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/LoginAdmin');
+        return redirect('/LoginAdmin')->with('success', 'Logout berhasil!');;
     }
 
     // Memproses form login
@@ -29,6 +29,9 @@ class LoginAdminController extends Controller
         $validated = $request->validate([
             'username' => 'required|string',
             'kata_sandi' => 'required|string',
+        ], [
+            'username.required' => 'Nama Pengguna wajib diisi.',
+            'kata_sandi.required'=> 'Kata sandi wajib diisi.',
         ]);
 
         // Mencari admin berdasarkan username
@@ -38,11 +41,11 @@ class LoginAdminController extends Controller
         if ($admin && Hash::check($validated['kata_sandi'], $admin->kata_sandi)) {
             // Login berhasil, arahkan ke dashboard atau halaman admin
             Auth::login($admin); // Menggunakan Laravel Auth untuk login
-            return redirect()->route('dashboard'); // Ganti dengan rute dashboard Anda
+            return redirect()->route('dashboard')->with('success', 'Berhasil login sebagai Admin!'); // Ganti dengan rute dashboard Anda
         } else {
             // Login gagal, kembali ke halaman login dengan pesan kesalahan
             return back()->withErrors([
-                'login_error' => 'Username atau kata sandi salah.',
+                'login_error' => 'Nama Pengguna atau kata sandi salah.',
             ]);
         }
     }

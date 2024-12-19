@@ -13,6 +13,9 @@ class UmpanBalikController extends Controller
         $validated = $request->validate([
             'nama_komentar' => 'required|string|max:255',
             'komentar' => 'required|string',
+        ], [
+            'nama_komentar.required' => "Nama Wajib diisi",
+            'komentar.required' => 'Komentar Wajib diisi',
         ]);
 
         UmpanBalik::create([
