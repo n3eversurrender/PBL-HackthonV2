@@ -13,15 +13,19 @@ class PenilaianKursusController extends Controller
 {
     public function penilaianKursus()
     {
-        $id = Auth::id();
+        $id = Auth::id(); // ID pengguna yang sedang login
 
-        // Ambil data pendaftaran yang terkait dengan pengguna yang sedang login
+        // Ambil data pendaftaran dengan relasi kursus dan pelatih
         $pendaftaran = Pendaftaran::with([
-            'kursus.ratingKursus',
-            'kursus.pengguna.ratingsPelatih',
+            'kursus.ratingKursus' => function ($query) use ($id) {
+                $query->where('pengguna_id', $id);
+            },
+            'kursus.pengguna.ratingsPelatih' => function ($query) use ($id) {
+                $query->where('pemberi_id', $id); // Filter rating oleh pemberi yang sedang login
+            },
         ])->where('pengguna_id', $id)->paginate(10);
 
-        // Ambil daftar pelatih yang mengajar kursus yang diikuti oleh pengguna
+        // Ambil daftar pelatih yang mengajar kursus
         $pelatihs = Pengguna::whereIn('pengguna_id', $pendaftaran->pluck('kursus.pengguna_id'))->get();
 
         // Ambil daftar kursus yang diikuti oleh pengguna

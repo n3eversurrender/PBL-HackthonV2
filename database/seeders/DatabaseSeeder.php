@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         // Panggil semua seeder yang telah dibuat
         $this->call([
-            AdminTableSeeder::class,
             PenggunaSeeder::class,
             PelatihSeeder::class,
             PesertaSeeder::class,

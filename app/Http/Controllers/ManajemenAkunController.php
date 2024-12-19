@@ -20,23 +20,17 @@ class ManajemenAkunController extends Controller
             'nama.required' => 'Nama wajib diisi.',
             'nama.string' => 'Nama harus berupa teks.',
             'nama.max' => 'Nama maksimal 255 karakter.',
-
             'email.required' => 'Email wajib diisi.',
             'email.email' => 'Format email tidak valid.',
             'email.unique' => 'Email sudah digunakan, silakan gunakan email lain.',
-
             'no_telepon.required' => 'Nomor telepon wajib diisi.',
             'no_telepon.digits_between' => 'Nomor telepon harus antara 10 hingga 15 digit.',
-
             'alamat.required' => 'Alamat wajib diisi.',
             'alamat.string' => 'Alamat harus berupa teks.',
-
             'jenis_kelamin.required' => 'Jenis kelamin wajib dipilih.',
             'jenis_kelamin.in' => 'Jenis kelamin tidak valid.',
-
             'peran.required' => 'Role wajib dipilih.',
             'peran.in' => 'Role tidak valid.',
-
             'kata_sandi.required' => 'Password wajib diisi.',
             'kata_sandi.string' => 'Password harus berupa teks.',
             'kata_sandi.min' => 'Password minimal 8 karakter.',
@@ -67,6 +61,10 @@ class ManajemenAkunController extends Controller
                 ->withInput();
         }
 
+        // Ambil status dari form
+        $status = $request->status;
+
+        // Simpan data pengguna
         Pengguna::create([
             'nama' => $request->nama,
             'email' => $request->email,
@@ -74,13 +72,13 @@ class ManajemenAkunController extends Controller
             'alamat' => $request->alamat,
             'jenis_kelamin' => $request->jenis_kelamin,
             'peran' => $request->peran,
+            'status' => $status, // Gunakan status yang dikirimkan dari form
             'kata_sandi' => Hash::make($request->kata_sandi),
         ]);
 
-        // Redirect ke halaman yang sama dan menampilkan pesan sukses di modal
+        // Redirect ke halaman login setelah berhasil
         return redirect()->route('login')->with('success', 'Akun berhasil dibuat! Silakan login.');
     }
-
 
     public function Masuk()
     {

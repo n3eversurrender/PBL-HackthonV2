@@ -95,6 +95,7 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" id="status" name="status" value="Aktif">
                 <div class="flex justify-center sm:mt-8 mt-0 lg:mt-0 ">
                     <button type="submit" class="text-white bg-ButtonBase hover:bg-HoverGlow transition duration-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-sm w-full sm:w-1/2 lg:w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Kirim</button>
                 </div>
@@ -130,6 +131,24 @@
             });
         });
     </script>
+
+    <script>
+        $(document).ready(function() {
+            // Ketika nilai peran berubah
+            $('#peran').on('change', function() {
+                const selectedRole = $(this).val(); // Ambil nilai peran yang dipilih
+                const statusField = $('#status'); // Ambil input status tersembunyi
+
+                // Tentukan status berdasarkan peran yang dipilih
+                if (selectedRole === 'Peserta') {
+                    statusField.val('Aktif'); // Jika "Peserta", set status ke "Aktif"
+                } else if (selectedRole === 'Pelatih') {
+                    statusField.val('Tidak Aktif'); // Jika "Pelatih", set status ke "Tidak Aktif"
+                }
+            });
+        });
+    </script>
+
 
 </body>
 

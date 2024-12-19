@@ -37,16 +37,23 @@ class LoginPenggunaController extends Controller
             ]);
         }
 
-        // Login berhasil, arahkan ke dashboard sesuai peran
+        // Login berhasil
         Auth::login($pengguna);
 
-        if ($pengguna->peran === 'Pelatih') {
-            return redirect()->route('DashboardPelatih');
-        } elseif ($pengguna->peran === 'Peserta') {
-            return redirect()->route('DashboardPeserta');
+        // Arahkan ke dashboard sesuai peran
+        switch ($pengguna->peran) {
+            case 'Pelatih':
+                return redirect()->route('DashboardPelatih');
+            case 'Peserta':
+                return redirect()->route('DashboardPeserta');
+            case 'Admin':
+                return redirect()->route('dashboard');
+            case 'Superadmin':
+                return redirect()->route('dashboard');
+            default:
+                return redirect()->route('login'); // Rute fallback jika peran tidak dikenal
         }
     }
-
 
     public function logoutPeserta()
     {
@@ -55,6 +62,12 @@ class LoginPenggunaController extends Controller
     }
 
     public function logoutPelatih()
+    {
+        Auth::logout();
+        return redirect('/Masuk');
+    }
+
+    public function logoutAdmin()
     {
         Auth::logout();
         return redirect('/Masuk');

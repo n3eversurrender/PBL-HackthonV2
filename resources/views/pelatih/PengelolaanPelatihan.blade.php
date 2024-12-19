@@ -19,7 +19,7 @@
                 <th scope="col" class="px-6 py-3">No</th>
                 <th scope="col" class="px-6 py-3">Nama Kursus</th>
                 <th scope="col" class="px-6 py-3">Jadwal</th>
-                <th scope="col" class="px-6 py-3 text-center">Anggota</th>
+                <th scope="col" class="px-6 py-3 text-center">kapasitas</th>
                 <th scope="col" class="px-6 py-3">Action</th>
             </tr>
         </thead>

@@ -11,7 +11,7 @@ class PelatihSeeder extends Seeder
     {
         DB::table('pelatih')->insert([
             [
-                'pengguna_id' => 1,
+                'pengguna_id' => 3,
                 'tahun_pengalaman' => 5,
                 'bulan_pengalaman' => 5,
                 'nama_spesialisasi' => 'Personal Trainer',
@@ -25,21 +25,21 @@ class PelatihSeeder extends Seeder
                 'file_sertifikasi' => 'sertifikasi_yoga.pdf',
             ],
             [
-                'pengguna_id' => 2,
+                'pengguna_id' => 5,
                 'tahun_pengalaman' => 2,
                 'bulan_pengalaman' => 7,
                 'nama_spesialisasi' => 'Strength Coach',
                 'file_sertifikasi' => 'sertifikasi_strength.pdf',
             ],
             [
-                'pengguna_id' => 5,
+                'pengguna_id' => 6,
                 'tahun_pengalaman' => 3,
                 'bulan_pengalaman' => 2,
                 'nama_spesialisasi' => 'Nutrition Specialist',
                 'file_sertifikasi' => 'sertifikasi_nutrition.pdf',
             ],
             [
-                'pengguna_id' => 3,
+                'pengguna_id' => 7,
                 'tahun_pengalaman' => 7,
                 'bulan_pengalaman' => 1,
                 'nama_spesialisasi' => 'CrossFit Coach',

@@ -55,7 +55,7 @@ Route::get('/MainPeserta', [MainController::class, 'mainPeserta']);
 Route::get('/MainPelatih', [MainController::class, 'mainPelatih']);
 
 // Route Web Skill Bridge
-Route::get('/Home', [MainController::class, 'Home']);
+Route::get('/Home', [MainController::class, 'Home'])->name('home');;
 Route::get('/DaftarKursus', [MainController::class, 'daftarKursus'])->name('daftarKursus');
 Route::get('/TentangKami', [MainController::class, 'tentangKami']);
 Route::get('/Daftar', [ManajemenAkunController::class, 'Daftar']);
@@ -158,8 +158,8 @@ Route::post('/LogindAdmin', [LoginAdminController::class, 'processLogin']);
 
 
 // Route Admin
-Route::middleware(['auth'])->group(function () {
-    Route::post('/logout', [LoginAdminController::class, 'logout'])->name('logout');
+Route::middleware(['auth', PeranMiddleware::class . ':Admin'])->group(function () {
+    Route::post('/logoutAdmin', [LoginPenggunaController::class, 'logoutAdmin'])->name('logoutAdmin');
     Route::get('/DashboardAdmin', [DashboardAdminController::class, 'dashboardAdmin'])->name('dashboard');
     Route::get('/DataAdmin', [DataAdminController::class, 'dataAdmin'])->name('admin.index');
     Route::get('/TambahAdmin', [DataAdminController::class, 'tambahAdmin']);
@@ -177,10 +177,10 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/kursus/{kursus_id}', [DataKursusController::class, 'destroy'])->name('kursus.destroy');
 
     Route::get('/DataPeserta', [DataPesertaController::class, 'dataPeserta'])->name('DataPeserta');
-    Route::delete('/peserta/{pengguna_id}', [DataPesertaController::class, 'destroy'])->name('Peserta.destroy');
-
     Route::get('/DataPelatih', [DataPelatihController::class, 'dataPelatih'])->name('DataPelatih');
-    Route::delete('/pelatih/{pengguna_id}', [DataPelatihController::class, 'destroy'])->name('DataPelatih.destroy');
+    Route::delete('/pengguna/{id}', [DataPelatihController::class, 'destroy'])->name('pengguna.destroy');
+
+
     Route::put('/pelatih/{pengguna_id}/status', [DataPelatihController::class, 'update'])->name('Pelatih.updateStatus');
     Route::patch('/admin/verifikasi/{verifikasi_id}/{status}', [DataPelatihController::class, 'konfirmasiVerifikasi'])->name('admin.verifikasi.konfirmasi');
 

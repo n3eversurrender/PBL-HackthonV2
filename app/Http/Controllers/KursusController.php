@@ -18,6 +18,7 @@ class KursusController extends Controller
         $pendaftaran = Pendaftaran::with(['kursus']) // Muat relasi kursus
             ->where('pengguna_id', $id) // Filter berdasarkan peserta yang login
             ->where('status_pendaftaran', 'Aktif') // Filter hanya pendaftaran dengan status 'Aktif'
+            ->where('status_pembayaran', 'Berhasil') // Filter hanya pembayaran yang berhasil
             ->paginate(10); // Paginate dengan ukuran 10 per halaman
 
         return view('peserta.Kursus', [

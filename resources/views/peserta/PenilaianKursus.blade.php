@@ -36,10 +36,10 @@
                 <td class="px-6 py-4 text-center">{{ $pendaftaran->firstItem() + $loop->iteration - 1 }}</td>
                 <td class="px-6 py-4">{{ $pendaftaranItem->kursus->judul }}</td>
                 <td class="px-6 py-4 text-center">
-                    {{ $pendaftaranItem->kursus->ratingKursus->first()->rating ?? 'Belum ada rating' }}
+                    {{ $pendaftaranItem->kursus->ratingKursus->first()?->rating ?? 'Belum ada rating' }}
                 </td>
                 <td class="px-6 py-4 text-center">
-                    {{ $pendaftaranItem->kursus->pengguna->ratingsPelatih->first()->rating ?? 'Belum ada rating' }}
+                    {{ $pendaftaranItem->kursus->pengguna->ratingsPelatih->first()?->rating ?? 'Belum ada rating' }}
                 </td>
                 <td class="px-6 py-4">
                     <!-- Button Detail -->

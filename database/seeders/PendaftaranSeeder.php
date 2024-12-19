@@ -13,7 +13,7 @@ class PendaftaranSeeder extends Seeder
         $faker = Faker::create();
 
         $pendaftaran = [];
-        for ($i = 6; $i <= 200; $i++) {
+        for ($i = 8; $i <= 200; $i++) {
             $kursus_id = rand(1, 30); // Kursus ID acak antara 1 dan 30
             $tgl_pendaftaran = $faker->date(); // Tanggal pendaftaran acak
             $status_pendaftaran = 'Aktif';

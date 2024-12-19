@@ -13,13 +13,6 @@ class CreatePenggunaPelatihPesertaTables extends Migration
      */
     public function up()
     {
-        Schema::create('admin', function (Blueprint $table) {
-            $table->id('admin_id');
-            $table->string('username')->unique();
-            $table->string('kata_sandi');
-            $table->enum('role', ['admin', 'superadmin'])->default('admin');
-            $table->timestamps();
-        });
 
         // Tabel pengguna
         Schema::create('pengguna', function (Blueprint $table) {
@@ -31,7 +24,7 @@ class CreatePenggunaPelatihPesertaTables extends Migration
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
             $table->string('kata_sandi');
             $table->string('foto_profil')->nullable();
-            $table->enum('peran', ['Pelatih', 'Peserta']);
+            $table->enum('peran', ['Pelatih', 'Peserta', 'Admin']);
             $table->enum('status', ['Aktif', 'Tidak Aktif'])->nullable();
             $table->timestamps();
         });
@@ -201,7 +194,6 @@ class CreatePenggunaPelatihPesertaTables extends Migration
         Schema::dropIfExists('pelatih');
         Schema::dropIfExists('rating_pelatih');
         Schema::dropIfExists('pengguna');
-        Schema::dropIfExists('admin');
         Schema::dropIfExists('sub_kategori');
         Schema::dropIfExists('kategori');
     }

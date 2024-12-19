@@ -71,7 +71,7 @@ class KursusSeeder extends Seeder
 
         foreach ($kursus_titles as $index => $judul) {
             DB::table('kursus')->insert([
-                'pengguna_id' => $faker->numberBetween(1, 5),
+                'pengguna_id' => $faker->numberBetween(3, 7),
                 'kategori_id' => $faker->numberBetween(1, 5),
                 'judul' => $judul,  // Judul kursus yang sudah disesuaikan
                 'deskripsi' => $this->generateDescription($judul),  // Deskripsi yang disesuaikan dengan judul

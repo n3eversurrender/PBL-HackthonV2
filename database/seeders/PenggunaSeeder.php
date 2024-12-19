@@ -14,6 +14,8 @@ class PenggunaSeeder extends Seeder
 
         // Data pengguna dengan ID 1-6 yang sudah ada
         $users = [
+            ['nama' => 'Admin', 'email' => 'admin@gmail.com', 'no_telepon' => '08123456789', 'alamat' => 'Jakarta', 'jenis_kelamin' => 'Laki-laki', 'kata_sandi' => bcrypt('123123123'), 'foto_profil' => null, 'peran' => 'Admin', 'status' => 'Aktif'],
+            ['nama' => 'Admin2', 'email' => 'admin2@gmail.com', 'no_telepon' => '08123456789', 'alamat' => 'Jakarta', 'jenis_kelamin' => 'Laki-laki', 'kata_sandi' => bcrypt('123123123'), 'foto_profil' => null, 'peran' => 'Admin', 'status' => 'Aktif'],
             ['nama' => 'M Zaini Ridha', 'email' => 'zaini@gmail.com', 'no_telepon' => '08123456789', 'alamat' => 'Jakarta', 'jenis_kelamin' => 'Laki-laki', 'kata_sandi' => bcrypt('123123123'), 'foto_profil' => null, 'peran' => 'Pelatih', 'status' => 'Aktif'],
             ['nama' => 'Niati', 'email' => 'niati@gmail.com', 'no_telepon' => '08123456788', 'alamat' => 'Bandung', 'jenis_kelamin' => 'Perempuan', 'kata_sandi' => bcrypt('123123123'), 'foto_profil' => null, 'peran' => 'Pelatih', 'status' => 'Aktif'],
             ['nama' => 'Aiko', 'email' => 'aiko@gmail.com', 'no_telepon' => '08123456787', 'alamat' => 'Surabaya', 'jenis_kelamin' => 'Perempuan', 'kata_sandi' => bcrypt('123123123'), 'foto_profil' => null, 'peran' => 'Pelatih', 'status' => 'Aktif'],

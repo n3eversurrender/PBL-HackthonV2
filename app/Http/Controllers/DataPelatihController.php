@@ -79,12 +79,15 @@ class DataPelatihController extends Controller
     }
 
     // Menghapus pelatih
-    public function destroy($pengguna_id)
+    public function destroy($id)
     {
-        $pengguna = Pengguna::findOrFail($pengguna_id);
+        try {
+            $pengguna = Pengguna::findOrFail($id);
+            $pengguna->delete();
 
-        $pengguna->delete();
-
-        return redirect()->back()->with('success', 'Pelatih berhasil dihapus.');
+            return redirect()->back()->with('success', 'Pengguna berhasil dihapus.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus pengguna.');
+        }
     }
 }
