@@ -142,6 +142,35 @@
                 </div>
             </div>
 
+            <!-- sweet alert -->
+            @if (session('success'))
+            <script>
+                document.addEventListener('DOMContentLoaded', (event) => {
+                    Swal.fire({
+                        position: "middle",
+                        icon: "success",
+                        title: "{{ session('success') }}",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                });
+            </script>
+            @endif
+
+            @if (session('error'))
+            <script>
+                document.addEventListener('DOMContentLoaded', (event) => {
+                    Swal.fire({
+                        position: "middle",
+                        icon: "error",
+                        title: "{{ session('error') }}",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                });
+            </script>
+            @endif
+
             <!-- Modal Lihat Pelatih -->
             <div id="my_modal_view_{{ $pengguna->pengguna_id }}" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                 <div class="relative p-4 w-full max-w-md max-h-full">
