@@ -21,8 +21,8 @@ class PengelolaanSertifikatController extends Controller
         $sertifikat = Sertifikat::paginate(10); // Ensure pagination
         return view('nama_view', compact('sertifikat'));
     }
-    
-    
+
+
     // Menampilkan daftar sertifikat dengan paginasi
     public function pengelolaanSertifikat()
     {
@@ -46,13 +46,13 @@ class PengelolaanSertifikatController extends Controller
     public function tambahSertifikat()
     {
         $id = Auth::id();
-    
+
         $kursus = Kursus::where('pengguna_id', $id)->get();
         $pendaftaran = Pendaftaran::with('peserta', 'pengguna')->get(); // Fetch Pendaftaran with related data
-    
+
         return view('pelatih.TambahSertifikat', compact('kursus', 'pendaftaran'));
     }
-    
+
 
 
     // Menyimpan sertifikat baru ke database
@@ -68,16 +68,16 @@ class PengelolaanSertifikatController extends Controller
         ]);
 
         $file = $request->file('file_sertifikat');
-        $filePath = $file->store('sertifikat_pdfs', 'public'); 
+        $filePath = $file->store('sertifikat_pdfs', 'public');
 
-        
-        $fileName = $filePath; 
+
+        $fileName = $filePath;
 
         $sertifikat = new Sertifikat();
         $sertifikat->kursus_id = $request->kursus_id;
         $sertifikat->pendaftaran_id = $request->pendaftaran_id;
-        $sertifikat->nama_kursus = Kursus::find($request->kursus_id)->judul; 
-        $sertifikat->file_sertifikat = $fileName; 
+        $sertifikat->nama_kursus = Kursus::find($request->kursus_id)->judul;
+        $sertifikat->file_sertifikat = $fileName;
         $sertifikat->nomor_sertifikat = $request->nomor_sertifikat;
         $sertifikat->tanggal_terbit = $request->tanggal_terbit;
         $sertifikat->save();
@@ -88,48 +88,60 @@ class PengelolaanSertifikatController extends Controller
     public function editSertifikat($sertifikat_id)
     {
         $sertifikat = Sertifikat::findOrFail($sertifikat_id);
-        $kursus = Kursus::all(); 
+        $kursus = Kursus::all();
 
-       
+
         return view('pelatih.EditSertifikat', compact('sertifikat', 'kursus'));
     }
 
     public function update(Request $request, $sertifikat_id)
     {
+        // Debugging log untuk memantau request data
+        Log::info('Request Data:', $request->all());
 
-        Log::info('Request Data: ', $request->all());
-
+        // Validasi input, semua kolom opsional kecuali file harus sesuai format
         $validatedData = $request->validate([
-            'pendaftaran_id' => 'required|exists:peserta,pendaftaran_id',
-            'file_sertifikat' => 'nullable|file|mimes:pdf|max:10240', 
-            'nomor_sertifikat' => 'required|string',
-            'tanggal_terbit' => 'required|date',
+            'pendaftaran_id' => 'nullable|exists:peserta,pendaftaran_id',
+            'file_sertifikat' => 'nullable|file|mimes:pdf|max:10240', // Maksimum 10MB
+            'nomor_sertifikat' => 'nullable|string',
+            'tanggal_terbit' => 'nullable|date',
         ]);
 
+        // Ambil data sertifikat berdasarkan ID
         $sertifikat = Sertifikat::findOrFail($sertifikat_id);
 
+        // Jika ada file baru, hapus file lama dan simpan yang baru
         if ($request->hasFile('file_sertifikat')) {
             if (Storage::disk('public')->exists($sertifikat->file_sertifikat)) {
                 Storage::disk('public')->delete($sertifikat->file_sertifikat);
             }
             $file = $request->file('file_sertifikat');
-            $originalFileName = $file->getClientOriginalName();
             $filePath = $file->store('sertifikat_pdfs', 'public');
             $sertifikat->file_sertifikat = $filePath;
         }
 
-        $sertifikat->pendaftaran_id = $validatedData['pendaftaran_id'];
-        $sertifikat->nomor_sertifikat = $validatedData['nomor_sertifikat'];
-        $sertifikat->tanggal_terbit = $validatedData['tanggal_terbit'];
+        // Update data lain jika ada input
+        if (!empty($validatedData['pendaftaran_id'])) {
+            $sertifikat->pendaftaran_id = $validatedData['pendaftaran_id'];
+        }
+        if (!empty($validatedData['nomor_sertifikat'])) {
+            $sertifikat->nomor_sertifikat = $validatedData['nomor_sertifikat'];
+        }
+        if (!empty($validatedData['tanggal_terbit'])) {
+            $sertifikat->tanggal_terbit = $validatedData['tanggal_terbit'];
+        }
 
+        // Simpan perubahan ke database
         $success = $sertifikat->save();
 
+        // Logging hasil penyimpanan
         if ($success) {
-            Log::info('Sertifikat berhasil diperbarui: ', $sertifikat->toArray());
+            Log::info('Sertifikat berhasil diperbarui:', $sertifikat->toArray());
         } else {
             Log::error('Gagal menyimpan perubahan pada sertifikat ID: ' . $sertifikat_id);
         }
 
+        // Redirect dengan pesan sukses
         return redirect()->route('PengelolaanSertifikat')->with('success', 'Sertifikat berhasil diperbarui.');
     }
 
