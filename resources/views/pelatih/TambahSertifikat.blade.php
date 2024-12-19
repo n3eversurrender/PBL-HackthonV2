@@ -16,6 +16,9 @@
                     <option value="{{ $kursusItem->kursus_id }}">{{ $kursusItem->judul }}</option>
                     @endforeach
                 </select>
+                @error('kursus_id')
+                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="mb-4">
@@ -29,6 +32,9 @@
                         {{ $pesertaItem->pengguna->nama ?? 'Nama Tidak Tersedia' }}</option>
                     @endforeach
                 </select>
+                @error('pendaftaran_id')
+                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="mb-4">
@@ -36,7 +42,10 @@
                     Sertifikat (PDF)</label>
                 <input type="file" name="file_sertifikat" id="file_sertifikat"
                     class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                    accept="application/pdf" required>
+                    accept="application/pdf" >
+                    @error('file_sertifikat')
+                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                    @enderror
             </div>
 
             <div class="mb-4">
@@ -44,7 +53,10 @@
                     class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Sertifikat</label>
                 <input type="text" name="nomor_sertifikat" id="nomor_sertifikat"
                     class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                    required>
+                    >
+                    @error('nomor_sertifikat')
+                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                    @enderror
             </div>
 
             <div class="mb-4">
@@ -52,7 +64,10 @@
                     class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal Terbit</label>
                 <input type="date" name="tanggal_terbit" id="tanggal_terbit"
                     class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                    required>
+                    >
+                    @error('tanggal_terbit')
+                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                    @enderror
             </div>
             <div>
                 <button type="submit"

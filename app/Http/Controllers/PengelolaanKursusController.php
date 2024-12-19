@@ -94,6 +94,21 @@ class PengelolaanKursusController extends Controller
             'kapasitas' => 'nullable|integer',
             'kategori_id' => 'nullable|exists:kategori,kategori_id',
             'foto_kursus' => 'nullable|image|mimes:jpg,jpeg,png|max:5120', // Validation for image
+        ], [
+            'judul.required' => 'Judul Wajib diisi',
+            'deskripsi.required' => 'Deskripsi wajib diisi',
+            'harga.required' => 'Harga wajib diisi',
+            'tingkat_kesulitan.required' => 'Tingkat kesulitan wajib diisi',
+            'tgl_mulai.required' => 'Tanggal mulai wajib diisi',
+            'tgl_selesai.required' => 'Tanggal selesai wajib diisi',
+            'lokasi.required' => 'Lokasi wajib diisi',
+            'kapasitas.required' => 'Kapasitas wajib diisi',
+            'kategori_id.required' => 'Kategori wajib disi',
+
+            'judul.max' => 'Judul tidak boleh lebih dari 255 karakter',
+            'foto_kursus.image' => 'Format gambar tidak sesuai',
+            'foto_kursus.mimes' => 'Format gambar tidak sesuai',
+            'foto_kursus.max' => 'Foto kursus tidak boleh lebih dari 5MB',
         ]);
 
         // Temukan kursus berdasarkan ID

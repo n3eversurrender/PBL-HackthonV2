@@ -103,6 +103,9 @@
                                     Sertifikat</label>
                                 <input type="file" name="file_sertifikat" id="file_sertifikat"
                                     class="mt-1 p-2 border border-gray-300 rounded w-full" accept="application/pdf">
+                                    @error('file_sertifikat')
+                                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                                    @enderror
                             </div>
                             <div>
                                 <label for="nama_kursus"
@@ -110,6 +113,9 @@
                                 <input type="text" name="nama_kursus" id="nama_kursus"
                                     class="mt-1 p-2 border border-gray-300 rounded w-full"
                                     value="{{ old('nama_kursus', $srtf->nama_kursus) }}" readonly disabled>
+                                    @error('nama_kursus')
+                                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                                    @enderror
                             </div>
                             <div>
                             
@@ -120,6 +126,9 @@
                                 <input type="text" name="nomor_sertifikat" id="nomor_sertifikat"
                                     class="mt-1 p-2 border border-gray-300 rounded w-full"
                                     value="{{ old('nomor_sertifikat', $srtf->nomor_sertifikat) }}">
+                                    @error('nomor_sertifikat')
+                                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                                    @enderror
                             </div>
                             <div>
                                 <label for="tanggal_terbit"
@@ -128,6 +137,9 @@
                                 <input type="date" name="tanggal_terbit" id="tanggal_terbit"
                                     class="mt-1 p-2 border border-gray-300 rounded w-full"
                                     value="{{ old('tanggal_terbit', $srtf->tanggal_terbit) }}">
+                                    @error('tanggal_terbit')
+                                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                                    @enderror
                             </div>
                         </div>
                         <div class="p-4 bg-gray-100 dark:bg-gray-700 rounded-b">
@@ -173,6 +185,19 @@
         </tbody>
     </table>
 </div>
+            @if (session('success'))
+            <script>
+                document.addEventListener('DOMContentLoaded', (event) => {
+                    Swal.fire({
+                        position: "middle",
+                        icon: "success",
+                        title: "{{ session('success') }}",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                });
+            </script>
+            @endif
 
 <!-- Pagination -->
 <div class="flex justify-center items-center mt-5">
