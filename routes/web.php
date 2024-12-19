@@ -70,9 +70,7 @@ Route::post('/DaftarPendaftaran', [MainController::class, 'store']);
 Route::get('/PaymentPage/{id}', [MainController::class, 'paymentPage'])->name('PaymentPage');
 Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('processPayment');
 Route::post('/payment/update-status', [PaymentController::class, 'updatePaymentStatus'])->name('updatePaymentStatus');
-
 Route::post('/umpan-balik', [UmpanBalikController::class, 'store'])->name('umpan_balik.store');
-
 Route::post('/rekomendasi', [RekomendasiController::class, 'getRecommendation'])->name('rekomendasi');
 
 
@@ -97,9 +95,6 @@ Route::middleware(['auth', PeranMiddleware::class . ':Peserta'])->group(function
 
     Route::put('/peserta/{peserta_id}', [PengaturanPesertaController::class, 'updatePesertaKeahlian'])->name('pesertaKeahlian.update');
     Route::delete('/peserta/{peserta_id}', [PengaturanPesertaController::class, 'destroyPeserta'])->name('peserta.destroy');
-
-
-    // Route untuk menghapus satu item 
     
     Route::get('/DaftarPelatihan', [DaftarPelatihanController::class, 'daftarPelatihan']);
     Route::get('/daftar-pelatihan/{pendaftaran_id}/sertifikat', [DaftarPelatihanController::class, 'downloadSertifikat'])->name('DaftarPelatihan.sertifikat');
@@ -154,11 +149,6 @@ Route::middleware(['auth', PeranMiddleware::class . ':Pelatih'])->group(function
     Route::put('/kurikulum/{id}', [PengelolaanKurikulumController::class, 'update'])->name('PengelolaanKurikulum.update');
     Route::delete('/kurikulum/{id}', [PengelolaanKurikulumController::class, 'destroy'])->name('PengelolaanKurikulum.destroy');
 });
-
-// Rute untuk halaman login admin
-Route::get('/LoginAdmin', [LoginAdminController::class, 'loginAdmin'])->name('LoginAdmin');
-Route::post('/LogindAdmin', [LoginAdminController::class, 'processLogin']);
-
 
 // Route Admin
 Route::middleware(['auth', PeranMiddleware::class . ':Admin'])->group(function () {
