@@ -109,7 +109,7 @@
 
         <div class="flex justify-end w-full">
             <button type="submit" class="text-white bg-ButtonBase hover:bg-HoverGlow focus:ring-4 focus:ring-HoverGlow font-medium rounded-md text-sm px-10 py-1.5 me-2 mb-2  focus:outline-none duration-700 transition">
-                Save
+                Simpan
             </button>
         </div>
     </form>
