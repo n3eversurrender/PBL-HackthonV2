@@ -12,8 +12,8 @@ class PengelolaanKursusController extends Controller
 {
     public function pengelolaanKursus()
     {
-        $id = Auth::id(); 
-        $kursus = Kursus::where('pengguna_id', $id)->paginate(10); 
+        $id = Auth::id();
+        $kursus = Kursus::where('pengguna_id', $id)->paginate(10);
 
         $kategori = Kategori::all();
 
@@ -68,38 +68,61 @@ class PengelolaanKursusController extends Controller
 
     public function update(Request $request, $kursus_id)
     {
+        // Validasi data yang diperlukan saja
         $validated = $request->validate([
-            'judul' => 'required|string|max:255',
-            'deskripsi' => 'required|string',
-            'harga' => 'required|numeric',
-            'tingkat_kesulitan' => 'required|string',
-            'tgl_mulai' => 'required|date',
-            'tgl_selesai' => 'required|date',
-            'kapasitas' => 'required|integer',
-            'kategori_id' => 'required|exists:kategori,kategori_id',
+            'judul' => 'nullable|string|max:255',
+            'deskripsi' => 'nullable|string',
+            'harga' => 'nullable|numeric',
+            'tingkat_kesulitan' => 'nullable|string',
+            'tgl_mulai' => 'nullable|date',
+            'tgl_selesai' => 'nullable|date',
+            'kapasitas' => 'nullable|integer',
+            'kategori_id' => 'nullable|exists:kategori,kategori_id',
             'foto_kursus' => 'nullable|image|mimes:jpg,jpeg,png|max:5120', // Validation for image
         ]);
 
+        // Temukan kursus berdasarkan ID
         $kursus = Kursus::findOrFail($kursus_id);
-        $kursus->judul = $validated['judul'];
-        $kursus->deskripsi = $validated['deskripsi'];
-        $kursus->harga = $validated['harga'];
-        $kursus->tingkat_kesulitan = $validated['tingkat_kesulitan'];
-        $kursus->tgl_mulai = $validated['tgl_mulai'];
-        $kursus->tgl_selesai = $validated['tgl_selesai'];
-        $kursus->kapasitas = $validated['kapasitas'];
-        $kursus->kategori_id = $validated['kategori_id'];
 
+        // Update hanya field yang ada di request
+        if (isset($validated['judul'])) {
+            $kursus->judul = $validated['judul'];
+        }
+        if (isset($validated['deskripsi'])) {
+            $kursus->deskripsi = $validated['deskripsi'];
+        }
+        if (isset($validated['harga'])) {
+            $kursus->harga = $validated['harga'];
+        }
+        if (isset($validated['tingkat_kesulitan'])) {
+            $kursus->tingkat_kesulitan = $validated['tingkat_kesulitan'];
+        }
+        if (isset($validated['tgl_mulai'])) {
+            $kursus->tgl_mulai = $validated['tgl_mulai'];
+        }
+        if (isset($validated['tgl_selesai'])) {
+            $kursus->tgl_selesai = $validated['tgl_selesai'];
+        }
+        if (isset($validated['kapasitas'])) {
+            $kursus->kapasitas = $validated['kapasitas'];
+        }
+        if (isset($validated['kategori_id'])) {
+            $kursus->kategori_id = $validated['kategori_id'];
+        }
 
-        // Handle file upload
+        // Handle file upload for foto_kursus
         if ($request->hasFile('foto_kursus')) {
+            // Hapus foto lama jika ada
             if ($kursus->foto_kursus) {
                 Storage::delete('public/' . $kursus->foto_kursus);
             }
+            // Simpan foto baru
             $file = $request->file('foto_kursus');
             $path = $file->store('kursus_fotos', 'public');
             $kursus->foto_kursus = $path;
         }
+
+        // Simpan perubahan
         $kursus->save();
 
         return redirect()->route('PengelolaanKursus')->with('success', 'Kursus berhasil diperbarui.');
