@@ -52,4 +52,9 @@ class Kursus extends Model
     {
         return $this->hasMany(RatingKursus::class, 'kursus_id', 'kursus_id');
     }
+
+    public function sertifikat()
+    {
+        return $this->hasMany(Sertifikat::class, 'kursus_id', 'kursus_id');
+    }
 }
