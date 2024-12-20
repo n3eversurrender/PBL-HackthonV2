@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kursus;
 use Illuminate\Http\Request;
 use App\Models\Pengguna;
 use App\Models\Pembayaran;
@@ -94,6 +95,10 @@ class DashboardAdminController extends Controller
 
         $growth = round($growth, 2); // Pembulatan ke 2 desimal
 
+        $totalKursus = Kursus::count();
+        $totalKursusAktif = Kursus::where('status', 'Aktif')->count();
+        $totalKursusTidakAktif = Kursus::where('status', 'Tidak Aktif')->count();
+
         // Kirim data ke view
         return view('Admin/DashboardAdmin', [
             'totalPengguna' => $totalPengguna,
@@ -110,6 +115,9 @@ class DashboardAdminController extends Controller
             'totalPesertaAktif' => $totalPesertaAktif,
             'totalPelatihTidakAktif' => $totalPelatihTidakAktif,
             'totalPesertaTidakAktif' => $totalPesertaTidakAktif,
+            'totalKursus' => $totalKursus,
+            'totalKursusAktif' => $totalKursusAktif,
+            'totalKursusTidakAktif' => $totalKursusTidakAktif,
         ]);
     }
 }
