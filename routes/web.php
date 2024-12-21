@@ -111,8 +111,6 @@ Route::middleware(['auth', PeranMiddleware::class . ':Peserta'])->group(function
 Route::middleware(['auth', PeranMiddleware::class . ':Pelatih'])->group(function () {
     Route::post('/logoutPelatih', [LoginPenggunaController::class, 'logoutPelatih'])->name('logoutPelatih');
     Route::get('/DashboardPelatih', [DashboardPelatihController::class, 'dashboardPelatih'])->name('DashboardPelatih');
-    Route::get('/PesanPelatih', [PesanPelatihController::class, 'pesanPelatih']);
-
 
     Route::get('/PengaturanPelatih', [PengaturanPelatihController::class, 'pengaturanPelatih'])->name('PengaturanPelatih');
     Route::put('/pelatih/update', [PengaturanPelatihController::class, 'updatePelatih'])->name('pelatih.update');
@@ -187,7 +185,4 @@ Route::middleware(['auth', PeranMiddleware::class . ':Admin'])->group(function (
     Route::get('/DataUmpanBalik', [DataUmpanBalikController::class, 'dataUmpanBalik']);
     Route::delete('/DataUmpanBalik/{id}', [DataUmpanBalikController::class, 'destroy'])->name('UmpanBalik.destroy');
 
-    Route::get('/PesanAdmin', [PesanAdminController::class, 'pesanAdmin']);
-    Route::get('/PesertaKursus', [PesertaKursusController::class, 'pesertaKursus']);
-    Route::get('/DetailPesertaKursus', [DetailPesertaKursusController::class, 'detailPesertaKursus']);
 });

@@ -59,7 +59,7 @@
 
                     <!-- Pesan -->
                     <li>
-                        <a href="/PenilaianKursus" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                        <a href="/PenilaianKursus" class="{{ request()->is('PenilaianKursus') ? 'text-ButtonBase font-bold' : 'text-black' }} flex items-center p-2 hover:bg-gray-300 dark:hover:bg-gray-700 group">
                             <i class="fas fa-star"></i>
                             <span class="flex-1 ms-3 whitespace-nowrap">Penilaian Kursus</span>
                         </a>
