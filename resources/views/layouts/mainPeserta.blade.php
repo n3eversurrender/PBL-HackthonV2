@@ -98,7 +98,7 @@
                     </small>
                 </h1>
                 <div class="col-span-1">
-                    <img class="w-14 h-auto object-cover aspect-square rounded-full" src="{{ asset('image/9203764.png') }}" alt="Rounded avatar">
+                    <img class="w-14 h-auto object-cover aspect-square rounded-full" src="{{ asset('image/9203764.png') }}" alt="Rounded avatar" />
                 </div>
             </div>
 

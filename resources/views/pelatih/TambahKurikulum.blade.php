@@ -9,7 +9,7 @@
 </div>
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <h2 class="text-xl font-bold text-gray-700 dark:text-white my-5">
+    <h2 class="text-lg sm:text-xl font-bold text-gray-700 dark:text-white my-5">
         Kurikulum untuk Kursus: {{ $kursus->judul }}
     </h2>
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -147,7 +147,10 @@
                 <div class="grid gap-4 mb-4 grid-cols-1">
                     <div class="col-span-1">
                         <label for="nama_topik" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Topik</label>
-                        <input type="text" name="nama_topik" id="nama_topik" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Masukkan nama topik" required>
+                        <input type="text" name="nama_topik" id="nama_topik" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Masukkan nama topik" >
+                        @error('nama_topik')
+                            <div class="text-red-500 text-sm">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="col-span-1">
                         <label for="deskripsi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi</label>

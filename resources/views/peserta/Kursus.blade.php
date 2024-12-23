@@ -15,16 +15,16 @@
 
         <div class="p-8 flex flex-col justify-between w-full">
             <div>
-                <div class="uppercase tracking-wide text-xl font-bold text-indigo-500">
+                <div class="uppercase tracking-wide text-lg lg:text-xl font-bold text-gray-800">
                     {{ $pendaftaranItem->kursus->judul }}
                 </div>
-                <p class="mt-4 text-gray-500">
+                <p class="lg:mt-4 mt-2 h-20 sm:h-24 overflow-hidden text-sm lg:text-base text-TeksSecond">
                     {{ $pendaftaranItem->kursus->deskripsi }}
                 </p>
             </div>
             <div class="mt-6 flex items-center justify-between">
                 <button type="button"
-                    class="px-5 py-2.5 text-sm font-medium text-white bg-[#337DC1] hover:bg-[#2B649B] focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-auto">
+                    class="px-5 py-2.5 text-sm font-medium text-white bg-ButtonBase hover:bg-HoverGlow transition duration-700 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ml-auto">
                     <a href="{{ route('kursusModul.show', $pendaftaranItem->kursus->kursus_id) }}" class="text-white">Continue Learning</a>
                 </button>
             </div>

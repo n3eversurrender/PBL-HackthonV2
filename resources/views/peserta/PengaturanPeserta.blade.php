@@ -76,7 +76,7 @@
                     @enderror
             </div>
 
-            <div class="w-full">
+            <div class="w-full sm:mt-0 mt-5">
                 <label for="kata_sandi" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Kata Sandi</label>
                 <input type="password" name="kata_sandi" id="kata_sandi"
                     class=" bg-gray-100 border border-Border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -107,7 +107,7 @@
             </div>
         </div>
 
-        <div class="flex justify-end w-full">
+        <div class="flex justify-end w-full mt-5 mb-10">
             <button type="submit" class="text-white bg-ButtonBase hover:bg-HoverGlow focus:ring-4 focus:ring-HoverGlow font-medium rounded-md text-sm px-10 py-1.5 me-2 mb-2  focus:outline-none duration-700 transition">
                 Simpan
             </button>

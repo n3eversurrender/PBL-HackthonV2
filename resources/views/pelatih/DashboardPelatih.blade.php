@@ -2,8 +2,8 @@
 
 @section('MainPelatih')
 
-<div class="flex gap-4">
-    <div class="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+<div class="lg:flex gap-4">
+    <div class=" w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
         <div class="flex justify-between mb-3">
             <div class="flex items-center">
                 <div class="flex justify-center items-center">
@@ -46,7 +46,7 @@
     </div>
 
     <!-- Total Peserta Aktif -->
-    <div class="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+    <div class=" w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
         <div class="flex justify-between mb-3">
             <div class="flex items-center">
                 <div class="flex justify-center items-center">
@@ -95,7 +95,7 @@
             </div>
         </div>
     </div>
-    <div class="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+    <div class=" w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
         <div class="flex justify-between mb-3">
             <div class="flex items-center">
                 <div class="flex justify-center items-center">
@@ -139,16 +139,16 @@
 
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 mt-5">
+<div class="mt-5">
     @foreach($kursusRandom as $kursus)
     <div class="bg-white border border-gray-200 rounded-lg shadow-md">
-        <div class="flex">
-            <img class="w-1/3 h-auto object-cover rounded-l-lg" src="{{ $kursus->foto_kursus ? asset('storage/' . $kursus->foto_kursus) : asset('image/Thumnnail.jpg') }}" alt="Course Image" />
+        <div class="sm:flex">
+            <img class="sm:w-1/3 aspect-video h-auto object-cover rounded-l-lg" src="{{ $kursus->foto_kursus ? asset('storage/' . $kursus->foto_kursus) : asset('image/Thumnnail.jpg') }}" alt="Course Image" />
             <div class="p-4 flex-grow">
                 <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">
                     {{ $kursus->judul }}
                 </h5>
-                <p class="mb-3 text-sm text-gray-700">
+                <p class="mb-3 text-xs text-gray-700">
                     {{ $kursus->jumlah_pendaftar }} Peserta sudah mengikuti
                 </p>
                 <p class="mb-3 text-sm text-gray-700 flex items-center">
@@ -162,7 +162,7 @@
                     </span>
                 </p>
 
-                <p class="mb-2 text-gray-600">
+                <p class="mb-2 text-sm text-gray-600">
                     {{ Str::limit($kursus->deskripsi, 100, '...') }}
                 </p>
                 <div class="flex items-center justify-between mb-4">

@@ -2,15 +2,15 @@
 
 @section('MainPelatih')
 
-<div class="flex items-start">
-    <figure class="max-w-96">
+<div class="lg:flex sm:grid sm:grid-cols-12 items-start">
+    <figure class="max-w-96 sm:col-span-4">
         <img class="h-48 w-full object-cover md:h-full md:w-48 border-r border-gray-300 rounded-lg"
             src="{{ $kursus->foto_kursus ? asset('storage/' . $kursus->foto_kursus) : asset('image/Thumnnail.jpg') }}"
-            alt="Course Image">
+            alt="Course Image" />
     </figure>
-    <div class="ml-4">
-        <h1 class="text-2xl font-bold">{{ $kursus->judul }}</h1>
-        <p class="mt-2 text-sm text-gray-600">{{ $kursus->deskripsi }}</p>
+    <div class="lg:ml-4 sm:col-span-8">
+        <h1 class="text-lg lg:text-2xl font-bold">{{ $kursus->judul }}</h1>
+        <p class="mt-2 text-xs lg:text-sm text-gray-600">{{ $kursus->deskripsi }}</p>
     </div>
 </div>
 

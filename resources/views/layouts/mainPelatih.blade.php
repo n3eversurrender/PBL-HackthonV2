@@ -33,51 +33,42 @@
             <ul class="space-y-2 font-medium mt-2">
                 <!-- Dashboard -->
                 <li>
-                    <a href="/DashboardPelatih" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                    <a href="/DashboardPelatih" class="{{ request()->is('DashboardPelatih') ? 'text-ButtonBase font-bold' : 'text-black' }} flex items-center p-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 group">
                         <i class="fas fa-tachometer-alt"></i>
                         <span class="ms-3">Dashboard</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="/PengelolaanKursus" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                    <a href="/PengelolaanKursus" class="{{ request()->is('PengelolaanKursus', 'TambahKursus') ? 'text-ButtonBase font-bold' : 'text-black' }} flex items-center p-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 group">
                         <i class="fas fa-book"></i>
                         <span class="ms-3">Pengelolaan Kursus</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="/PengelolaanKurikulum" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                    <a href="/PengelolaanKurikulum" class="{{ request()->is('PengelolaanKurikulum', 'TambahKurikulum*') ? 'text-ButtonBase font-bold' : 'text-black' }} flex items-center p-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 group">
                         <i class="fas fa-book"></i>
                         <span class="ms-3">Pengelolaan Kurikulum</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="/PengelolaanPelatihan" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                    <a href="/PengelolaanPelatihan" class="{{ request()->is('PengelolaanPelatihan', 'PengelolaanPelatihanDetail*') ? 'text-ButtonBase font-bold' : 'text-black' }} flex items-center p-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 group">
                         <i class="fas fa-chalkboard-teacher"></i>
                         <span class="ms-3">Pengelolaan Pelatihan</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="/PengelolaanSertifikat" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                    <a href="/PengelolaanSertifikat" class="{{ request()->is('PengelolaanSertifikat', 'TambahSertifikat') ? 'text-ButtonBase font-bold' : 'text-black' }} flex items-center p-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 group">
                         <i class="fas fa-certificate"></i>
                         <span class="ms-3">Pengelolaan Sertifikat</span>
                     </a>
                 </li>
-
-                <!-- Pesan -->
-                <!-- <li>
-                    <a href="/PesanPelatih" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
-                        <i class="fas fa-envelope"></i>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Pesan</span>
-                        <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span> </a>
-                </li> -->
-
                 <!-- Users -->
                 <li>
-                    <a href="/PengaturanPelatih" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 group">
+                    <a href="/PengaturanPelatih" class="{{ request()->is('PengaturanPelatih') ? 'text-ButtonBase font-bold' : 'text-black' }} flex items-center p-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 group">
                         <span class="fa-solid fa-cog"></span>
                         <span class="ms-3">Pengaturan</span>
                     </a>
@@ -99,21 +90,21 @@
     <!-- Navbar + Image -->
 
     <!-- Main -->
-    <div class="p-4 sm:ml-64">
-        <div class="flex justify-between items-center mb-4">
-            <h1 class="text-4xl font-extrabold dark:text-white">
+    <div class="sm:ml-64">
+        <div class="grid grid-cols-7 sm:flex justify-between items-center bg-white pt-4 px-4">
+            <h1 class="text-3xl col-span-6 lg:text-4xl font-extrabold dark:text-white">
                 Selamat Datang Pelatih
-                <small class="ms-2 font-semibold text-gray-500 dark:text-gray-400">
+                <small class="ms-2 text-xl lg:text-2xl font-semibold text-TeksSecond">
                 {{ Auth::user()->nama }}
                 </small>
             </h1>
-            <div>
-                <img class="w-14 h-14 rounded-full" src="{{ asset('image/9203764.png') }}" alt="Rounded avatar">
+            <div class="col-span-1">
+                <img class="w-14 h-auto object-cover aspect-square rounded-full" src="{{ asset('image/9203764.png') }}" alt="Rounded avatar" />
             </div>
         </div>
-        <p id="datetime" class="text-sm font-normal text-gray-500 dark:text-gray-400 my-2"></p>
+        <p id="datetime" class="sm:text-sm ps-4 text-xs font-normal text-TeksSecond pt-5  sm:pt-3 lg:py-1 bg-white "></p>
         <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700 mb-5">
-        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+        <div class="p-4 m-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
             @include('partials.succesAlert')
             @include('partials.daggerAlert')
 

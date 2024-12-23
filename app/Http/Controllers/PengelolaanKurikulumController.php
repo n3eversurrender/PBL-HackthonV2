@@ -43,6 +43,9 @@ class PengelolaanKurikulumController extends Controller
             'deskripsi' => 'nullable|string',
             'durasi' => 'nullable|string',
             'materi' => 'nullable|string',
+        ], [
+            'nama_topik.required' => 'Nama topik wajib diisi',
+            'nama_topik.max' => 'Nama topik maksimal 255 Karakter',
         ]);
 
         // Simpan ke database

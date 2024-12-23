@@ -61,17 +61,17 @@
         @csrf
         @method('PUT')
 
-        <div class="flex justify-end w-full">
-            <button type="button" id="tambahButton" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-6 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+        <div class="flex justify-end w-full mb-3">
+            <button type="button" id="tambahButton" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="text-white bg-ButtonBase hover:bg-HoverGlow transition duration-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-6 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                 Tambah Data
             </button>
 
-            <button type="button" id="editButton" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-6 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+            <button type="button" id="editButton" class="text-white bg-ButtonBase hover:bg-HoverGlow transition duration-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-6 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                 Edit
             </button>
         </div>
 
-        <div class="flex gap-6 mb-10">
+        <div class="sm:flex gap-6 mb-5">
             <div class="w-full mb-5">
                 <label for="nama" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">Nama</label>
                 <input type="text" id="nama" name="nama" value="{{ $pengguna->nama }}"
@@ -130,8 +130,8 @@
         </div>
 
         <div class="flex justify-end w-full mb-10">
-            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-10 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                Save
+            <button type="submit" class="text-white bg-ButtonBase hover:bg-HoverGlow transition duration-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-10 py-1.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                Simpan
             </button>
         </div>
     </form>
