@@ -57,7 +57,7 @@
                                 <span class="sr-only">Tutup modal</span>
                             </button>
                         </div>
-                        <form action="{{ route('sertifikat.update', $srtf->sertifikat_id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('sertifikatAdmin.update', $srtf->sertifikat_id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="p-4 md:p-5 bg-white dark:bg-gray-800 rounded-lg shadow-lg space-y-4">

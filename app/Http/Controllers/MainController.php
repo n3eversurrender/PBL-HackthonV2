@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kategori;
 use App\Models\Kursus;
 use App\Models\Pendaftaran;
+use App\Models\Pengguna;
 use App\Models\UmpanBalik;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,12 +32,18 @@ class MainController extends Controller
 
     public function Home()
     {
-        // Ambil maksimal 4 data dari tabel 'umpan_balik'
-        $data = UmpanBalik::all();
+        // Ambil maksimal 3 data dari tabel 'umpan_balik'
+        $data = UmpanBalik::paginate(3);
+
+        // Ambil data pelatih dengan rata-rata rating tertinggi
+        $dataPelatih = Pengguna::where('peran', 'Pelatih')
+            ->withAvg('ratingsPelatih', 'rating') // Menghitung rata-rata rating menggunakan relasi
+            ->orderBy('ratings_pelatih_avg_rating', 'desc') // Urutkan berdasarkan rata-rata rating tertinggi
+            ->take(5)
+            ->get();
 
         // Kirim data ke view
-        $data = UmpanBalik::paginate(3);
-        return view('guest.Home', compact('data'));
+        return view('guest.Home', compact('data', 'dataPelatih'));
     }
 
     public function daftarKursus(Request $request)
@@ -90,8 +97,10 @@ class MainController extends Controller
         $kursus = Kursus::with(['kurikulum', 'ratingKursus.pengguna'])
             ->findOrFail($id);
 
-        // Ambil kursus lain untuk ditampilkan (misalnya kursus terkait)
-        $ratings = $kursus->ratingKursus->take(4);
+        // Ambil rating yang diacak secara acak dari database dan lakukan pagination
+        $ratings = $kursus->ratingKursus()->inRandomOrder()->paginate(4); // Mengacak rating dan melakukan pagination
+
+        // Ambil kursus terkait secara acak
         $relatedCourses = Kursus::inRandomOrder()->take(4)->get();
 
         return view('guest.CoursePage', compact('kursus', 'relatedCourses', 'ratings'));

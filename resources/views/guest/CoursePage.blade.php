@@ -195,7 +195,9 @@
 
       <!-- Rating stars -->
       <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
-      <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
+        </svg>
         <p class="text-xs">{{ $rating->rating }} <span class="ml-2 text-xs  text-TeksSecond">Rate</span></p>
       </div>
 
@@ -206,8 +208,59 @@
     </article>
     @endforeach
   </div>
-  
+
+  <!-- Menampilkan pagination -->
+  <div class="flex flex-col items-center">
+    <span class="text-sm text-gray-700 dark:text-gray-400">
+      Showing
+      <span class="font-semibold text-gray-900 dark:text-white">{{ $ratings->firstItem() }}</span>
+      to
+      <span class="font-semibold text-gray-900 dark:text-white">{{ $ratings->lastItem() }}</span>
+      of
+      <span class="font-semibold text-gray-900 dark:text-white">{{ $ratings->total() }}</span>
+      Entries
+    </span>
+
+    <!-- Pagination controls -->
+    <div class="inline-flex mt-2 xs:mt-0">
+      <!-- Prev Button -->
+      @if ($ratings->onFirstPage())
+      <button class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-500 cursor-not-allowed rounded-s">
+        <svg class="w-3.5 h-3.5 me-2 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4" />
+        </svg>
+        Prev
+      </button>
+      @else
+      <a href="{{ $ratings->previousPageUrl() }}" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900">
+        <svg class="w-3.5 h-3.5 me-2 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4" />
+        </svg>
+        Prev
+      </a>
+      @endif
+
+      <!-- Next Button -->
+      @if ($ratings->hasMorePages())
+      <a href="{{ $ratings->nextPageUrl() }}" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 rounded-e hover:bg-gray-900">
+        Next
+        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+        </svg>
+      </a>
+      @else
+      <button class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-500 cursor-not-allowed rounded-e">
+        Next
+        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+        </svg>
+      </button>
+      @endif
+    </div>
+  </div>
 </div>
+
+
 <!-- review end -->
 
 <!-- cards featured courses -->
@@ -229,7 +282,7 @@
         <p class="text-sm h-24 overflow-hidden pt-2 mb-3 text-TeksSecond">
           {{ Str::limit($related->deskripsi, 100) }}
         </p>
-        <a href="/CoursePage/{{ $related->id }}" class="bg-ButtonBase hover:bg-HoverGlow transition duration-700 text-xs sm:text-sm text-white  p-2 rounded-lg w-full text-center block">Dapatkan sekarang</a>
+        <a href="/CoursePage/{{ $related->kursus_id }}" class="bg-ButtonBase hover:bg-HoverGlow transition duration-700 text-xs sm:text-sm text-white  p-2 rounded-lg w-full text-center block">Dapatkan sekarang</a>
       </div>
     </div>
     @endforeach

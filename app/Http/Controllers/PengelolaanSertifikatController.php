@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Validator; // Jika validasi manual digunakan
 use Illuminate\Support\Facades\Storage;
 
 
-class PengelolaanSertifikatController extends Controller
+class   PengelolaanSertifikatController extends Controller
 {
     public function index()
     {

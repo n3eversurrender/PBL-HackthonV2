@@ -175,12 +175,12 @@ Route::middleware(['auth', PeranMiddleware::class . ':Admin'])->group(function (
     Route::put('/pelatih/{pengguna_id}/status', [DataPelatihController::class, 'update'])->name('Pelatih.updateStatus');
     Route::patch('/admin/verifikasi/{verifikasi_id}/{status}', [DataPelatihController::class, 'konfirmasiVerifikasi'])->name('admin.verifikasi.konfirmasi');
 
-
     Route::get('/DataRiwayatTransaksi', [DataRiwayatTransaksiController::class, 'dataRiwayatTransaksi'])->name('dataRiwayatTransaksi');
     Route::delete('/pembayaran/{pembayaran_id}', [DataRiwayatTransaksiController::class, 'destroy'])->name('pembayaran.destroy');
 
     Route::get('/DataSertifikat', [DataSertifikatController::class, 'dataSertifikat']);
     Route::delete('/deleteSertifikat/{sertifikat_id}', [DataSertifikatController::class, 'destroy'])->name('DataSertifikat.delete');
+    Route::put('/update-sertifikat/{sertifikat_id}', [DataSertifikatController::class, 'update'])->name('sertifikatAdmin.update');
 
     Route::get('/DataUmpanBalik', [DataUmpanBalikController::class, 'dataUmpanBalik']);
     Route::delete('/DataUmpanBalik/{id}', [DataUmpanBalikController::class, 'destroy'])->name('UmpanBalik.destroy');

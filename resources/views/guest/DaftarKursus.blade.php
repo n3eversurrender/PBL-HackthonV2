@@ -107,9 +107,9 @@
 
                                     <div>
                                         <label for="harga_maks" class="block text-sm font-semibold text-gray-700">Harga Maksimum</label>
-                                        <input type="number" name="harga_maks" id="harga_maks" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Harga Yang Di Inginkan" >
+                                        <input type="text" name="harga_maks" id="harga_maks" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Harga Yang Di Inginkan">
                                         @error('harga_maks')
-                                            <span class="text-sm text-red-500">{{ $message }}</span>
+                                        <span class="text-sm text-red-500">{{ $message }}</span>
                                         @enderror
                                     </div>
 
@@ -117,7 +117,7 @@
                                         <label for="rating_min" class="block text-sm font-semibold text-gray-700">Rating Minimum</label>
                                         <input type="number" name="rating_min" id="rating_min" step="0.1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Rating Yang Di Inginkan">
                                         @error('rating_min')
-                                            <span class="text-sm text-red-500">{{ $message }}</span>
+                                        <span class="text-sm text-red-500">{{ $message }}</span>
                                         @enderror
                                     </div>
 
@@ -125,7 +125,7 @@
                                         <label for="pengalaman_min" class="block text-sm font-semibold text-gray-700">Pengalaman Minimum Pelatih (Tahun)</label>
                                         <input type="number" name="pengalaman_min" id="pengalaman_min" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Pengalaman Pelatih Yang Di Inginkan">
                                         @error('pengalaman_min')
-                                            <span class="text-sm text-red-500">{{ $message }}</span>
+                                        <span class="text-sm text-red-500">{{ $message }}</span>
                                         @enderror
                                     </div>
 
@@ -137,7 +137,7 @@
                                             <option value="Lanjutan">Lanjutan</option>
                                         </select>
                                         @error('tingkat_kesulitan')
-                                            <span class="text-sm text-red-500">{{ $message }}</span>
+                                        <span class="text-sm text-red-500">{{ $message }}</span>
                                         @enderror
                                     </div>
 
@@ -145,7 +145,7 @@
                                         <label for="lokasi" class="block text-sm font-semibold text-gray-700">Lokasi</label>
                                         <input type="text" name="lokasi" id="lokasi" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Lokasi Yang Di Inginkan">
                                         @error('lokasi')
-                                            <span class="text-sm text-red-500">{{ $message }}</span>
+                                        <span class="text-sm text-red-500">{{ $message }}</span>
                                         @enderror
                                     </div>
 
@@ -160,8 +160,8 @@
                     </div>
                 </div>
             </div>
-            
-            
+
+
             <!-- Cards Start -->
             <div class="mb-4 grid gap-2 lg:gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3">
                 @foreach ($kursus as $item)
@@ -179,7 +179,7 @@
                             <div class="flex space-x-4">
                                 <div class="flex space-x-1 ">
                                     <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                                        <path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
+                                        <path fill="#FFD43B" d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
                                     </svg>
                                     <p class="text-sm ">{{ number_format($item->average_rating, 1) ?? 'Belum Ada Rating' }}</p>
                                 </div>
@@ -266,5 +266,34 @@
             </div>
 
     </section>
+
+
+    <script>
+        const inputHargaMaks = document.getElementById('harga_maks');
+
+        inputHargaMaks.addEventListener('input', function(e) {
+            // Hapus semua karakter selain angka
+            let angka = e.target.value.replace(/[^,\d]/g, '');
+
+            // Format angka ke dalam format Rupiah
+            e.target.value = formatRupiah(angka, 'Rp. ');
+        });
+
+        function formatRupiah(angka, prefix) {
+            let numberString = angka.replace(/[^,\d]/g, '').toString(),
+                split = numberString.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/g);
+
+            if (ribuan) {
+                let separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? prefix + rupiah : '');
+        }
+    </script>
 
     @endsection
