@@ -72,15 +72,27 @@
     </aside>
     <!-- sidebar end -->
 
+    
+
     <!-- Kursus start -->
     <section class="bg-white mt-8">
         <div class="mx-auto px-2 sm:px-4 2xl:px-0">
             <!-- Heading & Filters -->
             <div class="mb-4 justify-end space-y-4 space-x-3 sm:flex sm:space-y-0 ">
                 <!-- Modal toggle -->
-                <button data-modal-target="select-modal" data-modal-toggle="select-modal" class="block text-white bg-ButtonBase hover:bg-HoverGlow transition duration-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm px-5 py-2 sm:py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                @auth
+                <button data-modal-target="select-modal" data-modal-toggle="select-modal"
+                    class="block text-white bg-ButtonBase hover:bg-HoverGlow transition duration-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs sm:text-sm px-5 py-2 sm:py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    type="button">
                     Tanya Saya ?
                 </button>
+                @endauth
+
+                @guest
+                <!-- Tombol atau elemen lain untuk tamu -->
+                <p class="text-gray-500 text-sm">Silakan login untuk bertanya.</p>
+                @endguest
+
 
                 <!-- Main modal -->
                 <div id="select-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -105,13 +117,17 @@
                                 <form action="{{ route('rekomendasi') }}" method="POST" class="space-y-4">
                                     @csrf
 
-                                    <div>
+                                    <div class="relative">
                                         <label for="harga_maks" class="block text-sm font-semibold text-gray-700">Harga Maksimum</label>
-                                        <input type="text" name="harga_maks" id="harga_maks" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" placeholder="Masukan Harga Yang Di Inginkan">
+                                        <input type="text" name="formatted_harga_maks" id="harga_maks"
+                                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                            placeholder="Masukan Harga Yang Di Inginkan" data-raw-value="">
+                                        <input type="hidden" name="harga_maks" id="raw_harga_maks">
                                         @error('harga_maks')
                                         <span class="text-sm text-red-500">{{ $message }}</span>
                                         @enderror
                                     </div>
+
 
                                     <div>
                                         <label for="rating_min" class="block text-sm font-semibold text-gray-700">Rating Minimum</label>
@@ -270,16 +286,20 @@
 
     <script>
         const inputHargaMaks = document.getElementById('harga_maks');
+        const rawHargaMaks = document.getElementById('raw_harga_maks');
 
         inputHargaMaks.addEventListener('input', function(e) {
             // Hapus semua karakter selain angka
             let angka = e.target.value.replace(/[^,\d]/g, '');
 
+            // Simpan nilai asli (angka tanpa format) di hidden input
+            rawHargaMaks.value = angka;
+
             // Format angka ke dalam format Rupiah
-            e.target.value = formatRupiah(angka, 'Rp. ');
+            e.target.value = formatRupiah(angka);
         });
 
-        function formatRupiah(angka, prefix) {
+        function formatRupiah(angka) {
             let numberString = angka.replace(/[^,\d]/g, '').toString(),
                 split = numberString.split(','),
                 sisa = split[0].length % 3,
@@ -292,7 +312,7 @@
             }
 
             rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? prefix + rupiah : '');
+            return rupiah;
         }
     </script>
 

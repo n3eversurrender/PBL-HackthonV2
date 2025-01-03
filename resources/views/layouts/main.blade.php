@@ -22,8 +22,8 @@
                 <img src="{{ asset('image/SKILLB.png') }}" class="w-10 h-10 rounded-full" alt="Flowbite Logo" />
                 <span class="self-center text-lg sm:text-2xl font-semibold whitespace-nowrap text-white">SKILL BRIDGE</span>
             </a>
-            
-           <div class="{{ Auth::check() ? 'col-span-3' : 'col-span-4' }} flex  gap-x-3  sm:col-span-7 sm:flex sm:justify-between">
+
+            <div class="{{ Auth::check() ? 'col-span-3' : 'col-span-4' }} flex  gap-x-3  sm:col-span-7 sm:flex sm:justify-between">
                 <div class="items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                     @if (Auth::check())
                     @php
@@ -109,10 +109,10 @@
                 <button data-collapse-toggle="navbar-default" type="button" class="inline-flex mt-2 z-20 items-center p-1 w-7 h-7 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
                     </svg>
                 </button>
-            
+
                 <div class="items-center absolute top-14 sm:top-0 right-0 z-10 sm:relative justify-between hidden sm:w-full md:flex md:w-auto md:order-1" id="navbar-default">
                     <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-transparent md:dark:bg-transparent dark:border-gray-700">
                         <li>
@@ -146,15 +146,17 @@
             <h2 class=" text-xl sm:text-4xl lg:text-5xl font-bold whitespace-normal">
                 Membentuk Keterampilan, Menggerakkan Industri!
             </h2>
-            <a href="/Daftar" class=" mt-4 sm:mt-10 text-sm sm:text-base inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
+            @guest
+            <a href="/Daftar" class="mt-4 sm:mt-10 text-sm sm:text-base inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
                 Daftar Sekarang
             </a>
+            @endguest
         </div>
     </div>
     <!-- Navbar + Image -->
 
     <!-- Section Block-->
-    <div class="flex justify-between w-full">
+    <!-- <div class="flex justify-between w-full">
         <div class="flex-1 text-center p-4 font-semibold text-xl sm:text-3xl text-[#0F172A]" style="background-color: #F8FAFC; height: 6rem;">
             250+
             <p class="text-xs sm:text-sm text-[#0F172A]">Courses by our best mentors</p>
@@ -171,7 +173,7 @@
             2400+
             <p class="text-xs sm:text-sm text-[#0F172A]">Courses by our best mentors</p>
         </div>
-    </div>
+    </div> -->
     <!-- Section Block-->
 
 
